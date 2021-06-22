@@ -1,0 +1,255 @@
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+img {
+  display: block;
+}
+
+.fondo{
+  float: left;
+  width: 100%;
+}
+.fondo header{
+  position: relative;
+  width: 100%;
+  float: left;
+  background: rgb(0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 150px;
+}
+.fondo .container-flex{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 1150px;
+}
+.fondo header img {
+  width: 120px;
+  margin-right: 50px;
+}
+.fondo header .search {
+  float: left;
+  width: 100%;
+  position: relative;
+  
+}
+.fondo header .search .icono{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  width: 30px;
+  color: rgb(224, 224, 205);
+}
+.fondo header input {
+  float: left;
+  width: 100%;
+  height: 50px;
+  padding: 0px 120px 0 40px;
+  border-radius: 7px;
+}
+.fondo header .container-flex .options{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  width: 50%;
+  min-width:390px;
+}
+.fondo header .container-flex .options .option{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  border-left: 1px solid white;
+  padding: 0px 20px;
+  cursor: pointer;
+}
+.fondo header .container-flex .options .option:first-child{
+  border-left: 0px solid white;
+
+}
+.fondo header .container-flex .options .option span{
+  margin-top: 5px;
+  font-size: 14px;
+}
+.container-flex-btw{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1150px;
+}
+nav{
+  float: left;
+  width: 100%;
+  background:rgb(46, 46, 46);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+  padding: 20px 0px;
+}
+nav .menu{
+  float: left;
+  width: 100%;
+
+}
+nav .menu a{
+  padding: 0px 10px;
+  cursor: pointer;
+}
+nav .carrito{
+  display: flex;
+  align-items: center;
+  padding-right: 30px;
+}
+nav .carrito span{
+  margin-right: 10px;
+}
+
+.fondo .header{
+  background:linear-gradient(rgba(0, 0, 0, 0.288), rgba(0, 0, 0, 0.164)), url(./assets/img/fondo.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 75vh;
+  float: left;
+  width: 100%;
+}
+
+.fondo .header .border{
+  float: left;
+  width: 100%;
+  padding: 20px;
+  height: 75vh;
+}
+
+.fondo .header .row-flex{
+  border: 1px dashed #fff;
+  display: flex;
+  height: 70vh;
+  align-items: center;
+  justify-content: space-between;
+  padding: 30px;
+}
+.fondo .header .row-flex .col-1{
+  width: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fondo .header .row-flex .col-1 img{
+  width: 45%;
+  transition: 2s all linear;
+}
+.fondo .header .row-flex .col-1 img:hover{
+  transform: rotateX(720deg);
+}
+.fondo .header .row-flex .col-2{
+  width: 50%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+}
+.fondo .header .row-flex .col-2 .titulo1{
+  width: 80%;
+  text-align: center;
+  font-size: 24px;
+}
+.fondo .header .row-flex .col-2 .tituloGrande{
+  width: 80%;
+  text-align: center;
+  font-size: 102px;
+  font-weight: 600;
+  line-height: 95px;
+}
+.fondo .header .row-flex .col-2 .titulo2{
+  width: 80%;
+  text-align: center;
+  font-size: 38px;
+  margin: 8px 0px;
+  font-weight: 600;
+}
+.fondo .header .row-flex .col-2 .button{
+  float: left;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  justify-content: center;
+}
+.fondo .header .row-flex .col-2 button{
+  background: #00D97C;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 45px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.6s all ease-in;
+}
+.fondo .header .row-flex .col-2 button:hover{
+  background: #2c6f74;
+  color: white;
+  transform: rotateX(360deg);
+}
+.fondo .topSales{
+  float: left;
+  width: 100%;
+  min-height: 600px;
+  padding: 50px;
+}
+.fondo .topSales .raw {
+  width: 100%;
+  float: left;
+  padding: 0px 150px;
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+.fondo .topSales .raw .col{
+  width: calc(100% - 10px) ;
+  margin-left: 20px;
+  float: left;
+  padding: 20px;
+  height: 40vh;
+  background: rgb(255, 255, 255);
+  -webkit-box-shadow: 0px 2px 14px -3px rgba(207,207,207,1);
+-moz-box-shadow: 0px 2px 14px -3px rgba(207,207,207,1);
+box-shadow: 0px 2px 14px -3px rgb(212, 209, 209);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fondo .topSales .raw .col:first-child{
+  margin-left: 0px;
+}
+.fondo .topSales .raw .col .mitad1{
+  float: left;
+  width: 40%;
+}
+.fondo .topSales .raw .col .mitad2{
+  float: left;
+  width: 60%;
+}
+.fondo .topSales .raw .col .mitad2 img{
+  float: right;
+  width: 75%;
+  transition: 0.3s all linear;
+}
+.fondo .topSales .raw .col .mitad2 img:hover{
+  transform: scale(1.15);
+}
