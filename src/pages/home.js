@@ -10,7 +10,7 @@ const HomeScreen = () => {
                 <div className="border">
                     <div className="row-flex">
                         <div className="col-1">
-                            <img src={redone}  />
+                            <img src={redone} alt="logo"  />
                         </div>
                         <div className="col-2">
                             <span className="titulo1">
@@ -34,28 +34,103 @@ const HomeScreen = () => {
             </div>
             <section className="topSales">
                 <div className="raw">
+                    <div className="tituloProductosDestacados"> Productos Destacados </div>
+                </div>
+                <div className="raw">
                     <div className="col">
                         <div className="mitad1">
-                            <span >
-                                
+                            <span className="titulo">
+                                Sillon de Barbería
                             </span>
+                            <br/>
+                            <span className="tituloProducto">
+                                Modelo Aviador
+                            </span>
+                            <br/>
+                            <span className="tituloPrecio">
+                                Precio $279.990
+                            </span>
+                            <button>Compra Aquí</button>
                         </div>
                         <div className="mitad2">
-                            <img src="https://stulzel.com/wp-content/uploads/2021/01/SILLONES-2020-6C-scaled-1-600x664.jpg" />
+                            <img src="https://stulzel.com/wp-content/uploads/2021/01/SILLONES-2020-6C-scaled-1-600x664.jpg" alt="stulzel" />
                         </div>
                     </div>
                     <div className="col">
-                    
+                        <div className="mitad1">
+                            <span className="titulo">
+                                Sillon de Barbería
+                            </span>
+                            <br/>
+                            <span className="tituloProducto">
+                                Modelo Praga
+                            </span>
+                            <br/>
+                            <span className="tituloPrecio">
+                                Precio $359.990
+                            </span>
+                            <button>Compra Aquí</button>
+                        </div>
+                        <div className="mitad2">
+                            <img src="https://stulzel.com/wp-content/uploads/2021/01/SILLONES-2020-4B-scaled-1-600x752.jpg" alt="stulzel" />
+                        </div>
                     </div>
                 </div>
                 <div className="raw">
                     <div className="col">
-                    
+                        <div className="mitad1">
+                            <span className="titulo">
+                                Sillon de Peluquería
+                            </span>
+                            <br/>
+                            <span className="tituloProducto">
+                                Escocia White
+                            </span>
+                            <br/>
+                            <span className="tituloPrecio">
+                                Precio $169.990
+                            </span>
+                            <button>Compra Aquí</button>
+                        </div>
+                        <div className="mitad2">
+                            <img src="https://stulzel.com/wp-content/uploads/2020/12/sillonEscociaWhiteNuevo.jpg" alt="stulzel" />
+                        </div>
                     </div>
                     <div className="col">
-                    
+                        <div className="mitad1">
+                            <span className="titulo">
+                                Lavapelo
+                            </span>
+                            <br/>
+                            <span className="tituloProducto">
+                                Premiun Black
+                            </span>
+                            <br/>
+                            <span className="tituloPrecio">
+                                Precio $299.990
+                            </span>
+                            <button>Compra Aquí</button>
+                        </div>
+                        <div className="mitad2">
+                            <img src="	https://stulzel.com/wp-content/uploads/2021/05/premiun_black.jpg" alt="stulzel" />
+                        </div>
                     </div>
                 </div>
+            </section>
+            <section className="mayorista">
+                <div className="raw"> 
+                    <div className="titulo">   
+                        <h3> TE INVITAMOS A SER MAYORISTA  </h3> 
+                        <h3> DE PRODUCTOS STULZEL Y AUMENTAR </h3>  
+                        <h3> LAS GANANCIAS DE TU NEGOCIO </h3> 
+                        <div className="logos">  
+                            <div className="">
+                                <img src="" alt="logo1"/>  
+                            </div>  
+                             
+                        </div>    
+                    </div>  
+                </div>  
             </section>
         </div>
     

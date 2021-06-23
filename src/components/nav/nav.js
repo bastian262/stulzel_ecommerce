@@ -5,6 +5,8 @@ import HelpIcon from '@material-ui/icons/Help';
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import LocalMallIcon from '@material-ui/icons/LocalMall';
+import { Link } from 'react-router-dom';
+
 const HeaderPage = () => {
     return ( <>
         <header>
@@ -35,9 +37,9 @@ const HeaderPage = () => {
         <nav>
             <div className="container-flex-btw">
                 <div className="menu">
-                    <a>
+                    <Link to="/">
                         Inicio
-                    </a>
+                    </Link>
                     <a>
                         Quienes Somos
                     </a>
@@ -53,6 +55,7 @@ const HeaderPage = () => {
                     <a>
                         Contacto
                     </a>
+                    <Link to="/cotizador">Cotizador</Link>
                 </div>
                 <div className="carrito">
                     <span>
