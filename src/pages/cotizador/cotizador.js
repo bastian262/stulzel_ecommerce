@@ -7,7 +7,7 @@ import destinos from '../../api/destinos.json';
 import { Select } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import CloseIcon from '@material-ui/icons/Close';
-import httpBuildQuery from 'http-build-query';
+// import httpBuildQuery from 'http-build-query';
 const { Option } = Select;
 
 
@@ -82,7 +82,7 @@ const CotizadorPage = () => {
                 "support": 0,
             }
             console.log(data);
-            const resultado2 = await postCotizar(httpBuildQuery(data));
+            const resultado2 = await postCotizar(data);
             console.log(resultado2);
         }
         setLoading(false);
