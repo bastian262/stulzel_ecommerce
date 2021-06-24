@@ -77,7 +77,7 @@ const CotizadorPage = () => {
                 "length": result.dimensions.length === "" ? 10 : result.dimensions.length,
                 "weight": result.weight === "" ? 5 : result.weight * cantidad,
                 "origen": 1,
-                "destination": destinoId,
+                "destination": int.parse(destinoId),
                 "support": 0,
             }
             console.log(data);
