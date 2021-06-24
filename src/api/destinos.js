@@ -24,7 +24,8 @@ export function postCotizar( data ) {
     const url = `https://www.anyda.xyz/tarifa`;
     const params = {
         method: "POST",
-        body: data
+        body: JSON.stringify(data),
+        mode: 'no-cors'
     };
     return fetch(url, params)
         .then(resp => {
