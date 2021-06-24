@@ -71,13 +71,13 @@ const CotizadorPage = () => {
             ]);
             
             const data = {
-                key: "FREE-3D4BC83B01-AB924962DA87E247A987-4E5",
+                api: "FREE-3D4BC83B01-AB924962DA87E247A987-4E5",
                 height: result.dimensions.height === "" ? 10 : result.dimensions.height * cantidad,
                 width: result.dimensions.width === "" ? 10 : result.dimensions.width,
                 length: result.dimensions.length === "" ? 10 : result.dimensions.length,
                 weight: result.dimensions.weight === "" ? 5 : result.dimensions.weight * cantidad,
                 origen: 1,
-                destino: destinoId,
+                destination: destinoId,
                 support: 0,
             }
 
