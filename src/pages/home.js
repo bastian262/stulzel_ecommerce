@@ -1,5 +1,4 @@
 import React from 'react';
-import { useState } from 'react';
 import NavBar from '../components/nav/nav'
 import redone from '../assets/img/redone.png'
 const HomeScreen = () => {

@@ -11,7 +11,7 @@ const HeaderPage = () => {
     return ( <>
         <header>
             <div className="container-flex">
-                <img src ="https://stulzel.com/wp-content/uploads/2021/05/cropped-Recurso-2-8.png"/>
+                <img src ="https://stulzel.com/wp-content/uploads/2021/05/cropped-Recurso-2-8.png" alt="logo"/>
 
                 <div className="search">
                     <input value="" placeholder="Buscar Productos..."/>
@@ -40,21 +40,7 @@ const HeaderPage = () => {
                     <Link to="/">
                         Inicio
                     </Link>
-                    <a>
-                        Quienes Somos
-                    </a>
-                    <a>
-                        Productos
-                    </a>
-                    <a>
-                        Curso Inicial de Barberia
-                    </a>
-                    <a>
-                        Red One USA
-                    </a>
-                    <a>
-                        Contacto
-                    </a>
+                    
                     <Link to="/cotizador">Cotizador</Link>
                 </div>
                 <div className="carrito">

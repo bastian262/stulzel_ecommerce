@@ -1,17 +1,11 @@
 import React,{useEffect, useState} from 'react';
 import Header from '../../components/nav/nav'
-import { makeStyles } from '@material-ui/core/styles';
 import { Spin } from 'antd';
-
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import TextField from '@material-ui/core/TextField';
 import { getProductos, getProductosById } from '../../api/productos';
 import { postCotizar} from '../../api/destinos';
 import destinos from '../../api/destinos.json';
 import { Select } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
-import { FormatListBulletedTwoTone } from '@material-ui/icons';
 import CloseIcon from '@material-ui/icons/Close';
 
 const { Option } = Select;
@@ -24,18 +18,8 @@ const { Option } = Select;
     function onSearch(val) {
     console.log('search:', val);
     }
-    const useStyles = makeStyles((theme) => ({
-        root: {
-        flexGrow: 1,
-        },
-        paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-        },
-    }));
+
 const CotizadorPage = () => {
-    const [destinosState, setdestinosState] = useState([]);
     const [productosState, setproductosState] = useState([]);
     const [destinoId, setdestinoId] = useState(0);
     const [productoId, setproductoId] = useState(0);
@@ -44,11 +28,9 @@ const CotizadorPage = () => {
     const [cantidad, setCantidad] = useState(0);
     const [loading, setLoading] = useState(false);
     const [loading2, setLoading2] = useState(false);
-    const classes = useStyles();
 
 
     useEffect(() => {
-        setdestinosState(destinos);
         obtenerProductos();
     }, [])
 
