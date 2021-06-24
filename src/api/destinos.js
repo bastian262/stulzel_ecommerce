@@ -20,7 +20,7 @@ export function getDestinos() {
 }
 
 export function postCotizar( data ) {
-    const url = `${basePath}/tarifa`;
+    const url = `https://www.anyda.xyz/tarifa`;
     const params = {
         method: "POST",
         body: JSON.stringify(data),
