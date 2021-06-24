@@ -20,13 +20,11 @@ export function getDestinos() {
 }
 
 export function postCotizar( data ) {
+    console.log(data);
     const url = `https://www.anyda.xyz/tarifa`;
     const params = {
         method: "POST",
-        body: JSON.stringify(data),
-        headers: {
-            "Content-Type": "application/json"
-        }
+        body: data
     };
     return fetch(url, params)
         .then(resp => {

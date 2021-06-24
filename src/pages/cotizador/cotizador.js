@@ -7,7 +7,7 @@ import destinos from '../../api/destinos.json';
 import { Select } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import CloseIcon from '@material-ui/icons/Close';
-
+import httpBuildQuery from 'http-build-query';
 const { Option } = Select;
 
 
@@ -70,18 +70,18 @@ const CotizadorPage = () => {
                 cantidad
             ]);
             
-            const data = {
-                "api": "FREE-3D4BC83B01-AB924962DA87E247A987-4E5",
-                "height": result.dimensions.height === "" ? 10 : result.dimensions.height * cantidad,
+            const data ={
+                "api" : "FREE-3D4BC83B01-AB924962DA87E247A987-4E5",
+                "height" :  result.dimensions.height === "" ? 10 : result.dimensions.height * cantidad,
                 "width": result.dimensions.width === "" ? 10 : result.dimensions.width,
                 "length": result.dimensions.length === "" ? 10 : result.dimensions.length,
                 "weight": result.weight === "" ? 5 : result.weight * cantidad,
                 "origen": 1,
-                "destination": int.parse(destinoId),
+                "destination": parseInt(destinoId),
                 "support": 0,
             }
             console.log(data);
-            const resultado2 = await postCotizar(data);
+            const resultado2 = await postCotizar(httpBuildQuery(data));
             console.log(resultado2);
         }
         setLoading(false);
