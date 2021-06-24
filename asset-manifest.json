@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/stulzel_ecommerce/static/css/main.f9bf895b.chunk.css",
-    "main.js": "/stulzel_ecommerce/static/js/main.1aa3bc64.chunk.js",
-    "main.js.map": "/stulzel_ecommerce/static/js/main.1aa3bc64.chunk.js.map",
+    "main.js": "/stulzel_ecommerce/static/js/main.84ad4519.chunk.js",
+    "main.js.map": "/stulzel_ecommerce/static/js/main.84ad4519.chunk.js.map",
     "runtime-main.js": "/stulzel_ecommerce/static/js/runtime-main.cbebfda1.js",
     "runtime-main.js.map": "/stulzel_ecommerce/static/js/runtime-main.cbebfda1.js.map",
     "static/css/2.10bc9b17.chunk.css": "/stulzel_ecommerce/static/css/2.10bc9b17.chunk.css",
-    "static/js/2.f3f41f92.chunk.js": "/stulzel_ecommerce/static/js/2.f3f41f92.chunk.js",
-    "static/js/2.f3f41f92.chunk.js.map": "/stulzel_ecommerce/static/js/2.f3f41f92.chunk.js.map",
+    "static/js/2.85dfafdb.chunk.js": "/stulzel_ecommerce/static/js/2.85dfafdb.chunk.js",
+    "static/js/2.85dfafdb.chunk.js.map": "/stulzel_ecommerce/static/js/2.85dfafdb.chunk.js.map",
     "static/js/3.0e1ef2fc.chunk.js": "/stulzel_ecommerce/static/js/3.0e1ef2fc.chunk.js",
     "static/js/3.0e1ef2fc.chunk.js.map": "/stulzel_ecommerce/static/js/3.0e1ef2fc.chunk.js.map",
     "index.html": "/stulzel_ecommerce/index.html",
     "static/css/2.10bc9b17.chunk.css.map": "/stulzel_ecommerce/static/css/2.10bc9b17.chunk.css.map",
     "static/css/main.f9bf895b.chunk.css.map": "/stulzel_ecommerce/static/css/main.f9bf895b.chunk.css.map",
-    "static/js/2.f3f41f92.chunk.js.LICENSE.txt": "/stulzel_ecommerce/static/js/2.f3f41f92.chunk.js.LICENSE.txt",
+    "static/js/2.85dfafdb.chunk.js.LICENSE.txt": "/stulzel_ecommerce/static/js/2.85dfafdb.chunk.js.LICENSE.txt",
     "static/media/App.css": "/stulzel_ecommerce/static/media/fondo.c2875e3f.jpg",
     "static/media/logo.6ce24c58.svg": "/stulzel_ecommerce/static/media/logo.6ce24c58.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.cbebfda1.js",
     "static/css/2.10bc9b17.chunk.css",
-    "static/js/2.f3f41f92.chunk.js",
+    "static/js/2.85dfafdb.chunk.js",
     "static/css/main.f9bf895b.chunk.css",
-    "static/js/main.1aa3bc64.chunk.js"
+    "static/js/main.84ad4519.chunk.js"
   ]
 }
