@@ -62,7 +62,7 @@ const SignUp = () => {
             const resultado = await signUp(data);
             if(resultado.ok){
                 notification["success"]({
-                    message:resultado.msg
+                    message:resultado.message
                 });
             }else{
                 notification["error"]({
