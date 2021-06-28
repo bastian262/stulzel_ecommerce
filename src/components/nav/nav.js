@@ -42,6 +42,7 @@ const HeaderPage = () => {
                     </Link>
                     
                     <Link to="/cotizador">Cotizador</Link>
+                    <Link to="/signUp">Cotizador</Link>
                 </div>
                 <div className="carrito">
                     <span>

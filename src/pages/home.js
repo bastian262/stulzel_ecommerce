@@ -1,7 +1,19 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import NavBar from '../components/nav/nav'
+import { getProductos10 } from '../api/productos';
 import redone from '../assets/img/redone.png'
 const HomeScreen = () => {
+    const [productos, setProductos] = useState([]);
+
+    useEffect(() => {
+        getProducts();
+    }, [])
+    const getProducts = async () => {
+        const result = await getProductos10();
+        console.log(result);
+        setProductos(result);
+    }
+
     return (
         <div className="fondo">
             <NavBar/>
@@ -119,16 +131,50 @@ const HomeScreen = () => {
             <section className="mayorista">
                 <div className="raw"> 
                     <div className="titulo">   
-                        <h3> TE INVITAMOS A SER MAYORISTA  </h3> 
+                        <h3> TE INVITAMOS A SER MAYORISTA </h3> 
                         <h3> DE PRODUCTOS STULZEL Y AUMENTAR </h3>  
                         <h3> LAS GANANCIAS DE TU NEGOCIO </h3> 
                         <div className="logos">  
                             <div className="">
                                 <img src="" alt="logo1"/>  
                             </div>  
-                             
                         </div>    
                     </div>  
+                </div>  
+            </section>
+            <section className="productos">
+                    <h1>
+                        Productos Destacados
+                    </h1>
+                <div className="raw"> 
+                   
+                    {productos.map((element) => {
+                        const imagen = element.images.length > 0? element.images[0].src : "";
+                        return (
+                            <div className="columnas">
+                                <div className="card">   
+                                    <img src={imagen} alt="" />
+                                    <div className="detalles">
+                                        <span className="titulo">
+                                            {element.name}
+                                        </span>
+                                        <span className="regularPrice">
+                                        ${element.regular_price}
+                                        </span>
+                                        <span className="price">
+                                            ${element.price}
+                                        </span>
+                                    </div>
+                                    <div className="booton">
+                                        <button>
+                                            Agregar al carrito
+                                        </button>
+                                    </div>
+                                </div>  
+                            </div>
+                        )
+                    })}
+                    
                 </div>  
             </section>
         </div>

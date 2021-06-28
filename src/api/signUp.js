@@ -1,16 +1,14 @@
-import { basePathWoocommerce, consumerKey, consumerSecret } from './config';
+import {basePath2} from './config'
 
-
-export function getProductos() {
-
-    const url = `${basePathWoocommerce}products?per_page=100&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
+export function signUp(data) {
+    const url = `${basePath2}/api/usuarios`;
     const params = {
-        method: "GET",
+        method: "POST",
+        body: JSON.stringify(data),
         headers: {
             "Content-Type": "application/json"
         }
     };
-
     return fetch(url, params)
         .then(resp => {
             return resp.json();
@@ -20,16 +18,15 @@ export function getProductos() {
             return err.message;
         });
 }
-export function getProductos10() {
 
-    const url = `${basePathWoocommerce}products?per_page=10&page=1&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
+export function getUsers() {
+    const url = `${basePath2}/api/usuarios`;
     const params = {
         method: "GET",
         headers: {
             "Content-Type": "application/json"
         }
     };
-
     return fetch(url, params)
         .then(resp => {
             return resp.json();
@@ -39,16 +36,17 @@ export function getProductos10() {
             return err.message;
         });
 }
-export function getProductosById(id) {
 
-    const url = `${basePathWoocommerce}products/${id}?consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
+
+export function deleteUser(id) {
+    
+    const url = `${basePath2}/api/usuarios/${id}`;
     const params = {
-        method: "GET",
+        method: "DELETE",
         headers: {
             "Content-Type": "application/json"
         }
     };
-
     return fetch(url, params)
         .then(resp => {
             return resp.json();

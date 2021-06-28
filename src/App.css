@@ -303,3 +303,99 @@ nav .carrito span {
   border: 0px;
   cursor: pointer;
 }
+.card {
+  float: left;
+
+  border: 1px solid #ccc;
+  padding: 40px;
+  width: 100%;
+  max-width: 380px;
+}
+.card form {
+  float: left;
+  width: 100%;
+}
+.card form .col {
+  float: left;
+  width: 100%;
+  margin-bottom: 25px;
+}
+.inputReact {
+  float: left;
+  width: 100%;
+  margin-bottom: 25px;
+}
+.productos {
+  float: left;
+  width: 100%;
+  padding: 0px 50px;
+}
+.productos .raw {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.productos .raw .columnas {
+  width: calc((100% / 3) - (60px / 3));
+  float: left;
+  margin-bottom: 40px;
+}
+.productos .raw .columnas .card {
+  height: 500px;
+  float: left;
+  width: 100%;
+  padding: 20px;
+  background: rgb(255, 255, 255);
+  -webkit-box-shadow: 0px 2px 14px -3px rgba(207, 207, 207, 1);
+  -moz-box-shadow: 0px 2px 14px -3px rgba(207, 207, 207, 1);
+  box-shadow: 0px 2px 14px -3px rgb(212, 209, 209);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.productos .raw .columnas .card img {
+  float: left;
+  height: 200px;
+  width: 100%;
+}
+.productos .raw .columnas .card .detalles {
+  float: left;
+  width: 100%;
+  padding: 20px 0px;
+}
+.productos .raw .columnas .card .detalles span {
+  width: 100%;
+  float: left;
+  margin-bottom: 5px;
+  text-align: center;
+}
+.productos .raw .columnas .card .detalles .titulo {
+  font-weight: 600;
+  font-size: 16px;
+}
+.productos .raw .columnas .card .detalles .regularPrice {
+  font-weight: 500;
+  font-size: 14px;
+  text-decoration: line-through;
+  color: #262626;
+}
+.productos .raw .columnas .card .detalles .price {
+  font-weight: 700;
+  color: #8f4a00;
+}
+.productos .raw .columnas .card .booton {
+  width: 100%;
+  float: left;
+}
+.productos .raw .columnas .card .booton button {
+  width: 100%;
+  float: left;
+  background: #000;
+  color: white;
+  border: 0px;
+  height: 50px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 600;
+}
