@@ -35,7 +35,7 @@ const SignUp = () => {
     const [ formValid,inputValidation] = useFormValidation({
         nombre: false,
         correo: false,
-        telefono: false,
+        telefono: false
     });
 
     const {nombre, correo , telefono} = values;
@@ -44,35 +44,32 @@ const SignUp = () => {
     const SignUp = async () => {
 
         setloading(true);
-
-        if(!validnombre){
+        console.log(nombre);
+        console.log(telefono);
+        if(nombre.length < 2){
             notification["error"]({
                 message:"Ingrese minimo un nombre y un apellido por favor"
             });
-        }else if(!validcorreo){
-            notification["error"]({
-                message:"Ingresa un correo valido"
-            });
-        }
-        else if(!validtelefono){
+        }else if(telefono.length < 8){
             notification["error"]({
                 message:"Ingrese un telefono valido"
             });
-        }
-        const data = {
-            nombre,
-            correo,
-            telefono
-        }
-        const resultado = await signUp(data);
-        if(resultado.ok){
-            notification["success"]({
-                message:resultado.msg
-            });
         }else{
-            notification["error"]({
-                message:"Error inesperado"
-            });
+            const data = {
+                nombre,
+                correo,
+                telefono
+            }
+            const resultado = await signUp(data);
+            if(resultado.ok){
+                notification["success"]({
+                    message:resultado.msg
+                });
+            }else{
+                notification["error"]({
+                    message:"Error inesperado"
+                });
+            }
         }
         setloading(false);
     }
