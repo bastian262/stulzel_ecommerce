@@ -3,7 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import {  purple } from '@material-ui/core/colors';
 import {useForm} from '../../hooks/useForm'
-import {useFormValidation} from '../../hooks/useFormValidation'
+// import {useFormValidation} from '../../hooks/useFormValidation'
 import { Spin, notification } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 
@@ -32,14 +32,13 @@ const SignUp = () => {
         correo:'',
         telefono:''
     });
-    const [ formValid,inputValidation] = useFormValidation({
-        nombre: false,
-        correo: false,
-        telefono: false
-    });
+        // const [ formValid,inputValidation] = useFormValidation({
+        //     nombre: false,
+        //     correo: false,
+        //     telefono: false
+        // });
 
     const {nombre, correo , telefono} = values;
-    const {validnombre, validcorreo , validtelefono} = formValid;
 
     const SignUp = async () => {
 
@@ -87,7 +86,7 @@ const SignUp = () => {
                             className="inputReact"
                             name="nombre"
                             value={nombre}
-                            onChange={inputValidation}
+                            // onChange={inputValidation}
                             
                         />
                     </div>
@@ -99,7 +98,7 @@ const SignUp = () => {
                             className="inputReact"
                             name="correo"
                             value={correo}
-                            onChange={inputValidation}
+                            // onChange={inputValidation}
                         />
                     </div>
                     <div class="col">
@@ -110,7 +109,7 @@ const SignUp = () => {
                             className="inputReact"
                             name="telefono"
                             value={telefono}
-                            onChange={inputValidation}
+                            // onChange={inputValidation}
 
 
                         />
