@@ -6,7 +6,7 @@ export const useFormValidation = ( initialState = {} ) => {
     const [formValid, setFormValid] = useState(initialState);
 
     const inputValidation = async (e) => {
-        const { type, name } = e.target;
+        const { name } = e.target;
         
             setFormValid({
             ...formValid,

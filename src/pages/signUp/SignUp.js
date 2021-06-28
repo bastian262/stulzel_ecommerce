@@ -4,7 +4,7 @@ import { withStyles, makeStyles } from '@material-ui/core/styles';
 import {  purple } from '@material-ui/core/colors';
 import {useForm} from '../../hooks/useForm'
 import {useFormValidation} from '../../hooks/useFormValidation'
-import { Spin, notification, message } from 'antd';
+import { Spin, notification } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 
 import Button from '@material-ui/core/Button';
@@ -27,12 +27,12 @@ const ColorButton = withStyles((theme) => ({
 const SignUp = () => {
     const [loading, setloading] = useState(false);
     const classes = useStyles();
-    const [values ,onChange, setvalues ] = useForm({
+    const [values ,onChange ] = useForm({
         nombre:'',
         correo:'',
         telefono:''
     });
-    const [ formValid,inputValidation, setFormValid] = useFormValidation({
+    const [ formValid,inputValidation] = useFormValidation({
         nombre: false,
         correo: false,
         telefono: false,
@@ -59,7 +59,6 @@ const SignUp = () => {
                 message:"Ingrese un telefono valido"
             });
         }
-
         const data = {
             nombre,
             correo,

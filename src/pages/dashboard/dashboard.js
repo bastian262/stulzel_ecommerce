@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { getUsers, deleteUser } from '../../api/signUp';
-import { Table, notification } from 'antd';
+import { Table, notification, Spin } from 'antd';
+import { LoadingOutlined } from '@ant-design/icons';
+
 
 const columns = [
     {
@@ -27,19 +29,17 @@ const Dashboard = () => {
 
     useEffect(() => {
         setInterval(() => {
-            getUsuarios();
+            getUsuarios();  
         }, 5000);
-            getUsuarios();
+        getUsuarios();  
+
+        // eslint-disable-next-line
     }, []);
-    useEffect(() => {
-        getUsuarios();
-    }, [cambio]);
+
     const eliminarUser = async (ide) => {
-        console.log(ide)
         setloading(true);
 
         const resultado = await deleteUser(ide);
-        console.log(resultado);
         if(resultado.ok){
             setcambio(!cambio);
             notification["success"]({
@@ -79,25 +79,30 @@ const Dashboard = () => {
         setloading(false);
 
     } 
+    const antIcon = <LoadingOutlined spin />;
+
     return (
         <>
-            <div class="fondo">
-                <div class="row">
-                    <img src="" alt="" />
-                </div>
-                <div class="row">
-                    <div>Personas Inscritas {usuarios.length} </div>
-                    <div>Iniciaron sesion</div>
-                </div>
-                <div class="row">
-                    <div class="col1">
-                        <Table columns={columns} dataSource={usuarios} />
+            <Spin spinning={loading} size="large" tip="Cargando..." indicator={antIcon}>
+                <div class="fondo">
+                    <div class="row">
+                        <img src="" alt="" />
                     </div>
-                    <div class="col2">
+                    <div class="row">
+                        <div>Personas Inscritas {usuarios.length} </div>
+                        <div>Iniciaron sesion</div>
+                    </div>
+                    <div class="row">
+                        <div class="col1">
+                            <Table columns={columns} dataSource={usuarios} />
+                        </div>
+                        <div class="col2">
 
+                        </div>
                     </div>
                 </div>
-            </div>
+            </Spin>
+
     
         </>  
     );
