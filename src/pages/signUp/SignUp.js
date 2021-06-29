@@ -59,6 +59,7 @@ const SignUp = () => {
                 correo,
                 telefono
             }
+            
             const resultado = await signUp(data);
             if(resultado.ok){
                 notification["success"]({
