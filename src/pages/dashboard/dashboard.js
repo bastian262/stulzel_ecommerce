@@ -60,7 +60,7 @@ const Dashboard = () => {
         const resultado = await getUsers();
         console.log(resultado);
         if(resultado.ok){
-            if (resultado.user.length > 1) {
+            if (resultado.user.length > 0) {
                 const array = [];
                 resultado.user.forEach((element, index) => {
                     
