@@ -3,6 +3,7 @@ import TextField from '@material-ui/core/TextField';
 import { withStyles, makeStyles } from '@material-ui/core/styles';
 import {  purple } from '@material-ui/core/colors';
 import {useForm} from '../../hooks/useForm'
+import VideocamIcon from '@material-ui/icons/Videocam';
 // import {useFormValidation} from '../../hooks/useFormValidation'
 import { Spin, notification } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
@@ -59,7 +60,7 @@ const SignUp = () => {
                 correo,
                 telefono
             }
-            
+
             const resultado = await signUp(data);
             if(resultado.ok){
                 notification["success"]({
@@ -78,40 +79,39 @@ const SignUp = () => {
         <>
         <Spin spinning={loading} size="large" tip="Cargando..." indicator={antIcon}>
             <div class="card">
+                <h2 className="tituloSolicitud" >Solicitud de inscripcion webinar <VideocamIcon className="icono" /> </h2>
                 <form onChange={onChange} action="">
                     <div class="col">
-                        <TextField 
+                        <input 
+                            type="text"
                             id="outlined-basic" 
                             label="Nombre Completo" 
-                            variant="outlined" 
-                            className="inputReact"
-                            name="nombre"
+                            placeholder="Nombre Completo" 
+                            className="inputRojo"
+                            name="nombre"  
                             value={nombre}
-                            // onChange={inputValidation}
-                            
-                        />
-                    </div>
-                    <div class="col">
-                        <TextField 
-                            id="outlined-basic"
-                            label="Correo electronico"
-                            variant="outlined" 
-                            className="inputReact"
-                            name="correo"
-                            value={correo}
-                            // onChange={inputValidation}
-                        />
-                    </div>
-                    <div class="col">
-                        <TextField 
-                            id="outlined-basic" 
-                            label="WhatsApp" 
-                            variant="outlined" 
-                            className="inputReact"
-                            name="telefono"
-                            value={telefono}
-                            // onChange={inputValidation}
 
+                        />
+                    </div>
+                    <div class="col">
+                        <input 
+                            type="text"
+                            id="outlined-basic" 
+                            placeholder="Correo electronico" 
+                            className="inputRojo"
+                            name="correo"  
+                            value={correo}
+
+                        />
+                    </div>
+                    <div class="col">
+                        <input 
+                            type="text"
+                            id="outlined-basic" 
+                            placeholder="WhatsApp" 
+                            className="inputRojo"
+                            name="telefono"  
+                            value={telefono}
 
                         />
                     </div>
