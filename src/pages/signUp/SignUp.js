@@ -64,11 +64,11 @@ const SignUp = () => {
             const resultado = await signUp(data);
             if(resultado.ok){
                 notification["success"]({
-                    message:resultado.message
+                    message: resultado.message
                 });
             }else{
                 notification["error"]({
-                    message:"Error inesperado"
+                    message: resultado.message
                 });
             }
         }

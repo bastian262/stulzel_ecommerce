@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { getUsers, deleteUser } from '../../api/signUp';
 import { Table, notification, Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
-
+import XLSX from 'xlsx'
+import { ExportSheet } from 'react-xlsx-sheet'
 
 const columns = [
     {
@@ -30,7 +31,7 @@ const Dashboard = () => {
     useEffect(() => {
         setInterval(() => {
             getUsuarios();  
-        }, 5000);
+        }, 25000);
         getUsuarios();  
 
         // eslint-disable-next-line
@@ -77,7 +78,6 @@ const Dashboard = () => {
             }
         }
         setloading(false);
-
     } 
     const antIcon = <LoadingOutlined spin />;
 
@@ -85,19 +85,40 @@ const Dashboard = () => {
         <>
             <Spin spinning={loading} size="large" tip="Cargando..." indicator={antIcon}>
                 <div class="fondo">
-                    <div class="row">
-                        <img src="" alt="" />
+                    <div class="row negro">
+                        <img src="https://stulzel.com/wp-content/uploads/2021/05/cropped-Recurso-2-8.png" alt="" />
                     </div>
-                    <div class="row">
-                        <div>Personas Inscritas {usuarios.length} </div>
-                        <div>Iniciaron sesion</div>
+                    <div class="row flex">
+                        <div class="card2">Personas Inscritas <p>{usuarios.length}</p>  </div>
+                        <div class="card2">Iniciaron sesion <p>0</p></div>
                     </div>
                     <div class="row">
                         <div class="col1">
-                            <Table columns={columns} dataSource={usuarios} />
+                            <Table 
+                                id="tablaUsuarios"
+                                key="keyloca"
+                                columns={columns} 
+                                dataSource={usuarios} 
+                            />
                         </div>
-                        <div class="col2">
-
+                        <div class="botonDescarga">
+                            <ExportSheet
+                                header={columns}
+                                fileName={`usuarios`}
+                                dataSource={usuarios}
+                                xlsx={XLSX} 
+                            >
+                                <button> Exportar Usuarios </button> 
+                            </ExportSheet>
+                             
+                        </div>
+                    </div>
+                    <div class="row flex">
+                        <div class="card2">Total preguntas: <p>{usuarios.length}</p>  </div>
+                    </div>
+                    <div class="row">
+                        <div class="col1">
+                        <div class="card3">preguntas <p>{usuarios.length}</p>  </div>
                         </div>
                     </div>
                 </div>
