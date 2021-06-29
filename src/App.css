@@ -305,11 +305,9 @@ nav .carrito span {
 }
 .card {
   float: left;
-
   border: 1px solid #ccc;
   padding: 40px;
   width: 100%;
-  max-width: 380px;
 }
 .card form {
   float: left;
