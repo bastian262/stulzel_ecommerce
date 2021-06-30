@@ -64,7 +64,11 @@ const SignUp = () => {
             const resultado = await signUp(data);
             if(resultado.ok){
                 notification["success"]({
-                    message: resultado.message
+                    message: `FELICITACIONES
+                    
+                    TU INSCRIPCIÓN SE HA REALIZADO CON EXITO, EN UNOS MOMENTOS RECIBIRÁS UN MAIL CON LOS DETALLES DE LA ACTIVIDAD.
+                    
+                    POR FAVOR REVISA TU CARPETA DE SPAM SINO LLEGA EL MAIL A TU BANDEJA PRINCIPAL`
                 });
             }else{
                 notification["error"]({
