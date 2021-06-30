@@ -65,14 +65,14 @@ const SignUp = () => {
             if(resultado.ok){
                 notification["success"]({
                     message: `FELICITACIONES
-                    
+
                     TU INSCRIPCIÓN SE HA REALIZADO CON EXITO, EN UNOS MOMENTOS RECIBIRÁS UN MAIL CON LOS DETALLES DE LA ACTIVIDAD.
                     
                     POR FAVOR REVISA TU CARPETA DE SPAM SINO LLEGA EL MAIL A TU BANDEJA PRINCIPAL`
                 });
             }else{
                 notification["error"]({
-                    message: resultado.message
+                    message: "Este correo ya fue registrado"
                 });
             }
         }
