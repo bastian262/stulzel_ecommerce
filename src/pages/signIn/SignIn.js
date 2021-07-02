@@ -68,7 +68,8 @@ const SignIn = () => {
     return (
         <>
         <Spin spinning={loading} size="large" tip="Cargando..." indicator={antIcon}>
-            <div class="card">
+        <div class="card3"> 
+            <div class="card2"> 
                 <h2 className="tituloSolicitud" >Ingresa al webinar <VideocamIcon className="icono" /> </h2>
                 <form onChange={onChange} action="">
                     <div class="col">
@@ -89,6 +90,7 @@ const SignIn = () => {
                     </div>
                 </form>
             </div> 
+        </div> 
         </Spin>
         </>
       );

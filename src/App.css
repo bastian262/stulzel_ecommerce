@@ -303,6 +303,66 @@ nav .carrito span {
   border: 0px;
   cursor: pointer;
 }
+.card3 {
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card2 {
+  float: left;
+  padding: 40px 40px 20px;
+  width: 100%;
+  border-radius: 30px;
+  -webkit-box-shadow: 15px 15px 33px -11px rgb(150 150 150);
+  -moz-box-shadow: 15px 15px 33px -11px rgba(150, 150, 150, 1);
+  box-shadow: 15px 15px 33px -11px rgb(150 150 150);
+  max-width: 1150px;
+  margin-top: 10px;
+}
+.card2 .tituloSolicitud {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  font-size: 32px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.card2 .inputRojo {
+  float: left;
+  width: 100%;
+  height: 50px;
+  border: 0px;
+  border-bottom: 2px solid red;
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+  padding-left: 15px;
+}
+
+.card2 .icono {
+  font-size: 68px;
+  margin-left: 10px;
+}
+.card2 form {
+  float: left;
+  width: 100%;
+}
+.card2 form .col {
+  float: left;
+  width: 100%;
+  margin-bottom: 25px;
+}
+.card2 form .col button {
+  float: left;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 25px;
+}
 .card {
   float: left;
   /* border: 1px solid #ccc; */
