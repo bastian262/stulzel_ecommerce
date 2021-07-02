@@ -23,6 +23,7 @@ const HeaderPage = () => {
                         <PermIdentityIcon />
                         <span>Mi Cuenta</span>
                     </div>
+                    
                     <div className="option">
                         <HelpIcon />
                         <span>Preguntas Frecuentes</span>
@@ -42,7 +43,8 @@ const HeaderPage = () => {
                     </Link>
                     
                     <Link to="/cotizador">Cotizador</Link>
-                    <Link to="/signUp">Cotizador</Link>
+                    <Link to="/signUp">Rggistro</Link>
+                    <Link to="/signIn">Iniciar sesion</Link>
                 </div>
                 <div className="carrito">
                     <span>

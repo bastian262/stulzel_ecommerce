@@ -5,20 +5,24 @@ import { Router, Route, Switch, Redirect } from 'react-router-dom';
 import CotizadorScreen from '../pages/cotizador/cotizador';
 import HomeScreen from '../pages/home';
 import SignUpScreen from '../pages/signUp/SignUp';
+import SignInScreen from '../pages/signIn/SignIn';
+import WebinarScreen from '../pages/webinar/webinar';
 import DashboardScreen from '../pages/dashboard/dashboard';
 const history = createBrowserHistory();
 const AppRouter  = () => {
     return (  
-    <Router history={history}>
-        <Switch>
-            <Route  exact path="/" component={ HomeScreen } />
-            <Route exact path="/cotizador" component={ CotizadorScreen } />
-            <Route exact path="/signUp" component={ SignUpScreen } />
-            <Route exact path="/dashboard" component={ DashboardScreen } />
+        <Router history={history}>
+            <Switch>
+                <Route  exact path="/" component={ HomeScreen } />
+                <Route exact path="/cotizador" component={ CotizadorScreen } />
+                <Route exact path="/signUp" component={ SignUpScreen } />
+                <Route exact path="/signIn" component={ SignInScreen } />
+                <Route exact path="/webinar" component={ WebinarScreen } />
+                <Route exact path="/dashboard" component={ DashboardScreen } />
 
-            <Redirect to="/" />
-        </Switch>
-    </Router>
+                <Redirect to="/" />
+            </Switch>
+        </Router>
     );
 }
  

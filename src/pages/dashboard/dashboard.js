@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { getUsers, deleteUser } from '../../api/signUp';
+import { getQuestions } from '../../api/questions';
 import { Table, notification, Spin } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import XLSX from 'xlsx'
@@ -23,8 +24,19 @@ const columns = [
       dataIndex: 'action',
     }
   ];
+  const columns2 = [
+    {
+      title: 'Nombre',
+      dataIndex: 'nombre',
+    },
+    {
+      title: 'Pregunta',
+      dataIndex: 'pregunta',
+    },
+  ];
 const Dashboard = () => {
     const [usuarios, setusuarios] = useState([]);
+    const [questions, setquestions] = useState([]);
     const [loading, setloading] = useState(false);
     const [cambio, setcambio] = useState(false);
 
@@ -33,13 +45,15 @@ const Dashboard = () => {
             getUsuarios();  
         }, 25000);
         getUsuarios();  
-
+        setInterval(() => {
+            getQuestions2();  
+        }, 5000);
         // eslint-disable-next-line
     }, []);
 
     const eliminarUser = async (ide) => {
-        setloading(true);
 
+        setloading(true);
         const resultado = await deleteUser(ide);
         if(resultado.ok){
             setcambio(!cambio);
@@ -79,6 +93,29 @@ const Dashboard = () => {
         }
         setloading(false);
     } 
+
+
+    const getQuestions2 = async ( ) => {
+        setloading(true);
+        const resultado = await getQuestions();
+        console.log(resultado);
+        if(resultado.ok){
+            if (resultado.preguntas.length > 0) {
+                const array = [];
+                resultado.preguntas.forEach((element, index) => {
+                    
+                    const data = {
+                            key: element._id,
+                            nombre:element.nombre,
+                            pregunta:element.pregunta,
+                    }
+                    array.push(data);
+                });
+                setquestions(array);
+            }
+        }
+        setloading(false);
+    } 
     const antIcon = <LoadingOutlined spin />;
 
     return (
@@ -114,11 +151,18 @@ const Dashboard = () => {
                         </div>
                     </div>
                     <div class="row flex">
-                        <div class="card2">Total preguntas: <p>{usuarios.length}</p>  </div>
+                        <div class="card2">Total preguntas: <p>{questions.length}</p>  </div>
                     </div>
                     <div class="row">
                         <div class="col1">
-                        <div class="card3">preguntas <p>{usuarios.length}</p>  </div>
+                            <div class="card3">preguntas 
+                                <Table 
+                                    id="tablaUsuarios"
+                                    key="keyloca"
+                                    columns={columns2} 
+                                    dataSource={questions} 
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
