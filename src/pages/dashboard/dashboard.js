@@ -155,7 +155,7 @@ const Dashboard = () => {
                     </div>
                     <div class="row">
                         <div class="col1">
-                            <div class="card3">preguntas 
+                            <div class="card4">preguntas 
                                 <Table 
                                     id="tablaUsuarios"
                                     key="keyloca"
