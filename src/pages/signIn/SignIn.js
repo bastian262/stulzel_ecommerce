@@ -80,7 +80,6 @@ const SignIn = () => {
                             className="inputRojo"
                             name="correo"  
                             value={correo}
-
                         />
                     </div>
                     <div class="col">

@@ -48,7 +48,7 @@ const Webinar = () => {
                 <Spin spinning={loading} size="large" tip="Cargando..." indicator={antIcon}>
                     <div className="contenedorStreaming">
                         <div className="streaming">
-                            <iframe title="streaming" width="560" height="315" className="transmission" src="https://vimeo.com/event/751925/embed" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                            <iframe title="streaming" src="https://player.twitch.tv/?channel=stulzel&parent=https://stulzel.com/webinarStulzel/" frameBorder="0" allowFullScreen="true" scrolling="no"></iframe>
                         </div>
                         <div className="pregunta">
                             <div className="inputs">
