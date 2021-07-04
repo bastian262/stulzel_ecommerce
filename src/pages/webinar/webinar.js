@@ -48,7 +48,7 @@ const Webinar = () => {
                 <Spin spinning={loading} size="large" tip="Cargando..." indicator={antIcon}>
                     <div className="contenedorStreaming">
                         <div className="streaming">
-                            <iframe title="streaming" src="https://player.twitch.tv/?channel=stulzel&parent=https://stulzel.com/webinarStulzel/" frameBorder="0" allowFullScreen="true" scrolling="no"></iframe>
+                            <iframe title="streaming" src="https://player.twitch.tv/?channel=stulzel&parent=https://stulzel-ecommerce.vercel.app/webinar" frameBorder="0" allowFullScreen="true" scrolling="no"></iframe>
                         </div>
                         <div className="pregunta">
                             <div className="inputs">
