@@ -37,7 +37,6 @@ const Webinar = () => {
                     message:"Ingrese pregunta porfavor"
                 });
             }
-        
         setloading(false)
     }
     const antIcon = <LoadingOutlined spin />;
@@ -48,7 +47,7 @@ const Webinar = () => {
                 <Spin spinning={loading} size="large" tip="Cargando..." indicator={antIcon}>
                     <div className="contenedorStreaming">
                         <div className="streaming">
-                            <iframe id="twitch" title="Twitch" src="https://player.twitch.tv/?channel=stulzel&parent=stulzel-ecommerce.vercel.app" frameBorder="0" allowFullScreen="true" scrolling="no"></iframe>
+                            <iframe id="twitch" title="Twitch" src="https://player.twitch.tv/?channel=stulzel&parent=stulzel-ecommerce.vercel.app&parent=stulzel.com" frameBorder="0" allowFullScreen="true" scrolling="no"></iframe>
                         </div>
                         <div className="pregunta">
                             <div className="inputs">
