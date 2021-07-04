@@ -124,6 +124,9 @@ const SignUp = () => {
                             REGISTRAR
                         </ColorButton>
                     </div>
+                    <div class="col2">
+                        <span>Ya estás registrado? </span> <a href="https://stulzel.com/webinar/"> Haz Click Aquí</a>
+                    </div>
                 </form>
             </div> 
         </Spin>
