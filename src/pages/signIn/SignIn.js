@@ -55,7 +55,7 @@ const SignIn = () => {
                 
                 localStorage.setItem("nombreUsuario",resultado.user.nombre); 
 
-                history.push('/webinar')
+                history.push('/webinar');
             }else{
                 notification["error"]({
                     message:resultado.message
