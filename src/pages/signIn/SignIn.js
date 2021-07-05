@@ -76,7 +76,7 @@ const SignIn = () => {
                         <input 
                             type="text"
                             id="outlined-basic" 
-                            placeholder="Correo electronico" 
+                            placeholder="Ingresa tu correo electrónico" 
                             className="inputRojo"
                             name="correo"  
                             value={correo}
