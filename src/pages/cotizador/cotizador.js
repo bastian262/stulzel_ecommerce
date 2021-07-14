@@ -59,7 +59,6 @@ const CotizadorPage = () => {
     const obtenerProducto = async () => {
         setLoading(true);
         const result = await getProductosById(productoId);
-        console.log(result);
         if(result.id > 0){
             setProductosItem([
                 ...productosItem,
@@ -69,17 +68,15 @@ const CotizadorPage = () => {
                 ...cantidades,
                 cantidad
             ]);
-            
             const data ={
-                
-                "api" : "FREE-3D4BC83B01-AB924962DA87E247A987-4E5",
-                "height" :  result.dimensions.height === "" ? 10 : result.dimensions.height * cantidad,
-                "width": result.dimensions.width === "" ? 10 : result.dimensions.width,
-                "length": result.dimensions.length === "" ? 10 : result.dimensions.length,
-                "weight": result.weight === "" ? 5 : result.weight * cantidad,
-                "origen": 1,
-                "destination": parseInt(destinoId),
-                "support": 0,
+                api : "FREE-C28AF4A471-5410F5F8C3A0243B6B0A-119",
+                height :  result.dimensions.height === "" ? 10 : result.dimensions.height * cantidad,
+                width: result.dimensions.width === "" ? 10 : parseFloat(result.dimensions.width),
+                length: result.dimensions.length === "" ? 10 : parseFloat(result.dimensions.length),
+                weight: result.weight === "" ? 5 : result.weight * cantidad,
+                origen: 1,
+                destination: parseInt(destinoId),
+                support: 0,
             }
             console.log(data);
             const resultado2 = await postCotizar(data);
