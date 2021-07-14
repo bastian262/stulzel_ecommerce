@@ -25,7 +25,9 @@ export function postCotizar( data ) {
     const params = {
         method: "POST",
         body: JSON.stringify(data),
-        mode: 'cors'
+        headers: {
+            "Content-Type": "application/json"
+        }
     };
     return fetch(url, params)
         .then(resp => {
