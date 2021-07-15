@@ -1,8 +1,8 @@
-import { basePath } from './config';
+import { basePathWoocommerce } from './config';
 
 
 export function getDestinos() {
-    const url = `${basePath}/destino`;
+    const url = `${basePathWoocommerce}/destinos`;
     const params = {
         method: "GET",
         headers: {
@@ -20,13 +20,12 @@ export function getDestinos() {
 }
 
 export function postCotizar( data ) {
-    console.log(data);
-    const url = `https://www.anyda.xyz/tarifa`;
+    const url = `${basePathWoocommerce}tarifa`;
     const params = {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
         }
     };
     return fetch(url, params)

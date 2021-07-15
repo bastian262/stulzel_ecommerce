@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react';
 import Header from '../../components/nav/nav'
 import { Spin } from 'antd';
 import { getProductos, getProductosById } from '../../api/productos';
-import { postCotizar} from '../../api/destinos';
+import { postCotizar } from '../../api/destinos';
 import destinos from '../../api/destinos.json';
 import { Select } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
@@ -23,6 +23,7 @@ const CotizadorPage = () => {
     const [productosState, setproductosState] = useState([]);
     const [destinoId, setdestinoId] = useState(0);
     const [productoId, setproductoId] = useState(0);
+    const [totalCotizacion, setTotalCotizacion] = useState(0);
     const [productosItem, setProductosItem] = useState([]);
     const [cantidades, setCantidades] = useState([]);
     const [cantidad, setCantidad] = useState(0);
@@ -69,18 +70,22 @@ const CotizadorPage = () => {
                 cantidad
             ]);
             const data ={
-                api : "FREE-C28AF4A471-5410F5F8C3A0243B6B0A-119",
                 height :  result.dimensions.height === "" ? 10 : result.dimensions.height * cantidad,
                 width: result.dimensions.width === "" ? 10 : parseFloat(result.dimensions.width),
                 length: result.dimensions.length === "" ? 10 : parseFloat(result.dimensions.length),
                 weight: result.weight === "" ? 5 : result.weight * cantidad,
-                origen: 1,
                 destination: parseInt(destinoId),
-                support: 0,
             }
             console.log(data);
             const resultado2 = await postCotizar(data);
+            
             console.log(resultado2);
+
+
+            if(resultado2.cost>0){
+                const totalParcial = resultado2.cost + totalCotizacion;
+                setTotalCotizacion(totalParcial);
+            }
         }
         setLoading(false);
 
@@ -187,7 +192,7 @@ const CotizadorPage = () => {
                     </div>
                 </div>
                 <div class="row">
-                    <button>Cotizar</button>
+                    <span>${totalCotizacion}</span>
                 </div>
                     
             </div>
