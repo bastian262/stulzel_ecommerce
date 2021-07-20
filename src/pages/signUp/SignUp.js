@@ -31,7 +31,8 @@ const SignUp = () => {
     const [values ,onChange ] = useForm({
         nombre:'',
         correo:'',
-        telefono:''
+        telefono:'',
+        direccion:'',
     });
         // const [ formValid,inputValidation] = useFormValidation({
         //     nombre: false,
@@ -39,7 +40,7 @@ const SignUp = () => {
         //     telefono: false
         // });
 
-    const {nombre, correo , telefono} = values;
+    const {nombre, correo , telefono, direccion} = values;
 
     const SignUp = async () => {
 
@@ -57,11 +58,16 @@ const SignUp = () => {
         }else{
             const data = {
                 nombre,
-                correo,
-                telefono
+                correo: correo.toLowerCase(),
+                telefono,
+                direccion
             }
+            console.log(data);
 
             const resultado = await signUp(data);
+
+            console.log(resultado);
+
             if(resultado.ok){
                 notification["success"]({
                     message: `FELICITACIONES
@@ -117,6 +123,16 @@ const SignUp = () => {
                             name="telefono"  
                             value={telefono}
 
+                        />
+                    </div>
+                    <div class="col">
+                        <input 
+                            type="text"
+                            id="outlined-basic" 
+                            placeholder="Dirección" 
+                            className="inputRojo"
+                            name="direccion"  
+                            value={direccion}
                         />
                     </div>
                     <div class="col">

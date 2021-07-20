@@ -20,6 +20,10 @@ const columns = [
       dataIndex: 'telefono',
     },
     {
+        title: 'Dirección',
+        dataIndex: 'direccion',
+    },
+    {
       title: 'Acción',
       dataIndex: 'action',
     }
@@ -84,6 +88,7 @@ const Dashboard = () => {
                             nombre:element.nombre,
                             correo:element.correo,
                             telefono:element.telefono,
+                            direccion:element.direccion,
                             action:(  <button onClick={() => eliminarUser(element._id)}> Eliminar </button> )
                     }
                     array.push(data);
