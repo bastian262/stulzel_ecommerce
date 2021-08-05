@@ -47,6 +47,11 @@ const CotizadorPage = () => {
         setCantidad(value.target.value);
     }
     
+    const eliminarArticulo = (prod) => {
+        console.log(productosItem);
+        const articulos = productosItem.filter(name => name === prod.name);
+        console.log(articulos);
+    }
 
     const obtenerProductos = async () => {
         setLoading2(true);
@@ -88,9 +93,7 @@ const CotizadorPage = () => {
             }
         }
         setLoading(false);
-
     } 
-
     const antIcon = <LoadingOutlined spin />;
 
     return ( 
@@ -177,7 +180,7 @@ const CotizadorPage = () => {
                                                 <td> <img width="120" src={element.images[0].src} alt={element.name} /> </td>
                                                 <td>{element.name}</td>
                                                 <td>{cantidades[i]}</td>
-                                                <td><CloseIcon/></td>
+                                                <td><CloseIcon onClick={() => eliminarArticulo(element)}/></td>
                                             </tr>
                                             </>
                                         );

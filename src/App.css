@@ -101,9 +101,33 @@ nav .menu {
   width: 100%;
 }
 nav .menu a {
-  padding: 0px 10px;
+  margin: 0px 10px;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+
+  color: white;
 }
+a {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  text-decoration: none;
+}
+  a:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 1px;
+  background: #dc9814;
+  transition: left .8s;
+  }
+  a:hover:after {
+  left: 0;
+  }
 nav .carrito {
   display: flex;
   align-items: center;
@@ -416,23 +440,48 @@ nav .carrito span {
   margin-bottom: 25px;
 }
 .productos {
-  float: left;
+  /* float: left; */
+  display: table;
   width: 100%;
   padding: 0px 50px;
+  max-width: 1280px;
+  margin: 0px auto;
+}
+.productos h2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 34px;
+  font-weight: 500;
+  margin: 30px 0;
+
 }
 .productos .raw {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 .productos .raw .columnas {
-  width: calc((100% / 3) - (60px / 3));
+  width: calc((100% / 4) - (60px / 4));
   float: left;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  transition: ease all 0.5s;
+}
+.productos .raw .columnas:nth-child(4n) {
+  margin-right: 0px;
+}
+.productos .raw .columnas:hover {
+  transform: scale(1.05);
+}
+.productos .raw .columnas .card:hover{
+  -webkit-box-shadow: 0px 2px 14px -3px rgba(207, 207, 207, 1);
+  -moz-box-shadow: 0px 2px 14px -3px rgba(207, 207, 207, 1);
+  box-shadow: 0px 2px 14px -3px rgb(212, 209, 209);
 }
 .productos .raw .columnas .card {
-  height: 500px;
+  height: 450px;
   float: left;
   width: 100%;
   padding: 20px;
@@ -445,9 +494,9 @@ nav .carrito span {
   justify-content: space-between;
 }
 .productos .raw .columnas .card img {
-  float: left;
-  height: 200px;
-  width: 100%;
+  /* float: left; */
+  margin: 0 auto;
+  width: 70%;
 }
 .productos .raw .columnas .card .detalles {
   float: left;
@@ -639,3 +688,355 @@ nav .carrito span {
   padding: 0px 50px;
   cursor: pointer;
 }
+.fondo2{
+  margin-top: 50px;
+  float: left;
+  width: 100%;
+  background: rgb(255, 255, 255);
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+.fondo2 .container-fluid{
+  display: block;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+.fondo2 .container-fluid .row{
+  float: left;
+  width: 100%;
+  /* background-color: rgb(221, 221, 221) !important; */
+  padding: 30px 0px;
+}
+.fondo2 .container-fluid .row .col-4{
+  width: calc((100% / 4) - (60px / 4));
+  float: left;
+  display: flex;
+  margin-left: 20px;
+  transition: ease all 0.5s;
+}
+.fondo2 .container-fluid .row .col-4 span{
+  font-size: 12PX;
+}
+.fondo2 .container-fluid .row .col-4:first-child{
+  margin-left: 0px;
+}
+.fondo2 .container-fluid .row .col-4 .mitad1{
+  margin-right: 10px;
+}
+footer{
+  float: left;
+  width: 100%;
+  background: black;
+  padding: 50px 0px 30px;
+}
+footer .row{
+  /* float: left; */
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: block;
+  padding: 0px 0px;
+}
+footer .row .col-3{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  float: left;
+  width: calc((100% / 3) - (60px / 3));
+  margin-left: 30px;
+  color: white;
+}
+footer .row .col-3 strong{
+  margin-bottom: 5px;
+}
+footer .row .col-3 span{
+  text-align: left;
+}
+footer .row .col-3 span:first-child{
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+footer .row .col-3:first-child{
+  margin-left: 0px;
+}
+
+footer .row .col-3 a{
+  color: #999;
+  margin-bottom: 7px;
+}
+footer .row .col-3 a:hover{
+  color: white
+}
+
+footer .row .col-3 iframe{
+  box-sizing: border-box;
+  outline: none;
+  width: 100%;
+  border: 0;
+  outline: auto;
+  height: 350px;
+}
+
+.footerBajo{
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+  color: white;
+}
+.footerBajo strong{
+  float: left;
+  width: 100%;
+}
+.footerBajo img{
+  width: 100%;
+  max-width: 200px;
+}
+/* .footerBajo */
+
+
+
+
+
+
+/* INICIO BANNER INSTAGRAM */
+
+.fondo .header2 {
+  margin-top:50px;
+  background: linear-gradient(rgba(0, 0, 0, 0.288), rgba(0, 0, 0, 0.164)),
+    url(./assets/img/fondoInstagram.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 75vh;
+  float: left;
+  width: 100%;
+}
+
+.fondo .header2 .border {
+  float: left;
+  width: 100%;
+  padding: 20px;
+  height: 75vh;
+}
+
+.fondo .header2 .row-flex2 {
+  display: flex;
+  height: 70vh;
+  align-items: center;
+  justify-content: space-around;
+  padding: 30px 50px;
+}
+.fondo .header2 .row-flex2 .col-1 {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fondo .header2 .row-flex2 .col-1 img {
+  width: 65%;
+  transition: 1s all linear;
+}
+.fondo .header2 .row-flex2 .col-1 img:hover {
+  transform: rotateX(360deg);
+}
+.fondo .header2 .row-flex2 .col-2 {
+  padding-left: 80px;
+  width: 60%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  color: white;
+}
+.fondo .header2 .row-flex2 .col-2 .titulo1 {
+  width: 80%;
+  text-align: left;
+  font-weight: 600;
+  font-size: 18px;
+}
+.fondo .header2 .row-flex2 .col-2 .tituloGrande {
+  width: 80%;
+  text-align: center;
+  font-size: 102px;
+  font-weight: 600;
+  line-height: 95px;
+}
+.fondo .header2 .row-flex2 .col-2 .titulo2 {
+  width: 80%;
+  text-align: left;
+  font-size: 38px;
+  text-transform: uppercase;
+  margin: 8px 0px;
+  font-weight: 600;
+}
+.fondo .header2 .row-flex2 .col-2 .button {
+  float: left;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  justify-content: flex-start;
+}
+.fondo .header2 .row-flex2 .col-2 button {
+  background: #fff;
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 45px;
+  border-radius: 20px;
+  outline: none;
+  border: none;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.6s all ease-in;
+}
+.fondo .header2 .row-flex2 .col-2 button:hover {
+  transform: rotateX(360deg);
+}
+
+/* FIN BANNER INSTAGRAM  */
+
+/* INICIO BANNER ARO DE LUZ  */
+
+.fondo .header3 {
+  /* background: linear-gradient(rgba(0, 0, 0, 0.288), rgba(0, 0, 0, 0.164)),
+    url(./assets/img/fondoInstagram.jpg); */
+  background: white;
+  padding: 150px 0;
+  float: left;
+  width: 100%;
+}
+.fondo .header3 .row-flex2 {
+  display: flex;
+  height: 70vh;
+  align-items: center;
+  justify-content: space-around;
+  padding: 30px 50px;
+}
+.fondo .header3 .row-flex2 .col-1 {
+  width: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fondo .header3 .row-flex2 .col-1 img {
+  width: 100%;
+  transition: 1s all linear;
+}
+.fondo .header3 .row-flex2 .col-1 img:hover {
+  transform: rotateX(360deg);
+}
+.fondo .header3 .row-flex2 .col-2 {
+  padding-left: 80px;
+  width: 60%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  color: black;
+}
+.fondo .header3 .row-flex2 .col-2 .titulo1 {
+  width: 80%;
+  text-align: left;
+  font-weight: 400;
+  font-size: 18px;
+}
+.fondo .header3 .row-flex2 .col-2 .tituloGrande {
+  width: 80%;
+  text-align: center;
+  font-size: 102px;
+  font-weight: 600;
+  line-height: 95px;
+}
+.fondo .header3 .row-flex2 .col-2 .titulo2 {
+  width: 80%;
+  text-align: left;
+  font-size: 38px;
+  text-transform: uppercase;
+  margin: 8px 0px;
+  font-weight: 600;
+}
+.fondo .header3 .row-flex2 .col-2 .button {
+  float: left;
+  width: 80%;
+  display: flex;
+  align-items: center;
+  margin-top: 30px;
+  justify-content: flex-start;
+}
+.fondo .header3 .row-flex2 .col-2 button {
+  background: black;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 10px 45px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.2s all ease-in;
+}
+.fondo .header3 .row-flex2 .col-2 button:hover {
+  transform: translateY(-10px);
+}
+
+/* FIN BANNER ARO DE LUZ */
+
+/* INICIO BANNER ENVIO GRATIS */
+
+.mayorista{
+  float: left;
+  width: 100%;
+  background: #f3f3f3;
+  padding: 50px 0px;
+}
+.mayorista .raw{
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 400px;
+}
+.mayorista .raw h3{
+  margin: 0;
+}
+.mayorista .raw .envioGratis{
+  float: left;
+  width: 100%;
+  text-align: center;
+  margin: 20px 0;
+  color: #ff2a0c;
+  font-size: 90px;
+  line-height: 60px;
+}
+.mayorista .raw .despacho{
+  float: left;
+  width: 100%;
+  text-align: center;
+  color: #ff2a0c;
+  font-size: 62px;
+  line-height: 50px;
+}
+.mayorista .raw .santiago{
+  float: left;
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 32px;
+  color: black;
+}
+.mayorista svg{}

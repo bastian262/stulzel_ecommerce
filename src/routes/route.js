@@ -19,7 +19,6 @@ const AppRouter  = () => {
                 <Route exact path="/signIn" component={ SignInScreen } />
                 <Route exact path="/webinar" component={ WebinarScreen } />
                 <Route exact path="/dashboard" component={ DashboardScreen } />
-
                 <Redirect to="/" />
             </Switch>
         </Router>

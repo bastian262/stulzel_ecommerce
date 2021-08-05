@@ -42,9 +42,14 @@ const HeaderPage = () => {
                         Inicio
                     </Link>
                     
-                    <Link to="/cotizador">Cotizador</Link>
-                    <Link to="/signUp">Rggistro</Link>
-                    <Link to="/signIn">Iniciar sesion</Link>
+                    <Link to="/">Quienes Somos</Link>
+                    <Link to="/">Productos</Link>
+                    <Link to="/">Curso Inicial Barbería</Link>
+                    <Link to="/">Red One USA</Link>
+                    <Link to="/">Contacto</Link>
+                    <Link to="/cotizador">Cotizador de Envíos</Link>
+                    {/* <Link to="/signUp">Rggistro</Link> */}
+                    {/* <Link to="/signIn">Iniciar sesion</Link> */}
                 </div>
                 <div className="carrito">
                     <span>
