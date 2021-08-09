@@ -49,8 +49,15 @@ const CotizadorPage = () => {
     
     const eliminarArticulo = (prod) => {
         console.log(productosItem);
-        const articulos = productosItem.filter(name => name === prod.name);
-        console.log(articulos);
+        var array = [];
+        // var articulos = productosItem.filter(name => name === prod.name);
+        productosItem.forEach((element) => {
+            if(element.name != prod.name){
+                array.push(element);
+            }
+        });
+        setProductosItem(array);
+        console.log(array);
     }
 
     const obtenerProductos = async () => {
@@ -59,7 +66,6 @@ const CotizadorPage = () => {
         console.log(result);
         setproductosState(result);
         setLoading2(false);
-
     } 
 
     const obtenerProducto = async () => {
