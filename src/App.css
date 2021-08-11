@@ -10,6 +10,9 @@ img {
   float: left;
   width: 100%;
 }
+.fondo .mobile{
+  display: none;
+}
 /*  HEADER  */
 .fondo header {
   position: relative;
@@ -999,7 +1002,7 @@ footer .row .col-3 iframe{
   float: left;
   width: 100%;
   background: #f3f3f3;
-  padding: 50px 0px;
+  padding: 50px 20px;
 }
 .mayorista .raw{
   width: 100%;
@@ -1040,3 +1043,170 @@ footer .row .col-3 iframe{
   color: black;
 }
 .mayorista svg{}
+
+
+@media (min-width: 320px) and (max-width: 719px) {
+
+  .fondo #header1 {
+    display: none;
+  }
+  nav{
+
+    display: none;
+  }
+  .fondo .mobile{
+    float: left;
+    width: 100%;
+    padding: 0px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+  }
+  .fondo .mobile .hamburguesa{
+    color: white;
+  }
+  .fondo .mobile .hamburguesa .iconHamburguesa{
+    font-size: 42px;
+  }
+  .fondo .mobile .logoMobile img {
+    width: 70px;
+  }
+  .fondo .mobile .carritoMobile{
+    color: white;
+  }
+  .fondo .mobile .carritoMobile .iconoBolsa{
+    font-size: 28px;
+  }
+
+  .fondo .header .row-flex .col-1{
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .fondo .header .row-flex{
+    flex-direction: column;
+    height: auto;
+  }
+  .fondo .header .row-flex .col-2{
+    width: 100%;
+  }
+  .fondo .header .row-flex .col-2 .titulo1{
+    width: 100%;
+    font-size: 18px;
+  }
+  .fondo .header .row-flex .col-2 .titulo2{
+    width: 100%;
+    font-size: 28px;
+  }
+  .fondo .header{
+    height: auto;
+  }
+  .fondo .header .border{
+    height: auto;
+  }
+  .fondo .header .row-flex .col-2 .button{
+    width: 100%;
+  }
+  .fondo .topSales .raw{
+    padding: 0;
+    flex-direction: column;
+  }
+  .fondo .topSales .raw .col{
+    width: 100%;
+    margin-left: 0;
+    position: relative;
+    height: auto;
+    padding: 50px 10px 30px;
+    justify-content: flex-start;
+    min-height: 400px;
+  }
+  .fondo .topSales .raw .col:first-child{
+    margin-bottom: 20px;
+  }
+  .fondo .topSales .raw .col .mitad1{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 50%;
+  }
+  .fondo .topSales .raw .col .mitad1 .titulo{
+    font-size: 14px;
+    text-align: right;
+  }
+  .fondo .topSales .raw .col .mitad1 .tituloProducto
+  {
+    text-align: right;
+    font-size: 18px;
+  }
+  .fondo .topSales .raw .col .mitad1 .tituloPrecio{
+    text-align: right;
+    font-size: 14px;
+  }
+  .fondo .topSales .raw .col .mitad1 button{
+    float: right;
+  }
+  .fondo .topSales{
+    padding: 50px 20px;
+  }
+  .fondo .topSales .raw .col .mitad2
+  {
+    float: left;
+    width: 70%;
+  }
+  .mayorista .raw .envioGratis{
+    font-size: 48px;
+    line-height: 40px;
+    margin-bottom: 10px;
+  }
+  .mayorista .raw .despacho{
+    font-size: 38px;
+    line-height: 30px;
+  }
+  .mayorista .raw .santiago{
+    font-size: 28px;
+    line-height: 28px;
+  }
+  .productos .raw .columnas{
+    width: 100%;
+    margin-right: 0px;
+  }
+  .fondo .header2{
+    height: auto;
+  }
+  .fondo .header2 .row-flex2{
+    height: auto;
+    flex-direction: column;
+  }
+  .fondo .header2 .row-flex2 .col-2{
+    width: 100%;
+    padding-left: 0px;
+    order: 2;
+  }
+  .fondo .header2 .row-flex2 .col-2 .titulo2{
+    width: 100%;
+  }
+  .fondo .header2 .row-flex2 .col-2 .titulo1{
+    width: 100%;
+  }
+  .fondo .header2 .row-flex2 .col-1{
+    order: 1;
+    width: 60%;
+  }
+  .productos .raw .columnas .card img{
+    max-width: 200px;
+  }
+  .productos{
+    padding: 0 30px;
+  }
+  .fondo .topSales .raw .col .mitad2 img{
+    width: 100%;
+  }
+
+
+  .fondo .header2 .row-flex2 .col-2 button{
+    width: 100%;
+  }
+  .fondo .header2 .row-flex2 .col-2 .button{
+    width: 100%;
+  }
+}

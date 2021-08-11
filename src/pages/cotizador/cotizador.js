@@ -43,7 +43,6 @@ const CotizadorPage = () => {
         setproductoId(value);
     }
     const onChangeInput = (value) => {
-        console.log(value.target.value);
         setCantidad(value.target.value);
     }
     

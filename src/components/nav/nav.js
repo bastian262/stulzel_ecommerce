@@ -6,10 +6,10 @@ import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import LocalMallIcon from '@material-ui/icons/LocalMall';
 import { Link } from 'react-router-dom';
-
+import DehazeIcon from '@material-ui/icons/Dehaze';
 const HeaderPage = () => {
     return ( <>
-        <header>
+        <header id="header1">
             <div className="container-flex">
                 <img src ="https://stulzel.com/wp-content/uploads/2021/05/cropped-Recurso-2-8.png" alt="logo"/>
 
@@ -33,6 +33,17 @@ const HeaderPage = () => {
                         <span>Carrito</span>
                     </div>
                 </div>
+            </div>
+        </header>
+        <header className="mobile">
+            <div className="hamburguesa">
+                <DehazeIcon className="iconHamburguesa" />
+            </div>
+            <div className="logoMobile">
+                <img src ="https://stulzel.com/wp-content/uploads/2021/05/cropped-Recurso-2-8.png" alt="logo"/>
+            </div>
+            <div className="carritoMobile">
+                <LocalMallIcon className="iconoBolsa"/>
             </div>
         </header>
         <nav>
