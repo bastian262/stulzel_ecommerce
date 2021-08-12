@@ -2,7 +2,6 @@ import React,{useState, useEffect} from 'react';
 import NavBar from '../components/nav/nav';
 import { getProductos8 } from '../api/productos';
 import Button from '@material-ui/core/Button';
-import DeleteIcon from '@material-ui/icons/Delete';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import Footer1 from '../components/footer/Footer1';
 import Footer2 from '../components/footer/Footer2';

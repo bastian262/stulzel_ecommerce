@@ -2,10 +2,13 @@
   box-sizing: border-box;
   outline: none;
 }
+
 img {
   display: block;
 }
-
+.fondoNegro{
+  display: none;
+}
 .fondo {
   float: left;
   width: 100%;
@@ -102,6 +105,8 @@ nav {
 nav .menu {
   float: left;
   width: 100%;
+  display: flex;
+  align-items: center;
 }
 nav .menu a {
   margin: 0px 10px;
@@ -109,8 +114,45 @@ nav .menu a {
   position: relative;
   overflow: hidden;
   text-decoration: none;
-
   color: white;
+}
+nav .moreIcon{
+  fill: white;
+  width: 20px;
+}
+nav .menu .productosM {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+nav .menu .productosM:hover .productosVarios {
+  transform: translateY(-0px) scale(1);
+  padding: 20px 12px;
+  z-index:2;
+  opacity: 1;
+}
+nav .menu .productosM .productosVarios{
+  position: absolute;
+  top: 43px;
+  left: 10px;
+  width: 200px;
+  transform: translateY(-120px) scale(0);
+  padding: 0px;
+  z-index:-1;
+  opacity: 0;
+  transition: 0.5s all ease-in;
+  transition-delay: 0.2s;
+  background: white;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  color: black;
+  box-shadow: 0 1px 15px rgb(0 0 0 / 8%);
+}
+nav .menu .productosM .productosVarios a{
+  color: black;
+  margin-bottom: 10px;
 }
 a {
   position: relative;
@@ -1062,6 +1104,10 @@ footer .row .col-3 iframe{
     align-items: center;
     justify-content: space-between;
     height: 100px;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0px;
+    z-index: 99;
   }
   .fondo .mobile .hamburguesa{
     color: white;
@@ -1071,6 +1117,7 @@ footer .row .col-3 iframe{
   }
   .fondo .mobile .logoMobile img {
     width: 70px;
+    margin-right: 0px;
   }
   .fondo .mobile .carritoMobile{
     color: white;
@@ -1209,4 +1256,191 @@ footer .row .col-3 iframe{
   .fondo .header2 .row-flex2 .col-2 .button{
     width: 100%;
   }
+  .fondo .header3 .row-flex2{
+    height: auto;
+    flex-direction: column;
+  }
+  .fondo .header3{
+    padding: 50px 0;
+  }
+
+  .fondo .header3 .row-flex2 .col-2{
+    width: 100%;
+    order: 2;
+    padding-left: 0px;
+  }
+  .fondo .header3 .row-flex2 .col-2 .titulo2{
+    width: 100%;
+  }
+  .fondo .header3 .row-flex2 .col-2 .titulo1{
+    width: 100%;
+  }
+  .fondo .header3 .row-flex2 .col-2 .button{
+    width: 100%;
+  }
+  .fondo .header3 .row-flex2 .col-2 button{
+    width: 100%;
+  }
+
+  .fondo .header3 .row-flex2 .col-1 img{
+    margin-bottom: 20px;
+  }
+  .fondo .header3 .row-flex2 .col-1{
+    width: 100%;
+    order: 1;
+  }
+
+  .fondo2 .container-fluid .row .col-4{
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+  footer .row .col-3{
+    width: 100%;
+    margin-left: 0px;
+    margin-bottom: 20px;
+  }
+  footer{
+    padding: 50px 20px;
+  }
+  .footerBajo{
+    margin-top: 0px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footerBajo img{
+    margin-top: 10px;
+  }
+
+  .fondoNegro{
+    display: block;
+    position: fixed;
+    z-index: 100;
+    left: 0px;
+    top: 0px;
+    height: 100vh;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.534);
+    transition: 0.5s all linear;
+    opacity: 1;
+  }
+  .fondoNegro .navMobile{
+    position: fixed;
+    background: white;
+    z-index: 9999;
+    top: 0px;
+    left: -0px;
+    width: 260px;
+    height: auto;
+    min-height: 100vh;
+    padding: 20px 15px;
+    transition: .5s all linear;
+
+  }
+  .fondoNegro .navMobile .buscador{
+    float: left;
+    width: 100%;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .fondoNegro .navMobile .buscador input{
+    float: left;
+    width: 100%;
+    border-radius: 5px;
+    height: 45px;
+    background: #f2f2f2;
+    border: 0px solid;
+    padding-left: 45px;
+    
+  }
+  .fondoNegro .navMobile .buscador .searchInput{
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: gray;
+    z-index: 102;
+  }
+  .fondoNegro .navMobile .subMenu{
+    float: left;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .fondoNegro .navMobile .subMenu a{
+    margin-bottom: 10px;
+    color: black;
+    font-size: 15px;
+    font-weight: 500;
+  }
+  .fondoNegro .navMobile .links{
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+  }
+  .fondoNegro .navMobile .links span{
+    color: gray;
+    text-transform: uppercase;
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+  }
+  .fondoNegro .navMobile .links a{
+    color: black;
+    font-size: 14px;
+    float: left;
+    width: 100%;
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .fondoNegro .cerrarMenu{
+    position: fixed;
+    transition: 0.2s all linear;
+    left: 290px;
+    top:20px;
+    color: white;
+    font-size: 24px;
+    width: 50px;
+    fill: white;
+  }
+  .fondoNegro .navMobile .subMenu .productosMobiles{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
+
+  }
+  .fondoNegro .navMobile .subMenu .productosMobiles:focus .subMenu2{
+    height: auto;
+
+  }
+  .fondoNegro .navMobile .subMenu .productosMobiles:hover .subMenu2{
+    height: auto;
+  }
+  .fondoNegro .navMobile .subMenu .productosMobiles .product-flex{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .fondoNegro .navMobile .subMenu .productosMobiles .product-flex a{
+    margin-bottom: 0px;
+  }
+  .fondoNegro .navMobile .subMenu .productosMobiles .subMenu2{
+    position: relative;
+    height: 0px;
+    padding-left: 14px;
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  /* .fondoNegro .navMobile .subMenu .productosMobiles a{
+    margin-bottom: 0px;
+  } */
 }

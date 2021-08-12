@@ -7,7 +7,37 @@ import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import LocalMallIcon from '@material-ui/icons/LocalMall';
 import { Link } from 'react-router-dom';
 import DehazeIcon from '@material-ui/icons/Dehaze';
+import CloseIcon from '@material-ui/icons/Close';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+
 const HeaderPage = () => {
+
+    const abrirCerrarMenu = () => {
+        let menu = document.getElementById("menu2");
+        let menu2 = document.getElementById("fondoNegro");
+        let menu3 = document.getElementById("cerrar");
+        let body = document.getElementsByTagName("body");
+
+        console.log(menu);
+        if(menu.style.left === "0px"){
+            menu.style.left = "-260px";
+            menu2.style.visibility = "hidden";
+            menu2.style.opacity = "0";
+            menu3.style.top = "35px";
+            body[0].style.height = "auto";
+            body[0].style.overflow = "visible";
+
+        }else{
+            menu.style.left = "0px";
+            menu2.style.visibility = "visible";
+            menu2.style.opacity = "1";
+            menu3.style.top = "20px";
+            body[0].style.height = "100vh";
+            body[0].style.overflow = "hidden";
+
+        }
+    }
+
     return ( <>
         <header id="header1">
             <div className="container-flex">
@@ -16,14 +46,12 @@ const HeaderPage = () => {
                 <div className="search">
                     <input value="" placeholder="Buscar Productos..."/>
                     <SearchIcon className="icono" />
-
                 </div>
                 <div className="options">
                     <div className="option">
                         <PermIdentityIcon />
                         <span>Mi Cuenta</span>
                     </div>
-                    
                     <div className="option">
                         <HelpIcon />
                         <span>Preguntas Frecuentes</span>
@@ -36,7 +64,7 @@ const HeaderPage = () => {
             </div>
         </header>
         <header className="mobile">
-            <div className="hamburguesa">
+            <div className="hamburguesa" onClick={() => abrirCerrarMenu()}>
                 <DehazeIcon className="iconHamburguesa" />
             </div>
             <div className="logoMobile">
@@ -54,7 +82,19 @@ const HeaderPage = () => {
                     </Link>
                     
                     <Link to="/">Quienes Somos</Link>
-                    <Link to="/">Productos</Link>
+                    <div class="productosM">
+                        <Link to="/" class="productosMas">Productos</Link>
+                        <ExpandMoreIcon class="moreIcon" />
+                        <div class="productosVarios">
+                            <Link to="/">Todos</Link>
+                            <Link to="/">Red One</Link>
+                            <Link to="/">Buffalo Men's</Link>
+                            <Link to="/">Sillones</Link>
+                            <Link to="/">Lavapelos</Link>
+                            <Link to="/">Carros Ayudantes</Link>
+                            <Link to="/">Accesorios de barbería</Link>
+                        </div>
+                    </div>
                     <Link to="/">Curso Inicial Barbería</Link>
                     <Link to="/">Red One USA</Link>
                     <Link to="/">Contacto</Link>
@@ -70,6 +110,52 @@ const HeaderPage = () => {
                 </div>
             </div>
         </nav>
+        <div class="fondoNegro"  id="fondoNegro">
+            <CloseIcon class="cerrarMenu" id="cerrar" onClick={() => abrirCerrarMenu()}/>
+            <div class="navMobile" id="menu2">
+                <div class="buscador">
+                    <SearchIcon className="searchInput" /> 
+                    <input type="text" placeholder="Buscar Productos..." />
+                </div>
+                <div class="subMenu">
+                    <Link to="/">Inicio</Link>
+                    <Link to="/">Quienes Somos</Link>
+                    <div class="productosMobiles">
+                        <div class="product-flex">
+                            <Link to="/">Productos</Link>
+                            <ExpandMoreIcon />
+                        </div>
+                        <div className="subMenu2">
+                            <Link to="/">Todos</Link>
+                            <Link to="/">Red One</Link>
+                            <Link to="/">Buffalo Men's</Link>
+                            <Link to="/">Sillones</Link>
+                            <Link to="/">Lavapelos</Link>
+                            <Link to="/">Carros Ayudantes</Link>
+                            <Link to="/">Accesorios de barbería</Link>
+                        </div>
+                    </div>
+                    <Link to="/">Curso Inicial de Barbería</Link>
+                    <Link to="/">Red One USA</Link>
+                    <Link to="/">Contacto</Link>
+                </div>
+                <div class="links">
+                    <span>Links de ayuda</span>
+                    <Link to="/">Mi Cuenta</Link>
+                    <Link to="/">Servicio al cliente</Link>
+                </div>
+                <div class="links">
+                    <span>WhatsApp de ventas</span>
+                    <a href="/">+569 72321555 </a>
+                </div>
+                <div class="links">
+                    <span>Social</span>
+                    <a href="/">Facebook </a>
+                    <a href="/">Instagram </a>
+                </div>
+            </div>
+        </div>
+
     </> );
 }
  

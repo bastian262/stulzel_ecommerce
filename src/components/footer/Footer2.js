@@ -16,12 +16,12 @@ const Footer2 = () => {
                     </div>
                     <div class="col-3">
                         <span>LINKS DE AYUDA</span>
-                        <a href="">Mi Cuenta</a>
-                        <a href="">Quienes Somos</a>
-                        <a href="">Servicio al cliente</a>
-                        <a href="">Contactanos</a>
-                        <a href="">Terminos y Condiciones</a>
-                        <a href="">Preguntas Frecuentes</a>
+                        <a href="/">Mi Cuenta</a>
+                        <a href="/">Quienes Somos</a>
+                        <a href="/">Servicio al cliente</a>
+                        <a href="/">Contactanos</a>
+                        <a href="/">Terminos y Condiciones</a>
+                        <a href="/">Preguntas Frecuentes</a>
                     </div>
                     <div class="footerBajo">
                         <div>

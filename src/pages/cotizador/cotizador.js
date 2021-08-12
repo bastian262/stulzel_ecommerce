@@ -51,7 +51,7 @@ const CotizadorPage = () => {
         var array = [];
         // var articulos = productosItem.filter(name => name === prod.name);
         productosItem.forEach((element) => {
-            if(element.name != prod.name){
+            if(element.name !== prod.name){
                 array.push(element);
             }
         });
