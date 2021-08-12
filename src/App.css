@@ -1414,13 +1414,6 @@ footer .row .col-3 iframe{
     flex-direction: column;
 
   }
-  .fondoNegro .navMobile .subMenu .productosMobiles:focus .subMenu2{
-    height: auto;
-
-  }
-  .fondoNegro .navMobile .subMenu .productosMobiles:hover .subMenu2{
-    height: auto;
-  }
   .fondoNegro .navMobile .subMenu .productosMobiles .product-flex{
     display: flex;
     align-items: center;
@@ -1439,6 +1432,7 @@ footer .row .col-3 iframe{
     width: 100%;
     align-items: flex-start;
     flex-direction: column;
+    transition: 0.5s all ease-in-out;
   }
   /* .fondoNegro .navMobile .subMenu .productosMobiles a{
     margin-bottom: 0px;

@@ -38,6 +38,19 @@ const HeaderPage = () => {
         }
     }
 
+    const expandir = () => {
+        let doc = document.getElementById("subMenu2");
+        if(doc.style.height === "0px"){
+            doc.style.height = "auto";
+            doc.style.borderBottom = "1px solid black";
+            doc.style.marginBottom = "10px";
+        }else{
+            doc.style.height = "0px";
+            doc.style.borderBottom = "0px solid black";
+            doc.style.marginBottom = "0px";
+        }
+    }
+
     return ( <>
         <header id="header1">
             <div className="container-flex">
@@ -120,12 +133,12 @@ const HeaderPage = () => {
                 <div class="subMenu">
                     <Link to="/">Inicio</Link>
                     <Link to="/">Quienes Somos</Link>
-                    <div class="productosMobiles">
+                    <div class="productosMobiles" onClick={expandir}>
                         <div class="product-flex">
                             <Link to="/">Productos</Link>
                             <ExpandMoreIcon />
                         </div>
-                        <div className="subMenu2">
+                        <div className="subMenu2" id="subMenu2">
                             <Link to="/">Todos</Link>
                             <Link to="/">Red One</Link>
                             <Link to="/">Buffalo Men's</Link>
