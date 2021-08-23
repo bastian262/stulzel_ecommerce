@@ -7,7 +7,6 @@ export const useFormValidation = ( initialState = {} ) => {
 
     const inputValidation = async (e) => {
         const { name } = e.target;
-        
             setFormValid({
             ...formValid,
             [name]: minLengthValidation(e.target, 2),

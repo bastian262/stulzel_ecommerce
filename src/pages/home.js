@@ -1,30 +1,35 @@
-import React,{useState, useEffect} from 'react';
-import NavBar from '../components/nav/nav';
-import { getProductos8 } from '../api/productos';
+import React,{useEffect} from 'react';
 import Button from '@material-ui/core/Button';
 import InstagramIcon from '@material-ui/icons/Instagram';
-import Footer1 from '../components/footer/Footer1';
-import Footer2 from '../components/footer/Footer2';
+import { useCart } from '../hooks/useCart';
+import { useProduct } from '../hooks/useProduct';
+import { useFormat } from '../hooks/useFormat';
 import redone from '../assets/img/redone.png';
 import aroluz from '../assets/img/aroluz.jpg';
 import logo from '../assets/img/logo.png';
-// import redone from '../assets/img/redone.png';
-const HomeScreen = () => {
-    const [productos, setProductos] = useState([]);
+import Footer1 from '../components/footer/Footer1';
+import Footer2 from '../components/footer/Footer2';
+import NavBar from '../components/nav/nav';
 
+const HomeScreen = () => {
+    var localS = JSON.parse(localStorage.getItem("carrito"));
+
+    const [productos, getProducts,,,,redireccionar ] = useProduct();
+    const [onAdd,limpiarCarrito, eliminarProducto, productes,total, ] = useCart(localS);
+    const [format] = useFormat();
     useEffect(() => {
         getProducts();
-    }, [])
-    const getProducts = async () => {
-        const result = await getProductos8();
-        console.log(result);
-        setProductos(result);
-    }
-
+    },[]);
+    
     return (
         <>
         <div className="fondo">
-            <NavBar/>
+            <NavBar
+                limpiarCarrito = {limpiarCarrito}
+                eliminarProducto = {eliminarProducto}
+                productes = {productes}
+                total = {total}
+            />
             <div className="header">
                 <div className="border">
                     <div className="row-flex">
@@ -51,6 +56,7 @@ const HomeScreen = () => {
                     </div>
                 </div>
             </div>
+
             <section className="topSales">
                 <div className="raw">
                     <div className="tituloProductosDestacados"> Productos Destacados </div>
@@ -154,27 +160,20 @@ const HomeScreen = () => {
                         return (
                             <div className="columnas">
                                 <div className="card">   
-                                    <img src={imagen} alt="" />
-                                    <div className="detalles">
+                                    <img src={imagen} alt="" onClick={() => redireccionar(element)} />
+                                    <div className="detalles" onClick={() => redireccionar(element)}>
                                         <span className="titulo">
                                             {element.name}
                                         </span>
                                         <span className="regularPrice">
-                                            ${new Intl.NumberFormat("ES-ES", {
-                                                style: "currency",
-                                                
-                                                currency: "CLP"
-                                            }).format(element.regular_price)}
+                                            ${format(element.regular_price)}
                                         </span>
                                         <span className="price">
-                                            ${new Intl.NumberFormat("ES-ES", {
-                                                style: "currency",
-                                                currency: "CLP"
-                                            }).format(element.price)}
+                                            ${format(element.price)}
                                         </span>
                                     </div>
                                     <div className="booton">
-                                        <button>
+                                        <button onClick={() => onAdd(element)}>
                                             Agregar al carrito
                                         </button>
                                     </div>

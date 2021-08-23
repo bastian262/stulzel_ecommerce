@@ -4,6 +4,7 @@ import { Spin } from 'antd';
 import { getProductos, getProductosById } from '../../api/productos';
 import { postCotizar } from '../../api/destinos';
 import destinos from '../../api/destinos.json';
+import { useCart } from '../../hooks/useCart';
 import { Select } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import CloseIcon from '@material-ui/icons/Close';
@@ -29,6 +30,8 @@ const CotizadorPage = () => {
     const [cantidad, setCantidad] = useState(0);
     const [loading, setLoading] = useState(false);
     const [loading2, setLoading2] = useState(false);
+    var localS = JSON.parse(localStorage.getItem("carrito"));
+    const [,limpiarCarrito, eliminarProducto, productes,total, ] = useCart(localS);
 
 
     useEffect(() => {
@@ -47,16 +50,8 @@ const CotizadorPage = () => {
     }
     
     const eliminarArticulo = (prod) => {
-        console.log(productosItem);
-        var array = [];
-        // var articulos = productosItem.filter(name => name === prod.name);
-        productosItem.forEach((element) => {
-            if(element.name !== prod.name){
-                array.push(element);
-            }
-        });
-        setProductosItem(array);
-        console.log(array);
+        var articulos = productosItem.filter(e => e.name !== prod.name);
+        setProductosItem(articulos);
     }
 
     const obtenerProductos = async () => {
@@ -66,7 +61,6 @@ const CotizadorPage = () => {
         setproductosState(result);
         setLoading2(false);
     } 
-
     const obtenerProducto = async () => {
         setLoading(true);
         const result = await getProductosById(productoId);
@@ -104,7 +98,12 @@ const CotizadorPage = () => {
     return ( 
         <>
             <div className="fondo">
-                <Header/>
+                <Header
+                    limpiarCarrito = {limpiarCarrito}
+                    eliminarProducto = {eliminarProducto}
+                    productes = {productes}
+                    total = {total}
+                />
                 <div class="titulo">
                     <h2>Cotizador de envios</h2>
                 </div>
@@ -148,7 +147,6 @@ const CotizadorPage = () => {
                             >
                                 {
                                     productosState.map((element, i) =>  <Option value={element.id}>{element.name}</Option>)
-                                    
                                 }
                             </Select>
                             <input value={cantidad} onChange={onChangeInput} type="number" placeholder="Ingrese cantidad"/>
@@ -179,14 +177,13 @@ const CotizadorPage = () => {
                                 {productosItem.length > 0 ?
                                     productosItem.map((element,i) => {
                                         return(
-                                            
                                             <>
-                                            <tr>
-                                                <td> <img width="120" src={element.images[0].src} alt={element.name} /> </td>
-                                                <td>{element.name}</td>
-                                                <td>{cantidades[i]}</td>
-                                                <td><CloseIcon onClick={() => eliminarArticulo(element)}/></td>
-                                            </tr>
+                                                <tr>
+                                                    <td> <img width="120" src={element.images[0].src} alt={element.name} /> </td>
+                                                    <td>{element.name}</td>
+                                                    <td>{cantidades[i]}</td>
+                                                    <td><CloseIcon onClick={() => eliminarArticulo(element)}/></td>
+                                                </tr>
                                             </>
                                         );
                                     })

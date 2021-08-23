@@ -8,12 +8,17 @@ import SignUpScreen from '../pages/signUp/SignUp';
 import SignInScreen from '../pages/signIn/SignIn';
 import WebinarScreen from '../pages/webinar/webinar';
 import DashboardScreen from '../pages/dashboard/dashboard';
+import ProductoScreen from '../pages/productos/productos';
+// import DetallesProductos from '../pages/productos/detallesProducto';
+import ListadoProducto from '../pages/productos/listadoProductos';
 const history = createBrowserHistory();
 const AppRouter  = () => {
     return (  
         <Router history={history}>
             <Switch>
-                <Route  exact path="/" component={ HomeScreen } />
+                <Route path="/producto/:id" component={ ProductoScreen } />
+                <Route path="/productos/:id" component={ ListadoProducto } />
+                <Route exact path="/" component={ HomeScreen } />
                 <Route exact path="/cotizador" component={ CotizadorScreen } />
                 <Route exact path="/signUp" component={ SignUpScreen } />
                 <Route exact path="/signIn" component={ SignInScreen } />
