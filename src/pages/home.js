@@ -13,9 +13,9 @@ import NavBar from '../components/nav/nav';
 
 const HomeScreen = () => {
     var localS = JSON.parse(localStorage.getItem("carrito"));
-
+    const varFInal = localS === null? [] : localS;
     const [productos, getProducts,,,,redireccionar ] = useProduct();
-    const [onAdd,limpiarCarrito, eliminarProducto, productes,total, ] = useCart(localS);
+    const [onAdd,limpiarCarrito, eliminarProducto, productes,total, ] = useCart(varFInal);
     const [format] = useFormat();
     useEffect(() => {
         getProducts();
@@ -25,6 +25,7 @@ const HomeScreen = () => {
         <>
         <div className="fondo">
             <NavBar
+                onAdd={onAdd}
                 limpiarCarrito = {limpiarCarrito}
                 eliminarProducto = {eliminarProducto}
                 productes = {productes}
@@ -41,7 +42,6 @@ const HomeScreen = () => {
                                 Si eres Barbería
                                 o Salón de belleza <br/> y te haces distribuidor obtendrás un
                             </span>
-                            {/* <span className="tituloGrande"></span>    */}
                             <span className="titulo2">
                             20% DE BONIFICACIÓN <br/> Y ENVÍO GRATIS
                             </span>

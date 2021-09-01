@@ -2,8 +2,15 @@ import React from 'react';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import CloseIcon from '@material-ui/icons/Close';
 import { useFormat } from '../../hooks/useFormat';
-const Cart = ({productes, limpiarCarrito, eliminarProducto, abrirCart, total}) => {
+import { useHistory } from 'react-router';
+import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+const Cart = ({onAdd,productes, limpiarCarrito, eliminarProducto, abrirCart, total}) => {
+    const history = useHistory();
     const [format] = useFormat();
+    const redireccionarCheckout = () => {
+        history.push("/checkout");
+    }
     return ( 
         <>  
             <div class="fondoNegro2" id="fondoNegro2"> 
@@ -24,6 +31,11 @@ const Cart = ({productes, limpiarCarrito, eliminarProducto, abrirCart, total}) =
                                 return (
                                     <div class="contenedor">
                                         <CloseIcon class="eliminarItem" onClick={() => eliminarProducto(element.id)} />
+                                        <div className="cantidad2">
+                                            <span>{element.cantidad}</span>
+                                            <ExpandMoreIcon className="more" onClick={()=> onAdd(element,-1)} />
+                                            <ExpandLessIcon className="less" onClick={()=> onAdd(element)}/>
+                                        </div>
                                         <div class="nombre">
                                             <span class="nombre2">
                                                 {element.nombre}
@@ -51,7 +63,7 @@ const Cart = ({productes, limpiarCarrito, eliminarProducto, abrirCart, total}) =
                             </span>
                         </div>
                         <div class="botones">
-                            <button class="finalizar">
+                            <button class="finalizar" onClick={() => redireccionarCheckout()}>
                                 Finalizar Compra
                             </button>
                             <button class="limpiarCarrito" onClick={() => limpiarCarrito ()}>

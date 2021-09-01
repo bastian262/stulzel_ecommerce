@@ -12,8 +12,11 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MenuScreen from '../cart/cart'
 import { useFormat } from '../../hooks/useFormat';
 import { useCategory } from '../../hooks/useCategory';
-const HeaderPage = ({limpiarCarrito, eliminarProducto, productes, total}) => {
+import { useHistory } from 'react-router';
+
+const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) => {
     const [format] = useFormat();
+    const history = useHistory();
     const [listarCategorias, categorias,redireccionar2] = useCategory();
     useEffect(() => {   
         listarCategorias();
@@ -72,6 +75,9 @@ const HeaderPage = ({limpiarCarrito, eliminarProducto, productes, total}) => {
             body[0].style.overflow = "hidden";
         }
     }
+    const abrircuenta = () => {
+        history.push("/micuenta");
+    }
     return ( 
         <>
             <header id="header1">
@@ -83,7 +89,7 @@ const HeaderPage = ({limpiarCarrito, eliminarProducto, productes, total}) => {
                         <SearchIcon className="icono" />
                     </div>
                     <div className="options">
-                        <div className="option">
+                        <div className="option" onClick={() => abrircuenta()}>
                             <PermIdentityIcon />
                             <span>Mi Cuenta</span>
                         </div>
@@ -116,31 +122,27 @@ const HeaderPage = ({limpiarCarrito, eliminarProducto, productes, total}) => {
                             Inicio
                         </Link>
                         
-                        <Link to="/">Quienes Somos</Link>
+                        <Link to="/quienessomos">Quienes Somos</Link>
                         <div class="productosM">
                             <Link to="/productos/0" class="productosMas">Productos</Link>
                             <ExpandMoreIcon class="moreIcon" />
                             <div class="productosVarios">
                                 <Link to="/productos/0">Todos</Link>
-                                {categorias.map((element) => {
-                                    const direccionar = `/productos/${element.id}`
-                                    return (
-                                        <>
-                                            <a onClick={() => redireccionar2(element)}>{element.name}</a>
-                                        </>
-                                    )
-                                })}
-                                {/* <Link to="/">Red One</Link>
-                                <Link to="/">Buffalo Men's</Link>
-                                <Link to="/">Sillones</Link>
-                                <Link to="/">Lavapelos</Link>
-                                <Link to="/">Carros Ayudantes</Link>
-                                <Link to="/">Accesorios de barbería</Link> */}
+                                {categorias != null ? 
+                                    categorias.map((element) => {
+                                        return (
+                                            <>
+                                                <a onClick={() => redireccionar2(element)}>{element.name}</a>
+                                            </>
+                                        )
+                                    })
+                                    : null
+                                }
                             </div>
                         </div>
                         <Link to="/">Curso Inicial Barbería</Link>
                         <Link to="/">Red One USA</Link>
-                        <Link to="/">Contacto</Link>
+                        <Link to="/contacto">Contacto</Link>
                         <Link to="/cotizador">Cotizador de Envíos</Link>
                         {/* <Link to="/signUp">Rggistro</Link> */}
                         {/* <Link to="/signIn">Iniciar sesion</Link> */}
@@ -162,7 +164,7 @@ const HeaderPage = ({limpiarCarrito, eliminarProducto, productes, total}) => {
                     </div>
                     <div class="subMenu">
                         <Link to="/">Inicio</Link>
-                        <Link to="/">Quienes Somos</Link>
+                        <Link to="/quienessomos">Quienes Somos</Link>
                         <div class="productosMobiles" onClick={expandir}>
                             <div class="product-flex">
                                 <Link to="/productos/0">Productos</Link>
@@ -180,11 +182,11 @@ const HeaderPage = ({limpiarCarrito, eliminarProducto, productes, total}) => {
                         </div>
                         <Link to="/">Curso Inicial de Barbería</Link>
                         <Link to="/">Red One USA</Link>
-                        <Link to="/">Contacto</Link>
+                        <Link to="/contacto">Contacto</Link>
                     </div>
                     <div class="links">
                         <span>Links de ayuda</span>
-                        <Link to="/">Mi Cuenta</Link>
+                        <Link to="/micuenta">Mi Cuenta</Link>
                         <Link to="/">Servicio al cliente</Link>
                     </div>
                     <div class="links">
@@ -199,6 +201,7 @@ const HeaderPage = ({limpiarCarrito, eliminarProducto, productes, total}) => {
                 </div>
             </div>
             <MenuScreen
+                onAdd={onAdd}
                 limpiarCarrito = {limpiarCarrito}
                 eliminarProducto = {eliminarProducto}
                 productes = {productes}

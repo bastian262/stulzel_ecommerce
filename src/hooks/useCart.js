@@ -6,25 +6,59 @@ export const useCart = ( initial = []) => {
     const onAdd = (producto, cantidad = 1) => {
         var localS = localStorage.getItem("carrito");
         setProductos(JSON.parse(localS));
-        const data = {
-            id: producto.id,
-            nombre: producto.name,
-            url: producto.images[0].src,
-            precio: producto.price,
-            cantidad:cantidad,
-            dimension: producto.dimensions,
-            peso: producto.weight
-        }
-        if(localS != null){
-            setProductos([...productes, data]);
+        
+        var filtrado = productes.filter(e => e.id === producto.id);
+        
+        if(filtrado.length == 1){
+            var array = [];
+            productes.forEach((element) => {
+                if(element.id == producto.id){
+                    if(element.cantidad + cantidad == 0){
+                        
+                    }
+                    else
+                    {
+                        if(element.stockStatus == "instock"){
+                            if(element.manejaStock){
+                                if(cantidad + element.cantidad > element.stockDisponible){
+                                
+                                }else{
+                                    element.cantidad += cantidad;
+                                }
+                            }else{
+                                element.cantidad += cantidad;
+                            }
+                        }
+                        
+                    }
+                }
+                array.push(element);
+            });
+            setProductos(array);
         }else{
-            setTotal(data.precio);
-            setProductos(data);
+            if(producto.stock_status == "instock"){
+                const data = {
+                    id: producto.id,
+                    nombre: producto.name,
+                    url: producto.images[0].src,
+                    precio: producto.price,
+                    stockDisponible:producto.stock_quantity,
+                    manejaStock:producto.manage_stock,
+                    cantidad:cantidad,
+                    stockStatus:producto.stock_status,
+                    dimension: producto.dimensions,
+                    peso: producto.weight
+                }
+                if(localS != null){
+                    setProductos([...productes, data]);
+                }else{
+                    setTotal(data.precio);
+                    setProductos(data);
+                }
+            }
         }
     };
-    // const getCart = () => {
-    //     var localS = localStorage.getItem("carrito");
-    // }
+
     useEffect(() => {
         localStorage.setItem("carrito",JSON.stringify(productes));
         setTotal(0);

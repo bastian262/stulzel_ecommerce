@@ -31,7 +31,7 @@ const CotizadorPage = () => {
     const [loading, setLoading] = useState(false);
     const [loading2, setLoading2] = useState(false);
     var localS = JSON.parse(localStorage.getItem("carrito"));
-    const [,limpiarCarrito, eliminarProducto, productes,total, ] = useCart(localS);
+    const [onAdd,limpiarCarrito, eliminarProducto, productes,total, ] = useCart(localS);
 
 
     useEffect(() => {
@@ -99,6 +99,7 @@ const CotizadorPage = () => {
         <>
             <div className="fondo">
                 <Header
+                    onAdd={onAdd}
                     limpiarCarrito = {limpiarCarrito}
                     eliminarProducto = {eliminarProducto}
                     productes = {productes}
