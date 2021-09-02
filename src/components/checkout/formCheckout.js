@@ -2896,12 +2896,12 @@ const FormCheckout = ({onChange, values, setvalues, setTarifa}) => {
     const [value, setValue] = useState("boleta");
 
     const [,,,,total,] = useCart(result);
-    const {firstName, lastName, rut, direccion, numero, comuna, ciudad, region, codigopostal, telefono, telefono2, correo,boletaFactura,same,nombreB,apellidoB,rutB,direccionB,telefonoB,correoB, giroB,nombreS,apellidoS,companyS,direccionS,localidadS,codigopostalS,detalle} = values;
+    const {firstName, lastName, rut, direccion, numero, comuna, ciudad, region, codigopostal, telefono, telefono2, correo,boletaFactura,same,nombreB,apellidoB,rutB,direccionB,telefonoB,correoB, giroB,nombreS,apellidoS,companyS,direccionS,localidadS,codigopostalS,regionS, detalle} = values;
 
     useEffect(async() => {
         var contadorTotal = 0;
         if(result != null){
-            if(total > 50000 && region == 1){
+            if(total > 50000 && regionS == 1){
                 setTarifa(4990);
             }else{
                 result.forEach(async(element) => {
@@ -2910,7 +2910,7 @@ const FormCheckout = ({onChange, values, setvalues, setTarifa}) => {
                         width: element.dimension.width === "" ? 10 : parseFloat(element.dimension.width),
                         length: element.dimension.length === "" ? 10 : parseFloat(element.dimension.length),
                         weight: element.peso === "" ? 5 : element.peso * element.cantidad,
-                        destination: parseInt(region),
+                        destination: parseInt(regionS),
                     }
                     const resultado = await getTarifa(data);
                     if(resultado.cost > 0){
@@ -2922,7 +2922,7 @@ const FormCheckout = ({onChange, values, setvalues, setTarifa}) => {
                 });
             }
         }
-    }, [region]);
+    }, [regionS]);
 
     const handleChange = (event) => {
         setValue(event.target.value);
@@ -2933,6 +2933,12 @@ const FormCheckout = ({onChange, values, setvalues, setTarifa}) => {
     };
 
     const calcularTarifa = async (e) => {
+        var {name, value} = e.target;
+        e.preventDefault();
+        setvalues({...values, [name]:value});
+    }
+
+    const calcularTarifa2 = async (e) => {
         var {name, value} = e.target;
         e.preventDefault();
         setvalues({...values, [name]:value});
@@ -3184,7 +3190,7 @@ const FormCheckout = ({onChange, values, setvalues, setTarifa}) => {
             <h2>Datos de envío</h2>
             <div className="campo">
                 <div className="mitad">
-                    <label>Nombre *</label>
+                    <label>Nombre <span className="span">*</span></label>
                     <input 
                         type="text" 
                         placeholder="Nombre"
@@ -3195,7 +3201,7 @@ const FormCheckout = ({onChange, values, setvalues, setTarifa}) => {
                     />
                 </div>
                 <div className="mitad">
-                    <label>Apellido *</label>
+                    <label>Apellido <span className="span">*</span> </label>
                     <input 
                         type="text" 
                         placeholder="Apellido"
@@ -3207,7 +3213,7 @@ const FormCheckout = ({onChange, values, setvalues, setTarifa}) => {
                 </div>
             </div>
             <div className="campo">
-                <label>Nombre de la empresa *</label>
+                <label>Nombre de la empresa </label>
                 <input 
                     type="text" 
                     placeholder="Nombre de la empresa"
@@ -3218,7 +3224,7 @@ const FormCheckout = ({onChange, values, setvalues, setTarifa}) => {
                 />
             </div>
             <div className="campo">
-                <label>Dirección de la calle*</label>
+                <label>Dirección de la calle <span className="span">*</span></label>
                 <input 
                     type="text" 
                     placeholder="Dirección"
@@ -3229,7 +3235,7 @@ const FormCheckout = ({onChange, values, setvalues, setTarifa}) => {
                 />
             </div>
             <div className="campo">
-                <label>Localidad / Ciudad*</label>
+                <label>Localidad / Ciudad <span className="span">*</span></label>
                 <input 
                     placeholder="Ciudad"
                     type="text" 
@@ -3240,7 +3246,15 @@ const FormCheckout = ({onChange, values, setvalues, setTarifa}) => {
                 />
             </div>
             <div className="campo">
-                <label>Codigo Postal*</label>
+                <label>Región <span className="span">*</span></label>
+                <select name="regionS" id="regionS" onChange={calcularTarifa2}>
+                    {
+                        jsonList.map(element => <option value={element.id}>{element.nombre}</option>)
+                    }
+                </select>
+            </div>
+            <div className="campo">
+                <label>Codigo Postal</label>
                 <input 
                     placeholder="Código Postal"
                     type="text" 

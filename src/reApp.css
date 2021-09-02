@@ -429,4 +429,16 @@
   .fondo .raw .col1:first-child{
     margin-right: 0px;
   }
+  .fondo .contenedor .raw .col-m
+  {
+    width: 100%;
+  }
+  .fondo .contenedor .raw .col-s
+  {
+    width: 100%;
+    margin-top: 50px;
+  }
+  .fondo .contenedor .raw-flex2 .col3 span{
+    height: 43px;
+  }
 }

@@ -2289,7 +2289,7 @@ display: none;
   margin: 0;
 }
 
-.fondo .raw .col1 .whatsapp{
+.fondo .raw .col1 .whatsapp2{
   float: left;
   width: 100%;
   /* max-width: 280px; */
@@ -2299,14 +2299,14 @@ display: none;
   justify-content: flex-start;
 }
 
-.fondo .raw .col1 .whatsapp .iconoo{
+.fondo .raw .col1 .whatsapp2 .iconoo{
   font-size: 22px;
   width: 50px;
   cursor: pointer;
   fill: #3bb54a;
 }
 
-.fondo .raw .col1 .whatsapp span{
+.fondo .raw .col1 .whatsapp2 span{
   font-size: 20px;
   margin-left: 10px;
   font-weight: 400;
@@ -2857,10 +2857,12 @@ display: none;
   padding-bottom: 10px;
   border-bottom: 1px solid #d6d6d6;
 }
+
 .fondo .contenedor .raw .col-s .detalles .details:nth-last-child(1){
   border-bottom: 0px solid #d6d6d6;
 
 } 
+
 .fondo .contenedor .raw .col-s .detalles .details .flex-start{
   float: left;
   width: 100%;

@@ -36,6 +36,7 @@ const Checkout = () => {
         companyS:'',
         direccionS:'',
         localidadS:'',
+        regionS:'',
         codigopostalS:'',
         detalle:''
     });

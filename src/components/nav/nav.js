@@ -1,4 +1,4 @@
-import React , { useEffect } from 'react';
+import React , { useEffect , useState} from 'react';
 import '../../App.css';
 import PermIdentityIcon from '@material-ui/icons/PermIdentity';
 import HelpIcon from '@material-ui/icons/Help';
@@ -16,8 +16,9 @@ import { useHistory } from 'react-router';
 
 const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) => {
     const [format] = useFormat();
+    const [ide, setIde] = useState(1);
     const history = useHistory();
-    const [listarCategorias, categorias,redireccionar2] = useCategory();
+    const [listarCategorias, categorias,] = useCategory();
     useEffect(() => {   
         listarCategorias();
     }, []);
@@ -75,15 +76,34 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
             body[0].style.overflow = "hidden";
         }
     }
+    const redireccionar2 = (categoria) => {
+        let body = document.getElementsByTagName("body");
+        body[0].style.height = "auto";
+        body[0].style.overflow = "visible";
+
+        setIde(categoria.id);
+        localStorage.setItem("categoria", JSON.stringify(categoria));
+        history.push(`/productos/${categoria.id}`);
+    }
     const abrircuenta = () => {
+        let body = document.getElementsByTagName("body");
+        body[0].style.height = "auto";
+        body[0].style.overflow = "visible";
         history.push("/micuenta");
     }
+
+    const redireccionar3 = (ruta) => {
+        let body = document.getElementsByTagName("body");
+        body[0].style.height = "auto";
+        body[0].style.overflow = "visible";
+        history.push(ruta);
+    }
+
     return ( 
         <>
             <header id="header1">
                 <div className="container-flex">
                     <img src ="https://stulzel.com/wp-content/uploads/2021/05/cropped-Recurso-2-8.png" alt="logo"/>
-
                     <div className="search">
                         <input value="" placeholder="Buscar Productos..."/>
                         <SearchIcon className="icono" />
@@ -118,7 +138,7 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
             <nav>
                 <div className="container-flex-btw">
                     <div className="menu">
-                        <Link to="/">
+                        <Link onClick={() => redireccionar3("/")}>
                             Inicio
                         </Link>
                         
@@ -163,30 +183,34 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
                         <input type="text" placeholder="Buscar Productos..." />
                     </div>
                     <div class="subMenu">
-                        <Link to="/">Inicio</Link>
-                        <Link to="/quienessomos">Quienes Somos</Link>
+                        <Link onClick={() =>redireccionar3("/")}>Inicio</Link>
+                        <a onClick={() =>redireccionar3("/quienessomos")}>Quienes Somos</a>
                         <div class="productosMobiles" onClick={expandir}>
                             <div class="product-flex">
-                                <Link to="/productos/0">Productos</Link>
+                                <Link>Productos</Link>
                                 <ExpandMoreIcon />
                             </div>
                             <div className="subMenu2" id="subMenu2">
-                                <Link to="/productos/0">Todos</Link>
-                                <Link to="/">Red One</Link>
-                                <Link to="/">Buffalo Men's</Link>
-                                <Link to="/">Sillones</Link>
-                                <Link to="/">Lavapelos</Link>
-                                <Link to="/">Carros Ayudantes</Link>
-                                <Link to="/">Accesorios de barbería</Link>
+                                {/* <Link onClick={() => redireccionar2({id:0})}>Todos</Link> */}
+                                {categorias != null ? 
+                                    categorias.map((element) => {
+                                        return (
+                                            <>
+                                                <a onClick={() => redireccionar2(element)}>{element.name}</a>
+                                            </>
+                                        )
+                                    })
+                                    : null
+                                }
                             </div>
                         </div>
                         <Link to="/">Curso Inicial de Barbería</Link>
                         <Link to="/">Red One USA</Link>
-                        <Link to="/contacto">Contacto</Link>
+                        <Link onClick={() =>redireccionar3("/contacto")}>Contacto</Link>
                     </div>
                     <div class="links">
                         <span>Links de ayuda</span>
-                        <Link to="/micuenta">Mi Cuenta</Link>
+                        <Link onClick={() =>redireccionar3("/micuenta")}>Mi Cuenta</Link>
                         <Link to="/">Servicio al cliente</Link>
                     </div>
                     <div class="links">

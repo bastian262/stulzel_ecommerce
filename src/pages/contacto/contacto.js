@@ -88,22 +88,22 @@ const Contacto = () => {
                         <div class="col1">
                             <span className="needhelp">¿Necesita Ayuda?</span>
                             <p className="p">WhatsApp Ventas</p>
-                            <div class="whatsapp">
+                            <div class="whatsapp2">
                                 <WhatsAppIcon class="iconoo" />
                                 <span>+569 7232 1555</span>
                             </div>
                             <p className="p">Email Ventas</p>
-                            <div class="whatsapp">
+                            <div class="whatsapp2">
                                 <EmailRoundedIcon class="iconoo" />
                                 <span>gerenciaventas@stulzel.com</span>
                             </div>
                             <p className="p">WhatsApp Servicio al Cliente</p>
-                            <div class="whatsapp">
+                            <div class="whatsapp2">
                                 <WhatsAppIcon class="iconoo" />
                                 <span>+569 3424 0942</span>
                             </div>
                             <p className="p">Email Servicio al Cliente</p>
-                            <div class="whatsapp">
+                            <div class="whatsapp2">
                                 <EmailRoundedIcon class="iconoo" />
                                 <span>servicioalcliente@stulzel.com</span>
                             </div>

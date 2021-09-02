@@ -2,7 +2,7 @@ import { basePathWoocommerce, consumerKey, consumerSecret } from './config';
 
 export function getProductByPrice(prices,id) {
 
-    const url = `${basePathWoocommerce}products?category=${id}&min_price=${prices[0] * 10000}&max_price=${prices[1] * 10000}&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
+    const url = `${basePathWoocommerce}products?category=${id}&min_price=${prices[0] * 10000}&max_price=${prices[1] * 10000}&status=publish&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
     console.log(url);
     const params = {
         method: "GET",
@@ -24,7 +24,7 @@ export function getProductByPrice(prices,id) {
 
 export function getProductosByOrder(value, id, orden = "desc") {
 
-    const url = `${basePathWoocommerce}products?category=${id}&orderby=${value}&order=${orden}&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
+    const url = `${basePathWoocommerce}products?category=${id}&orderby=${value}&order=${orden}&status=publish&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
     const params = {
         method: "GET",
         headers: {
@@ -44,7 +44,7 @@ export function getProductosByOrder(value, id, orden = "desc") {
 
 export function getProductos() {
 
-    const url = `${basePathWoocommerce}products?per_page=100&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
+    const url = `${basePathWoocommerce}products?per_page=100&status=publish&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
     const params = {
         method: "GET",
         headers: {
@@ -64,7 +64,7 @@ export function getProductos() {
 
 export function getProductos10(page = 1) {
 
-    const url = `${basePathWoocommerce}products?per_page=10&page=${page}&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
+    const url = `${basePathWoocommerce}products?status=publish&per_page=10&page=${page}&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
     const params = {
         method: "GET",
         headers: {
@@ -83,7 +83,7 @@ export function getProductos10(page = 1) {
 
 export function getProductos8() {
 
-    const url = `${basePathWoocommerce}products?per_page=8&page=1&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
+    const url = `${basePathWoocommerce}products?status=publish&per_page=8&page=1&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
     const params = {
         method: "GET",
         headers: {
@@ -103,7 +103,7 @@ export function getProductos8() {
 
 export function getProductosById(id) {
 
-    const url = `${basePathWoocommerce}products/${id}?consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
+    const url = `${basePathWoocommerce}products/${id}?status=publish&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
     const params = {
         method: "GET",
         headers: {
@@ -124,7 +124,7 @@ export function getProductosById(id) {
 
 export function getProductosByCategoryId(id, page = 1) {
 
-    const url = `${basePathWoocommerce}products?category=${id}&per_page=9&page=${page}&status=publish&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
+    const url = `${basePathWoocommerce}products?category=${id}&status=publish&per_page=9&page=${page}&status=publish&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
     const params = {
         method: "GET",
         headers: {

@@ -21,7 +21,7 @@ import { getProductosById } from '../../api/productos';
 // import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import { makeStyles } from '@material-ui/core/styles';
 import { useFormat } from '../../hooks/useFormat';
-
+import { useForm } from '../../hooks/useForm';
 const useStyles = makeStyles((theme) => ({
     backdrop: {
       zIndex: theme.zIndex.drawer + 1,
@@ -47,7 +47,11 @@ const Producto = () => {
         obtenerRelacionados();
     },[]);
 
-    useEffect(() => {
+    const [values, onChange,] = useForm({
+        quantity:1
+    });
+    const {quantity} = values;
+    useEffect(() => {   
         var desc = document.getElementById("descripcion");
         var info = document.getElementById("informacion");
         var valo = document.getElementById("valoracion");
@@ -155,7 +159,12 @@ const Producto = () => {
         // window.location.replace('');
     }
     const descuento = Math.trunc(((productoTemporal.price * 100)/ productoTemporal.regular_price) - 100);
+    const obtenerDatos = () => {
+        var doc = document.getElementById("quantity").value;
+        
+        onAdd(productoTemporal, doc);
 
+    }
     return ( 
         <>
             <div className="fondo">
@@ -189,9 +198,9 @@ const Producto = () => {
                             {productoTemporal.stock_status === "instock" ?
                             <div class="addCart">
                                 <div class="quantity">
-                                    <input type="number" min="1" max={productoTemporal.stock_quantity} step="1" value="1" />
+                                    <input type="number" min="1" max={productoTemporal.stock_quantity} step="1" value="1" id="quantity" name="quantity"/>
                                 </div>
-                                <button>Agregar al carrito</button>
+                                <button onClick={obtenerDatos}>Agregar al carrito</button>
                             </div> : null}
                             <div class="agregarDeseos">
                                <FavoriteBorderIcon/> <strong>Agregar a lista de deseos</strong>

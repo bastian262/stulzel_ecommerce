@@ -20,6 +20,8 @@ import MisPedidos from '../../components/miCuenta/misPedidos';
 import Descargas from '../../components/miCuenta/descargas';
 import Direcciones from '../../components/miCuenta/direcciones';
 import DatosPersonales from '../../components/miCuenta/datosPersonales';
+
+
 const DetalleMiCuenta = ({usuario}) => {
     const [pedidos, setPedidos] = useState([]);
     const [customer, setCustomer] = useState({});

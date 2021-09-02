@@ -9,6 +9,9 @@ const Cart = ({onAdd,productes, limpiarCarrito, eliminarProducto, abrirCart, tot
     const history = useHistory();
     const [format] = useFormat();
     const redireccionarCheckout = () => {
+        let body = document.getElementsByTagName("body");
+        body[0].style.height = "auto";
+        body[0].style.overflow = "visible";
         history.push("/checkout");
     }
     return ( 

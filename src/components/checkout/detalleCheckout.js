@@ -7,18 +7,32 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
+import { postOrder } from '../../api/orders';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
+
+
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
+
 const DetalleCheckout = ({tarifa, values2}) => {
     const productos = JSON.parse(localStorage.getItem("carrito"));
     const [,,,,total, ] = useCart(productos);
     const [format] = useFormat()
     const [value, setValue] = useState("retiro");
+    const [open, setopen] = useState(false);
+    const [mensaje, setmensaje] = useState("");
     const [value2, setValue2] = useState("webpay");
     const [tarifaFinal, setTarifaFinal] = useState(0);
     const [descuentoCupon, setDescuentoCupon] = useState(0);
+    const [cuponObtenido, setCuponObtenido] = useState({});
     const [values, onChange, setvalues] = useForm({
         cupon:''
     });
     const {cupon} = values;
+    const {firstName, lastName, rut, direccion, numero, comuna, ciudad, region, codigopostal, telefono, telefono2, correo,boletaFactura,same,nombreB,apellidoB,rutB,direccionB,telefonoB,correoB, giroB,nombreS,apellidoS,companyS,direccionS,localidadS,codigopostalS,regionS,detalle} = values2;
+
     useEffect(() => {
         if(value == "express"){
             setTarifaFinal(tarifa);   
@@ -37,16 +51,182 @@ const DetalleCheckout = ({tarifa, values2}) => {
     };
     const handleChange2 = (event) => {
     };
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
 
+        setopen(false);
+    };
     const aplicarDescuento = async () => {
         const resultado = await getCupon(cupon);
         console.log(resultado);
         if(resultado[0].id > 0){
             const descuento = Math.trunc( total * (resultado[0].amount / 100));
             setDescuentoCupon(descuento);
+            setCuponObtenido(resultado[0]);
         }
     }
+    const submitOrden = async () => {   
+        var array = [];
+        var method = "";
+        var method_id = "";
+        if(firstName.trim().length < 2){
+            setopen(true);
+            setmensaje("Ingrese un Nombre por favor");
+        }else if(lastName.trim().length < 2){
+            setopen(true);
+            setmensaje("Ingrese un Apellido por favor");
+        }else if(rut.trim().length < 8){
+            setopen(true);
+            setmensaje("Ingrese un Rut por favor");
+        }else if(direccion.trim().length < 2){
+            setopen(true);
+            setmensaje("Ingrese una Dirección por favor");
+        }else if(ciudad.trim().length < 2){
+            setopen(true);
+            setmensaje("Ingrese un Ciudad por favor");
+        }else if(parseInt(region) < 0){
+            setopen(true);
+            setmensaje("Ingrese una región por favor");
+        }else if(telefono.trim().length < 8){
+            setopen(true);
+            setmensaje("Ingrese un teléfono por favor");
+        }else if(telefono2.trim().length < 8){
+            setopen(true);
+            setmensaje("Ingrese un segundo teléfono por favor");
+        }else if(correo.trim().length < 5){
+            setopen(true);
+            setmensaje("Ingrese un correo por favor");
+        }else if(nombreS.trim().length < 2){
+            setopen(true);
+            setmensaje("Ingrese un nombre para el envío por favor");
+        }else if(apellidoS.trim().length < 2){
+            setopen(true);
+            setmensaje("Ingrese un apellido para el envío por favor");
+        }
+        else if(direccionB.trim().length < 2){
+            setopen(true);
+            setmensaje("Ingrese un dirección para el envío por favor");
+        }else if(parseInt(regionS) < 1){
+            setopen(true);
+            setmensaje("Ingrese una región para el envío por favor");
+        }
+        else
+        {
+            if(value === "retiro"){
+                method = "Retiro en tienda";
+                method_id = "local_pickup";
+            }else if(value === "gratis"){
+                method = "Envío gratis";
+                method_id = "free_shipping";
+            }else{
+                method = "Envío Express";
+                method_id = "starken";
+            }
+            productos.forEach(element => {
+                
+                const arregloTemporal = {
+                    product_id: element.id,
+                    quantity: element.cantidad
+                }
+    
+                array.push(arregloTemporal);
+    
+            }); 
+            var data;
+            
+            if(descuentoCupon > 0){
+                data = {
+                    payment_method: "webpay",
+                    payment_method_title: "Webpay Plus",
+                    set_paid: false,
+                    status:"on-hold",
+                    billing: {
+                      first_name: firstName,
+                      last_name: lastName,
+                      address_1: direccion,
+                      address_2: direccion,
+                      city: ciudad,
+                      state: region,
+                      postcode: codigopostal,
+                      country: "CL",
+                      email: correo,
+                      phone: telefono
+                    },
+                    shipping: {
+                      first_name: nombreS,
+                      last_name: apellidoS,
+                      address_1: direccionS,
+                      address_2: direccionS,
+                      city: localidadS,
+                      state: region,
+                      postcode: codigopostalS,
+                      country: "CL"
+                    },
+                    line_items: array,
+                    shipping_lines: [
+                      {
+                        method_id: method_id,
+                        method_title: method,
+                        total: tarifaFinal.toString()
+                      }
+                    ],
+                    coupon_lines:[
+                        {
+                            code:cuponObtenido.code
+                        }
+                    ]
+                }
+    
+            }else{
+                data = {
+                    payment_method: "webpay",
+                    payment_method_title: "Webpay Plus",
+                    set_paid: false,
+                    status:"on-hold",
+                    billing: {
+                      first_name: firstName,
+                      last_name: lastName,
+                      address_1: direccion,
+                      address_2: direccion,
+                      city: ciudad,
+                      state: region,
+                      postcode: codigopostal,
+                      country: "CL",
+                      email: correo,
+                      phone: telefono
+                    },
+                    shipping: {
+                      first_name: nombreS,
+                      last_name: apellidoS,
+                      address_1: direccionS,
+                      address_2: direccionS,
+                      city: localidadS,
+                      state: region,
+                      postcode: codigopostalS,
+                      country: "CL"
+                    },
+                    line_items: array,
+                    shipping_lines: [
+                      {
+                        method_id: method_id,
+                        method_title: method,
+                        total: tarifaFinal.toString()
+                      }
+                    ]
+                }
+            }
+            const resultado = await postOrder(data);
+            if(resultado.id > 0){
+                var url = "http://localhost:27017/"
+                const amount = total + tarifaFinal - descuentoCupon;
+                window.location.href =`${url}api/createTransaction?buyOrder=${resultado.id }&sessionId=${resultado.id}&amount=${amount}`
+            }
+        }
 
+
+    }
     return ( <>
         <h2>Tu pedido</h2>
         
@@ -160,7 +340,7 @@ const DetalleCheckout = ({tarifa, values2}) => {
                     </div>
                 </div>
                 <div className="botonFinalizarCompra">
-                    <button>Finalizar compra</button>
+                    <button onClick={() => submitOrden()}>Finalizar compra</button>
                 </div>
                 <div className="botonFinalizarCompra">
                     <img src="	https://themedemo.commercegurus.com/shoptimizer-demodata/wp-content/uploads/sites/53/2018/07/trust-symbols_b-1024x108.jpg" width="100%" />
@@ -176,6 +356,11 @@ const DetalleCheckout = ({tarifa, values2}) => {
         : null
         
         }
+        <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+            <Alert onClose={handleClose} severity={"error"}>
+                {mensaje}
+            </Alert>
+        </Snackbar>
     </> );
 }
  
