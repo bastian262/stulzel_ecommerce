@@ -2932,11 +2932,11 @@ const FormCheckout = ({onChange, values, setvalues, setTarifa}) => {
         setChecked(event.target.checked);
     };
 
-    const calcularTarifa = async (e) => {
-        var {name, value} = e.target;
-        e.preventDefault();
-        setvalues({...values, [name]:value});
-    }
+    // const calcularTarifa = async (e) => {
+    //     var {name, value} = e.target;
+    //     e.preventDefault();
+    //     setvalues({...values, [name]:value});
+    // }
 
     const calcularTarifa2 = async (e) => {
         var {name, value} = e.target;
@@ -3028,7 +3028,7 @@ const FormCheckout = ({onChange, values, setvalues, setTarifa}) => {
             </div>
             <div className="campo">
                 <label>Región <span className="span">*</span></label>
-                <select name="region" id="region" onChange={calcularTarifa}>
+                <select name="region" id="region">
                     {
                         jsonList.map(element => <option value={element.id}>{element.nombre}</option>)
                     }

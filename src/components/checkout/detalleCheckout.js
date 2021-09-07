@@ -10,7 +10,7 @@ import FormControl from '@material-ui/core/FormControl';
 import { postOrder } from '../../api/orders';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
-
+import ReactPixel from 'react-facebook-pixel';
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -105,7 +105,7 @@ const DetalleCheckout = ({tarifa, values2}) => {
             setopen(true);
             setmensaje("Ingrese un apellido para el envío por favor");
         }
-        else if(direccionB.trim().length < 2){
+        else if(direccionS.trim().length < 2){
             setopen(true);
             setmensaje("Ingrese un dirección para el envío por favor");
         }else if(parseInt(regionS) < 1){
@@ -219,6 +219,13 @@ const DetalleCheckout = ({tarifa, values2}) => {
             }
             const resultado = await postOrder(data);
             if(resultado.id > 0){
+                const options = {
+                    autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
+                    debug: false, // enable logs
+                };
+                const advancedMatching = { em: 'bastianorellanaf@gmail.com' };
+                ReactPixel.init("813393342669464",advancedMatching,options);
+                ReactPixel.track("InitiateCheckout");
                 localStorage.setItem("carrito", JSON.stringify([]));
                 var url = "http://localhost:27017/"
                 const amount = total + tarifaFinal - descuentoCupon;
@@ -254,7 +261,6 @@ const DetalleCheckout = ({tarifa, values2}) => {
                             </div>
                         )
                     })
-                    
                     }
                 </div>
                 <div className="cuadro" style={{fontWeight:"500"}}>

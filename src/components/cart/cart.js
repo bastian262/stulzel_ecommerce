@@ -2,7 +2,7 @@ import React from 'react';
 import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import CloseIcon from '@material-ui/icons/Close';
 import { useFormat } from '../../hooks/useFormat';
-import ReactPixel from 'react-facebook-pixel';
+
 import { useHistory } from 'react-router';
 import ExpandLessIcon from '@material-ui/icons/ExpandLess';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
@@ -10,13 +10,7 @@ const Cart = ({onAdd,productes, limpiarCarrito, eliminarProducto, abrirCart, tot
     const history = useHistory();
     const [format] = useFormat();
     const redireccionarCheckout = () => {
-        const options = {
-            autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
-            debug: false, // enable logs
-        };
-        const advancedMatching = { em: 'bastianorellanaf@gmail.com' };
-        ReactPixel.init("813393342669464",advancedMatching,options);
-        ReactPixel.track("InitiateCheckout");
+        
         let body = document.getElementsByTagName("body");
         body[0].style.height = "auto";
         body[0].style.overflow = "visible";

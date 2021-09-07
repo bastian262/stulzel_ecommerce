@@ -34,7 +34,7 @@ const Contacto = () => {
 
     const redireccionar = (numero) => {
         ReactPixel.init("813393342669464",advancedMatching,options);
-        ReactPixel.trackSingle("813393342669464", "contact");
+        ReactPixel.trackSingle("813393342669464", "Contact");
          const url = `https://wa.me/${numero}`; 
          window.location.href = url;
     }
