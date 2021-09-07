@@ -10,15 +10,22 @@ import logo from '../assets/img/logo.png';
 import Footer1 from '../components/footer/Footer1';
 import Footer2 from '../components/footer/Footer2';
 import NavBar from '../components/nav/nav';
-
+import ReactPixel from 'react-facebook-pixel';
 const HomeScreen = () => {
     var localS = JSON.parse(localStorage.getItem("carrito"));
     const varFInal = localS === null? [] : localS;
     const [productos, getProducts,,,,redireccionar ] = useProduct();
     const [onAdd,limpiarCarrito, eliminarProducto, productes,total, ] = useCart(varFInal);
     const [format] = useFormat();
+    const options = {
+        autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
+        debug: false, // enable logs
+      };
+      const advancedMatching = { em: 'bastianorellanaf@gmail.com' };
     useEffect(() => {
         getProducts();
+        ReactPixel.init("813393342669464",advancedMatching,options);
+        ReactPixel.pageView();
     },[]);
     
     return (

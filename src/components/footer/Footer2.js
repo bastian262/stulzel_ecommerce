@@ -1,6 +1,16 @@
 import React from 'react';
+import ReactPixel from 'react-facebook-pixel';
 
 const Footer2 = () => {
+    const registrarPixel = () => {
+        const options = {
+            autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
+            debug: false, // enable logs
+        };
+        const advancedMatching = { em: 'bastianorellanaf@gmail.com' };
+        ReactPixel.init("813393342669464",advancedMatching,options);
+        ReactPixel.track("FindLocation");
+    }
     return (  
         <>
             <footer>
@@ -12,7 +22,7 @@ const Footer2 = () => {
                     </div>
                     <div class="col-3">
                         <span>MAPA</span>
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.1731685614373!2d-70.59105498495289!3d-33.41872938078303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf4b2a444e17%3A0x6e7ecc29a5717263!2sStulzel%20-%20Todo%20Para%20Tu%20Barber%C3%ADa!5e0!3m2!1ses!2scl!4v1628198007928!5m2!1ses!2scl" class="iframeGoogle" allowfullscreen="" loading="lazy" title="map"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.1731685614373!2d-70.59105498495289!3d-33.41872938078303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf4b2a444e17%3A0x6e7ecc29a5717263!2sStulzel%20-%20Todo%20Para%20Tu%20Barber%C3%ADa!5e0!3m2!1ses!2scl!4v1628198007928!5m2!1ses!2scl" class="iframeGoogle" allowfullscreen="" loading="lazy" title="map" onClick={registrarPixel}></iframe>
                     </div>
                     <div class="col-3">
                         <span>LINKS DE AYUDA</span>

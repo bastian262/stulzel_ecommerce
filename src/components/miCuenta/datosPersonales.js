@@ -3,6 +3,8 @@ import { useForm } from '../../hooks/useForm';
 import { putCustomer } from '../../api/customer';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
+import { Button } from 'antd';
+
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -11,6 +13,7 @@ const DatosPersonales = () => {
     const [open, setOpen] = useState(false);
     const [mensaje, setMensaje] = useState("");
     const [severity, setSeverity] = useState("success");
+    const [loading, setLoading] = useState(false);
     const [values, onChange, setvalues] = useForm({
         email:usuario.email,
         first_name:usuario.firstName,
@@ -30,6 +33,7 @@ const DatosPersonales = () => {
         setOpen(false);
     };
     const submit = async () => {
+        setLoading(true);
         if(passwordActual == '')
         {
             const data = {
@@ -79,12 +83,12 @@ const DatosPersonales = () => {
                 setMensaje("Las contraseñas no coinciden");
             }   
         }
+        setLoading(false);
     }   
 
     return ( 
         <>
         <div className="direcciones">
-
             <div className="form">
                 <h2>Detalles de la cuenta</h2>
                 <div className="campo">
@@ -161,7 +165,10 @@ const DatosPersonales = () => {
                     />
                 </div>
                 <div className="campo">
-                    <button className="btn" onClick={() => submit()}>Actualizar datos</button>
+                    <Button className="btn" type="primary" loading={loading} onClick={() => submit()}>
+                        Actualizar datos
+                    </Button>
+                    {/* <button className="btn" onClick={() => submit()}>Actualizar datos</button> */}
                 </div>
             </div>
         </div>

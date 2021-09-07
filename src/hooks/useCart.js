@@ -1,12 +1,18 @@
 import {useEffect, useState} from 'react';
-
+import ReactPixel from 'react-facebook-pixel';
 export const useCart = ( initial = []) => {
     const [productes, setProductos] = useState(initial);
     const [total, setTotal] = useState(0);
     const onAdd = (producto, cantidad = 1) => {
         var localS = localStorage.getItem("carrito");
         setProductos(JSON.parse(localS));
-        
+        const options = {
+            autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
+            debug: false, // enable logs
+        };
+        const advancedMatching = { em: 'bastianorellanaf@gmail.com' };
+        ReactPixel.init("813393342669464",advancedMatching,options);
+        ReactPixel.track("AddToCart");
         var filtrado = productes.filter(e => e.id === producto.id);
         
         if(filtrado.length == 1){

@@ -18,6 +18,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import CloseIcon from '@material-ui/icons/Close';
+import ReactPixel from 'react-facebook-pixel';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -49,6 +50,13 @@ const ListadoProducto = () => {
     const [onAdd,limpiarCarrito, eliminarProducto, productes,total, ] = useCart(localS);
     const [format] = useFormat();
     useEffect(() => {
+        const options = {
+            autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
+            debug: false, // enable logs
+        };
+        const advancedMatching = { em: 'bastianorellanaf@gmail.com' };
+        ReactPixel.init("813393342669464",advancedMatching,options);
+        ReactPixel.track("ViewContent");
         getProductByCategoryId2(id);
     }, []);
     useEffect(() => {

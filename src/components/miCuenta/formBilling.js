@@ -7,7 +7,7 @@ import FormControl from '@material-ui/core/FormControl';
 import Checkbox from '@material-ui/core/Checkbox';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
-
+import { Button } from 'antd';
 import { putCustomer } from '../../api/customer';
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -47,6 +47,7 @@ const FormBilling = ({customer}) => {
     const booleano = customer.meta_data[53].value == 1 ? true : false;
     const [value, setValue] = useState(boletaFactura);
     const [checked, setChecked] = useState(booleano);
+    const [loading, setLoading] = useState(false);
 
 
     useEffect(() => {
@@ -75,6 +76,7 @@ const FormBilling = ({customer}) => {
     };
 
     const updateUser = async () => {
+        setLoading(true);
         var array = [];
         const data1 = {
             id:customer.meta_data[47].id,
@@ -202,6 +204,7 @@ const FormBilling = ({customer}) => {
                 setMensaje("No se pudo actualizar datos");
             }
         }
+        setLoading(false);
     }
 
     return ( 
@@ -418,7 +421,10 @@ const FormBilling = ({customer}) => {
                     </>
                 : null}
                 <div className="campo">
-                    <button className="btn" onClick={() => updateUser()}>Guardar dirección</button>
+                    <Button className="btn" type="primary" loading={loading} onClick={() => updateUser()}>
+                        Guardar dirección
+                    </Button>
+                    {/* <button className="btn" onClick={() => updateUser()}>Guardar dirección</button> */}
                 </div>
             </div>
             <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>

@@ -23,15 +23,15 @@ const DetalleCheckout = ({tarifa, values2}) => {
     const [value, setValue] = useState("retiro");
     const [open, setopen] = useState(false);
     const [mensaje, setmensaje] = useState("");
-    const [value2, setValue2] = useState("webpay");
+    const value2 = "webpay";
     const [tarifaFinal, setTarifaFinal] = useState(0);
     const [descuentoCupon, setDescuentoCupon] = useState(0);
     const [cuponObtenido, setCuponObtenido] = useState({});
-    const [values, onChange, setvalues] = useForm({
+    const [values, onChange,] = useForm({
         cupon:''
     });
     const {cupon} = values;
-    const {firstName, lastName, rut, direccion, numero, comuna, ciudad, region, codigopostal, telefono, telefono2, correo,boletaFactura,same,nombreB,apellidoB,rutB,direccionB,telefonoB,correoB, giroB,nombreS,apellidoS,companyS,direccionS,localidadS,codigopostalS,regionS,detalle} = values2;
+    const {firstName, lastName, rut, direccion, ciudad, region, codigopostal, telefono, telefono2, correo,direccionB,nombreS,apellidoS,direccionS,localidadS,codigopostalS,regionS} = values2;
 
     useEffect(() => {
         if(value == "express"){
@@ -219,6 +219,7 @@ const DetalleCheckout = ({tarifa, values2}) => {
             }
             const resultado = await postOrder(data);
             if(resultado.id > 0){
+                localStorage.setItem("carrito", JSON.stringify([]));
                 var url = "http://localhost:27017/"
                 const amount = total + tarifaFinal - descuentoCupon;
                 window.location.href =`${url}api/createTransaction?buyOrder=${resultado.id }&sessionId=${resultado.id}&amount=${amount}`

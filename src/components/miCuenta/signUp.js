@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import Button from '@material-ui/core/Button';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
+import ReactPixel from 'react-facebook-pixel';
 import { useForm } from '../../hooks/useForm';
 import { postCustomer } from '../../api/customer';
 import { emailValidation } from '../../utils/formValidation';
@@ -44,6 +44,13 @@ const SignUp = () => {
                 }
                 const resultado = await postCustomer(data);
                 if(resultado.id>0){
+                    const options = {
+                        autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
+                        debug: false, // enable logs
+                    };
+                    const advancedMatching = { em: 'bastianorellanaf@gmail.com' };
+                    ReactPixel.init("813393342669464",advancedMatching,options);
+                    ReactPixel.track("CompleteRegistration");
                     setOpen2(true);
                     setMensaje("Usuario agregado correctamente");
                 }else{

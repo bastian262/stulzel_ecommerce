@@ -3,6 +3,7 @@ import { putCustomer } from '../../api/customer';
 import { useForm } from '../../hooks/useForm';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
+import { Button } from 'antd';
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -20,12 +21,13 @@ const FormShipping = ({customer}) => {
     }
     const [open, setOpen] = useState(false);
     const [mensaje, setMensaje] = useState("");
-
+    const [loading, setLoading] = useState(false);
     const [values, onChange, setvalues] = useForm(data);
 
     const {company, first_name, last_name, city, state, postcode,address} = values;
     
     const updateShipping = async () => {
+        setLoading(true);
         const data = {
             shipping:{
                 company,
@@ -47,6 +49,7 @@ const FormShipping = ({customer}) => {
             setOpen(true);
             setMensaje("No se pudo actualizar datos");
         }
+        setLoading(false);
     }
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
@@ -122,7 +125,10 @@ const FormShipping = ({customer}) => {
                     />
                 </div>
                 <div className="campo">
-                    <button className="btn" onClick={() => updateShipping()}>Guardar dirección</button>
+                    <Button className="btn" type="primary" loading={loading} onClick={() => updateShipping()}>
+                        Guardar dirección
+                    </Button>
+                    {/* <button className="btn" onClick={() => updateShipping()}>Guardar dirección</button> */}
                 </div>
             </div>
             <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>

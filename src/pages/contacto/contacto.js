@@ -10,6 +10,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { makeStyles } from '@material-ui/core/styles';
 import { useCart } from '../../hooks/useCart';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
+import ReactPixel from 'react-facebook-pixel';
 import EmailRoundedIcon from '@material-ui/icons/EmailRounded';
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -25,7 +26,18 @@ const Contacto = () => {
     const classes = useStyles();
     var localS = JSON.parse(localStorage.getItem("carrito"));
     const [onAdd,limpiarCarrito, eliminarProducto, productes,total,] = useCart(localS);
+    const options = {
+        autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
+        debug: false, // enable logs
+    };
+    const advancedMatching = { em: 'bastianorellanaf@gmail.com' };
 
+    const redireccionar = (numero) => {
+        ReactPixel.init("813393342669464",advancedMatching,options);
+        ReactPixel.trackSingle("813393342669464", "contact");
+         const url = `https://wa.me/${numero}`; 
+         window.location.href = url;
+    }
 
     return ( 
         <>
@@ -88,7 +100,7 @@ const Contacto = () => {
                         <div class="col1">
                             <span className="needhelp">¿Necesita Ayuda?</span>
                             <p className="p">WhatsApp Ventas</p>
-                            <div class="whatsapp2">
+                            <div class="whatsapp2" onClick={() => redireccionar("56972321555")}>
                                 <WhatsAppIcon class="iconoo" />
                                 <span>+569 7232 1555</span>
                             </div>
@@ -98,7 +110,7 @@ const Contacto = () => {
                                 <span>gerenciaventas@stulzel.com</span>
                             </div>
                             <p className="p">WhatsApp Servicio al Cliente</p>
-                            <div class="whatsapp2">
+                            <div class="whatsapp2"  onClick={() => redireccionar("56934240942")}>
                                 <WhatsAppIcon class="iconoo" />
                                 <span>+569 3424 0942</span>
                             </div>
