@@ -1,9 +1,11 @@
 import {useEffect, useState} from 'react';
+import { browserName } from "react-device-detect";
 import ReactPixel from 'react-facebook-pixel';
+import { postEvento, geoLocalizacion } from '../api/apiConversion';
 export const useCart = ( initial = []) => {
     const [productes, setProductos] = useState(initial);
     const [total, setTotal] = useState(0);
-    const onAdd = (producto, cantidad = 1) => {
+    const onAdd = async (producto, cantidad = 1) => {
         var localS = localStorage.getItem("carrito");
         setProductos(JSON.parse(localS));
         const options = {
@@ -43,6 +45,28 @@ export const useCart = ( initial = []) => {
             setProductos(array);
         }else{
             if(producto.stock_status == "instock"){
+                const resultado2 = await geoLocalizacion();
+                console.log(resultado2);
+                if(resultado2.ip.length > 0){
+                    const dateTime = Date.now();
+                    const timestamp = Math.floor(dateTime / 1000);
+                    const date = 
+                    {data : 
+                        [{
+                            "event_name": "AddToCart",
+                            "event_time": timestamp,
+                            "action_source": "website",
+                            "event_source_url":"https://www.stulzel.com/",
+                            "user_data": {
+                                "client_ip_address":resultado2.ip,
+                                "client_user_agent": browserName
+                            }
+                        }]
+                    }
+                    const resultado = await postEvento(date);
+                    console.log(resultado);
+                }
+
                 const data = {
                     id: producto.id,
                     nombre: producto.name,
@@ -92,24 +116,7 @@ export const useCart = ( initial = []) => {
         setProductos(productsTemporales);
         
     }
-    // const modificarCantidad = ( id, cantidad ) => {
-    //     if(productes.length === 0){
-    //         var productosTemporal = JSON.parse(localStorage.getItem("carrito"));
 
-    //         if(productosTemporal === null){
-
-    //         }else{
-    //             setProductos(productosTemporal);
-    //         }
-
-    //     }
-    //     productes.forEach(element => {
-    //         if(element.id === id){
-
-    //         }
-    //     });
-        
-    // }
     const limpiarCarrito = () => { 
         localStorage.removeItem("carrito");
         setTotal(0);

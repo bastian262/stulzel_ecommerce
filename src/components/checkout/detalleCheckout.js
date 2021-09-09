@@ -11,7 +11,9 @@ import { postOrder } from '../../api/orders';
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import ReactPixel from 'react-facebook-pixel';
-
+import {postEvento} from '../../api/apiConversion';
+// import {hashString} from 'react-hash-string'
+import Sha256 from 'sha256';
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -219,6 +221,28 @@ const DetalleCheckout = ({tarifa, values2}) => {
             }
             const resultado = await postOrder(data);
             if(resultado.id > 0){
+                const dateTime = Date.now();
+                const timestamp = Math.floor(dateTime / 1000);
+                const date = 
+                [{
+                    "event_name": "InitiateCheckout",
+                    "event_time": timestamp,
+                    "action_source": "website",
+                    "event_source_url":"https://www.stulzel.com/checkout",
+                    "user_data": {
+                        "em": [
+                            Sha256(correo)
+                        ],
+                        "ph": [
+                            Sha256(telefono)
+                        ]
+                    },
+                    "custom_data": {
+                        "currency": "CLP",
+                        "value": total + tarifaFinal - descuentoCupon
+                    }
+                }]
+                await postEvento(date);
                 const options = {
                     autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
                     debug: false, // enable logs
@@ -234,6 +258,34 @@ const DetalleCheckout = ({tarifa, values2}) => {
         }
 
 
+    }
+
+    const prueba = async () => {
+        const dateTime = Date.now();
+                const timestamp = Math.floor(dateTime / 1000);
+                const date = {
+                    data:
+                    [{
+                        "event_name": "InitiateCheckout",
+                        "event_time": timestamp,
+                        "action_source": "website",
+                        "event_source_url":"https://www.stulzel.com/checkout",
+                        "user_data": {
+                            "em": [
+                                Sha256(correo)
+                            ],
+                            "ph": [
+                                Sha256(telefono)
+                            ]
+                        },
+                        "custom_data": {
+                            "currency": "CLP",
+                            "value": total + tarifaFinal - descuentoCupon
+                        }
+                    }]
+                }
+                const resupuesta = await postEvento(date);
+                console.log(resupuesta);
     }
     return ( <>
         <h2>Tu pedido</h2>
@@ -347,7 +399,7 @@ const DetalleCheckout = ({tarifa, values2}) => {
                     </div>
                 </div>
                 <div className="botonFinalizarCompra">
-                    <button onClick={() => submitOrden()}>Finalizar compra</button>
+                    <button onClick={() => prueba()}>Finalizar compra</button>
                 </div>
                 <div className="botonFinalizarCompra">
                     <img src="	https://themedemo.commercegurus.com/shoptimizer-demodata/wp-content/uploads/sites/53/2018/07/trust-symbols_b-1024x108.jpg" width="100%" />

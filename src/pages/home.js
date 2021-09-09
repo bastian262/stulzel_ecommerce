@@ -11,6 +11,8 @@ import Footer1 from '../components/footer/Footer1';
 import Footer2 from '../components/footer/Footer2';
 import NavBar from '../components/nav/nav';
 import ReactPixel from 'react-facebook-pixel';
+import { geoLocalizacion } from '../api/apiConversion';
+
 const HomeScreen = () => {
     var localS = JSON.parse(localStorage.getItem("carrito"));
     const varFInal = localS === null? [] : localS;
@@ -26,8 +28,13 @@ const HomeScreen = () => {
         getProducts();
         ReactPixel.init("813393342669464",advancedMatching,options);
         ReactPixel.pageView();
+        localizando();
     },[]);
-    
+    const localizando = async () => {
+       const resultado = await geoLocalizacion();
+       localStorage.setItem("ip", JSON.stringify(resultado.ip))
+    //    console.log(resultado);
+    }
     return (
         <>
         <div className="fondo">

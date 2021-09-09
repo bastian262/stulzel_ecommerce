@@ -5,6 +5,9 @@ import ReactPixel from 'react-facebook-pixel';
 import { useForm } from '../../hooks/useForm';
 import { postCustomer } from '../../api/customer';
 import { emailValidation } from '../../utils/formValidation';
+import { browserName } from "react-device-detect";
+import Sha256 from 'sha256';
+import { postEvento, geoLocalizacion } from '../../api/apiConversion';
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -14,7 +17,6 @@ const SignUp = () => {
     const [open, setOpen] = useState(false);
     const [open2, setOpen2] = useState(false);
     const [mensaje, setMensaje] = useState("");
-    // const [mensaje2, setMensaje2] = useState("");
     const [values, onChange, setValues] = useForm({
         correo: '',
         password: ''
@@ -44,6 +46,30 @@ const SignUp = () => {
                 }
                 const resultado = await postCustomer(data);
                 if(resultado.id>0){
+
+                    const resultado2 = await geoLocalizacion();
+                    if(resultado2.ip.length > 0){
+                        const dateTime = Date.now();
+                        const timestamp = Math.floor(dateTime / 1000);
+                        const date = {
+                            data : [{
+                                "event_name": "CompleteRegistration",
+                                "event_time": timestamp,
+                                "action_source": "website",
+                                "event_source_url":"https://www.stulzel.com/micuenta",
+                                "user_data": {
+                                    "em": [
+                                        Sha256(correo)
+                                    ],
+                                    "client_ip_address":resultado2.ip,
+                                    "client_user_agent": browserName
+                                }
+                            }]
+                        }
+                        
+                        const result = await postEvento(date);
+                        console.log(result);
+                    }
                     const options = {
                         autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
                         debug: false, // enable logs
@@ -67,6 +93,7 @@ const SignUp = () => {
             setOpen(true);
         }
     }
+
     return (<>
         <span class="span">Registrarse</span>
         <div class="campo">
@@ -89,12 +116,12 @@ const SignUp = () => {
                 onChange={onChange}
             />
         </div>
-        <div class="campo">
+        <div class="campo">(
             <strong>Subscribirse a nuestro newsletter</strong>
             <input type="checkbox" name="" id="" class="check" />
         </div>
         <div class="boton">
-            <button onClick={signUpPost}>Registrarse</button>
+            <button onClick={() => signUpPost()}>Registrarse</button>
         </div>
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
             <Alert onClose={handleClose} severity="error">

@@ -19,6 +19,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import InfiniteScroll from 'react-infinite-scroll-component';
 import CloseIcon from '@material-ui/icons/Close';
 import ReactPixel from 'react-facebook-pixel';
+import { postEvento, geoLocalizacion } from '../../api/apiConversion';
+import { browserName } from "react-device-detect";
 
 
 const useStyles = makeStyles((theme) => ({
@@ -50,13 +52,7 @@ const ListadoProducto = () => {
     const [onAdd,limpiarCarrito, eliminarProducto, productes,total, ] = useCart(localS);
     const [format] = useFormat();
     useEffect(() => {
-        const options = {
-            autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
-            debug: false, // enable logs
-        };
-        const advancedMatching = { em: 'bastianorellanaf@gmail.com' };
-        ReactPixel.init("813393342669464",advancedMatching,options);
-        ReactPixel.track("ViewContent");
+        pixelaso();
         getProductByCategoryId2(id);
     }, []);
     useEffect(() => {
@@ -72,7 +68,6 @@ const ListadoProducto = () => {
         console.log("dale");
         const pageNew = page + 1;
         setPage(pageNew);
-
         getProductByCategoryId3(id,pageNew);
     }
     const urlImagen = categoria.image.src;
@@ -108,6 +103,34 @@ const ListadoProducto = () => {
             doc3.style.top = "20px";
             body[0].style.height = "100vh";
             body[0].style.overflow = "hidden";
+        }
+    }
+
+    const pixelaso = async () => {
+        const options = {
+            autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
+            debug: false, // enable logs
+        };
+        const advancedMatching = { em: 'bastianorellanaf@gmail.com' };
+        ReactPixel.init("813393342669464",advancedMatching,options);
+        ReactPixel.track("ViewContent");
+        const resultado2 = await geoLocalizacion();
+        if(resultado2.ip.length > 0){
+            const dateTime = Date.now();
+            const timestamp = Math.floor(dateTime / 1000);
+            const date = {
+                data : [{
+                    "event_name": "ViewContent",
+                    "event_time": timestamp,
+                    "action_source": "website",
+                    "event_source_url":"https://www.stulzel.com/producto",
+                    "user_data": {
+                        "client_ip_address":resultado2.ip,
+                        "client_user_agent": browserName
+                    }
+                }]
+            }
+            await postEvento(date);
         }
     }
 
