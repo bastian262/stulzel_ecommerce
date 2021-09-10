@@ -22,6 +22,7 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
     useEffect(() => {   
         listarCategorias();
     }, []);
+    
     const abrirCerrarMenu = () => {
         let menu = document.getElementById("menu2");
         let menu2 = document.getElementById("fondoNegro");
@@ -43,6 +44,7 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
             body[0].style.overflow = "hidden";
         }
     }
+
     const expandir = () => {
         let doc = document.getElementById("subMenu2");
         if(doc.style.height === "0px"){
@@ -55,6 +57,7 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
             doc.style.marginBottom = "0px";
         }
     }
+
     const abrirCart = () => {
         let menu = document.getElementById("cart");
         let menu2 = document.getElementById("fondoNegro2");
@@ -76,6 +79,7 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
             body[0].style.overflow = "hidden";
         }
     }
+
     const redireccionar2 = (categoria) => {
         let body = document.getElementsByTagName("body");
         body[0].style.height = "auto";
@@ -85,6 +89,7 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
         localStorage.setItem("categoria", JSON.stringify(categoria));
         history.push(`/productos/${categoria.id}`);
     }
+
     const abrircuenta = () => {
         let body = document.getElementsByTagName("body");
         body[0].style.height = "auto";
