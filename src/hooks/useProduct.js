@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { getProductos8, getProductosByCategoryId, getProductosById, getProductByPrice, getProductosByOrder } from '../api/productos';
+import { getProductos8, getProductosByCategoryId, getProductosById, getProductByPrice, getProductosByOrder,getProductBySearch } from '../api/productos';
 import { useHistory } from "react-router";
 export const useProduct = ( ) => {
 
@@ -80,7 +80,13 @@ export const useProduct = ( ) => {
         setProductos(resultado);
         setLoading(false);
     }
-
-    return [productos, getProducts, loading, getProductsById, getProductByCategoryId2,redireccionar, getProductsByPrice2,getProductsByOrden2, getProductByCategoryId3, hasMore, setHasMore]
+    const getProductsBySearch = async (search) => {
+        setLoading(true);
+        const resultado = await getProductBySearch(search);
+        console.log(resultado);
+        setProductos(resultado);
+        setLoading(false);
+    }
+    return [productos, getProducts, loading, getProductsById, getProductByCategoryId2,redireccionar, getProductsByPrice2,getProductsByOrden2, getProductByCategoryId3, hasMore, setHasMore, getProductsBySearch]
 
 }

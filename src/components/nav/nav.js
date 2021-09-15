@@ -13,12 +13,17 @@ import MenuScreen from '../cart/cart'
 import { useFormat } from '../../hooks/useFormat';
 import { useCategory } from '../../hooks/useCategory';
 import { useHistory } from 'react-router';
+import { useForm } from '../../hooks/useForm';
 
 const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) => {
     const [format] = useFormat();
     const [ide, setIde] = useState(1);
     const history = useHistory();
+    const [values, onChange,] = useForm({
+        search:''
+    })
     const [listarCategorias, categorias,] = useCategory();
+    const {search} = values;
     useEffect(() => {   
         listarCategorias();
     }, []);
@@ -104,13 +109,21 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
         history.push(ruta);
     }
 
+    const buscarProducto = (event) => {
+        console.log(event);
+        var code = event.keyCode || event.which;
+        if(code === 13){
+            history.push(`/search/${search}`);
+        }
+    }
+
     return ( 
         <>
             <header id="header1">
                 <div className="container-flex">
                     <img src ="https://stulzel.com/wp-content/uploads/2021/05/cropped-Recurso-2-8.png" alt="logo"/>
                     <div className="search">
-                        <input value="" placeholder="Buscar Productos..."/>
+                        <input value={search} onChange={onChange} name="search" id="search" placeholder="Buscar Productos..." onKeyPress={buscarProducto} />
                         <SearchIcon className="icono" />
                     </div>
                     <div className="options">
@@ -185,7 +198,7 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
                 <div class="navMobile" id="menu2">
                     <div class="buscador">
                         <SearchIcon className="searchInput" /> 
-                        <input type="text" placeholder="Buscar Productos..." />
+                        <input type="text" placeholder="Buscar Productos..." name="search" onChange={onChange} onKeyPress={buscarProducto} />
                     </div>
                     <div class="subMenu">
                         <Link onClick={() =>redireccionar3("/")}>Inicio</Link>

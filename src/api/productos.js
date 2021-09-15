@@ -141,3 +141,23 @@ export function getProductosByCategoryId(id, page = 1) {
             return err.message;
         });
 }
+
+export function getProductBySearch(search){
+    const url = `${basePathWoocommerce}products?search=${search}&status=publish&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
+
+    const params = {
+        method:'GET',
+        header:{
+            "Content-Type" : "application/json"
+        }
+    }
+
+    return fetch(url,params)
+        .then(resp => {
+            return resp.json();
+        }).then(result => {
+            return result;
+        }).catch(err => {
+            return err.message
+        });
+}

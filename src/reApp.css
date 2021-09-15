@@ -442,10 +442,18 @@
     height: 43px;
   }
 
-  
 
+  .fondo .contenedor .row .col-grande{
+    width: 100%;
+    padding-right: 0px;
+  }
+  .fondo .row{
+    padding: 0px;
+  }
 
-
+  .fondo .contenedor .row .col-grande .options .text{
+    width: 80%;
+  }
 
 
 }

@@ -14,6 +14,7 @@ import Contacto from '../pages/contacto/contacto';
 import Login from '../pages/miCuenta/login';
 import MiCuenta from '../pages/miCuenta/miCuenta';
 import Checkout from '../pages/checkout/checkout';
+import Search from '../pages/search/search';
 
 const history = createBrowserHistory();
 const AppRouter  = () => {
@@ -32,6 +33,7 @@ const AppRouter  = () => {
                 <Route exact path="/signUp" component={ SignUpScreen } />
                 <Route exact path="/signIn" component={ SignInScreen } />
                 <Route exact path="/webinar" component={ WebinarScreen } />
+                <Route exact path="/search/:id" component={ Search } />
                 <Route exact path="/dashboard" component={ DashboardScreen } />
                 <Redirect to="/" />
             </Switch>

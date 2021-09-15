@@ -12,6 +12,8 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import ReactPixel from 'react-facebook-pixel';
 import {postEvento} from '../../api/apiConversion';
+import { Button } from 'antd';
+
 // import {hashString} from 'react-hash-string'
 import Sha256 from 'sha256';
 function Alert(props) {
@@ -29,6 +31,7 @@ const DetalleCheckout = ({tarifa, values2}) => {
     const [tarifaFinal, setTarifaFinal] = useState(0);
     const [descuentoCupon, setDescuentoCupon] = useState(0);
     const [cuponObtenido, setCuponObtenido] = useState({});
+    const [loading, setloading] = useState(false);
     const [values, onChange,] = useForm({
         cupon:''
     });
@@ -70,6 +73,7 @@ const DetalleCheckout = ({tarifa, values2}) => {
         }
     }
     const submitOrden = async () => {   
+        setloading(true);
         var array = [];
         var method = "";
         var method_id = "";
@@ -256,37 +260,9 @@ const DetalleCheckout = ({tarifa, values2}) => {
                 window.location.href =`${url}api/createTransaction?buyOrder=${resultado.id }&sessionId=${resultado.id}&amount=${amount}`
             }
         }
-
-
+        setloading(false);
     }
 
-    const prueba = async () => {
-        const dateTime = Date.now();
-                const timestamp = Math.floor(dateTime / 1000);
-                const date = {
-                    data:
-                    [{
-                        "event_name": "InitiateCheckout",
-                        "event_time": timestamp,
-                        "action_source": "website",
-                        "event_source_url":"https://www.stulzel.com/checkout",
-                        "user_data": {
-                            "em": [
-                                Sha256(correo)
-                            ],
-                            "ph": [
-                                Sha256(telefono)
-                            ]
-                        },
-                        "custom_data": {
-                            "currency": "CLP",
-                            "value": total + tarifaFinal - descuentoCupon
-                        }
-                    }]
-                }
-                const resupuesta = await postEvento(date);
-                console.log(resupuesta);
-    }
     return ( <>
         <h2>Tu pedido</h2>
         
@@ -399,7 +375,9 @@ const DetalleCheckout = ({tarifa, values2}) => {
                     </div>
                 </div>
                 <div className="botonFinalizarCompra">
-                    <button onClick={() => prueba()}>Finalizar compra</button>
+                    <Button type="primary" loading={loading} onClick={() => submitOrden()}>
+                        Finalizar compra
+                    </Button>
                 </div>
                 <div className="botonFinalizarCompra">
                     <img src="	https://themedemo.commercegurus.com/shoptimizer-demodata/wp-content/uploads/sites/53/2018/07/trust-symbols_b-1024x108.jpg" width="100%" />

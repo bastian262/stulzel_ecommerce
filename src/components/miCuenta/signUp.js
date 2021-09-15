@@ -8,6 +8,8 @@ import { emailValidation } from '../../utils/formValidation';
 import { browserName } from "react-device-detect";
 import Sha256 from 'sha256';
 import { postEvento, geoLocalizacion } from '../../api/apiConversion';
+import { Button } from 'antd';
+
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -17,6 +19,7 @@ const SignUp = () => {
     const [open, setOpen] = useState(false);
     const [open2, setOpen2] = useState(false);
     const [mensaje, setMensaje] = useState("");
+    const [loading, setLoading] = useState(false);
     const [values, onChange, setValues] = useForm({
         correo: '',
         password: ''
@@ -38,6 +41,7 @@ const SignUp = () => {
         setOpen2(false);
     };
     const signUpPost = async () => {
+        setLoading(true);
         if(emailValidation(correo)){
             if(password.trim().length >= 4){
                 const data = {
@@ -83,15 +87,17 @@ const SignUp = () => {
                     setOpen(true);
                     setMensaje("Hubo un error inesperado");
                 }
-                console.log(resultado);
             }else{
                 setMensaje("Ingrese una clave válida");
+                setLoading(true);
                 setOpen(true);
             }
         }else{
             setMensaje("Ingrese un correo electrónico válido");
             setOpen(true);
         }
+        setLoading(false);
+
     }
 
     return (<>
@@ -116,12 +122,15 @@ const SignUp = () => {
                 onChange={onChange}
             />
         </div>
-        <div class="campo">(
+        <div class="campo">
             <strong>Subscribirse a nuestro newsletter</strong>
             <input type="checkbox" name="" id="" class="check" />
         </div>
         <div class="boton">
-            <button onClick={() => signUpPost()}>Registrarse</button>
+            {/* <button onClick={() => signUpPost()}>Registrarse</button> */}
+            <Button type="primary" loading={loading} onClick={() => signUpPost()}>
+                Registrarse
+            </Button>
         </div>
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
             <Alert onClose={handleClose} severity="error">

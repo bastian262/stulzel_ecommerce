@@ -162,7 +162,7 @@ const Producto = () => {
     const obtenerDatos = () => {
         var doc = document.getElementById("quantity").value;
         
-        onAdd(productoTemporal, doc);
+        onAdd(productoTemporal, parseInt(doc));
 
     }
     return ( 
