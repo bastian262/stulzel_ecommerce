@@ -255,7 +255,7 @@ const DetalleCheckout = ({tarifa, values2}) => {
                 ReactPixel.init("813393342669464",advancedMatching,options);
                 ReactPixel.track("InitiateCheckout");
                 localStorage.setItem("carrito", JSON.stringify([]));
-                var url = "http://localhost:27017/"
+                var url = "https://webpay-react.herokuapp.com/"
                 const amount = total + tarifaFinal - descuentoCupon;
                 window.location.href =`${url}api/createTransaction?buyOrder=${resultado.id }&sessionId=${resultado.id}&amount=${amount}`
             }

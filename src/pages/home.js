@@ -92,7 +92,7 @@ const HomeScreen = () => {
                             <button>Compra Aquí</button>
                         </div>
                         <div className="mitad2">
-                            <img src="https://stulzel.com/wp-content/uploads/2021/01/SILLONES-2020-6C-scaled-1-600x664.jpg" alt="stulzel" />
+                            <img src="https://admin.stulzel.com/wp-content/uploads/2021/01/SILLONES-2020-6C-scaled-1-600x664.jpg" alt="stulzel" />
                         </div>
                     </div>
                     <div className="col">
@@ -111,7 +111,7 @@ const HomeScreen = () => {
                             <button>Compra Aquí</button>
                         </div>
                         <div className="mitad2">
-                            <img src="https://stulzel.com/wp-content/uploads/2021/01/SILLONES-2020-4B-scaled-1-600x752.jpg" alt="stulzel" />
+                            <img src="https://admin.stulzel.com/wp-content/uploads/2021/01/SILLONES-2020-4B-scaled-1-600x752.jpg" alt="stulzel" />
                         </div>
                     </div>
                 </div>
@@ -132,7 +132,7 @@ const HomeScreen = () => {
                             <button>Compra Aquí</button>
                         </div>
                         <div className="mitad2">
-                            <img src="https://stulzel.com/wp-content/uploads/2020/12/sillonEscociaWhiteNuevo.jpg" alt="stulzel" />
+                            <img src="https://admin.stulzel.com/wp-content/uploads/2020/12/sillonEscociaWhiteNuevo.jpg" alt="stulzel" />
                         </div>
                     </div>
                     <div className="col">
@@ -151,7 +151,7 @@ const HomeScreen = () => {
                             <button>Compra Aquí</button>
                         </div>
                         <div className="mitad2">
-                            <img src="	https://stulzel.com/wp-content/uploads/2021/05/premiun_black.jpg" alt="stulzel" />
+                            <img src="	https://admin.stulzel.com/wp-content/uploads/2021/05/premiun_black.jpg" alt="stulzel" />
                         </div>
                     </div>
                 </div>

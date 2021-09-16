@@ -46,7 +46,7 @@ const Checkout = () => {
                 <div class="header4">
                     <div className="contenedor">
                         <div className="flex-b">
-                            <img src="https://stulzel.com/wp-content/uploads/2021/05/cropped-Recurso-2-8.png" alt=""/>
+                            <img src="https://admin.stulzel.com/wp-content/uploads/2021/05/cropped-Recurso-2-8.png" alt=""/>
                             <div class="volver">
                                 <button onClick={() => redi()}>Volver a la tienda</button>
                             </div>

@@ -121,7 +121,7 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
         <>
             <header id="header1">
                 <div className="container-flex">
-                    <img src ="https://stulzel.com/wp-content/uploads/2021/05/cropped-Recurso-2-8.png" alt="logo"/>
+                    <img src ="https://admin.stulzel.com/wp-content/uploads/2021/05/cropped-Recurso-2-8.png" alt="logo"/>
                     <div className="search">
                         <input value={search} onChange={onChange} name="search" id="search" placeholder="Buscar Productos..." onKeyPress={buscarProducto} />
                         <SearchIcon className="icono" />
@@ -147,7 +147,7 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
                     <DehazeIcon className="iconHamburguesa" />
                 </div>
                 <div className="logoMobile">
-                    <img src ="https://stulzel.com/wp-content/uploads/2021/05/cropped-Recurso-2-8.png" alt="logo"/>
+                    <img src ="https://admin.stulzel.com/wp-content/uploads/2021/05/cropped-Recurso-2-8.png" alt="logo"/>
                 </div>
                 <div className="carritoMobile" onClick={abrirCart}>
                     <LocalMallIcon className="iconoBolsa"/>
