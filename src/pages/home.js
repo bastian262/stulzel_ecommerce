@@ -12,6 +12,7 @@ import Footer2 from '../components/footer/Footer2';
 import NavBar from '../components/nav/nav';
 import ReactPixel from 'react-facebook-pixel';
 import { geoLocalizacion } from '../api/apiConversion';
+import LazyLoad from 'react-lazyload';
 
 const HomeScreen = () => {
     var localS = JSON.parse(localStorage.getItem("carrito"));
@@ -26,7 +27,7 @@ const HomeScreen = () => {
       const advancedMatching = { em: 'bastianorellanaf@gmail.com' };
     useEffect(() => {
         getProducts();
-        ReactPixel.init("813393342669464",advancedMatching,options);
+        ReactPixel.init("495580404127215",advancedMatching,options);
         ReactPixel.pageView();
         localizando();
     },[]);
@@ -34,6 +35,10 @@ const HomeScreen = () => {
        const resultado = await geoLocalizacion();
        localStorage.setItem("ip", JSON.stringify(resultado.ip))
     //    console.log(resultado);
+    }
+    const refireccionarInstagram = () => {
+        var url = "https://www.instagram.com/stulzel_cl/";
+        window.location.href = url;
     }
     return (
         <>
@@ -49,7 +54,7 @@ const HomeScreen = () => {
                 <div className="border">
                     <div className="row-flex">
                         <div className="col-1">
-                            <img src={redone} alt="logo"  />
+                            <img src={redone} alt="logo"  /> 
                         </div>
                         <div className="col-2">
                             <span className="titulo1">
@@ -79,7 +84,7 @@ const HomeScreen = () => {
                     <div className="col">
                         <div className="mitad1">
                             <span className="titulo">
-                                Sillon de Barbería
+                                Sillón de Barbería
                             </span>
                             <br/>
                             <span className="tituloProducto">
@@ -87,18 +92,20 @@ const HomeScreen = () => {
                             </span>
                             <br/>
                             <span className="tituloPrecio">
-                                Precio $279.990
+                                Precio $329.990
                             </span>
                             <button>Compra Aquí</button>
                         </div>
                         <div className="mitad2">
-                            <img src="https://admin.stulzel.com/wp-content/uploads/2021/01/SILLONES-2020-6C-scaled-1-600x664.jpg" alt="stulzel" />
+                            <LazyLoad>
+                                <img src="https://admin.stulzel.com/wp-content/uploads/2021/01/SILLONES-2020-6C-scaled-1-600x664.jpg" alt="stulzel" />
+                            </LazyLoad>
                         </div>
                     </div>
                     <div className="col">
                         <div className="mitad1">
                             <span className="titulo">
-                                Sillon de Barbería
+                                Sillón de Barbería
                             </span>
                             <br/>
                             <span className="tituloProducto">
@@ -106,12 +113,14 @@ const HomeScreen = () => {
                             </span>
                             <br/>
                             <span className="tituloPrecio">
-                                Precio $359.990
+                                Precio $399.990
                             </span>
                             <button>Compra Aquí</button>
                         </div>
                         <div className="mitad2">
-                            <img src="https://admin.stulzel.com/wp-content/uploads/2021/01/SILLONES-2020-4B-scaled-1-600x752.jpg" alt="stulzel" />
+                            <LazyLoad>
+                                <img src="https://admin.stulzel.com/wp-content/uploads/2021/01/SILLONES-2020-4B-scaled-1-600x752.jpg" alt="stulzel" />
+                            </LazyLoad>
                         </div>
                     </div>
                 </div>
@@ -119,7 +128,7 @@ const HomeScreen = () => {
                     <div className="col">
                         <div className="mitad1">
                             <span className="titulo">
-                                Sillon de Peluquería
+                                Sillón de Peluquería
                             </span>
                             <br/>
                             <span className="tituloProducto">
@@ -127,12 +136,14 @@ const HomeScreen = () => {
                             </span>
                             <br/>
                             <span className="tituloPrecio">
-                                Precio $169.990
+                                Precio $234.990
                             </span>
                             <button>Compra Aquí</button>
                         </div>
                         <div className="mitad2">
-                            <img src="https://admin.stulzel.com/wp-content/uploads/2020/12/sillonEscociaWhiteNuevo.jpg" alt="stulzel" />
+                            <LazyLoad>
+                                <img src="https://admin.stulzel.com/wp-content/uploads/2020/12/sillonEscociaWhiteNuevo.jpg" alt="stulzel" />
+                            </LazyLoad>
                         </div>
                     </div>
                     <div className="col">
@@ -146,7 +157,7 @@ const HomeScreen = () => {
                             </span>
                             <br/>
                             <span className="tituloPrecio">
-                                Precio $299.990
+                                Precio $449.990
                             </span>
                             <button>Compra Aquí</button>
                         </div>
@@ -173,8 +184,10 @@ const HomeScreen = () => {
                         const imagen = element.images.length > 0? element.images[0].src : "";
                         return (
                             <div className="columnas">
-                                <div className="card">   
-                                    <img src={imagen} alt="" onClick={() => redireccionar(element)} />
+                                <div className="card">
+                                    <LazyLoad>   
+                                        <img src={imagen} alt="" onClick={() => redireccionar(element)} />
+                                    </LazyLoad>   
                                     <div className="detalles" onClick={() => redireccionar(element)}>
                                         <span className="titulo">
                                             {element.name}
@@ -214,24 +227,25 @@ const HomeScreen = () => {
                             variant="contained"
                             color="secondary"
                             startIcon={<InstagramIcon />}
+                            onClick={() => refireccionarInstagram()}
                         >
                             SIGUENOS AQUÍ
                         </Button>
                         </div>
                     </div>
                     <div className="col-1">
-                        <img src={logo} alt="logo2"  />
+                        <LazyLoad>  <img src={logo} alt="logo2"  /> </LazyLoad> 
                     </div>
                 </div>
             </div>
-            <div className="header3">
+            {/* <div className="header3">
                 <div className="row-flex2">
                     <div className="col-2">
                         <span className="titulo2">
                             ¡OFERTA DE LA SEMANA!
                         </span>
                         <span className="titulo1">
-                        Aro de luz profesional 45 pulgadas de diámetro, cargador USB para celular incorporado, luz fría, luz cálida, bolso de transporte, ajusto de altura de más de 2 metros, pantalla LED, uso de batería opcional.
+                        Aro de luz profesional 45 pulgadas de diámetro, cargador USB para celular incorporado, luz fría, luz cálida, bolso de transporte, ajuste de altura de más de 2 metros, pantalla LED, uso de batería opcional.
                         <br/>
                         <br/>
                         *Baterias y cargador de baterias se venden por separado
@@ -246,10 +260,10 @@ const HomeScreen = () => {
                         </div>
                     </div>
                     <div className="col-1">
-                        <img src={aroluz} alt="logo2"  />
+                        <LazyLoad once > <img src={aroluz} alt="logo2"  /> </LazyLoad>
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
         <Footer1 />
         <Footer2 />

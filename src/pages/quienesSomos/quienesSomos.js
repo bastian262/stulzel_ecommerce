@@ -27,7 +27,7 @@ const QuienesSomos = () => {
                                 <span>¡Nuestra mayor meta siempre, es mejorar y crecer!</span>
                             </div>
                             <div class="imagen">
-                                <img src="https://admin.stulzel.com/wp-content/uploads/2020/09/edison-torres-ceo-stulzel.jpg" />
+                                <img src="https://stulzel.com/wp-content/uploads/2020/09/edison-torres-ceo-stulzel.jpg" />
                             </div>
                         </div>
                         <div class="col-1 d-flex">
@@ -49,7 +49,7 @@ const QuienesSomos = () => {
                 <div class="row">
                     <div class="col-1">
                         <div class="imagen">
-                            <img className="imagenStulzel" src="https://admin.stulzel.com/wp-content/uploads/2020/10/Logo-SF-dorado.png" />
+                            <img className="imagenStulzel" src="https://stulzel.com/wp-content/uploads/2020/10/Logo-SF-dorado.png" />
                         </div>
                     </div>
                     <div class="col-1 d-flex">
@@ -81,7 +81,7 @@ const QuienesSomos = () => {
                             </div>
                         </div>
                         <div class="col-1 d-flex">
-                            <img src="https://admin.stulzel.com/wp-content/uploads/2021/01/stulzelcl-instagram.jpg" />
+                            <img src="https://stulzel.com/wp-content/uploads/2021/01/stulzelcl-instagram.jpg" />
                         </div>
                     </div>
                 </div>
@@ -100,7 +100,7 @@ const QuienesSomos = () => {
                     </div>
                     <div class="col-1 padding">
                         <div class="imagen">
-                            <img src="https://admin.stulzel.com/wp-content/uploads/2021/01/casa-stulzel-oficina.jpg" />
+                            <img src="https://stulzel.com/wp-content/uploads/2021/01/casa-stulzel-oficina.jpg" />
                         </div>
                     </div>
                 </div>
@@ -118,7 +118,7 @@ const QuienesSomos = () => {
                 </div>
                 <div className="raw-flex">
                     <div className="col">  
-                        <img src="https://admin.stulzel.com/wp-content/uploads/2019/07/seueliascop-600x671.jpg" />
+                        <img src="https://stulzel.com/wp-content/uploads/2019/07/seueliascop-600x671.jpg" />
                         <div>
                             <span>Seu Elías</span>
                             <span>BRASIL 🇧🇷</span>
@@ -126,7 +126,7 @@ const QuienesSomos = () => {
                         </div>
                     </div>
                     <div className="col">  
-                        <img src="https://admin.stulzel.com/wp-content/uploads/2021/01/fran-aranda-300x300.jpg" />
+                        <img src="https://stulzel.com/wp-content/uploads/2021/01/fran-aranda-300x300.jpg" />
                         <div>
                             <span>Fran Aranda</span>
                             <span>ESPAÑA 🇪🇸</span>
@@ -134,7 +134,7 @@ const QuienesSomos = () => {
                         </div>
                     </div>
                     <div className="col">  
-                        <img src="https://admin.stulzel.com/wp-content/uploads/2021/01/ismael-de-mora-241x300.jpg" />
+                        <img src="https://stulzel.com/wp-content/uploads/2021/01/ismael-de-mora-241x300.jpg" />
                         <div>
                             <span>Ismael De Mora</span>
                             <span>ESPAÑA 🇪🇸</span>

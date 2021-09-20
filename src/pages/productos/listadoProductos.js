@@ -70,7 +70,7 @@ const ListadoProducto = () => {
         setPage(pageNew);
         getProductByCategoryId3(id,pageNew);
     }
-    const urlImagen = categoria.image.src;
+    const urlImagen = id == 0 ?  "":categoria.image.src;
 
     const handleChange2 = (event) => {
         var valor = "desc";
@@ -112,7 +112,7 @@ const ListadoProducto = () => {
             debug: false, // enable logs
         };
         const advancedMatching = { em: 'bastianorellanaf@gmail.com' };
-        ReactPixel.init("813393342669464",advancedMatching,options);
+        ReactPixel.init("495580404127215",advancedMatching,options);
         ReactPixel.track("ViewContent");
         const resultado2 = await geoLocalizacion();
         if(resultado2.ip.length > 0){
@@ -208,8 +208,16 @@ const ListadoProducto = () => {
                         </div>
                     </div>
                     <div class="col-4">
-                        <h2>{categoria.name}</h2>
-                        <img className="banner" src={urlImagen} alt="bannerID"/>
+                        {id == 0 ? 
+                            null
+                        :
+                            <h2>{categoria.name}</h2>
+                        } 
+                        {id == 0 ? 
+                            null
+                            :
+                            <img className="banner" src={urlImagen} alt="bannerID"/>
+                        }
                         <div class="filtros">
                             <div className="showFiltros">
                                 <button onClick={abrirFiltros}>Mostrar Filtros</button>

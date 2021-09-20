@@ -79,7 +79,7 @@ const SignUp = () => {
                         debug: false, // enable logs
                     };
                     const advancedMatching = { em: 'bastianorellanaf@gmail.com' };
-                    ReactPixel.init("813393342669464",advancedMatching,options);
+                    ReactPixel.init("495580404127215",advancedMatching,options);
                     ReactPixel.track("CompleteRegistration");
                     setOpen2(true);
                     setMensaje("Usuario agregado correctamente");

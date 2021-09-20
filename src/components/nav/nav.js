@@ -14,6 +14,10 @@ import { useFormat } from '../../hooks/useFormat';
 import { useCategory } from '../../hooks/useCategory';
 import { useHistory } from 'react-router';
 import { useForm } from '../../hooks/useForm';
+import WhatsAppIcon from '@material-ui/icons/WhatsApp';
+import FacebookIcon from '@material-ui/icons/Facebook';
+import InstagramIcon from '@material-ui/icons/Instagram';
+import LazyLoad from 'react-lazyload';
 
 const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) => {
     const [format] = useFormat();
@@ -89,7 +93,6 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
         let body = document.getElementsByTagName("body");
         body[0].style.height = "auto";
         body[0].style.overflow = "visible";
-
         setIde(categoria.id);
         localStorage.setItem("categoria", JSON.stringify(categoria));
         history.push(`/productos/${categoria.id}`);
@@ -121,7 +124,7 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
         <>
             <header id="header1">
                 <div className="container-flex">
-                    <img src ="https://admin.stulzel.com/wp-content/uploads/2021/05/cropped-Recurso-2-8.png" alt="logo"/>
+                <LazyLoad><img src ="https://admin.stulzel.com/wp-content/uploads/2021/05/cropped-Recurso-2-8.png" alt="logo"/></LazyLoad>
                     <div className="search">
                         <input value={search} onChange={onChange} name="search" id="search" placeholder="Buscar Productos..." onKeyPress={buscarProducto} />
                         <SearchIcon className="icono" />
@@ -159,7 +162,6 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
                         <Link onClick={() => redireccionar3("/")}>
                             Inicio
                         </Link>
-                        
                         <Link to="/quienessomos">Quienes Somos</Link>
                         <div class="productosM">
                             <Link to="/productos/0" class="productosMas">Productos</Link>
@@ -178,10 +180,10 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
                                 }
                             </div>
                         </div>
-                        <Link to="/">Curso Inicial Barbería</Link>
+                        <Link to="/cursos">Curso Inicial Barbería</Link>
                         <Link to="/">Red One USA</Link>
                         <Link to="/contacto">Contacto</Link>
-                        <Link to="/cotizador">Cotizador de Envíos</Link>
+                        {/* <Link to="/cotizador">Cotizador de Envíos</Link> */}
                         {/* <Link to="/signUp">Rggistro</Link> */}
                         {/* <Link to="/signIn">Iniciar sesion</Link> */}
                     </div>
@@ -209,7 +211,7 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
                                 <ExpandMoreIcon />
                             </div>
                             <div className="subMenu2" id="subMenu2">
-                                {/* <Link onClick={() => redireccionar2({id:0})}>Todos</Link> */}
+                                <Link onClick={() => redireccionar2({id:0})}>Todos los productos</Link>
                                 {categorias != null ? 
                                     categorias.map((element) => {
                                         return (
@@ -222,7 +224,7 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
                                 }
                             </div>
                         </div>
-                        <Link to="/">Curso Inicial de Barbería</Link>
+                        <Link onClick={() =>redireccionar3("/cursos")}>Curso Inicial de Barbería</Link>
                         <Link to="/">Red One USA</Link>
                         <Link onClick={() =>redireccionar3("/contacto")}>Contacto</Link>
                     </div>
@@ -233,12 +235,12 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
                     </div>
                     <div class="links">
                         <span>WhatsApp de ventas</span>
-                        <a href="/">+569 72321555 </a>
+                        <a href="https://wa.me/56972321555" target="_blank" className="a">+569 72321555 <WhatsAppIcon className="wspIcon" /> </a>
                     </div>
                     <div class="links">
                         <span>Social</span>
-                        <a href="/">Facebook </a>
-                        <a href="/">Instagram </a>
+                        <a href="https://www.facebook.com/stulzel" target="_blank" className="a">Facebook <FacebookIcon className="fcbIcon"/> </a>
+                        <a href="https://www.instagram.com/stulzel_cl/" target="_blank" className="a">Instagram <InstagramIcon className="insIcon"/> </a>
                     </div>
                 </div>
             </div>

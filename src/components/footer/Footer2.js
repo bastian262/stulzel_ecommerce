@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactPixel from 'react-facebook-pixel';
-
+import { Link } from 'react-router-dom';
 const Footer2 = () => {
     const registrarPixel = () => {
         const options = {
@@ -8,7 +8,7 @@ const Footer2 = () => {
             debug: false, // enable logs
         };
         const advancedMatching = { em: 'bastianorellanaf@gmail.com' };
-        ReactPixel.init("813393342669464",advancedMatching,options);
+        ReactPixel.init("495580404127215",advancedMatching,options);
         ReactPixel.track("FindLocation");
     }
     return (  
@@ -26,10 +26,10 @@ const Footer2 = () => {
                     </div>
                     <div class="col-3">
                         <span>LINKS DE AYUDA</span>
-                        <a href="/">Mi Cuenta</a>
-                        <a href="/">Quienes Somos</a>
-                        <a href="/">Servicio al cliente</a>
-                        <a href="/">Contactanos</a>
+                        <Link to="/micuenta">Mi Cuenta</Link>
+                        <Link to="/quienessomos">Quienes Somos</Link>
+                        <Link to="/contacto">Servicio al cliente</Link>
+                        <Link to="/contacto">Contactanos</Link>
                         <a href="/">Terminos y Condiciones</a>
                         <a href="/">Preguntas Frecuentes</a>
                     </div>

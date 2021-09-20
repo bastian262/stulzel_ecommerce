@@ -13,7 +13,7 @@ export const useCart = ( initial = []) => {
             debug: false, // enable logs
         };
         const advancedMatching = { em: 'bastianorellanaf@gmail.com' };
-        ReactPixel.init("813393342669464",advancedMatching,options);
+        ReactPixel.init("495580404127215",advancedMatching,options);
         ReactPixel.track("AddToCart");
         var filtrado = productes.filter(e => e.id === producto.id);
         

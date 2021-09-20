@@ -16,7 +16,6 @@ export function postEvento(data) {
         }).then(result => {
             return result;
         }).catch(err => {
-            console.log(1);
             return err.message;
         });
 }
@@ -33,10 +32,8 @@ export function geoLocalizacion() {
         .then(resp => {
             return resp.json();
         }).then(result => {
-            console.log(result);
             return result;
         }).catch(err => {
-            console.log(err);
             return err.message;
         });
 }

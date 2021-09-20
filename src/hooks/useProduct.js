@@ -9,11 +9,11 @@ export const useProduct = ( ) => {
     const [loading, setLoading] = useState(false);
     const [hasMore, setHasMore] = useState(true);
 
-    const getProducts = async () => {
+    const getProducts = async (page = 1) => {
         setLoading(true);
         const productos = JSON.parse(localStorage.getItem("topSales"));
         if(productos === null || productos === "Failed to fetch"){
-            const result = await getProductos8();
+            const result = await getProductos8(page);
             localStorage.setItem("topSales",JSON.stringify(result));
             setProductos(result);
         }else{
@@ -28,8 +28,11 @@ export const useProduct = ( ) => {
     }
 
     const getProductByCategoryId2 = async (id, page = 1) => {
+        console.log(id);
         setLoading(true);
         const result = await getProductosByCategoryId(id, page);
+        console.log(result);
+        console.log(1);
         if(page > 1){
             let array = [];
             let arraTemporal = array.concat(productos,result);
