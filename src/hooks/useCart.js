@@ -70,7 +70,7 @@ export const useCart = ( initial = []) => {
                 const data = {
                     id: producto.id,
                     nombre: producto.name,
-                    url: producto.images[0].src,
+                    url: producto.images.length > 0 ? producto.images[0].src : "",
                     precio: producto.price,
                     stockDisponible:producto.stock_quantity,
                     manejaStock:producto.manage_stock,

@@ -48,7 +48,7 @@ const Search = () => {
                             : 
                                 <>
                                     {productos.map((element) => {
-                                        const imagenUrl = element.images[0].src;
+                                        const imagenUrl = element.images.length > 0 ?  element.images[0].src : "";
                                         return (
                                             <>
                                                 <div class="options" onClick={() => redireccionar(element)}>
@@ -83,7 +83,7 @@ const Search = () => {
                             <div class="masVendido">
                                 <strong>Lo más vendido</strong>
                                 {topSales.map((element, i) => {
-                                    const imagenUrl = element.images[0].src;
+                                    const imagenUrl = element.images.length > 0 ?  element.images[0].src : "";
                                     return (
                                         <>
                                             {i <= 4 ? 

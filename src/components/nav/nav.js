@@ -162,7 +162,16 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
                         <Link onClick={() => redireccionar3("/")}>
                             Inicio
                         </Link>
-                        <Link to="/quienessomos">Quienes Somos</Link>
+                        <Link to="/salonlook/index" class="productosMas">Salon Look</Link>
+                        {/* <div class="productosM">
+                            <ExpandMoreIcon class="moreIcon" />
+                            <div class="productosVarios">
+                                <Link to="/salonlook/salon">Todo Saloon Look</Link>
+                                <Link to="/salonlook/invitados">Invitados internacionales</Link>
+                                <Link to="/salonlook/index">Batalla de barberos</Link>
+                                <Link to="/salonlook/index">Compra tu entrada</Link>
+                            </div>
+                        </div> */}
                         <div class="productosM">
                             <Link to="/productos/0" class="productosMas">Productos</Link>
                             <ExpandMoreIcon class="moreIcon" />
@@ -178,10 +187,11 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
                                     })
                                     : null
                                 }
-                            </div>
+                            </div> 
                         </div>
+                        <Link to="/quienessomos">Quienes Somos</Link>
                         <Link to="/cursos">Curso Inicial Barbería</Link>
-                        <Link to="/">Red One USA</Link>
+                        {/* <Link to="/">Red One USA</Link> */}
                         <Link to="/contacto">Contacto</Link>
                         {/* <Link to="/cotizador">Cotizador de Envíos</Link> */}
                         {/* <Link to="/signUp">Rggistro</Link> */}
@@ -204,7 +214,16 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
                     </div>
                     <div class="subMenu">
                         <Link onClick={() =>redireccionar3("/")}>Inicio</Link>
-                        <a onClick={() =>redireccionar3("/quienessomos")}>Quienes Somos</a>
+                        <Link onClick={() =>redireccionar3("/salonlook/index")}>Salón Look</Link>
+                        {/* <div class="productosMobiles" onClick={expandir}>
+                            <div class="product-flex">
+                                <ExpandMoreIcon />
+                            </div>
+                            <div className="subMenu2" id="subMenu2">
+                                <Link onClick={ () => redireccionar3("/salonlook/salon")}>Todo Salón Look</Link>
+                                <Link onClick={ () => redireccionar3("/salonlook/invitados")}>Invitados inernacionales</Link>
+                            </div>
+                        </div> */}
                         <div class="productosMobiles" onClick={expandir}>
                             <div class="product-flex">
                                 <Link>Productos</Link>
@@ -224,8 +243,10 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
                                 }
                             </div>
                         </div>
+                        <a onClick={() =>redireccionar3("/quienessomos")}>Quienes Somos</a>
+
                         <Link onClick={() =>redireccionar3("/cursos")}>Curso Inicial de Barbería</Link>
-                        <Link to="/">Red One USA</Link>
+                        {/* <Link to="/">Red One USA</Link> */}
                         <Link onClick={() =>redireccionar3("/contacto")}>Contacto</Link>
                     </div>
                     <div class="links">

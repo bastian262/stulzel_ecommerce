@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useHistory } from "react-router";
 import { getCategorias } from '../api/categorias';
+
 export const useCategory = () => {
 
     const[categorias, setCategorias] = useState([]);

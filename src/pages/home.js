@@ -4,7 +4,12 @@ import InstagramIcon from '@material-ui/icons/Instagram';
 import { useCart } from '../hooks/useCart';
 import { useProduct } from '../hooks/useProduct';
 import { useFormat } from '../hooks/useFormat';
+import { useRedirect } from '../hooks/useRedirect';
+import { productoHelper } from '../helpers/productos';
+import { Link } from 'react-router-dom';
 import redone from '../assets/img/redone.png';
+import look from '../assets/img/look.png';
+import logos from '../assets/img/logos.png';
 import aroluz from '../assets/img/aroluz.jpg';
 import logo from '../assets/img/logo.png';
 import Footer1 from '../components/footer/Footer1';
@@ -13,12 +18,14 @@ import NavBar from '../components/nav/nav';
 import ReactPixel from 'react-facebook-pixel';
 import { geoLocalizacion } from '../api/apiConversion';
 import LazyLoad from 'react-lazyload';
-
+import BtnWhatsApp from '../components/btnWhatsapp/btnWhatsApp';
 const HomeScreen = () => {
     var localS = JSON.parse(localStorage.getItem("carrito"));
     const varFInal = localS === null? [] : localS;
+    const [aviador, praga, escocia, premiunBlack] = productoHelper();
     const [productos, getProducts,,,,redireccionar ] = useProduct();
     const [onAdd,limpiarCarrito, eliminarProducto, productes,total, ] = useCart(varFInal);
+    const [redirectWhatsApp, redireccionarInstagram] = useRedirect();
     const [format] = useFormat();
     const options = {
         autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
@@ -35,10 +42,6 @@ const HomeScreen = () => {
        const resultado = await geoLocalizacion();
        localStorage.setItem("ip", JSON.stringify(resultado.ip))
     //    console.log(resultado);
-    }
-    const refireccionarInstagram = () => {
-        var url = "https://www.instagram.com/stulzel_cl/";
-        window.location.href = url;
     }
     return (
         <>
@@ -69,19 +72,26 @@ const HomeScreen = () => {
                                 más cercano a tu domicilio.
                             </span>
                             <div className="button">
-                                <button>Envianos un WhatsApp Aquí</button>
+                                <button onClick={ () => redirectWhatsApp("56972321555")}>Envianos un WhatsApp Aquí</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+            <div class="bannerSalon">
+                <span>2a VERSIÓN DEL ENCUENTRO PROFESIONAL DE LA IMAGEN Y LA ESTÉTICA INTEGRAL </span>
+                <img className="look" src={look} alt="look" />
+                <img className="logos" src={logos} alt="logos" />
+                <div>
+                    <Link to="/salonlook/index">Conoce Más</Link>
+                </div>
+            </div>
             <section className="topSales">
                 <div className="raw">
                     <div className="tituloProductosDestacados"> Productos Destacados </div>
                 </div>
                 <div className="raw">
-                    <div className="col">
+                    <div className="col" onClick={() => redireccionar(aviador)}>
                         <div className="mitad1">
                             <span className="titulo">
                                 Sillón de Barbería
@@ -102,7 +112,7 @@ const HomeScreen = () => {
                             </LazyLoad>
                         </div>
                     </div>
-                    <div className="col">
+                    <div className="col" onClick={() => redireccionar(praga)}>
                         <div className="mitad1">
                             <span className="titulo">
                                 Sillón de Barbería
@@ -125,7 +135,7 @@ const HomeScreen = () => {
                     </div>
                 </div>
                 <div className="raw">
-                    <div className="col">
+                    <div className="col" onClick={() => redireccionar(escocia)}>
                         <div className="mitad1">
                             <span className="titulo">
                                 Sillón de Peluquería
@@ -146,7 +156,7 @@ const HomeScreen = () => {
                             </LazyLoad>
                         </div>
                     </div>
-                    <div className="col">
+                    <div className="col" onClick={() => redireccionar(premiunBlack)}>
                         <div className="mitad1">
                             <span className="titulo">
                                 Lavapelo
@@ -181,7 +191,7 @@ const HomeScreen = () => {
                 </h2>
                 <div className="raw"> 
                     {productos.map((element) => {
-                        const imagen = element.images.length > 0? element.images[0].src : "";
+                        const imagen = element.images.length > 0 ? element.images[0].src : "";
                         return (
                             <div className="columnas">
                                 <div className="card">
@@ -227,7 +237,7 @@ const HomeScreen = () => {
                             variant="contained"
                             color="secondary"
                             startIcon={<InstagramIcon />}
-                            onClick={() => refireccionarInstagram()}
+                            onClick={() => redireccionarInstagram()}
                         >
                             SIGUENOS AQUÍ
                         </Button>
@@ -267,6 +277,7 @@ const HomeScreen = () => {
         </div>
         <Footer1 />
         <Footer2 />
+        <BtnWhatsApp />
         </>
     );
     

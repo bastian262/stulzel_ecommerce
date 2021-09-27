@@ -5,12 +5,17 @@
 body{
   scroll-behavior: smooth;
 }
+button{
+  cursor :pointer;
+}
 html{
   scroll-behavior: smooth;
-
 }
 p{
   font-size: 16px;
+}
+.movil{
+  display: none;
 }
 img {
   display: block;
@@ -709,7 +714,7 @@ nav .carrito span {
   width: 100%;
   max-height: 2000px !important;
   min-height: 100px !important;
-  height: calc(100vh - 170px);
+  height: calc(100vh - 220px);
 }
 .fondo .contenedorStreaming .pregunta {
   float: left;
@@ -3119,6 +3124,1215 @@ display: none;
   font-size: 28px;
 }
 
+.fondo .contenedor-fluido{
+  float: left;
+  width: 100%;
+}
+
+.fondo .fondoImage{
+  background-image: linear-gradient(rgba(0, 0, 0, 0.329), rgba(0, 0, 0, 0.329)), url(https://admin.stulzel.com/wp-content/uploads/2019/07/01-fondo-banner-superior.jpg);
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 50vh;
+  padding: 100px 0px;
+} 
+.fondo .contenedor-fluido .row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 50vh;
+  padding: 20px;
+}
+
+.fondo .contenedor-fluido .row .title{
+  font-size: 64px;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 10px;
+  line-height: 68px;
+}
+
+.fondo .contenedor-fluido .row .subtitle{
+  font-size: 35px;
+  color: white;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+.fondo .contenedor-fluido .row .parraf{
+  font-size: 18px;
+  color: rgba(255,255,255,.85);
+  font-weight: 600;
+}
+
+.fondo .contenedor-fluido .row .buttons{
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.fondo .contenedor-fluido .row .buttons .btn1{
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  fill: #dbcc00;
+  color: #dbcc00;
+  background-color: #008939;
+  border: 3px solid #dbcc00;
+  padding: 15px 35px;
+  margin-right: 20px;
+}
+.fondo .contenedor-fluido .row .buttons .btn2{
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  fill: #ffffff;
+  color: #ffffff;
+  background-color: #00893900;
+  border: 3px solid #ffffff;
+  padding: 15px 35px;
+  margin-right: 20px;
+}
+.btnWhatsApp{
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+}
+.btnWhatsApp .fixedButton{
+  width: 70px;
+  height: 70px;
+  background: #3bb54a;
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+}
+.btnWhatsApp .fixedButton .icono{
+  font-size: 48px;
+}
+.btnWhatsApp .fixedButton:hover ~ .mas{
+  visibility: visible;
+  opacity: 1;
+}
+.btnWhatsApp .mas{
+  position: relative;
+  visibility: hidden;
+  transition: .3s all ease;
+  opacity: 0;
+
+}
+.btnWhatsApp .mas::after{
+  content: '';
+  position: absolute;
+  top: -38px;
+  width: 18px;
+  height: 18px;
+  right: 93px;
+  transform: rotate(45deg) translateY(-50%);
+  background: white;
+  z-index: 2;
+  -webkit-box-shadow: 7px 0px 23px 3px rgba(0,0,0,0.12);
+  -moz-box-shadow: 7px 0px 23px 3px rgba(0,0,0,0.12);
+  box-shadow: 7px 0px 23px 3px rgba(0,0,0,0.12);
+}
+.btnWhatsApp .mas span{
+  position: absolute;
+  top: -35px;
+  transform: translateY(-50%);
+  width: 190px;
+  right: 87px;
+  z-index: 3;
+  text-align: center;
+  -webkit-box-shadow: -7px 0px 23px 3px rgba(0,0,0,0.12);
+  -moz-box-shadow: -7px 0px 23px 3px rgba(0,0,0,0.12);
+  box-shadow: -7px 0px 23px 3px rgba(0,0,0,0.12);
+  background: white;
+  padding: 5px 10px 5px 20px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.btnWhatsApp .mas span .icono2{
+  font-size: 18px;
+} 
+
+
+/* SALON LOOK */
+
+.fondo .container-fluid{
+  float: left;
+  width: 100%;
+
+}
+
+.fondo .container-fluid .raw-flex{
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background: black;
+  color: white;
+  padding: 100px 20px;
+}
+.fondo .container-fluid .raw-flex .tituloSalon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  width: 100%;
+  margin-bottom: 40px;
+}
+.fondo .container-fluid .raw-flex .tituloSalon .stul{
+  width: 100%;
+  max-width: 150px;
+} 
+.fondo .container-fluid .raw-flex .tituloSalon .salon{
+  width: 100%;
+  max-width: 200px;
+  margin-left: 40px;
+}
+.fondo .container-fluid .raw-flex span{
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.fondo .container-fluid .rawBlanca{
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 80px 0px 50px;
+}
+.fondo .container-fluid .rawBlanca iframe{
+  float: left;
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 50px;
+  height: calc(70vh - 200px);
+  border-radius: 20px;
+}
+.fondo .container-fluid .rawBlanca .flex{
+  justify-content: center;  
+}
+.fondo .container-fluid .galeriaMovil{
+  float: left;
+  width: 100%;
+  margin-top: 50px;
+}
+.fondo .container-fluid .rawBlanca .flex img{
+ width: 100%;
+ max-width: 300px;
+ margin: 0px 25px;
+}
+.fondo .container-fluid .rawBlanca .galeriaMovil .object{
+  float: left;
+  width: calc(100% / 6);
+
+}
+.fondo .container-fluid .rawBlanca .galeriaMovil .object img{
+  float: left;
+  width: 100%;
+  /* height: 200px; */
+}
+
+.fondo .container-fluid .rawBlanca .slick-next{
+  right: 30px;
+  color: white;
+  background: transparent;
+}
+
+.fondo .container-fluid .rawBlanca .slick-next:before{
+  color: white;
+  background: transparent;
+  border-radius: 100px;
+}
+.fondo .container-fluid .rawBlanca .slick-prev:before{
+  color: white;
+  background: transparent;
+  border-radius: 100px;
+}
+.fondo .container-fluid .rawBlanca .slick-prev{
+  left: 30px;
+  color: white;
+  background: transparent;
+  z-index: 4;
+}
+
+.fondo .container-fluid .bannerL{
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0px 100px;
+}
+.fondo .container-fluid .salonLook {
+  background-image: url(./assets/img/banners/banner1r.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 300px;
+}
+.fondo .container-fluid .batalla {
+  background-image: url(./assets/img/banners/bannerC.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 300px;
+}
+.fondo .container-fluid .containerSalon{
+  float: left;
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.fondo .container-fluid .bannerL .containerSalon span{
+  font-size: 32px;
+  color: white;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+.fondo .container-fluid .batalla .containerSalon span{
+  font-size: 32px;
+  color: black;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+.fondo .container-fluid .batalla .containerSalon button{
+  background: #000000;
+  border-radius: 30px;
+  float: left;
+  width: 100%;
+  max-width: 200px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(255, 255, 255);
+  font-weight: 500;
+  border: none;
+}
+.fondo .container-fluid .bannerL .containerSalon button{
+  background: #3bb54a;
+  border-radius: 30px;
+  float: left;
+  width: 100%;
+  max-width: 200px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-weight: 500;
+  border: none;
+}
+
+.fondo .container-fluid .bannerR{
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transition: 0.5s all ease;
+  padding: 0px 100px;
+}
+.fondo .container-fluid .bannerR .containerSalon span{
+  font-size: 32px;
+  color: white;
+  font-weight: 500;
+  margin-bottom: 30px;
+  text-align: center;
+  line-height: 40px;
+}
+.fondo .container-fluid .invitador {
+  background-image: url(./assets/img/banners/banner3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  min-height: 300px;
+}
+
+.fondo .container-fluid .bannerR .containerSalon button{
+  background: #ffffff;
+  border-radius: 30px;
+  float: left;
+  width: 100%;
+  max-width: 200px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  font-weight: 500;
+  border: none;
+}
+
+.fondo .container-fluid .stand {
+  background-image: url(./assets/img/banners/banner4.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  min-height: 300px;
+}
+.fondo .container-fluid .bannerS{
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 50px 100px;
+}
+.fondo .container-fluid .bannerS .containerSalon{
+  max-width: 700px;
+}
+.fondo .container-fluid .bannerS .containerSalon h4{
+  font-size: 26px;
+  text-align: center;
+  color: black;
+  font-weight: 500;
+  margin-bottom: 25px;
+  line-height: 40px;
+}
+.fondo .container-fluid .bannerS .containerSalon span{
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.fondo .container-fluid .bannerS .containerSalon button{
+  background: #fff;
+  border-radius: 30px;
+  float: left;
+  width: 100%;
+  max-width: 200px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  color: black;
+  border: none;
+}
+.fondo .container-fluid .yellow{
+  background: #F6E124;
+}
+.fondo .container-fluid .look {
+  background-image: url(./assets/img/banners/banner5.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: right;
+  min-height: 350px;
+}
+
+.fondo .container-fluid .look .containerSalon .div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  float: left;
+  width: 100%;
+  margin-bottom: 60px;
+}
+.fondo .container-fluid .look .containerSalon{
+  padding-right: 150px;
+  max-width: 700px !important;
+}
+.fondo .container-fluid .look .containerSalon .div img{
+  float: left;
+  width: 50%
+}
+
+.fondo .container-fluid .look .containerSalon div .img{
+  width: 70%;
+  margin: 0 auto;
+}
+
+.fondo .container-fluid .botonesRedes{
+  float: left;
+  width: 100%;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fondo .container-fluid .botonesRedes button{
+  margin: 0px 25px;
+  border-radius: 30px;
+  border: none;
+  width: 100%;
+  max-width: 220px;
+  height: 45px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  padding: 0px 30px;
+  align-items: center;
+  justify-content: space-between;
+}
+.fondo .container-fluid .botonesRedes .insta{
+  background:linear-gradient(to right, #fdf497 0%, #fdf497 2%, #fd5949 40%,#d6249f 60%,#285AEB 95%);
+}
+.fondo .container-fluid .botonesRedes .face{
+  background:  #5B2FF9;
+}
+
+.fondo .container-fluid .contenedorCollapse{
+  float: left;
+  width: 100%;
+  max-height: 0px;
+  transition: all 1s;
+  overflow: hidden;
+}
+.fondo .container-fluid .contenedorCollapse .fondoBlack{
+  float: left;
+  width: 100%;
+  padding: 90px 50px 50px;
+  background: black;
+  color: white;
+}
+
+.fondo .container-fluid .contenedorCollapse .fondoBlack .col-1{
+  float: left;
+  width: calc(50% - 20px);
+  margin-left: 40px;
+}
+.fondo .container-fluid .contenedorCollapse .fondoBlack .col-1:first-child{
+  margin-left: 0px;
+}
+.fondo .container-fluid .contenedorCollapse .fondoBlack .col-1 div{
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.fondo .container-fluid .contenedorCollapse .fondoBlack .col-1 div img{
+  margin-bottom: 50px;
+}
+.fondo .container-fluid .contenedorCollapse .fondoBlack .col-1 div span{
+  text-align: center;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.fondo .container-fluid .contenedorCollapse .background{
+  float: left;
+  width: 100%;
+  background:linear-gradient( #FE4095 0, #FE4095 33%, #CA2CAC 33%, #CA2CAC 66%, #9516C1 66%, #9516C1 100%);
+  padding: 50px;
+}
+.fondo .container-fluid .contenedorCollapse .background .col1{
+  float: left;
+  /* padding-right: 50px; */
+  width: 40%;
+}
+.fondo .container-fluid .contenedorCollapse .background .col1 span{
+  float: left;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: 500;
+  font-size: 38px;
+  margin-bottom: 20px;
+  line-height: 40px;
+}
+.fondo .container-fluid .contenedorCollapse .background .col1 iframe{
+  float: left;
+  width: 100%;
+  height: 300px;
+  border-radius: 30px;
+}
+.fondo .container-fluid .contenedorCollapse .background .col2{
+  float: left;
+  width: 60%;
+  padding: 0px 50px 0 100px;
+}
+.fondo .container-fluid .contenedorCollapse .background .col2 p{
+  color: white;
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+.fondo .container-fluid .contenedorCollapse .background .col2 div{
+  float: left;
+  width: 100%;
+  margin: 30px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fondo .container-fluid .contenedorCollapse .background .col2 div img{
+  float: left;
+  width: 100%;
+  max-width: 310px;
+  margin-right: 40px;
+}
+.fondo .container-fluid .contenedorCollapse .background .col2 div span{
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+.fondo .container-fluid .fondoBlanco{
+  float: left;
+  width: 100%;
+  padding: 50px;
+}
+
+.fondo .container-fluid .fondoBlanco .div-flex{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.fondo .container-fluid .fondoBlanco .div-flex .col{
+  float: left;
+  width: 100%;
+  margin: 0px 40px;
+}
+.fondo .container-fluid .fondoBlanco .div-flex .col .svg{
+  margin-bottom: 15px;
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fondo .container-fluid .fondoBlanco .div-flex .col .svg svg{
+  /* float: left;  */
+  /* width: 50%; */
+  height: 60px;
+}
+
+.fondo .container-fluid .fondoBlanco .div-flex .col .details{
+  float: left;
+  width: 100%;
+}
+.fondo .container-fluid .fondoBlanco .div-flex .col .details div{
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.fondo .container-fluid .fondoBlanco .div-flex .col .details div .chico{
+  font-size: 18px;
+
+}
+.fondo .container-fluid .fondoBlanco .div-flex .col .details div .precio{
+  font-size: 24px;
+}
+.fondo .container-fluid .fondoBlanco .div-flex .col .details span{
+  font-weight: 500;
+}
+.fondo .container-fluid .fondoBlanco .div-flex .col .details .visitas{
+  text-align: center;
+  float: left;
+  width: 100%;
+  font-size: 18px;
+  transform: translateY(-8px);
+}
+.fondo .container-fluid .contenedorCollapse .background2{
+  float: left;
+  width: 100%;
+  background:linear-gradient( #7B13B8 0, #7B13B8 33%, #6E13B4 33%, #6E13B4 66%, #6110B0 66%, #6110B0 100%);
+  padding: 100px 50px;
+  display: flex;
+  align-items: center;
+  /* justify-content: space-around; */
+}
+.fondo .container-fluid .contenedorCollapse .background2 .col1{
+  float: left;
+  /* padding-right: 50px; */
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: space-evenly;
+  flex-direction: column;
+  width: 40%;
+}
+.fondo .container-fluid .contenedorCollapse .background2 .col1 span{
+  float: left;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font-weight: 500;
+  font-size: 38px;
+  line-height: 40px;
+  margin-bottom: 20px;
+}
+.fondo .container-fluid .contenedorCollapse .background2 .col1 img{
+  float: left;
+  width: 100%;
+  max-width: 200px;
+  /* height: 300px; */
+  transform: translateX(15px);
+  margin-bottom: 50px;
+  border-radius: 30px;
+}
+.fondo .container-fluid .contenedorCollapse .background2 .col2{
+  float: left;
+  width: 60%;
+  padding: 0px 50px 0 100px;
+}
+.fondo .container-fluid .contenedorCollapse .background2 .col2 p{
+  color: white;
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+.fondo .container-fluid .contenedorCollapse .background2 .col2 div{
+  float: left;
+  width: 100%;
+  margin: 30px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fondo .container-fluid .contenedorCollapse .background2 .col2 div img{
+  float: left;
+  width: 100%;
+  max-width: 310px;
+  margin-right: 40px;
+}
+.fondo .container-fluid .contenedorCollapse .background2 .col2 div span{
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+.fondo .container-fluid .contenedorCollapse .background3{
+  float: left;
+  width: 100%;
+  background:#fff;
+  padding: 90px 50px;
+  display: flex;
+  align-items: center;
+}
+.fondo .container-fluid .contenedorCollapse .background3 .col1{
+  float: left;
+  /* padding-right: 50px; */
+  width: 40%;
+}
+.fondo .container-fluid .contenedorCollapse .background3 .col1 span{
+  float: left;
+  width: 100%;
+  text-align: center;
+  color: black;
+  font-weight: 500;
+  line-height: 40px;
+  font-size: 38px;
+  margin-bottom: 50px;
+}
+.fondo .container-fluid .contenedorCollapse .background3 .col1 iframe{
+  float: left;
+  width: 100%;
+  height: 300px;
+  border-radius: 30px;
+}
+.fondo .container-fluid .contenedorCollapse .background3 .col2{
+  float: left;
+  width: 60%;
+  padding: 0px 50px 0 120px;
+}
+.fondo .container-fluid .contenedorCollapse .background3 .col2 p{
+  color: black;
+  float: left;
+  width: 100%;
+  text-align: justify;
+  font-size: 14px;
+  font-weight: 500;
+  position: relative;
+  text-align: left;
+}
+.fondo .container-fluid .contenedorCollapse .background3 .col2 p::after{
+  content: '';
+  position: absolute;
+  left: -20px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  background: #000;
+  border-radius: 10px;
+}
+.fondo .container-fluid .contenedorCollapse .background3 .col2 div{
+  float: left;
+  width: 100%;
+  margin: 30px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.fondo .container-fluid .contenedorCollapse .background3 .col2 div img{
+  float: left;
+  width: 100%;
+  max-width: 310px;
+  margin-right: 40px;
+}
+.fondo .container-fluid .contenedorCollapse .background3 .col2 div span{
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+.fondo .container-fluid .contenedorCollapse .amarello{
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  background: #F6E325;
+}
+.fondo .container-fluid .contenedorCollapse .amarello button{
+  float: left;
+  width: 100%;
+  max-width: 290px;
+  height: 45px;
+  border-radius: 30px;
+  border: none;
+  background: black;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.fondo .container-fluid .contenedorCollapse .lugar{
+  float: left;
+  width: 100%;
+  padding: 20px ;
+}
+.fondo .container-fluid .contenedorCollapse .lugar .titulo{
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  flex-direction: column;
+}
+.fondo .container-fluid .contenedorCollapse .lugar .titulo h4{
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 50px;
+}
+.fondo .container-fluid .contenedorCollapse .lugar .titulo img{
+  width: 100%;
+  max-width: 280px;
+}
+.fondo .container-fluid .lugar .contenedor{
+  padding: 0px 0px 50px;
+}
+.fondo .container-fluid .lugar .contenedor .row .col3{
+  float: left;
+  width: calc((100% / 3) - (80px / 3));
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.fondo .container-fluid .lugar .contenedor .row .col3:first-child{
+  margin-left: 0px;
+}
+.fondo .container-fluid .lugar .contenedor .row .col3 img{
+  float: left;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.fondo .container-fluid .lugar .contenedor .row .col3 span{
+  float: left;
+  width: 100%;
+  font-weight: 500;
+  text-align: center;
+}
+
+.fondo .container-fluid .invitados{
+  float: left;
+  width: 100%;
+}
+.fondo .container-fluid .invitados .contenedorCollapse .contenedor .row {
+  display: flex;
+  align-items: center;
+}
+.fondo .container-fluid .invitados .contenedorCollapse .contenedor .row .col2{
+  float: left;
+  width: 100%;
+  max-width: 300px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.fondo .container-fluid .invitados .contenedorCollapse .contenedor .row .col-3{
+  float: left;
+  width: calc(100% - 300px);
+  padding-left: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.fondo .container-fluid .invitados .contenedorCollapse .contenedor .row .col2 img{
+  float: left;
+  width: 70%;
+}
+.fondo .container-fluid .invitados .contenedorCollapse .contenedor .row .col2 .index{
+  z-index: 3;
+}
+.fondo .container-fluid .invitados .contenedorCollapse .contenedor .row .col2 .absolute{
+  position: absolute;
+  right: 0px;
+  z-index: 2;
+  top: 0px;
+  transform: translateX(-80%);
+}
+.fondo .container-fluid .invitados .color2{
+  background: #F6F6F6;
+  padding-bottom: 30px;
+}
+.fondo .container-fluid .invitados .color{
+  padding-bottom: 30px;
+
+}
+.fondo .container-fluid .invitados .contenedorCollapse .contenedor .row .col-3 h3{
+  float: left;
+  width: 100%;
+  font-weight: 500;
+  color: #3bb54a;
+  font-size: 20px;
+  margin-bottom:20px;
+  text-align: center;
+}
+.fondo .container-fluid .invitados .contenedorCollapse .contenedor .row .col-3 h2{
+  float: left;
+  width: 100%;
+  font-size: 34px;
+  font-weight: 700;
+  margin-bottom: 0px;
+  line-height: 40px;
+  text-align: center;
+}
+.fondo .container-fluid .invitados .contenedorCollapse .contenedor .row .col-3 span{
+  float: left;
+  width: 100%;
+  font-weight: 500;
+}
+.fondo .container-fluid .invitados .contenedorCollapse .contenedor .row .col-3 button{
+  float: left;
+  width: 100%;
+  max-width: 150px;
+  background: #000;
+  border-radius: 30px;
+  height: 45px;
+  border: none;
+  color: white;
+  margin-top: 30px;
+  font-weight: 500;
+}
+.fondo .container-fluid .invitados .contenedorCollapse .contenedor .row .col-3 img{
+  float: left;
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 10px;
+}
+.fondo .container-fluid .containerSalon .black{
+  background: #000 !important;
+  color: white !important;
+}
+.entrada{
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 220px;
+  height: 45px;
+  border-radius: 20px;
+  border: none;
+  background: #F6E325;
+  color: black;
+  font-weight: 700;
+  -webkit-box-shadow: 0px 0px 14px -6px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px 0px 14px -6px rgba(0,0,0,0.75);
+box-shadow: 0px 0px 14px -6px rgba(0,0,0,0.75);
+}
+
+.fondo .contenedorCollapse .stands{
+  float: left;
+  width: 100%;
+  margin: 20px 0px;
+}
+.fondo .contenedorCollapse .stands .headerStand h2{
+  font-size: 32px;
+  font-weight: 600;
+  float: left;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.fondo .contenedorCollapse .stands .headerStand{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.fondo .contenedorCollapse .stands .headerStand p{
+  float: left;
+  width: 100%;
+  font-weight: 500;
+}
+.fondo .contenedorCollapse .stands .headerStand .btnWhats{
+  border-radius: 100px;
+  background: #3bb54a;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 20px;
+  float: left;
+  width: 100%;
+  max-width: 450px;
+  margin-top:40px;
+}
+.fondo .contenedorCollapse .stands .headerStand .btnWhats .icon{
+  fill: #fff;
+  font-size: 62px;
+} 
+.fondo .contenedorCollapse .stands .headerStand .btnWhats div{
+  color: white;
+}
+.fondo .contenedorCollapse .stands .headerStand .btnWhats div p{
+  margin: 0px;
+  font-size: 34px;
+  line-height: 33px;
+}
+.fondo .contenedorCollapse .gris{
+  float: left;
+  width: 100%;
+  background: #F6F6F6;
+}
+.fondo .contenedorCollapse .gris h2{
+  float: left;
+  width: 100%;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+
+}
+
+.fondo .contenedorCollapse .gris span{
+  float: left;
+  width: 100%;
+  font-weight: 500;
+  text-align: center;
+}
+.fondo .contenedorCollapse .blanco .contenedor .row h2{
+  float: left;
+  width: 100%;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+}
+.fondo .contenedorCollapse .blanco .contenedor .row span{
+  float: left;
+  width: 100%;
+  font-weight: 500;
+  text-align: center;
+}
+.fondo .contenedorCollapse .blanco .contenedor .row .stands{
+  float: left;
+  width: 100%;
+}
+.fondo .contenedorCollapse .blanco .contenedor .row div{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  float: left;
+  width: 100%;
+  margin-top:50px
+}
+.fondo .contenedorCollapse .blanco .contenedor .row div img{
+  float: left;
+  width: calc(25% - 30px);
+}
+.fondo .contenedorCollapse .blanco .contenedor .row div img:first-child{
+  float: left;
+  width: 75%;
+  margin-right: 30px;
+}
+.fondo .contenedorCollapse .gris .contenedor .btnverde{
+  /* background: #3bb54a; */
+  float: left;
+  width: 100%;
+  display: flex;
+  margin-top: 20px;
+  justify-content: center;
+}
+.fondo .contenedorCollapse .gris .contenedor .btnverde p{
+  margin: 0px;
+  background: #3bb54a;
+  border-radius: 20px;
+  padding: 10px 20px;
+  color: white;
+}
+.fondo .contenedorCollapse .gris .contenedor .btnverde p strong{
+  font-style: italic;
+}
+.fondo .contenedorCollapse .verde
+{
+  float: left;
+  width: 100%;
+  background: #3bb54a;
+}
+.fondo .contenedorCollapse .verde .contenedor span
+{
+  float: left;
+  width: 100%;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 18px;
+  text-align: center;
+}
+.fondo .contenedorCollapse .verde .contenedor div{
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  justify-content: center;
+}
+.fondo .contenedorCollapse .verde .contenedor div span{
+  width: auto;
+  font-size: 34px;
+  font-weight: 500;
+}
+.fondo .contenedorCollapse .verde .contenedor div .icon{
+  margin-right: 15px;
+  fill: #fff;
+  color: #fff;
+  font-size: 58px;
+}
+.fondo .contenedorCollapse .contenedor h2{
+  float: left;
+  width: 100%;
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  line-height: 40px;
+}
+.fondo .contenedorCollapse .contenedor span{
+  float: left;
+  width: 100%;
+  font-weight: 500;
+  text-align: center;
+}
+.fondo .contenedorCollapse .contenedor .row .colu1{
+  float: left;
+  width: calc(50% - 10px);
+  margin-left: 20px;
+}
+.fondo .contenedorCollapse .contenedor .row .colu1:first-child{
+  margin-left: 0px;
+}
+.fondo .contenedorCollapse .contenedor .row .colu1 p{
+  margin-bottom: 0px;
+  font-weight: 500;
+}
+.fondo .contenedorCollapse .contenedor .batallas{
+  float: left;
+  width: 100%;
+  padding: 0px 50px;
+}
+.fondo .contenedorCollapse .contenedor .batallas:first-child{
+  margin-top: 50px;
+}
+.fondo .contenedorCollapse .contenedor .letras{
+  float: left;
+  width: 100%;
+  margin: 90px 0px;
+
+}
+.fondo .contenedorCollapse .contenedor .letras span{
+  float: left;
+  width: 100%;
+  font-size: 22px;
+  font-style: italic;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+.fondo .contenedorCollapse .contenedor .info{
+  float: left;
+  width: 100%;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.fondo .contenedorCollapse .contenedor .info span{
+  float: left;
+  width: 100%;
+  font-size: 28px;
+  font-style: italic;
+  font-weight: 500;
+  margin-bottom: 0px;
+}
+
+.fondo .bannerSalon{
+  float: left;
+  width: 100%;
+  padding: 70px 50px;
+  background: url(./assets/img/banners/bannerblanco.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.fondo .bannerSalon span{
+  float: left;
+  width: 100%;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 50px;
+}
+.fondo .bannerSalon .look{
+  width: 100%;
+ margin-bottom: 40px;
+  max-width: 415px;
+}
+.fondo .bannerSalon .logos{
+  width: 100%;
+  max-width: 623px;
+  margin-bottom: 30px;
+}
+.fondo .bannerSalon a{
+  background: #000;
+  color: white;
+  border-radius: 30px;
+  border: none;
+  padding: 10px 35px;
+  font-weight: 500;
+}
+/* FIN SALON LOOK */
+
+
 
 @media (min-width: 320px) and (max-width: 719px) {
   .fondo #header1 {
@@ -3127,6 +4341,9 @@ display: none;
   nav{
 
     display: none;
+  }
+  .movil{
+    display: block;
   }
   .fondo .mobile{
     float: left;
@@ -3283,8 +4500,6 @@ display: none;
   .fondo .topSales .raw .col .mitad2 img{
     width: 100%;
   }
-
-
   .fondo .header2 .row-flex2 .col-2 button{
     width: 100%;
   }
@@ -3631,6 +4846,9 @@ display: none;
     float: left;
     width: 100%;
     max-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .fondo .contenedorFluido .contenedor2 .row .col-1{
     width: 100%;
@@ -3681,5 +4899,258 @@ display: none;
   }
   .fondo .contenedorFluido .row .col-1 .span{
     transform: translateY(0px);
+  }
+  .fondo .container-fluid .invitador{
+    background-image: url(./assets/img/banners/BANNER-4.jpg);
+    background-position: center;
+
+  }
+  .fondo .container-fluid .batalla{
+    background-image: url(./assets/img/banners/BANNER-2.jpg);
+    background-position: center;
+  }
+  .fondo .container-fluid .stand{
+    background-image: url(./assets/img/banners/BANNER-3.jpg);
+
+  }
+  .fondo .container-fluid .batalla .containerSalon span{
+    color: white;
+  }
+  .fondo .container-fluid .raw-flex .tituloSalon{
+    flex-direction: column;
+  }
+  .fondo .container-fluid .raw-flex .tituloSalon .salon{
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+  .fondo .container-fluid .raw-flex span{
+    text-align: center;
+  }
+  .fondo .container-fluid .rawBlanca .flex
+  {
+    flex-direction: column;
+  }
+  .fondo .container-fluid .rawBlanca .flex img{
+    float: left;
+    width: 100%;
+    max-width: 250px;
+    margin: 20px;
+  }
+  .fondo .container-fluid .bannerL{
+    padding: 0px 20px;
+  }
+  .fondo .container-fluid .bannerL .containerSalon span{
+    text-align: center;
+    line-height: 40px;
+  }
+  .fondo .container-fluid .salonLook{
+    background-position: center;
+    background-image: url(./assets/img/banners/BANNER-1.jpg);
+    background-size: cover;
+    background-color: #000;
+    min-height: 400px;
+  }
+  .fondo .container-fluid .contenedorCollapse .fondoBlack
+  {
+    padding: 20px 50px;
+  }
+  .fondo .container-fluid .contenedorCollapse .fondoBlack .col-1{
+    float: left;
+    width: 100%;
+    margin-left: 0px;
+    margin-top: 30px;
+  }
+  .fondo .container-fluid .contenedorCollapse .fondoBlack .col-1 div img{
+    float: left;
+    width: 100%;
+  }
+  .fondo .container-fluid .contenedorCollapse .background .col1{
+    float: left;
+    width: 100%;
+    margin-right: 0px;
+  }
+  .fondo .container-fluid .contenedorCollapse .background .col2
+  {
+    width: 100%;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  .fondo .container-fluid .contenedorCollapse .background
+  {
+    padding: 50px 20px;
+  }
+  .fondo .container-fluid .contenedorCollapse .background .col2 div{
+    flex-direction: column;
+  }
+  .fondo .container-fluid .contenedorCollapse .background .col2 div img{
+    margin-right: 0px;
+    margin-bottom: 20px ;
+  }
+  .fondo .container-fluid .fondoBlanco .div-flex{
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .fondo .container-fluid .fondoBlanco .div-flex .col{
+    width: 50%;
+    margin: 0px;
+    margin-bottom: 40px;
+  }
+  .fondo .container-fluid .contenedorCollapse .background2{
+    padding: 50px 20px;
+    flex-direction: column;
+  }
+  .fondo .container-fluid .contenedorCollapse .background2 .col1{
+    width: 100%;
+  }
+  .fondo .container-fluid .contenedorCollapse .background2 .col2{
+    padding: 20px;
+    width: 100%;
+  }
+  .fondo .container-fluid .contenedorCollapse .background3{
+    padding: 50px 20px;
+    flex-direction: column;
+  }
+  .fondo .container-fluid .contenedorCollapse .background3 .col1
+  {
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  .fondo .container-fluid .contenedorCollapse .background3 .col2{
+    padding: 20px 20px 20px 35px;
+    width: 100%;
+  }
+  .fondo .container-fluid .lugar .contenedor .row .col3{
+    width: 100%;
+    margin-left: 0px;
+    margin-bottom: 30px;
+  }
+  .fondo .container-fluid .invitados .contenedorCollapse .contenedor .row{
+    flex-direction: column;
+  }
+  .fondo .container-fluid .invitados .contenedorCollapse .contenedor .row{
+    flex-direction: column;
+  }
+  .fondo .container-fluid .invitados .contenedorCollapse .contenedor .row .col2{
+    width: 100%;
+    margin-left: 0px;
+    justify-content: center;
+    max-width: 100%;
+  }
+  .fondo .container-fluid .invitados .contenedorCollapse .contenedor .row .col2{
+    max-width: 240px;
+  }
+  .fondo .container-fluid .invitados .contenedorCollapse .contenedor .row .col-3{
+    padding-left: 0px;
+    width: 100%;
+    margin-top: 20px;
+    text-align: justify;
+  }
+  .fondo .container-fluid .invitados .contenedorCollapse .contenedor .row .col2 .index{
+    transform: translateX(40%);
+  }
+  .fondo .container-fluid .invitados .contenedorCollapse .contenedor .row .col2 .absolute{
+    transform: translateX(-65%);
+  }    
+  .fondo .container-fluid .bannerS{
+    padding: 50px 20px;
+    flex-direction: column;
+  }
+  .fondo .container-fluid .bannerS .containerSalon{
+    order: 2;
+  }
+  .fondo .container-fluid .bannerS img{
+    order: 1;
+    margin-bottom: 40px;
+  }
+  .fondo .container-fluid .bannerR{
+    padding: 0px 20px;
+  }
+  .fondo .container-fluid .look .containerSalon{
+    padding-right: 0px;
+  }
+  .fondo .container-fluid .raw-flex .tituloSalon .stul{
+    display: none;
+  }
+  .fondo .container-fluid .raw-flex{
+    padding: 0px 20px 20px;
+    height: 30vh;
+  }
+  .fondo .container-fluid .raw-flex .tituloSalon{
+    margin-bottom: 20px;
+  }
+  .fondo .container-fluid .rawBlanca{
+    padding: 20px 20px 40px;
+  }
+  .fondo .container-fluid .invitados .color{
+    padding-bottom: 0px;
+  }
+  .fondo .container-fluid .invitados .contenedor{
+    padding-bottom: 20px;
+  }
+  .fondo .container-fluid .invitados .color2{
+    padding-bottom: 0px;
+  }
+  .fondo .container-fluid .bannerL .containerSalon button{
+    background: #fff;
+  }
+  .fondo .container-fluid .botonesRedes{
+    flex-direction: column;
+  }
+  .fondo .container-fluid .botonesRedes .insta{
+    margin-bottom: 30px;
+  }
+  .fondo .container-fluid .botonesRedes{
+    padding-top: 20px;
+  }
+  .fondo .container-fluid .invitados .contenedorCollapse .contenedor .row .col-3 span{
+    padding: 20px 35px;
+    text-align: center;
+  }
+  .fondo .container-fluid .invitados .contenedorCollapse .contenedor .row .col-3 button{
+    margin-bottom: 30px;
+  }
+  .fondo .contenedorCollapse .stands .headerStand .btnWhats div p{
+    font-size: 22px;
+  }
+  .fondo .contenedorCollapse .contenedor .btnWhats span{
+    font-size: 12px;
+    text-align: left;
+  }
+  .fondo .contenedorCollapse .contenedor .row .colu1{
+    width: 100%;
+    margin-left: 0px;
+  }
+  .desktop{
+    display: none;
+  }
+  .fondo .contenedorCollapse .blanco .contenedor .row div{
+    flex-direction: column;
+  }
+  .fondo .contenedorCollapse .blanco .contenedor .row div img:first-child{
+    margin: 0px;
+    width: 100%;
+  }
+  .fondo .contenedorCollapse .blanco .contenedor .row div img:nth-child(2){
+    width: 100%;
+    max-width: 300px;
+    margin-top: 50px;
+  }
+  .fondo .contenedorCollapse .verde .contenedor div span{
+    font-size: 28px;
+  }
+  .fondo .contenedorCollapse .verde .contenedor div .icon{
+    font-size: 40px;
+  }
+  .fondo .contenedorCollapse .contenedor .batallas{
+    padding: 0px;
+  }
+  .fondo .contenedorCollapse .contenedor .letras span{
+    font-size: 16px;
+  }
+  .fondo .contenedorCollapse .contenedor .info span{
+    font-size: 18px;
+  }
+  .fondo .contenedorCollapse .contenedor .letras{
+    margin: 40px 0px;
   }
 }

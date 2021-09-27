@@ -147,7 +147,7 @@ const DetalleCheckout = ({tarifa, values2}) => {
                     payment_method: "webpay",
                     payment_method_title: "Webpay Plus",
                     set_paid: false,
-                    status:"on-hold",
+                    status:"pending",
                     billing: {
                       first_name: firstName,
                       last_name: lastName,
@@ -190,7 +190,7 @@ const DetalleCheckout = ({tarifa, values2}) => {
                     payment_method: "webpay",
                     payment_method_title: "Webpay Plus",
                     set_paid: false,
-                    status:"on-hold",
+                    status:"pending",
                     billing: {
                       first_name: firstName,
                       last_name: lastName,
@@ -255,9 +255,10 @@ const DetalleCheckout = ({tarifa, values2}) => {
                 ReactPixel.init("495580404127215",advancedMatching,options);
                 ReactPixel.track("InitiateCheckout");
                 localStorage.setItem("carrito", JSON.stringify([]));
+                // var url = "http://localhost:27017/";
                 var url = "https://webpay-react.herokuapp.com/"
                 const amount = total + tarifaFinal - descuentoCupon;
-                window.location.href =`${url}api/createTransaction?buyOrder=${resultado.id }&sessionId=${resultado.id}&amount=${amount}`
+                window.location.href =`${url}api/createTransaction?buyOrder=${resultado.id}&sessionId=${resultado.id}&amount=${amount}`
             }
         }
         setloading(false);
@@ -354,7 +355,7 @@ const DetalleCheckout = ({tarifa, values2}) => {
                                 <FormControlLabel value="webpay" control={<Radio color="primary" />} label="Transbank Webpay Plus" />
                             </RadioGroup>
                         </FormControl>
-                        <img src="https://stulzel.com/wp-content/plugins/transbank-webpay-plus-rest/libwebpay/images/webpay.png" />
+                        <img src="https://admin.stulzel.com/wp-content/plugins/transbank-webpay-plus-rest/libwebpay/images/webpay.png" />
                     </div>
                     <span>Permite el pago de productos y/o servicios, con tarjetas de crédito, débito y prepago a través de Webpay Plus</span>
                 </div>
@@ -380,7 +381,7 @@ const DetalleCheckout = ({tarifa, values2}) => {
                     </Button>
                 </div>
                 <div className="botonFinalizarCompra">
-                    <img src="	https://themedemo.commercegurus.com/shoptimizer-demodata/wp-content/uploads/sites/53/2018/07/trust-symbols_b-1024x108.jpg" width="100%" />
+                    <img src="https://themedemo.commercegurus.com/shoptimizer-demodata/wp-content/uploads/sites/53/2018/07/trust-symbols_b-1024x108.jpg" width="100%" />
                 </div>
                 <div className="botonFinalizarCompra">
                     <h3>Experiencia de compra</h3>
