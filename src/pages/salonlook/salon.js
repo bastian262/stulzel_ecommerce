@@ -9,7 +9,7 @@ import dic from '../../assets/img/dic.png';
 import espacio from '../../assets/img/espacio.png';
 import Slider from "react-slick";
 import LazyLoad from 'react-lazyload';
-
+import WOW from 'wowjs';
 import galeria1 from '../../assets/img/galeria/banner1.jpg'
 import galeria2 from '../../assets/img/galeria/banner2.jpg'
 // import galeria3 from '../../assets/img/galeria/galeria3.jpg'
@@ -53,6 +53,9 @@ import stands3 from '../../assets/img/stand3.png'
 import batallas from '../../assets/img/batallas.png';
 import atentos from '../../assets/img/atentos.png';
 const Salon = () => {
+
+     new WOW.WOW().init();
+
     const settings = {
         dots: false,
         infinite: true,
@@ -184,7 +187,7 @@ const Salon = () => {
                     total = {total}
                 /> 
                 <div class="container-fluid">
-                    <div class="raw-flex">
+                    <div class="raw-flex wow fadeIn">
                         <div class="tituloSalon">
                             <img className="stul" src="https://admin.stulzel.com/wp-content/uploads/2021/05/cropped-Recurso-2-8.png" alt="" />
                             <img className="salon" src={logoSalon} alt="" />
@@ -192,12 +195,12 @@ const Salon = () => {
                         <span>2ª VERSIÓN DEL ENCUENTRO PROFESIONAL DE LA IMAGEN Y LA ESTÉTICA INTEGRAL </span>
                     </div>
                     <div class="rawBlanca">
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/RBi7q9LhqlQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <div class="flex">
+                        <iframe className="wow fadeIn" width="560" height="315" src="https://www.youtube.com/embed/RBi7q9LhqlQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="flex wow fadeIn">
                             <img src={dic} alt="" />
                             <img src={espacio} alt="" />
                         </div>
-                        <div class="galeriaMovil">
+                        <div class="galeriaMovil wow fadeIn">
                             <Slider {...settings}>
                                 <div className="object">
                                     <LazyLoad><img src={galeria1} /></LazyLoad>
@@ -275,7 +278,7 @@ const Salon = () => {
                             </Slider>
                         </div>
                     </div>
-                    <div class="bannerL salonLook" id="salonlook">
+                    <div class="bannerL salonLook wow fadeInUp" id="salonlook">
                         <div class="containerSalon">
                             <span>Todo sobre Salón Look</span>
                             <button onClick={() => expanderSalon()}>{salon}</button>
@@ -440,7 +443,7 @@ const Salon = () => {
                         </div>
                     </div>
                    
-                    <div class="bannerR invitador">
+                    <div class="bannerR invitador wow fadeInUp">
                         <div class="containerSalon">
                             <span>Invitados internacionales <br /> de Stulzel a Salón Look</span>
                             <button onClick={() => expanderInvitados()}>{barberos}</button>
@@ -527,7 +530,7 @@ const Salon = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="bannerL batalla" id="batalla">
+                    <div class="bannerL batalla wow fadeInUp" id="batalla">
                         <div class="containerSalon">
                             <span>Batalla de Barberos</span>
                             <button className="black" onClick={ () => expanderBatalla() }> {batalla}</button>
@@ -550,7 +553,7 @@ const Salon = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="bannerR stand">
+                    <div class="bannerR stand wow fadeInUp">
                         <div class="containerSalon">
                             <span>¿Quieres tu Stand?</span>
                             <button onClick={() => expanderStands()}>{stand}</button>
@@ -662,7 +665,7 @@ const Salon = () => {
                             </div>
                         </div>
                     </div>
-                    <div class="bannerS yellow">
+                    <div class="bannerS yellow wow fadeInUp">
                         <div class="containerSalon">
                             <h4>Marcas presentes <br /> en Salón Look</h4>
                             <span>Conoce todas las marcas que representa Stulzel y que apoyarán la participación de nuestra compañía en esta 2ª versión de Salon Look Mardid-Santiago.</span>
@@ -671,7 +674,7 @@ const Salon = () => {
                             <img src={logoStulzel} width="200"/>
                     </div>
                     
-                    <div class="bannerR look">
+                    <div class="bannerR look wow fadeInUp">
                         <div class="containerSalon">
                             <div className="div">
                                 <img src={logoSalon} />
