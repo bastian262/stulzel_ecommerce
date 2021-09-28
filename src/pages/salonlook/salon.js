@@ -91,17 +91,17 @@ const Salon = () => {
             window.location.href = "#collapseI";
         }
     }, []);
-    useEffect(() => {
-        if(name === "salon"){
-            abrirSalon();
-            cerrarInvitados();
-            window.location.href = "#salonlook";
-        }else if(name === "invitados"){
-            abrirInvitados();
-            cerrarSalon();
-            window.location.href = "#collapseI";
-        }
-    }, [name]);
+    // useEffect(() => {
+    //     if(name === "salon"){
+    //         abrirSalon();
+    //         cerrarInvitados();
+    //         window.location.href = "#salonlook";
+    //     }else if(name === "invitados"){
+    //         abrirInvitados();
+    //         cerrarSalon();
+    //         window.location.href = "#collapseI";
+    //     }
+    // }, [name]);
     const expanderSalon = () => {
         let doc = document.getElementById("collapseSalon");
         if(doc.style.maxHeight == "0px"){
