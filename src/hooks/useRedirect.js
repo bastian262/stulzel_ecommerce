@@ -9,5 +9,8 @@ export const useRedirect = () => {
     const redireccionarFacebook = () => {
         window.location.href = "https://www.facebook.com/stulzel";
     }
-    return [redirectWhatsApp, redireccionarInstagram, redireccionarFacebook]
+    const redireccionarEntrada = () => {
+        window.location.href = "https://ticketplus.cl/events/salon-look-santiago-2021?referal_name=barberos";
+    }
+    return [redirectWhatsApp, redireccionarInstagram, redireccionarFacebook, redireccionarEntrada]
 }

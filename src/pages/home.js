@@ -19,6 +19,7 @@ import ReactPixel from 'react-facebook-pixel';
 import { geoLocalizacion } from '../api/apiConversion';
 import LazyLoad from 'react-lazyload';
 import BtnWhatsApp from '../components/btnWhatsapp/btnWhatsApp';
+import Popup from '../components/suscribe/popup';
 const HomeScreen = () => {
     var localS = JSON.parse(localStorage.getItem("carrito"));
     const varFInal = localS === null? [] : localS;
@@ -172,7 +173,7 @@ const HomeScreen = () => {
                             <button>Compra Aquí</button>
                         </div>
                         <div className="mitad2">
-                            <img src="	https://admin.stulzel.com/wp-content/uploads/2021/05/premiun_black.jpg" alt="stulzel" />
+                            <img src="https://admin.stulzel.com/wp-content/uploads/2021/05/premiun_black.jpg" alt="stulzel" />
                         </div>
                     </div>
                 </div>
@@ -278,6 +279,7 @@ const HomeScreen = () => {
         <Footer1 />
         <Footer2 />
         <BtnWhatsApp />
+        {/* <Popup /> */}
         </>
     );
     
