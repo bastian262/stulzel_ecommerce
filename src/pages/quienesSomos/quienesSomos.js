@@ -79,7 +79,7 @@ const QuienesSomos = () => {
                                 <span>¡Seguimos conectados!.</span>
                             </div>
                             <div className="botonSiguenos">
-                                <button onClick={() => redireccionarInstagram()}>Siguenos AQUÍ</button>
+                                <button onClick={() => redireccionarInstagram()}>Síguenos AQUÍ</button>
                             </div>
                         </div>
                         <div class="col-1 d-flex">

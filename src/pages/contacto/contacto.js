@@ -66,7 +66,7 @@ const Contacto = () => {
                                 </AccordionSummary>
                                 <AccordionDetails>
                                 <Typography>
-                                    Los horario de atención de nuestras oficinas son los siguientes:
+                                    Los horarios de atención de nuestras oficinas son los siguientes:
                                     <br/>
                                     Lunes a viernes de 10:30 a 19:30 Horas 
                                     <br/>
@@ -86,7 +86,7 @@ const Contacto = () => {
                                 </AccordionSummary>
                                 <AccordionDetails>
                                 <Typography>
-                                    Los horario de atención de nuestros canales digitales son los siguientes:
+                                    Los horarios de atención de nuestros canales digitales son los siguientes:
                                     <br/>
                                     Lunes a viernes de 10:30 a 19:30 Horas 
                                     <br/>

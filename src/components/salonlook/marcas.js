@@ -29,7 +29,7 @@ const Marcas = () => {
             <div class="bannerS yellow ">
                 <div class="containerSalon">
                     <h4>Marcas presentes <br /> en Salón Look</h4>
-                    <span>Conoce todas las marcas que representa Stulzel y que apoyarán la participación de nuestra compañía en esta 2ª versión de Salon Look Mardid-Santiago.</span>
+                    <span>Conoce todas las marcas que representa Stulzel y que apoyarán la participación de nuestra compañía en esta 2ª versión de Salon Look Madrid-Santiago.</span>
                     <button onClick={() => expanderMarca()}>{marca}</button>
                 </div>
                     <img src={logoStulzel} width="200"/>
@@ -50,7 +50,7 @@ const Marcas = () => {
                             <img src={recurso2} alt="" />
                         </div>
                         <div class="texto">
-                            <span>  Filos Dorco Prime y High Quality son los filos más usados en el mundo de la berbería, tanto por su calidad de estandares superiores, garantía y prestigio, como por su diseño en hojas de platinum, su tecnología de precisión y sus múltiples formatos para que nunca falten en tu barbería. </span>
+                            <span>  Filos Dorco Prime y High Quality son los filos más usados en el mundo de la berbería, tanto por su calidad de estándares superiores, garantía y prestigio, como por su diseño en hojas de platinum, su tecnología de precisión y sus múltiples formatos para que nunca falten en tu barbería. </span>
                             <img src={recurso5} alt="" />
                         </div>
                     </div>
@@ -59,7 +59,8 @@ const Marcas = () => {
                             <img src={recurso3} alt="" />
                         </div>
                         <div class="texto">
-                            <span>  BUFFALO, el verdadero y original Wax americano ya está en Chile. Estos nuevos productos echos con una fórmula diseñada para brindar toda la frescura y aroma a tu peinado, son producidos en base a agua y no están testeados en animales, pronto además se sumarán otras líneas de producto como After Shave y Shaving Gel con la mejor calidad pero a precios que no podrás creer. BUFFALO, el verdadero americano llegó para quedarse. </span>
+                            <span>  BUFFALO, el verdadero y original Wax americano ya está en Chile. Estos nuevos productos hechos con una fórmula di
+                                señada para brindar toda la frescura y aroma a tu peinado, son producidos en base a agua y no están testeados en animales, pronto además se sumarán otras líneas de producto como After Shave y Shaving Gel con la mejor calidad pero a precios que no podrás creer. BUFFALO, el verdadero americano llegó para quedarse. </span>
                             <img src={recurso4} alt="" className="buffalo" />
                         </div>
                     </div>

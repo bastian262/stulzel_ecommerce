@@ -56,7 +56,7 @@ const Salon = () => {
                     </div>
                     <div class="col2">
                         <p>Salón Look Madrid-Santiago es el principal evento B2B del sector de la imagen y estética integral, vitrina profesional para los salones de belleza, peluquería, el mundo del spa, la barbería, el cuidado del cabello, cosmética, maquillaje, uñas, productos de peinado, accesorios, implementos, herramientas, equipos, mobiliario, vestuario, clases y exposiciones.</p>
-                        <p>Este encuentro se desarrollará en su segunda versión en un formato hibrido, donde se vinculará la exhibición de stands de grandes marcas, con una parrilla de contenidos que será transmitida online a todos los profesionales de la industria.</p>
+                        <p>Este encuentro se desarrollará en su segunda versión en un formato híbrido, donde se vinculará la exhibición de stands de grandes marcas, con una parrilla de contenidos que será transmitida online a todos los profesionales de la industria.</p>
                         <p>De esta manera, las empresas y sus protagonistas volverán a encontrarse cara a cara en un encuentro único.</p>
                         <p>Salón Look Madrid-Santiago ha anunciado su regreso a la presencialidad el próximo mes de diciembre. De esta manera, el sector podrá reencontrarse durante los días 5 al 7 de ese mes en el Centro Convenciones Espacio Riesco en la ciudad de Santiago, en Chile. Así pues, los profesionales del sector de la estética, la peluquería y la cosmética se darán cita con el objetivo de reimpulsar el sector y abrir nuevas vías de colaboración y desempeño.</p>
                         <div>
@@ -136,7 +136,7 @@ const Salon = () => {
                         <span>¿Cuál es el rol <br /> de Stulzel <br /> en Salón Look?</span>
                     </div>
                     <div class="col2">
-                        <p>En este evento, que se realiza gracias a la alianza desarrollada por IFEMA MADRID junto con Espacio Riesco, Stulzel se transforma en protagonista principal, porque es el encargado de presentar múltiples novedades, tendencias y generar los vínculos y canales colaborativos entre todos los exponentes y expositores nacionales e internacionales del rubro de la belleza, peluquería y barbería. El desarrollo de esta modalidad hibrida ha sido pensada para potenciar un reencuentro entre profesionales de diferentes partes del mundo y confirma el firme compromiso de Stulzel con el sector de la belleza en Chile.</p>
+                        <p>En este evento, que se realiza gracias a la alianza desarrollada por IFEMA MADRID junto con Espacio Riesco, Stulzel se transforma en protagonista principal, porque es el encargado de presentar múltiples novedades, tendencias y generar los vínculos y canales colaborativos entre todos los exponentes y expositores nacionales e internacionales del rubro de la belleza, peluquería y barbería. El desarrollo de esta modalidad híbrida ha sido pensada para potenciar un reencuentro entre profesionales de diferentes partes del mundo y confirma el firme compromiso de Stulzel con el sector de la belleza en Chile.</p>
                         <p>En este formato mixto, Stulzel vinculará a la exhibición de stands de grandes marcas, una parrilla de contenidos con invitados internacionales que será transmitida online a todos los profesionales de la industria. De esta manera, las empresas y sus profesionales volverán a generar nuevos vínculos comerciales y encontrarse cara a cara con los principales referentes del sector.</p>
                         <p>La cita cuenta con un gran programa de actividades que busca dar cabida a todos los profesionales del sector y Stulzel te mostrará nuevos lanzamiento de productos, presentará todas las novedades de la industria y así conectará a todos los visitantes de esta feria con todo lo que está pasando en Chile y el mundo.</p>
                     </div>
@@ -152,7 +152,7 @@ const Salon = () => {
                         <p>Networking: podrás agendar reuniones con actuales y potenciales proveedores a través del Punto de Encuentro Profesional.</p>
                         <p>Visitas y fortalecimiento de relaciones comerciales con actuales proveedores.</p>
                         <p>Descubrirás las novedades, tendencias y servicios de posibles nuevos proveedores y distribuidores.</p>
-                        <p>Tendrás la posibilidad de analisar toda de la oferta especializada del sector.</p>
+                        <p>Tendrás la posibilidad de analizar toda de la oferta especializada del sector.</p>
                         <p>Buscar y conocer tecnologías y servicios innovadores para su salón.</p>
                         <p>Proporcionar la oportunidad de asistir a actividades, jornadas, talleres, congresos y desfiles como fuente de información, novedades, evolución del sector y formación.</p>
                         <p>Salón Look es un instrumento clave para tu empresa a la hora de proyectar una imagen de poder de compra y posicionamiento en la industria de la belleza profesional.</p>
@@ -171,7 +171,7 @@ const Salon = () => {
                         <div className="row">
                             <div className="col3">
                                 <img src={evento} />
-                                <span>DIRECCION</span>
+                                <span>DIRECCIÓN</span>
                                 <span>Avda. El Salto 5000</span>
                                 <span>Huechuraba Santiago Chile</span>
                             </div>

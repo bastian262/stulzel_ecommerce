@@ -18,7 +18,7 @@ const Footer2 = () => {
                     <div class="col-3">
                         <span>Donde estamos</span>
                         <strong>Alcántara 385, Las Condes,</strong>
-                        <span>Estación Alcántara, Linea 1. Santiago, Chile.</span>
+                        <span>Estación Alcántara, Línea 1. Santiago, Chile.</span>
                     </div>
                     <div class="col-3">
                         <span>MAPA</span>
@@ -29,9 +29,10 @@ const Footer2 = () => {
                         <Link to="/micuenta">Mi Cuenta</Link>
                         <Link to="/quienessomos">Quienes Somos</Link>
                         <Link to="/contacto">Servicio al cliente</Link>
-                        <Link to="/contacto">Contactanos</Link>
-                        <a href="/">Terminos y Condiciones</a>
-                        <a href="/">Preguntas Frecuentes</a>
+                        <Link to="/contacto">Contáctanos</Link>
+                        {/* <a href="/">Términos y Condiciones</a> */}
+                        {/* <a href="/">Preguntas Frecuentes</a> */}
+
                     </div>
                     <div class="footerBajo">
                         <div>

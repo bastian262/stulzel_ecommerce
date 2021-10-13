@@ -13,7 +13,7 @@ import MuiAlert from '@material-ui/lab/Alert';
 import ReactPixel from 'react-facebook-pixel';
 import {postEvento} from '../../api/apiConversion';
 import { Button } from 'antd';
-
+import { useRedirect } from '../../hooks/useRedirect';
 // import {hashString} from 'react-hash-string'
 import Sha256 from 'sha256';
 function Alert(props) {
@@ -24,6 +24,7 @@ const DetalleCheckout = ({tarifa, values2}) => {
     const productos = JSON.parse(localStorage.getItem("carrito"));
     const [,,,,total, ] = useCart(productos);
     const [format] = useFormat()
+    const [ redirectWhatsApp,,, ] = useRedirect();
     const [value, setValue] = useState("retiro");
     const [open, setopen] = useState(false);
     const [mensaje, setmensaje] = useState("");
@@ -330,7 +331,7 @@ const DetalleCheckout = ({tarifa, values2}) => {
                                             tarifa == 0 ? 
                                             <>
                                                 <span>Lo sentimos, no tenemos un metodo de envío para tu direccion. Por favor, haz click en el siguiente botón para que te comuniques con nuestro equipo de ventas, asi te podremos ayudar a resolver el envío a tu zona.</span>
-                                                <button className="whatsapp">Enviar WhatsApp</button>
+                                                <button className="whatsapp" onClick={() => redirectWhatsApp("56972321555")}>Enviar WhatsApp</button>
                                             </>
                                             :
                                             <div className="flex-b">

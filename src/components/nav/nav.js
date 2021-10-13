@@ -134,10 +134,10 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
                             <PermIdentityIcon />
                             <span>Mi Cuenta</span>
                         </div>
-                        <div className="option">
+                        {/* <div className="option">
                             <HelpIcon />
                             <span>Preguntas Frecuentes</span>
-                        </div>
+                        </div> */}
                         <div className="option" onClick={abrirCart}>
                             <ShoppingCartIcon />
                             <span>Carrito</span>
@@ -190,7 +190,7 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
                             </div> 
                         </div>
                         <Link to="/quienessomos">Quienes Somos</Link>
-                        <Link to="/cursos">Curso Inicial Barbería</Link>
+                        {/* <Link to="/cursos">Curso Inicial Barbería</Link> */}
                         {/* <Link to="/">Red One USA</Link> */}
                         <Link to="/contacto">Contacto</Link>
                         {/* <Link to="/cotizador">Cotizador de Envíos</Link> */}
@@ -245,7 +245,7 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
                         </div>
                         <a onClick={() =>redireccionar3("/quienessomos")}>Quienes Somos</a>
 
-                        <Link onClick={() =>redireccionar3("/cursos")}>Curso Inicial de Barbería</Link>
+                        {/* <Link onClick={() =>redireccionar3("/cursos")}>Curso Inicial de Barbería</Link> */}
                         {/* <Link to="/">Red One USA</Link> */}
                         <Link onClick={() =>redireccionar3("/contacto")}>Contacto</Link>
                     </div>
