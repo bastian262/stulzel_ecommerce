@@ -5,6 +5,8 @@ import { useParams } from 'react-router';
 import { useFormat } from '../../hooks/useFormat';
 import { useProduct } from '../../hooks/useProduct';
 import { useCategory } from '../../hooks/useCategory';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 import Footer1 from '../../components/footer/Footer1';
 import MenuItem from '@material-ui/core/MenuItem';
 import Footer2 from '../../components/footer/Footer2';
@@ -22,7 +24,9 @@ import ReactPixel from 'react-facebook-pixel';
 import { postEvento, geoLocalizacion } from '../../api/apiConversion';
 import { browserName } from "react-device-detect";
 
-
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 const useStyles = makeStyles((theme) => ({
     backdrop: {
       zIndex: theme.zIndex.drawer + 1,
@@ -49,7 +53,7 @@ const ListadoProducto = () => {
     const [orderBy , setOderBy] = useState("popularity");
     const [value, setValue] = useState([1, 70]);
     const [page, setPage] = useState(1);
-    const [onAdd,limpiarCarrito, eliminarProducto, productes,total, ] = useCart(localS);
+    const [onAdd,limpiarCarrito, eliminarProducto, productes,total,open, severity, mensaje, handleClose ] = useCart(localS);
     const [format] = useFormat();
     useEffect(() => {
         pixelaso();
@@ -265,11 +269,19 @@ const ListadoProducto = () => {
                                                     <span className="titulo">
                                                         {element.name}
                                                     </span>
-                                                    <span className="regularPrice">
-                                                        ${format(element.regular_price)}
-                                                    </span>
+                                                    {element.regular_price > element.price ?
+                                                    
+                                                        <span className="regularPrice">
+                                                            ${format(element.regular_price)}
+                                                        </span>
+                                                            :
+                                                            null
+                                                    }
                                                     <span className="price">
                                                         ${format(element.price)}
+                                                    </span>
+                                                    <span className="price" style={{color: element.stock_status === "instock" ? "green" : "red" }}>
+                                                        {element.stock_status === "instock" ? "En stock" : "Sin stock"}
                                                     </span>
                                                 </div>
                                                 <div className="booton">
@@ -277,9 +289,14 @@ const ListadoProducto = () => {
                                                         Agregar al carrito
                                                     </button>
                                                 </div>
-                                                <div className="circulo">
-                                                    {descuento}%
-                                                </div>
+                                                {element.regular_price > element.price ?
+                                                    <div className="circulo">
+                                                        {descuento}%
+                                                    </div>
+                                                        :
+                                                    null
+                                                }
+                                                   
                                             </div>  
                                         </div>
                                     )
@@ -291,6 +308,11 @@ const ListadoProducto = () => {
                     </div>
                 </div>
             </div>
+            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                <Alert onClose={handleClose} severity={severity}>
+                    {mensaje}
+                </Alert>
+            </Snackbar>
             <Footer1 />
             <Footer2 />
         </> 

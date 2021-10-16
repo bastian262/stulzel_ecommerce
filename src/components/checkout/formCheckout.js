@@ -3015,7 +3015,7 @@ const FormCheckout = ({onChange, values, setvalues, setTarifa}) => {
                     onChange={onChange}
                 />
             </div>
-            <div className="campo">
+            {/* <div className="campo">
                 <label>Ciudad <span className="span">*</span></label>
                 <input 
                     type="text" 
@@ -3025,9 +3025,9 @@ const FormCheckout = ({onChange, values, setvalues, setTarifa}) => {
                     value={ciudad}
                     onChange={onChange}
                 />
-            </div>
+            </div> */}
             <div className="campo">
-                <label>Región <span className="span">*</span></label>
+                <label>Ciudad <span className="span">*</span></label>
                 <select name="region" id="region">
                     {
                         jsonList.map(element => <option value={element.id}>{element.nombre}</option>)
@@ -3235,7 +3235,7 @@ const FormCheckout = ({onChange, values, setvalues, setTarifa}) => {
                 />
             </div>
             <div className="campo">
-                <label>Localidad / Ciudad <span className="span">*</span></label>
+                <label>Localidad / Comuna <span className="span">*</span></label>
                 <input 
                     placeholder="Ciudad"
                     type="text" 
@@ -3246,7 +3246,7 @@ const FormCheckout = ({onChange, values, setvalues, setTarifa}) => {
                 />
             </div>
             <div className="campo">
-                <label>Región <span className="span">*</span></label>
+                <label>Ciudad <span className="span">*</span></label>
                 <select name="regionS" id="regionS" onChange={calcularTarifa2}>
                     {
                         jsonList.map(element => <option value={element.id}>{element.nombre}</option>)

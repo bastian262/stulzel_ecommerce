@@ -90,9 +90,6 @@ const DetalleCheckout = ({tarifa, values2}) => {
         }else if(direccion.trim().length < 2){
             setopen(true);
             setmensaje("Ingrese una Dirección por favor");
-        }else if(ciudad.trim().length < 2){
-            setopen(true);
-            setmensaje("Ingrese un Ciudad por favor");
         }else if(parseInt(region) < 0){
             setopen(true);
             setmensaje("Ingrese una región por favor");

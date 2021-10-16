@@ -5,6 +5,9 @@ import { postEvento, geoLocalizacion } from '../api/apiConversion';
 export const useCart = ( initial = []) => {
     const [productes, setProductos] = useState(initial);
     const [total, setTotal] = useState(0);
+    const [open, setOpen] = useState(false);
+    const [mensaje, setMensaje] = useState("");
+    const [severity, setSeverity] = useState("");
     const onAdd = async (producto, cantidad = 1) => {
         var localS = localStorage.getItem("carrito");
         setProductos(JSON.parse(localS));
@@ -32,9 +35,16 @@ export const useCart = ( initial = []) => {
                                 
                                 }else{
                                     element.cantidad += cantidad;
+                                    setOpen(true);
+                                    setSeverity("success")
+                                    setMensaje("Producto agregado al carrito")
                                 }
                             }else{
                                 element.cantidad += cantidad;
+                                setOpen(true);
+                                setSeverity("success")
+                                setMensaje("Producto agregado al carrito")
+
                             }
                         }
                         
@@ -65,6 +75,7 @@ export const useCart = ( initial = []) => {
                     }
                     const resultado = await postEvento(date);
                     console.log(resultado);
+                    
                 }
 
                 const data = {
@@ -81,10 +92,17 @@ export const useCart = ( initial = []) => {
                 }
                 if(localS != null){
                     setProductos([...productes, data]);
+                    setOpen(true);
+                    setSeverity("success")
+                    setMensaje("Producto agregado al carrito")
                 }else{
                     setTotal(data.precio);
                     setProductos(data);
                 }
+            }else{
+                setOpen(true);
+                setSeverity("error")
+                setMensaje("Producto sin stock")
             }
         }
     };
@@ -122,6 +140,12 @@ export const useCart = ( initial = []) => {
         setTotal(0);
         setProductos([]);
     }
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
 
-    return [onAdd, limpiarCarrito, eliminarProducto, productes, total];
+        setOpen(false);
+    };
+    return [onAdd, limpiarCarrito, eliminarProducto, productes, total, open, severity, mensaje, handleClose];
 } 

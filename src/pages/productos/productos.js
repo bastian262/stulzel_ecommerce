@@ -14,6 +14,8 @@ import Backdrop from '@material-ui/core/Backdrop';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import $ from 'jquery';
 // import Typography from '@material-ui/core/Typography';
+import Snackbar from '@material-ui/core/Snackbar';
+import MuiAlert from '@material-ui/lab/Alert';
 import Box from '@material-ui/core/Box';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import Rating from '@material-ui/lab/Rating';
@@ -28,13 +30,16 @@ const useStyles = makeStyles((theme) => ({
       color: '#fff',
     },
 }));
+function Alert(props) {
+    return <MuiAlert elevation={6} variant="filled" {...props} />;
+}
 const Producto = () => {
 
     const classes = useStyles();
     var localS = JSON.parse(localStorage.getItem("carrito"));
     const productoS = JSON.parse(localStorage.getItem("producto"));
     const [productoTemporal, setProductoTemporal] = useState(productoS);
-    const [onAdd,limpiarCarrito, eliminarProducto, productes,total] = useCart(localS);
+    const [onAdd,limpiarCarrito, eliminarProducto, productes,total,open, severity, mensaje, handleClose] = useCart(localS);
     // const [,,,,,,redireccionar ] = useProduct();
     const [loading, setLoading] = useState(false);
     const [format] = useFormat();
@@ -45,6 +50,7 @@ const Producto = () => {
         metodo();
         obtenerImagenes();
         obtenerRelacionados();
+        window.location.href = "#principal";
     },[]);
 
     const [values, onChange,] = useForm({
@@ -329,6 +335,11 @@ const Producto = () => {
                     </div>  
                     
                 </section>
+                <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+                    <Alert onClose={handleClose} severity={severity}>
+                        {mensaje}
+                    </Alert>
+                </Snackbar>
                 <Footer1 />
                 <Footer2 />
             </div>
