@@ -18,6 +18,8 @@ import Search from '../pages/search/search';
 import Curso from '../pages/curso/curso';
 import Salon from '../pages/salonlook/salon';
 
+import FormComponent from '../pages/form/form';
+
 const history = createBrowserHistory();
 const AppRouter  = () => {
     return (  
@@ -39,6 +41,9 @@ const AppRouter  = () => {
                 <Route exact path="/webinar" component={ WebinarScreen } />
                 <Route exact path="/search/:id" component={ Search } />
                 <Route exact path="/dashboard" component={ DashboardScreen } />
+
+                <Route exact path="/form" component={ FormComponent } />
+                
                 <Redirect to="/" />
             </Switch>
         </Router>

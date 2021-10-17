@@ -10,3 +10,6 @@ export const accessToken = "EAADSrgUhoxABAJtZCB2idAeOLQ96EMdqKjvj4RhYTaHmmD51qcg
 export const pixel = "495580404127215";
 export const basePathMailer = "http://api.mailerlite.com/api/v2";
 export const apiKeyMailer = "6367080c3106ea53c9351cd2160fda09";
+
+export const basePathForm = "http://localhost:8080/api";
+export const apiVersion = "v1";

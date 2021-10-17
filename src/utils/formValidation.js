@@ -1,6 +1,5 @@
 export function minLengthValidation(inputData, minLength) {
     const { value } = inputData;
-    console.log(value);
     if(value.trim().length >= minLength) {
         inputData.value = value;
         return true;
@@ -29,6 +28,16 @@ export function phoneValidation(inputData) {
 
     const resultValidation = phoneValid.test(value);
     if(resultValidation) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+export function validateWhatsApp(phone) {
+    const regex = /^\+(?:[0-9] ?){6,14}[0-9]$/;
+
+    if (regex.test(phone)) {
         return true;
     } else {
         return false;
