@@ -19,6 +19,7 @@ import Curso from '../pages/curso/curso';
 import Salon from '../pages/salonlook/salon';
 
 import FormComponent from '../pages/form/form';
+import Batalla from '../pages/batalla/batalla';
 
 const history = createBrowserHistory();
 const AppRouter  = () => {
@@ -43,6 +44,7 @@ const AppRouter  = () => {
                 <Route exact path="/dashboard" component={ DashboardScreen } />
 
                 <Route exact path="/form" component={ FormComponent } />
+                <Route exact path="/battle" component={ Batalla } />
                 
                 <Redirect to="/" />
             </Switch>

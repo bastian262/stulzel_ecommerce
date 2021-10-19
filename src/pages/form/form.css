@@ -9,7 +9,7 @@
     max-width: 1280px;
     margin: 0 auto;
     padding: 50px;
-    background-color: #ccc;
+    background-color: rgb(255, 255, 255);
 }
 
 .form-container .field {

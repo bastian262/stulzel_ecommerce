@@ -20,6 +20,8 @@ import { geoLocalizacion } from '../api/apiConversion';
 import LazyLoad from 'react-lazyload';
 import BtnWhatsApp from '../components/btnWhatsapp/btnWhatsApp';
 import Popup from '../components/suscribe/popup';
+
+
 const HomeScreen = () => {
     var localS = JSON.parse(localStorage.getItem("carrito"));
     const varFInal = localS === null? [] : localS;

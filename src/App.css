@@ -4474,6 +4474,135 @@ box-shadow: 0px 0px 14px -6px rgba(0,0,0,0.75);
   padding: 0 0 0 20px;
 
 }
+
+/* SECCION BATALLA INSCRIPCION */
+.fondo .headerBatle{
+  float: left;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(./assets/img/fondoBatalla3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  min-height: 600px;
+}
+.fondo .headerBatle img:first-child{
+  width: 40%;
+  max-width: 350px;
+  margin-right: 0px;
+  transform:translateY(-40px)
+}
+.fondo .headerBatle .salonlook{
+  position: absolute;
+  top: 80px;
+  right: 100px;
+  width: 150px;
+}
+.fondo .footerBatle{
+  float: left;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(./assets/img/footerBatalla3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  min-height: 600px;
+  padding-bottom: 50px;
+  /* color: #ccc; */
+}
+.fondo .footerBatle .contenedor .imagenB{
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  padding: 0px 90px;
+  min-height: 600px;
+}
+
+
+.fondo .footerBatle .contenedor .imagenB .imagen3{
+  max-width: 250px;
+  width: 50%;
+}
+
+.fondo .footerBatle .contenedor .imagenB .imagen2{
+  max-width: 440px;
+  width: 50%;
+}
+.fondo .batle{
+  max-width: 1000px !important;
+}
+.fondo .batle .border{
+  border-top: 0px;
+  border-bottom: 1px dashed #000;
+  padding: 40px 10px;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+}
+.fondo .batle .border:nth-child(4){
+  border-bottom: 0px;
+}
+.fondo .batle p{
+  text-align: center !important;
+  font-size: 18px;
+  float: left;
+  width: 100%;
+  margin: 0px;
+  font-style: italic;
+}
+.fondo .batle .border button{
+  text-align: center;
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.308), rgba(0, 0, 0, 0.219)), url(./assets/img/fondoBatalla3.png);
+  height: 60px;
+  width: 250px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-weight: 500;
+  font-size:24px;
+  margin: 30px 0px;
+}
+.fondo .batle .border div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+.fondo .batle .border div .premio{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: black;
+  font-size: 22px;
+  line-height: 22px;
+  font-weight: 700;
+}
+.fondo .batle .border div .total{
+  color: black;
+  font-size: 48px;
+  line-height: 24px;
+  font-weight: 700;
+  margin-left:20px;
+}
+.fondo .batle .border .blackbtn{
+  background: black;
+  width: auto;
+  padding: 0px 50px;
+}
+
+/*FIN SECCION BATALLA INSCRIPCION */
+
+
 @media (min-width: 320px) and (max-width: 719px) {
   .fondo #header1 {
     display: none;
