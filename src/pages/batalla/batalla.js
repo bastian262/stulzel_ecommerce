@@ -1,19 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useCart } from '../../hooks/useCart';
 import Footer1 from '../../components/footer/Footer1';
 import Footer2 from '../../components/footer/Footer2';
 import NavBar from '../../components/nav/nav'
 import imagen from '../../assets/img/sbatle2.png'
+import imagen4 from '../../assets/img/logo123.png'
 import imagen2 from '../../assets/img/sbatle.png'
 import imagen3 from '../../assets/img/sbatle3.png'
 import salonlook from '../../assets/img/salonlook.png'
-import { Button } from 'antd';
+import pdf from '../../assets/docs/batalla_bases.pdf'
+
+import { Button, Modal } from 'antd';
+import FormComponent from '../form/form';
 const Batalla = () => {
 
     var localS = JSON.parse(localStorage.getItem("carrito"));
     const varFInal = localS === null? [] : localS;
+    const [open, setOpen] = useState(false);
     const [onAdd,limpiarCarrito, eliminarProducto, productes,total, ] = useCart(varFInal);
-
+    const abrirPdf = () => {
+        window.open(pdf);
+    }
     return ( 
         <>
             <div className="fondo" style={{background:"rgb(235, 235, 235)"}}>
@@ -36,7 +43,7 @@ const Batalla = () => {
                                         l@s barber@s de Chile, <strong> inscríbete y participa </strong> para llegar a la final
                                         en vivo en el próximo Salón Look y ganar increíbles premios!</p>
                     
-                        <button>Inscribete Aquí</button>
+                        <button onClick={() => setOpen(true)}>Inscribete Aquí</button>
                         <p className=""><strong>Cierre de inscripciones:</strong> Sábado 30 de noviembre de 2021 </p>
                     </div>
                     <div className="border">
@@ -60,7 +67,7 @@ y premios en productos Stulzel para los ganadores de cada categoria.</p>
                         <p className="">Para conocer todas las bases de esta batalla, las fechas, los pasos
 que debes seguir para obtener tus votos, y toda la información necesaria
 solo debes descargar el archivo adjunto</p>
-                    <button className="blackbtn">Descargar bases <strong>Aquí</strong></button>
+                    <button className="blackbtn" onClick={abrirPdf}>Descargar bases <strong>Aquí</strong></button>
 
                     </div>
                 </div>
@@ -77,6 +84,17 @@ solo debes descargar el archivo adjunto</p>
             </div>
             <Footer1 />
             <Footer2 />
+
+            <Modal title="" visible={open} onOk={() => setOpen(false)} onCancel={() => setOpen(false)}>
+                    <div className="headerSign">
+                        <div>
+                            <img src={imagen4} width="120" />
+                            <span>INSCRIPCIÓN</span>
+                        </div>
+                    </div>
+                    <FormComponent />
+                    
+            </Modal>
         </>
     );
 }

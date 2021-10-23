@@ -4489,6 +4489,51 @@ box-shadow: 0px 0px 14px -6px rgba(0,0,0,0.75);
   background-position: center bottom;
   min-height: 600px;
 }
+.ant-modal-body{
+  padding: 0px !important;
+}
+.ant-modal-footer{
+  display: none !important;
+}
+.ant-modal-close-x{
+  color: white !important;
+}
+.headerSign{
+  float: left;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-around;
+  background-image: url(./assets/img/fondoBatalla3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  min-height: 320px;
+  padding: 30px 180px 30px 200px;
+  margin-bottom: 80px;
+}
+.headerSign div{
+  float: left;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.headerSign div span{
+  font-size: 22px;
+  font-weight: 400;
+  color: white;
+}
+.ant-modal{
+  width: 100% !important;
+  max-width: 1000px!important;
+}
+.headerSign div img{
+
+  transform: translate(48px, -10px);
+  width: 190px;
+
+}
 .fondo .headerBatle img:first-child{
   width: 40%;
   max-width: 350px;
@@ -4515,6 +4560,26 @@ box-shadow: 0px 0px 14px -6px rgba(0,0,0,0.75);
   min-height: 600px;
   padding-bottom: 50px;
   /* color: #ccc; */
+}
+.footerSign{
+  float: left;
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(./assets/img/footerBatalla3.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+  min-height: 300px;
+  padding-bottom: 50px;
+  /* color: #ccc; */
+}
+.footerSign img{
+  position: absolute;
+  right: 70px;
+  bottom: 50px;
 }
 .fondo .footerBatle .contenedor .imagenB{
   display: flex;
@@ -4599,7 +4664,102 @@ box-shadow: 0px 0px 14px -6px rgba(0,0,0,0.75);
   width: auto;
   padding: 0px 50px;
 }
+.fondoModal{
+  float: left;
+  width: 100%;
+  background-image: url(./assets/img/estesi.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  padding: 50px 20px;
+  margin-bottom: 50px;
+}
 
+.fondoModal .imgSalon{
+  float: left;
+  width: 100%;
+  height: 50px;
+
+}
+.fondoModal .imgSalon img{
+  width: 240px;
+  position: absolute;
+  left: 80px;
+  top: 80px;
+}
+
+.fondoModal .div{
+  float: left;
+  width: 100%;
+  padding: 30px;
+}
+.fondoModal .subFondo{
+  float: left;
+  width: 100%;
+  padding: 20px;
+  background-image: url(./assets/img/fondoModal.png);
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: 150px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+}
+.fondoModal .form-container{
+  background: transparent;
+}
+.fondoModal .subFondo h2{
+  float: left;
+  width: 100%;
+  text-align: center;
+  padding: 0px 80px;
+  margin-top: 50px;
+}
+.fondoModal .fieldBtn{
+  float: left;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px;
+}
+.fondoModal .fieldBtn button{
+  width: 170px;
+  height: 45px;
+  background: #009C49;
+  border-radius: 30px;
+  color: white;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.ant-radio-wrapper
+{
+  margin-bottom: 15px !important;
+}
+.fondoModal .form-container .field input[type=text]{
+  border-bottom: 2px solid #000 !important;
+  font-weight: 500;
+  color: black;
+}
+.fondoModal .form-container .field .ant-radio-group{
+  margin-left: 0px;
+}
+.fondoModal .form-container .field .category{
+  margin: 0 0 10px;
+  font-weight: 500;
+  color: black;
+}
+.fondoModal .MuiInput-underline:before{
+  border-bottom: 1px solid #000 !important;
+}
+.fondoModal .ant-form label{
+  font-weight: 600;
+  color: black;
+}
+.fondoModal .form-container .field span.placeholder{
+  font-weight: 600;
+}
 /*FIN SECCION BATALLA INSCRIPCION */
 
 
@@ -5439,5 +5599,82 @@ box-shadow: 0px 0px 14px -6px rgba(0,0,0,0.75);
   }
   .fondo .contenedorCollapse .contenedor .division .texto .buffalo{
     transform: translate(0px);
+  }
+  .fondo .headerBatle{
+    min-height: 340px;
+  }
+  .fondo .headerBatle img:first-child{
+    width: 33%;
+    transform: translatey(0px);
+  }
+  .fondo .headerBatle .salonlook{
+    top: 40px;
+    right: 30px;
+    width: 100px;
+  }
+  .fondo .batle .border div .total
+  {
+    font-size: 38px;
+  }
+  .fondo .batle .border div .premio{
+    font-size: 18px;
+    line-height: 18px;
+  }
+  .fondo .batle p{
+    font-size: 16px;
+  }
+  .fondo .batle .border button{
+    height: 50px;
+    font-size: 22px;
+  }
+  .fondo .footerBatle{
+    min-height: 200px;
+  }
+  .fondo .footerBatle .contenedor .imagenB{
+    min-height: 200px;
+  }
+  .fondo .footerBatle .contenedor .imagenB{
+    padding: 0px;
+  }
+  .fondo .footerBatle .contenedor .imagenB .imagen3{
+    max-width: 120px;
+  }
+  .fondo .footerBatle .contenedor .imagenB .imagen2{
+    max-width: 150px;
+  }
+  .ant-modal{
+    width: 100% !important;
+    max-width: 1000px!important;
+  }
+  .headerSign{
+    padding: 20px;
+    transform: translate(0px);
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 40px;
+  }
+  .headerSign div span{
+    transform: translateY(30px);
+    font-size: 19px;
+    padding-right: 30px;
+
+  }
+  .form-container .field2 .ant-btn{
+    width: 170px !important;
+    height: 50px !important;
+    font-size: 20px !important;
+    margin-top: 40px !important;
+  }
+  .footerSign img{
+    width: 70px;
+    right: 40px;
+    bottom: 40px;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 380px) {
+  .headerSign div img{
+    width: 100px;
+    transform: translate(15px);
   }
 }

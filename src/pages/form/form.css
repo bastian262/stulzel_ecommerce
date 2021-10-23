@@ -8,7 +8,7 @@
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 50px;
+    padding: 0px;
     background-color: rgb(255, 255, 255);
 }
 
@@ -17,6 +17,7 @@
     display: table;
     width: 100%;
     margin-bottom: 15px;
+    padding: 0px 40px;
 }
 
 .form-container .field input[type=text] {
@@ -38,7 +39,7 @@
     display: flex;
     align-items: center;
     top: 0;
-    left: 17px;
+    left: 40px;
     transition: all 0.2s;
     transform-origin: 0% 0%;
     background: none;
@@ -61,16 +62,17 @@
     margin-left: 20px;
 }
   
-.form-container .field .ant-btn {
-    position: relative;
-    display: block;
-    margin: 0 auto;
-    height: 50px;
-    padding: 0 80px;
-    border-radius: 50px 50px 50px 50px;
-    -moz-border-radius: 50px 50px 50px 50px;
-    -webkit-border-radius: 50px 50px 50px 50px;
-    text-transform: capitalize;
+.form-container .field2 .ant-btn {
+text-align: center;
+  background-image:  linear-gradient(rgba(0, 0, 0, 0.308), rgba(0, 0, 0, 0.219)), url(../../assets/img/fondoBatalla3.png);
+  height: 60px;
+  width: 250px;
+  border: none;
+  border-radius: 30px;
+  color: white;
+  font-weight: 500;
+  font-size:24px;
+  margin: 90px 0px 0px;
 }
 
 .form-container .uploads-container {
@@ -114,12 +116,44 @@
 .form-container .uploads-container .upload-image-container .react-crop .hideCanvas {
     display: none;
 }
-
+.fieldMax{
+    float: left;
+    width: 100%;
+}
 @media only screen and (min-width: 320px) and (max-width: 790px) {
 	.form-container .uploads-container .upload-image-container {
         width: 100%;
     }
     .form-container .field .ant-radio-group {
-        justify-content: space-between;
+        justify-content: flex-start;
+        float: left;
+        width: 100%;
+        flex-wrap: wrap;
+        margin: 0px;
+    }
+    .form-container .field .category{
+        margin: 0px 0px 10px;
+    }
+    .form-container .field {
+        padding: 0px 20px !important;
+    }
+    .form-container .field span.placeholder {
+        position: absolute;
+        margin: 17px 0;
+        padding: 0 4px;
+        display: flex;
+        align-items: center;
+        top: 0;
+        left: 20px;
+        transition: all 0.2s;
+        transform-origin: 0% 0%;
+        background: none;
+        pointer-events: none;
+    }
+    
+}
+@media only screen and (min-width: 320px) and (max-width: 490px) {
+    .form-container{
+        display: flex;
     }
 }

@@ -21,6 +21,27 @@ export function signUpApi(data) {
         });
 }
 
+export function signUpAssistantApi(data) {
+    const url = `${basePathForm}/${apiVersion}/sign-up-assistans`;
+
+    const params = {
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    };
+
+    return fetch(url, params)
+        .then(resp => {
+            return resp.json();
+        }).then(result => {
+            return result;
+        }).catch(err => {
+            return err.message;
+        });
+}
+
 export function putCompetitorImageApi(image, id) {
 	const url = `${basePathForm}/${apiVersion}/user-competitor-image/${id}`;
 

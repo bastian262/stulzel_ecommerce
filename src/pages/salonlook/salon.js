@@ -25,9 +25,11 @@ import galeria14 from '../../assets/img/galeria/banner14.jpg'
 import galeria16 from '../../assets/img/galeria/banner16.jpg'
 import galeria18 from '../../assets/img/galeria/banner17.jpg'
 import galeria19 from '../../assets/img/galeria/banner3.jpg'
+import look from '../../assets/img/look.png'
 import logos from '../../assets/img/banners/logos.png'
 import logodic from '../../assets/img/banners/dic2.png'
 import FacebookIcon from '@material-ui/icons/Facebook';
+import { Modal } from 'antd';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import { useRedirect } from '../../hooks/useRedirect';
 import Marcas from '../../components/salonlook/marcas';
@@ -35,6 +37,8 @@ import Stands from '../../components/salonlook/stands';
 import Batalla from '../../components/salonlook/batalla';
 import Invitados from '../../components/salonlook/invitados';
 import SalonW from '../../components/salonlook/salon';
+import FormAssistantComponent from '../formAsistans/formAsistans';
+
 const Salon = () => {
 
      new WOW.WOW().init();
@@ -61,7 +65,7 @@ const Salon = () => {
     const [, redireccionarInstagram, redireccionarFacebook, redireccionarEntrada] = useRedirect();
     const [onAdd,limpiarCarrito, eliminarProducto, productes,total, ] = useCart(varFInal);
     const {name } = useParams();
-    
+    const [open,setOpen] = useState();
     useEffect(() => {
         if(name === "salon"){
             abrirSalon();
@@ -89,6 +93,8 @@ const Salon = () => {
         let doc = document.getElementById("collapseSalon");
         doc.style.maxHeight = "4500px";
     }
+    const abrirModal = () => setOpen(true);
+    
     return ( 
         <>
             <div className="fondo">
@@ -214,10 +220,24 @@ const Salon = () => {
                 </div>
             </div>
             <div>
-                <button className="entrada" onClick={ () => redireccionarEntrada()}>GRATIS tu entrada aquí</button>
+                <button className="entrada" onClick={ () => abrirModal()}>GRATIS tu entrada aquí</button>
             </div>
             <Footer1 />
             <Footer2 />
+            <Modal title="" visible={open} onOk={() => setOpen(false)} onCancel={() => setOpen(false)}>
+                <div className="fondoModal">
+                    <div className="imgSalon">
+                        <img src={look} alt="look" /> 
+                    </div>
+                    <div className="div">
+                        <div className="subFondo">
+                            <h2>PARA OBTENER TU ENTRADA A SALÓN LOOK 2021 SOLO DEBES COMPLETAR LOS SIGUIENTES DATOS</h2>               
+                            <FormAssistantComponent />
+                        </div>
+                    </div>
+                </div>
+                    
+            </Modal>
         </>
     );
 }

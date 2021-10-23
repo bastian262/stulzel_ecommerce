@@ -6,7 +6,8 @@ import UploadCompetitorImage from "./components/uploadCompetitorImage";
 import UploadHaircutImage from "./components/uploadHaircutImage";
 import { emailValidation, minLengthValidation, validateWhatsApp } from "../../utils/formValidation";
 import { signUpApi } from "../../api/form";
-
+import pdf from '../../assets/docs/batalla_bases.pdf'
+import logo from '../../assets/img/logo.png'
 import "./form.css";
 
 const FormComponent = () => {
@@ -25,6 +26,7 @@ const FormComponent = () => {
 		imageCompetitor: "",
 		imageHaircut: "",
 	});
+    
     const [formValid, setFormValid] = useState({
 		fullName: false,
 		whatsapp: false,
@@ -121,7 +123,9 @@ const FormComponent = () => {
 	};
 
     const SignUp = async () => {
+
         setLoading(true);
+        
         const valFullName = payload.fullName;
         const valWhatsapp = payload.whatsapp;
         const valEmail = payload.email;
@@ -182,30 +186,32 @@ const FormComponent = () => {
 		<Spin spinning={loading} size="large" tip="Cargando...">
             <div className="form-container">
                 <Form onChange={changeForm} onFinish={SignUp}>
-                    <div className="field">
-                        <input type="text" name="fullName" id="fullName" required spellCheck="false" value={payload.fullName} onChange={inputValidation} />
-                        <span className="placeholder">Nombre</span>
-                    </div>
-                    <div className="field">
-                        <input id="whatsapp" type="text" name="whatsapp" required spellCheck="false" value={payload.whatsapp} onChange={inputValidation} />
-                        <span className="placeholder">WhatsApp (Ej: +56911111111)</span>
-                    </div>
-                    <div className="field">
-                        <input id="email" type="text" name="email" required spellCheck="false" value={payload.email} onChange={inputValidation} />
-                        <span className="placeholder">Correo</span>
-                    </div>
-                    <div className="field">
-                        <input id="instagram" type="text" name="instagram" required spellCheck="false" value={payload.instagram} onChange={inputValidation} />
-                        <span className="placeholder">Instagram</span>
-                    </div>
-                    <div className="field">
-                        <span className="category">Categoría</span>
-                        <Radio.Group onChange={(e) => setCategory(e.target.value)} value={category}>
-                            <Radio value={1}>Fade Master</Radio>
-                            <Radio value={2}>Old School</Radio>
-                            <Radio value={3}>New Trends</Radio>
-                            <Radio value={4}>Freestyle</Radio>
-                        </Radio.Group>
+                    <div className="fieldMax">
+                        <div className="field">
+                            <input type="text" name="fullName" id="fullName" required spellCheck="false" value={payload.fullName} onChange={inputValidation} />
+                            <span className="placeholder">Nombre</span>
+                        </div>
+                        <div className="field">
+                            <input id="whatsapp" type="text" name="whatsapp" required spellCheck="false" value={payload.whatsapp} onChange={inputValidation} />
+                            <span className="placeholder">WhatsApp (Ej: +56911111111)</span>
+                        </div>
+                        <div className="field">
+                            <input id="email" type="text" name="email" required spellCheck="false" value={payload.email} onChange={inputValidation} />
+                            <span className="placeholder">Correo</span>
+                        </div>
+                        <div className="field">
+                            <input id="instagram" type="text" name="instagram" required spellCheck="false" value={payload.instagram} onChange={inputValidation} />
+                            <span className="placeholder">Instagram</span>
+                        </div>
+                        <div className="field">
+                            <span className="category">Categoría</span>
+                            <Radio.Group onChange={(e) => setCategory(e.target.value)} value={category}>
+                                <Radio value={1}>Fade Master</Radio>
+                                <Radio value={2}>Old School</Radio>
+                                <Radio value={3}>New Trends</Radio>
+                                <Radio value={4}>Freestyle</Radio>
+                            </Radio.Group>
+                        </div>
                     </div>
                     <div className="uploads-container">
                         <UploadCompetitorImage
@@ -236,8 +242,11 @@ const FormComponent = () => {
                             setStatusImages={setStatusImage2}
                         />
                     </div>
-                    <div className="field">
-                        <Button htmlType="submit">Enviar</Button>
+                    <div className="footerSign">
+                        <img src={logo} width="90" />
+                        <div className="field2">
+                            <Button htmlType="submit">Enviar</Button>
+                        </div>
                     </div>
                 </Form>
             </div>
