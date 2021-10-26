@@ -92,7 +92,7 @@ solo debes descargar el archivo adjunto</p>
                             <span>INSCRIPCIÓN</span>
                         </div>
                     </div>
-                    <FormComponent />
+                    <FormComponent setOpen={setOpen} />
                     
             </Modal>
         </>

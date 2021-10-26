@@ -26,7 +26,7 @@ const UploadCompetitorImage = (props) => {
 		if (imageCompetitor) {
 			setOptions({
 				...options,
-				imageCompetitor: imageCompetitor.file,
+				imageCompetitor: imageCompetitor,
 			});
 		}
 	}, [imageCompetitor]);

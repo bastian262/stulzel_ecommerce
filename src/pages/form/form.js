@@ -8,9 +8,19 @@ import { emailValidation, minLengthValidation, validateWhatsApp } from "../../ut
 import { signUpApi } from "../../api/form";
 import pdf from '../../assets/docs/batalla_bases.pdf'
 import logo from '../../assets/img/logo.png'
+import S3 from 'react-aws-s3';
 import "./form.css";
 
-const FormComponent = () => {
+
+
+const FormComponent = ({setOpen}) => {
+    const config = {
+        bucketName: 'backetstulzel',
+        region: 'us-east-2',
+        accessKeyId: 'AKIATIQWB6RET3PSWJXR',
+        secretAccessKey: '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',
+    }
+    const ReactS3Client = new S3(config);
 	const [loading, setLoading] = useState(false);
 
     const [saveImg1, setSaveImg1] = useState(false);
@@ -125,61 +135,190 @@ const FormComponent = () => {
     const SignUp = async () => {
 
         setLoading(true);
-        
-        const valFullName = payload.fullName;
-        const valWhatsapp = payload.whatsapp;
-        const valEmail = payload.email;
-        const valInstagram = payload.instagram;
-        const valCategory = payload.category;
+        let nameFile1Final = "";
+        let nameFile1 = "";
+        let nameFile2Final = "";
+        let nameFile2 = "";
+        if(payload.file){
+            
+            let spliteando = payload.file.split("\\");
 
-        const fullNameValid = formValid.fullName;
-        const whatsappValid = formValid.whatsapp;
-        const emailValid = formValid.email;
-        const instagramValid = formValid.instagram;
-        const categoryValid = payload.category > 0;
-
-        if (!valFullName || !valWhatsapp || !valEmail || !valInstagram || !valCategory) {
-			notification["error"]({
-				message: "Todos los campos son obligatorios",
-			});
-			setLoading(false);
-        } else if (!fullNameValid) {
-			notification["error"]({
-				message: "Ingrese un nombre válido",
-			});
-			setLoading(false);
-        } else if (!whatsappValid) {
-			notification["error"]({
-				message: "Ingrese un WhatsApp válido",
-			});
-			setLoading(false);
-        } else if (!emailValid) {
-			notification["error"]({
-				message: "Ingrese un correo válido",
-			});
-			setLoading(false);
-        } else if (!instagramValid) {
-			notification["error"]({
-				message: "Ingrese un instagram válido",
-			});
-			setLoading(false);
-        } else if (!categoryValid) {
-			notification["error"]({
-				message: "Ingrese una categoría",
-			});
-			setLoading(false);
-        } else {
-            const result = await signUpApi(payload);
-            if (!result.ok) {
-				notification["error"]({
-					message: result.message,
-				});
-				setLoading(false);
-			} else {
-                setPayloadId(result.userId);
-                setSaveImg1(true);
-			}
+            if(spliteando.length == 3){
+                nameFile1 = spliteando[2].trim().replace(" ", "_");    
+            }
         }
+        if(payload.file1){
+            
+            let spliteando = payload.file1.split("\\");
+
+            if(spliteando.length == 3){
+                nameFile2 = spliteando[2].replace(" ", "_");    
+            }
+        }
+        console.log(nameFile1);
+        console.log(nameFile2);
+        console.log(payload.imageCompetitor.file);
+        try{
+            ReactS3Client.uploadFile(payload.imageCompetitor.file, nameFile1).then(response => {
+                if(response.status == 204){
+                    nameFile1Final = response.location;
+                    console.log(nameFile1Final);
+
+                    ReactS3Client.uploadFile(payload.imageHaircut, nameFile2).then(async response2 => {
+                        if(response2.status == 204){
+                            nameFile2Final = response2.location;
+                            const valFullName = payload.fullName;
+                            const valWhatsapp = payload.whatsapp;
+                            const valEmail = payload.email;
+                            const valInstagram = payload.instagram;
+                            const valCategory = payload.category;
+
+                            const fullNameValid = formValid.fullName;
+                            const whatsappValid = formValid.whatsapp;
+                            const emailValid = formValid.email;
+                            const instagramValid = formValid.instagram;
+                            const categoryValid = payload.category > 0;
+
+                            if (!valFullName || !valWhatsapp || !valEmail || !valInstagram || !valCategory) {
+                            	notification["error"]({
+                            		message: "Todos los campos son obligatorios",
+                            	});
+                            	setLoading(false);
+                            } else if (!fullNameValid) {
+                            	notification["error"]({
+                            		message: "Ingrese un nombre válido",
+                            	});
+                            	setLoading(false);
+                            } else if (!whatsappValid) {
+                            	notification["error"]({
+                            		message: "Ingrese un WhatsApp válido",
+                            	});
+                            	setLoading(false);
+                            } else if (!emailValid) {
+                            	notification["error"]({
+                            		message: "Ingrese un correo válido",
+                            	});
+                            	setLoading(false);
+                            } else if (!instagramValid) {
+                            	notification["error"]({
+                            		message: "Ingrese un instagram válido",
+                            	});
+                            	setLoading(false);
+                            } else if (!categoryValid) {
+                            	notification["error"]({
+                            		message: "Ingrese una categoría",
+                            	});
+                            	setLoading(false);
+                            } else {
+                                const data = {
+                                    fullName: payload.fullName,
+                                    whatsapp: payload.whatsapp,
+                                    email: payload.email,
+                                    instagram: payload.instagram,
+                                    category: payload.category,
+                                    imageCompetitor: nameFile1Final,
+                                    imageHaircut: nameFile2Final
+                                }
+                                const result = await signUpApi(data);
+                                if (!result.ok) {
+                            		notification["error"]({
+                            			message: result.message,
+                            		});
+                            		setLoading(false);
+                            	} else {
+                                    notification["success"]({
+                            			message: result.message,
+                            		});
+                                    setPayload({
+                                        fullName: "",
+                                        whatsapp: "",
+                                        email: "",
+                                        instagram: "",
+                                        category: 0,
+                                        imageCompetitor: "",
+                                        imageHaircut: "",
+                                    });
+                                    setOpen(false);
+                            	}
+                            }
+
+                        }else{
+                            notification["error"]({
+                                message: "Error al subir imagen, por favor vuelve a intentarlo",
+                            });
+                            setLoading(false);
+                        }
+                    }).then(err => {
+                        console.log(err);
+                    })
+                }else{
+                    notification["error"]({
+                        message: "Error al subir imagen, por favor vuelve a intentarlo",
+                    });
+                    setLoading(false);
+                }
+            }).then(error => {
+                console.log(error);
+            });
+
+        }catch(err){
+            console.log(err);
+
+        }
+        // const valFullName = payload.fullName;
+        // const valWhatsapp = payload.whatsapp;
+        // const valEmail = payload.email;
+        // const valInstagram = payload.instagram;
+        // const valCategory = payload.category;
+
+        // const fullNameValid = formValid.fullName;
+        // const whatsappValid = formValid.whatsapp;
+        // const emailValid = formValid.email;
+        // const instagramValid = formValid.instagram;
+        // const categoryValid = payload.category > 0;
+
+        // if (!valFullName || !valWhatsapp || !valEmail || !valInstagram || !valCategory) {
+		// 	notification["error"]({
+		// 		message: "Todos los campos son obligatorios",
+		// 	});
+		// 	setLoading(false);
+        // } else if (!fullNameValid) {
+		// 	notification["error"]({
+		// 		message: "Ingrese un nombre válido",
+		// 	});
+		// 	setLoading(false);
+        // } else if (!whatsappValid) {
+		// 	notification["error"]({
+		// 		message: "Ingrese un WhatsApp válido",
+		// 	});
+		// 	setLoading(false);
+        // } else if (!emailValid) {
+		// 	notification["error"]({
+		// 		message: "Ingrese un correo válido",
+		// 	});
+		// 	setLoading(false);
+        // } else if (!instagramValid) {
+		// 	notification["error"]({
+		// 		message: "Ingrese un instagram válido",
+		// 	});
+		// 	setLoading(false);
+        // } else if (!categoryValid) {
+		// 	notification["error"]({
+		// 		message: "Ingrese una categoría",
+		// 	});
+		// 	setLoading(false);
+        // } else {
+        //     const result = await signUpApi(payload);
+        //     if (!result.ok) {
+		// 		notification["error"]({
+		// 			message: result.message,
+		// 		});
+		// 		setLoading(false);
+		// 	} else {
+        //         setPayloadId(result.userId);
+        //         setSaveImg1(true);
+		// 	}
+        // }
     }
 
 	return (
