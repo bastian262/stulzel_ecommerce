@@ -7,6 +7,7 @@ import Select from '@material-ui/core/Select';
 import { emailValidation, minLengthValidation, validateWhatsApp } from "../../utils/formValidation";
 import { signUpAssistantApi } from "../../api/form";
 import logo from '../../assets/img/logo.png'
+import logaso from '../../assets/img/banners/stulzelbanner.png'
 import "../form/form.css";
 
 const FormAssistantComponent = () => {
@@ -157,6 +158,7 @@ const FormAssistantComponent = () => {
 
 	return (
 		<Spin spinning={loading} size="large" tip="Cargando...">
+            <img src={logaso} className="movil logoStulzell" alt="logo" />
             <div className="form-container">
                 <Form onChange={changeForm} onFinish={SignUp}>
                     <div className="fieldMax">
