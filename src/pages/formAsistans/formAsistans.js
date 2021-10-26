@@ -211,11 +211,11 @@ const FormAssistantComponent = () => {
                             <Radio.Group onChange={(e) => setRol(e.target.value)} value={rol}>
                                 <Radio value={"Profesional"}>Profesional</Radio>
                                 <Radio value={"Estudiante"}>Estudiante</Radio>
-                                <Radio value={"Público"}>Público</Radio>
+                                <Radio value={"Público"}>Público General</Radio>
                             </Radio.Group>
                         </div>
                         <div className="field">
-                            <span className="category">Tipo de visitante:</span>
+                            <span className="category">Área de interés:</span>
                             <Radio.Group onChange={(e) => setRubro(e.target.value)} value={rubro}>
                                 <div>
                                     <Radio value={"barberia"}>Barbería</Radio>

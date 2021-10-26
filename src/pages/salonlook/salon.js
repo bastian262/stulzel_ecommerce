@@ -64,9 +64,13 @@ const Salon = () => {
     const varFInal = localS === null? [] : localS;
     const [, redireccionarInstagram, redireccionarFacebook, redireccionarEntrada] = useRedirect();
     const [onAdd,limpiarCarrito, eliminarProducto, productes,total, ] = useCart(varFInal);
-    const {name } = useParams();
+    const { name } = useParams();
     const [open,setOpen] = useState();
     useEffect(() => {
+        console.log(name);
+        if(name === "entradas"){
+            setOpen(true);
+        }
         if(name === "salon"){
             abrirSalon();
             cerrarInvitados();
