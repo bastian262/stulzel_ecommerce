@@ -4505,6 +4505,7 @@ box-shadow: 0px 0px 14px -6px rgba(0,0,0,0.75);
   display: flex;
   align-items: flex-end;
   justify-content: space-around;
+  background: white;
   background-image: url(./assets/img/fondoBatalla3.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -4568,6 +4569,7 @@ box-shadow: 0px 0px 14px -6px rgba(0,0,0,0.75);
   display: flex;
   align-items: center;
   justify-content: center;
+  background: white;
   background-image: url(./assets/img/footerBatalla3.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -4765,6 +4767,219 @@ box-shadow: 0px 0px 14px -6px rgba(0,0,0,0.75);
 .fondoModal .logoStulzell{
   display: none;
 }
+
+.fondo .contenedor .row .h3{
+  float: left;
+  width: 100%;
+  text-align: center;
+  font-size: 48px;
+
+}
+.fondo .contenedor .row .inputaso{
+  float: left;
+  width: 100%;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.fondo .contenedor .row .inputaso input{
+  float: left;
+  height: 50px;
+  width: 100%;
+  border-radius: 40px;
+  border: 0px;
+  background: #ececec;
+  padding-left: 20px;
+  font-weight: 500w;
+
+}
+
+.fondo .contenedor .row .inputaso .icon{
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.fondo .contenedor .row .categories{
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.fondo .contenedor .row .categories div{
+  float: left;
+  width: calc(25% - 15px);
+}
+.fondo .contenedor .row .categories div button{
+  background: #009C49;
+  width: 100%;
+  height: 50px;
+  border-radius: 50px;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+}
+
+.fondo .contenedor .row .tabla{
+  float: left;
+  width: 100%;
+  margin-top: 50px;
+
+}
+.fondo .contenedor .row .participante{
+  float: left;
+  padding: 0px 20px;
+  height: 100px;
+  border: 1px solid #8e8e8e;
+  border-radius: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  margin-bottom: 20px;
+}
+
+.fondo .contenedor .row .participante .imagenesParti{
+  float: left;
+  width: 22.5%;
+}
+.fondo .contenedor .row .participante .votes{
+  float: left;
+  width: 22.5%;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.fondo .contenedor .row .participante .name{
+  float: left;
+  width: 25%;
+  padding-left: 10px;
+}
+.fondo .contenedor .row .participante .insta{
+  float: left;
+  width: 20%;
+}
+.fondo .contenedor .row .participante .imagenesParti{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fondo .contenedor .row .participante .imagenesParti img{
+  border-radius: 100px;
+  width: 80px;
+}
+.fondo .contenedor .row .participante .imagenesParti img:first-child{
+  margin-right: 10px;
+}
+.fondo .contenedor .row .participante .votes button{
+  float: left;
+  background: #009C49;
+  width: 70%;
+  height: 40px;
+  border-radius: 50px;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  margin-right: 10px;
+}
+.fondo .contenedor .row .participante .votes div{
+  width: 40px;
+  height: 40px;
+  background: red;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  color: white;
+  font-weight: 500;
+}
+.votacion{
+  position: relative;
+  float: left;
+  width: 100%;
+  background: white;
+}
+.headerSign2{
+  margin-bottom: 0px !important;
+}
+ .votacion{
+  position: relative;
+  float: left;
+  width: 100%;
+  background: white;
+  padding-top:50px;
+}
+ .votacion .formulario{
+  /* float: left; */
+  margin: 0 auto;
+  width: 100%;
+  background: white;
+  max-width: 600px;
+  padding: 0px 20px;
+
+}
+ .votacion .formulario .title{
+  float: left;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 50px;
+}
+.votacion .formulario .campo{
+  float: left;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.votacion .formulario .campoBtn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.votacion .formulario .campoBtn button{
+  float:left;
+  width: 100%;
+  max-width: 150px;
+  height: 45px;
+  border:none;
+  background:#008939;
+  color:white;
+  font-weight: 600;
+  border-radius: 30px;
+}
+.votacion .formulario input{
+  float: left;
+  width: 100%;
+  height: 50px;
+  border: none;
+  padding-left: 20px;
+  border-bottom: 1px dashed #000;
+}
+.contenedor .row .categories .focusButton{
+  background: #ff2a0c !important;
+  color: white;
+}
+.tituloBatalla {
+  float: left;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+.tituloBatalla h2{
+  text-align: center;
+}
+
+
+
 /*FIN SECCION BATALLA INSCRIPCION */
 
 
@@ -5652,6 +5867,7 @@ box-shadow: 0px 0px 14px -6px rgba(0,0,0,0.75);
     max-width: 1000px!important;
   }
   .headerSign{
+    /* background: white; */
     padding: 20px;
     transform: translate(0px);
     justify-content: space-between;
@@ -5685,6 +5901,43 @@ box-shadow: 0px 0px 14px -6px rgba(0,0,0,0.75);
     width: 100px;
     right: 30px;
     top: -20px;
+  }
+  .fondoModal .subFondo{
+    padding: 0px;
+    padding-top: 150px;
+  }
+  .fondoModal .div{
+    padding: 30px 0px;
+  }
+  .fondo .contenedor .row .categories{
+    flex-wrap: wrap;
+  }
+  .fondo .contenedor .row .categories div{
+    margin-bottom: 30px;
+    width: calc(50% - 15px);
+  }
+  .fondo .contenedor .row .participante{
+    flex-direction: column;
+    height: auto;
+    padding: 20px;
+  }
+  .fondo .contenedor .row .participante .imagenesParti{
+    width: 40%;
+    margin-bottom: 20px;
+  }
+  .fondo .contenedor .row .participante .name{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .fondo .contenedor .row .participante .insta{
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .fondo .contenedor .row .participante .votes{
+    width: 60%;
   }
 }
 

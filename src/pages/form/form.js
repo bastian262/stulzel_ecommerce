@@ -155,14 +155,10 @@ const FormComponent = ({setOpen}) => {
                 nameFile2 = spliteando[2].replace(" ", "_");    
             }
         }
-        console.log(nameFile1);
-        console.log(nameFile2);
-        console.log(payload.imageCompetitor.file);
         try{
             ReactS3Client.uploadFile(payload.imageCompetitor.file, nameFile1).then(response => {
                 if(response.status == 204){
                     nameFile1Final = response.location;
-                    console.log(nameFile1Final);
 
                     ReactS3Client.uploadFile(payload.imageHaircut, nameFile2).then(async response2 => {
                         if(response2.status == 204){
@@ -229,6 +225,7 @@ const FormComponent = ({setOpen}) => {
                                     notification["success"]({
                             			message: result.message,
                             		});
+                                    setLoading(false);
                                     setPayload({
                                         fullName: "",
                                         whatsapp: "",
@@ -238,6 +235,8 @@ const FormComponent = ({setOpen}) => {
                                         imageCompetitor: "",
                                         imageHaircut: "",
                                     });
+                                    setUpImg1();
+                                    setUpImg2();
                                     setOpen(false);
                             	}
                             }

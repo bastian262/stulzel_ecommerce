@@ -32,7 +32,7 @@ export function phoneValidation(inputData) {
     } else {
         return false;
     }
-}
+} 
 
 export function validateWhatsApp(phone) {
     const regex = /^\+(?:[0-9] ?){6,14}[0-9]$/;

@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 import batallas from '../../assets/img/batallas.png';
+import {useHistory} from 'react-router-dom'
 import atentos from '../../assets/img/atentos.png';
 const Batalla = () => {
     const [batalla, setBatalla] = useState("Inscríbete aquí");
+    const history = useHistory()
     const expanderBatalla = () => {
         let doc = document.getElementById("batallas");
         if(doc.style.maxHeight == "0px"){
@@ -13,12 +15,15 @@ const Batalla = () => {
             doc.style.maxHeight = "0px";
         }
     }
+    const redirect = ( ) => {
+        history.push('/battle');
+    }
     return ( 
         <>
             <div class="bannerL batalla" id="batalla">
                 <div class="containerSalon">
                     <span>Batalla de Barberos</span>
-                    <button className="black" onClick={ () => expanderBatalla() }> {batalla}</button>
+                    <button className="black" onClick={ () => redirect() }> {batalla}</button>
                 </div>
             </div>
              <div class="contenedorCollapse" id="batallas" style={{maxHeight: "0px"}}>

@@ -20,9 +20,9 @@ import { geoLocalizacion } from '../api/apiConversion';
 import LazyLoad from 'react-lazyload';
 import BtnWhatsApp from '../components/btnWhatsapp/btnWhatsApp';
 import Popup from '../components/suscribe/popup';
-
-
+import { useHistory } from 'react-router';
 const HomeScreen = () => {
+    const history = useHistory();
     var localS = JSON.parse(localStorage.getItem("carrito"));
     const varFInal = localS === null? [] : localS;
     const [aviador, praga, escocia, premiunBlack] = productoHelper();
@@ -45,6 +45,9 @@ const HomeScreen = () => {
        const resultado = await geoLocalizacion();
        localStorage.setItem("ip", JSON.stringify(resultado.ip))
     //    console.log(resultado);
+    }
+    const redirect = (num) => {
+        history.push(`producto/${num}`)
     }
     return (
         <>
@@ -94,7 +97,7 @@ const HomeScreen = () => {
                     <div className="tituloProductosDestacados"> Productos Destacados </div>
                 </div>
                 <div className="raw">
-                    <div className="col" onClick={() => redireccionar(aviador)}>
+                    <div className="col" onClick={() => redirect(31090)}>
                         <div className="mitad1">
                             <span className="titulo">
                                 Sillón de Barbería
@@ -115,7 +118,7 @@ const HomeScreen = () => {
                             </LazyLoad>
                         </div>
                     </div>
-                    <div className="col" onClick={() => redireccionar(praga)}>
+                    <div className="col" onClick={() => redirect(1078)}>
                         <div className="mitad1">
                             <span className="titulo">
                                 Sillón de Barbería
@@ -126,7 +129,7 @@ const HomeScreen = () => {
                             </span>
                             <br/>
                             <span className="tituloPrecio">
-                                Precio $399.990
+                                Precio $429.990
                             </span>
                             <button>Compra Aquí</button>
                         </div>
@@ -138,28 +141,28 @@ const HomeScreen = () => {
                     </div>
                 </div>
                 <div className="raw">
-                    <div className="col" onClick={() => redireccionar(escocia)}>
+                    <div className="col" onClick={() => redirect(38920)}>
                         <div className="mitad1">
                             <span className="titulo">
                                 Sillón de Peluquería
                             </span>
                             <br/>
                             <span className="tituloProducto">
-                                Escocia White
+                                Lady Di
                             </span>
                             <br/>
                             <span className="tituloPrecio">
-                                Precio $234.990
+                                Precio $264.990
                             </span>
                             <button>Compra Aquí</button>
                         </div>
                         <div className="mitad2">
                             <LazyLoad>
-                                <img src="https://admin.stulzel.com/wp-content/uploads/2020/12/sillonEscociaWhiteNuevo.jpg" alt="stulzel" />
+                                <img src="https://admin.stulzel.com/wp-content/uploads/2021/08/20210311-Stulzel0118-scaled.jpg" alt="stulzel" />
                             </LazyLoad>
                         </div>
                     </div>
-                    <div className="col" onClick={() => redireccionar(premiunBlack)}>
+                    <div className="col" onClick={() => redirect(31095)}>
                         <div className="mitad1">
                             <span className="titulo">
                                 Lavapelo
@@ -170,7 +173,7 @@ const HomeScreen = () => {
                             </span>
                             <br/>
                             <span className="tituloPrecio">
-                                Precio $449.990
+                                Precio $499.990
                             </span>
                             <button>Compra Aquí</button>
                         </div>

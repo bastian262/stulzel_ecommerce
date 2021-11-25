@@ -11,7 +11,7 @@ import logodic from '../../assets/img/banners/dic2.png'
 import espacio from '../../assets/img/espacio.png';
 import { useRedirect } from '../../hooks/useRedirect';
 
-const Salon = () => {
+const Salon = ({setOpen}) => {
     const [,,, redireccionarEntrada] = useRedirect()
     const [salon, setSalon] = useState("Ver más");
     const expanderSalon = () => {
@@ -160,7 +160,7 @@ const Salon = () => {
                     </div>
                 </div>
                 <div className="amarello">
-                    <button onClick={() => redireccionarEntrada()}>Obtén aquí tu entrada</button>
+                    <button onClick={() => setOpen(true)}>Obtén aquí tu entrada</button>
                 </div>
                 <div className="lugar">
                     <div className="titulo">
@@ -184,7 +184,7 @@ const Salon = () => {
                                 <img src={estacionamiento} />
                                 <span>ESTACIONAMIENTO</span>
                                 <span>Más de 5000</span>
-                                <span>estacionamientos gratis</span>
+                                <span>estacionamientos</span>
                             </div>
                         </div>
                     </div>

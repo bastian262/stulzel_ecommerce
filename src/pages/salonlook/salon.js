@@ -38,6 +38,9 @@ import Batalla from '../../components/salonlook/batalla';
 import Invitados from '../../components/salonlook/invitados';
 import SalonW from '../../components/salonlook/salon';
 import FormAssistantComponent from '../formAsistans/formAsistans';
+import { postEvento, geoLocalizacion } from '../../api/apiConversion';
+import { browserName } from "react-device-detect";
+import ReactPixel from 'react-facebook-pixel';
 
 const Salon = () => {
 
@@ -65,12 +68,16 @@ const Salon = () => {
     const [, redireccionarInstagram, redireccionarFacebook, redireccionarEntrada] = useRedirect();
     const [onAdd,limpiarCarrito, eliminarProducto, productes,total, ] = useCart(varFInal);
     const { name } = useParams();
-    const [open,setOpen] = useState();
+    const [open,setOpen] = useState(false);
+    
     useEffect(() => {
-        console.log(name);
+        
+        pixelaso();
+
         if(name === "entradas"){
-            setOpen(true);
+            window.location.href = "https://stulzel.com/entradaSalonLook";
         }
+
         if(name === "salon"){
             abrirSalon();
             cerrarInvitados();
@@ -80,6 +87,7 @@ const Salon = () => {
             cerrarSalon();
             window.location.href = "#collapseI";
         }
+
     }, []);
     const cerrarSalon = () => {
         let doc = document.getElementById("collapseSalon");
@@ -98,7 +106,34 @@ const Salon = () => {
         doc.style.maxHeight = "4500px";
     }
     const abrirModal = () => setOpen(true);
-    
+
+    const pixelaso = async () => {
+        const options = {
+            autoConfig: true, // set pixel's autoConfig. More info: https://developers.facebook.com/docs/facebook-pixel/advanced/
+            debug: false, // enable logs
+        };
+        const advancedMatching = { em: 'bastianorellanaf@gmail.com' };
+        ReactPixel.init("495580404127215",advancedMatching,options);
+        ReactPixel.track("ViewContentSalonLook");
+        const resultado2 = await geoLocalizacion();
+        if(resultado2.ip.length > 0){
+            const dateTime = Date.now();
+            const timestamp = Math.floor(dateTime / 1000);
+            const date = {
+                data : [{
+                    "event_name": "ViewContentSalonLook",
+                    "event_time": timestamp,
+                    "action_source": "website",
+                    "event_source_url":"https://www.stulzel.com/producto",
+                    "user_data": {
+                        "client_ip_address":resultado2.ip,
+                        "client_user_agent": browserName
+                    }
+                }]
+            }
+            await postEvento(date);
+        }
+    }
     return ( 
         <>
             <div className="fondo">
@@ -201,7 +236,7 @@ const Salon = () => {
                             </Slider>
                         </div>
                     </div>
-                    <SalonW />
+                    <SalonW setOpen={setOpen} />
                     <Invitados />
                     <Batalla />
                     <Stands />

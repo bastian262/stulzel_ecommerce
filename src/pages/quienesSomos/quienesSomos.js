@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import NavBar from '../../components/nav/nav';
 import Footer1 from '../../components/footer/Footer1';
 import Footer2 from '../../components/footer/Footer2';
@@ -9,7 +9,9 @@ const QuienesSomos = () => {
     var localS = JSON.parse(localStorage.getItem("carrito"));
     const [onAdd,limpiarCarrito, eliminarProducto, productes,total, ] = useCart(localS);
     const [, redireccionarInstagram] = useRedirect();
-
+    useEffect(() => {
+        window.location.href = "#principal"
+    }, []);
     return ( <>
 
          <div class="fondo">
@@ -20,7 +22,7 @@ const QuienesSomos = () => {
                 productes = {productes}
                 total = {total}
             />
-            <div class="contenedorFluido">
+            <div class="contenedorFluido" id="principal">
                 <div className="contenedor">
                     <h2>SOMOS STULZEL</h2>
                     <div class="row">

@@ -164,7 +164,7 @@ const FormAssistantComponent = () => {
                     <div className="fieldMax">
                         <div className="field">
                             <input type="text" name="fullName" id="fullName" required spellCheck="false" value={payload.fullName} onChange={inputValidation} />
-                            <span className="placeholder">Nombre</span>
+                            <span className="placeholder">Nombre Completo</span>
                         </div>
                         <div className="field">
                             <input id="rut" type="text" name="rut" required spellCheck="false" value={payload.rut} onChange={inputValidation} />

@@ -17,10 +17,12 @@ import Checkout from '../pages/checkout/checkout';
 import Search from '../pages/search/search';
 import Curso from '../pages/curso/curso';
 import Salon from '../pages/salonlook/salon';
-
 import FormComponent from '../pages/form/form';
 import Batalla from '../pages/batalla/batalla';
+import ListadoBatalla from '../pages/batalla/listadoParticipantes';
 import FormAssistantComponent from '../pages/formAsistans/formAsistans';
+import Entradas from '../pages/salonlook/entradas';
+import ValidationVotes from '../pages/batalla/validationVotes';
 
 const history = createBrowserHistory();
 const AppRouter  = () => {
@@ -43,10 +45,12 @@ const AppRouter  = () => {
                 <Route exact path="/webinar" component={ WebinarScreen } />
                 <Route exact path="/search/:id" component={ Search } />
                 <Route exact path="/dashboard" component={ DashboardScreen } />
-
                 <Route exact path="/form" component={ FormComponent } />
                 <Route exact path="/form-assistant" component={ FormAssistantComponent } />
-                <Route exact path="/battle" component={ Batalla } />
+                {/* <Route exact path="/battle" component={ Batalla } /> */}
+                <Route exact path="/repechaje" component={ ListadoBatalla } />
+                <Route exact path="/entradaSalonLook" component={ Entradas } />
+                <Route exact path="/validationVote/:id" component={ ValidationVotes } />
                 
                 <Redirect to="/" />
             </Switch>

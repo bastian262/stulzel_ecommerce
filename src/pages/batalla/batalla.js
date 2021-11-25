@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useCart } from '../../hooks/useCart';
 import Footer1 from '../../components/footer/Footer1';
 import Footer2 from '../../components/footer/Footer2';
@@ -13,7 +13,9 @@ import pdf from '../../assets/docs/batalla_bases.pdf'
 import { Button, Modal } from 'antd';
 import FormComponent from '../form/form';
 const Batalla = () => {
-
+    useEffect(() => {
+        window.location.href = "#fondoBattle";
+    }, []);
     var localS = JSON.parse(localStorage.getItem("carrito"));
     const varFInal = localS === null? [] : localS;
     const [open, setOpen] = useState(false);
@@ -23,7 +25,7 @@ const Batalla = () => {
     }
     return ( 
         <>
-            <div className="fondo" style={{background:"rgb(235, 235, 235)"}}>
+            <div className="fondo" style={{background:"rgb(235, 235, 235)"}} id="fondoBattle">
                 <NavBar
                     onAdd={onAdd}
                     limpiarCarrito = {limpiarCarrito}
@@ -44,7 +46,7 @@ const Batalla = () => {
                                         en vivo en el próximo Salón Look y ganar increíbles premios!</p>
                     
                         <button onClick={() => setOpen(true)}>Inscribete Aquí</button>
-                        <p className=""><strong>Cierre de inscripciones:</strong> Sábado 30 de noviembre de 2021 </p>
+                        <p className=""><strong>Cierre de inscripciones:</strong> Sábado 30 de Octubre de 2021 </p>
                     </div>
                     <div className="border">
                         <p className="">Cuatro categorías <strong> (Fade Master_Old School_Freestyle_New Trends). </strong>

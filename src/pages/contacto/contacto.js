@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Footer1 from '../../components/footer/Footer1';
 import Footer2 from '../../components/footer/Footer2';
 import NavBar from '../../components/nav/nav';
@@ -38,7 +38,9 @@ const Contacto = () => {
          const url = `https://wa.me/${numero}`; 
          window.location.href = url;
     }
-
+    useEffect(() => {
+        window.location.href = "#principal"
+    }, []);
     return ( 
         <>
             <div class="fondo">
@@ -49,7 +51,7 @@ const Contacto = () => {
                     productes = {productes}
                     total = {total}
                 />
-                <div class="mapa">
+                <div class="mapa" id="principal">
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.1731685614373!2d-70.59105498484561!3d-33.41872938078303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9662cf4b2a444e17%3A0x6e7ecc29a5717263!2sStulzel%20-%20Todo%20Para%20Tu%20Barber%C3%ADa!5e0!3m2!1ses!2scl!4v1630081322956!5m2!1ses!2scl" width="800" height="600" allowfullscreen="" loading="lazy"></iframe>
                 </div>
                 <div className="contenedor">
