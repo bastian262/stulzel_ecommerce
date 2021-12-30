@@ -11,14 +11,9 @@ export const useProduct = ( ) => {
 
     const getProducts = async (page = 1) => {
         setLoading(true);
-        const productos = JSON.parse(localStorage.getItem("topSales"));
-        if(productos === null || productos === "Failed to fetch"){
-            const result = await getProductos8(page);
-            localStorage.setItem("topSales",JSON.stringify(result));
-            setProductos(result);
-        }else{
-            setProductos(productos);
-        }
+        const result = await getProductos8(page);
+        setProductos(result);
+        localStorage.setItem("topSales",JSON.stringify(result));
         setLoading(false);
     }
 

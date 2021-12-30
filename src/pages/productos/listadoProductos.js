@@ -47,7 +47,8 @@ const ListadoProducto = () => {
     var categoria = JSON.parse(localStorage.getItem("categoria"));
     var topSales = JSON.parse(localStorage.getItem("topSales"));
     var localS = JSON.parse(localStorage.getItem("carrito"));
-    const [productos,,loading,,getProductByCategoryId2,redireccionar,getProductsByPrice2,getProductsByOrden2,getProductByCategoryId3,hasMore, setHasMore] = useProduct();
+
+    const [productos,getProducts,loading,,getProductByCategoryId2,redireccionar,getProductsByPrice2,getProductsByOrden2,getProductByCategoryId3,hasMore, setHasMore] = useProduct();
     const [,,redireccionar2,] = useCategory();
     // const [state, setState] = useState();
     const [orderBy , setOderBy] = useState("popularity");
@@ -58,6 +59,7 @@ const ListadoProducto = () => {
     useEffect(() => {
         pixelaso();
         getProductByCategoryId2(id);
+        getProducts();
     }, []);
     useEffect(() => {
         getProductByCategoryId2(id);
@@ -74,7 +76,7 @@ const ListadoProducto = () => {
         setPage(pageNew);
         getProductByCategoryId3(id,pageNew);
     }
-    const urlImagen = id == 0 ?  "":categoria.image.src;
+    const urlImagen = id == 0 || categoria.image == null ?  "":categoria.image.src;
 
     const handleChange2 = (event) => {
         var valor = "desc";

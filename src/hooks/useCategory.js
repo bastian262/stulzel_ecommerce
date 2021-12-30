@@ -8,18 +8,14 @@ export const useCategory = () => {
     const history = useHistory();
     const [ide, setIde] = useState(1);
     const listarCategorias = async () => {
-        var existe = JSON.parse(localStorage.getItem("categorias"));
-        if(existe == null){
             const resultado = await getCategorias();
             if(resultado == "Failed to fetch"){
-
+                localStorage.setItem("categorias", []);
+                setCategorias([]);
             }else{
                 localStorage.setItem("categorias", JSON.stringify(resultado));
                 setCategorias(resultado);
             }
-        }else{
-            setCategorias(existe);
-        }
     }   
 
     const redireccionar2 = (categoria) => {

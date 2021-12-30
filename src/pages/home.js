@@ -108,7 +108,7 @@ const HomeScreen = () => {
                             </span>
                             <br/>
                             <span className="tituloPrecio">
-                                Precio $329.990
+                                Precio $379.990
                             </span>
                             <button>Compra Aquí</button>
                         </div>
@@ -118,24 +118,24 @@ const HomeScreen = () => {
                             </LazyLoad>
                         </div>
                     </div>
-                    <div className="col" onClick={() => redirect(1078)}>
+                    <div className="col" onClick={() => redirect(39913)}>
                         <div className="mitad1">
                             <span className="titulo">
                                 Sillón de Barbería
                             </span>
                             <br/>
                             <span className="tituloProducto">
-                                Modelo Praga
+                                Modelo Ferdinand
                             </span>
                             <br/>
                             <span className="tituloPrecio">
-                                Precio $429.990
+                                Precio $599.990
                             </span>
                             <button>Compra Aquí</button>
                         </div>
                         <div className="mitad2">
                             <LazyLoad>
-                                <img src="https://admin.stulzel.com/wp-content/uploads/2021/01/SILLONES-2020-4B-scaled-1-600x752.jpg" alt="stulzel" />
+                                <img src="https://admin.stulzel.com/wp-content/uploads/2021/12/ProductosWeb_FN05-scaled.jpg" alt="stulzel" />
                             </LazyLoad>
                         </div>
                     </div>
@@ -152,7 +152,7 @@ const HomeScreen = () => {
                             </span>
                             <br/>
                             <span className="tituloPrecio">
-                                Precio $264.990
+                                Precio $250.000
                             </span>
                             <button>Compra Aquí</button>
                         </div>
@@ -173,7 +173,7 @@ const HomeScreen = () => {
                             </span>
                             <br/>
                             <span className="tituloPrecio">
-                                Precio $499.990
+                                Precio $619.990
                             </span>
                             <button>Compra Aquí</button>
                         </div>
