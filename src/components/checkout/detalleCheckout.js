@@ -12,6 +12,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import ReactPixel from 'react-facebook-pixel';
 import {postEvento} from '../../api/apiConversion';
+import { postSuscription } from '../../api/mailer';
 import { Button } from 'antd';
 import { useRedirect } from '../../hooks/useRedirect';
 // import {hashString} from 'react-hash-string'
@@ -138,6 +139,56 @@ const DetalleCheckout = ({tarifa, values2}) => {
                 array.push(arregloTemporal);
     
             }); 
+
+            for (let i = 0; i < productos.length; i++) {
+                const e = productos[i];
+                
+                let id_group = 0;
+                //Accesorios
+                if(e.categorias = 73){
+                    id_group = 109849274;
+                }else if(e.categorias = 131)
+                {
+                    //Buffalo
+                    id_group = 109849268;
+                }else if(e.categorias = 132){
+                    // Carros ayudantes
+                    id_group = 109849274;
+                }else if(e.categorias = 97){
+                    id_group = 109849274;
+                    //Filos dorco
+                }else if(e.categorias = 71){
+                    id_group = 109848842;
+                    // Red one
+                }else if(e.categorias = 72){
+                    id_group = 109849265;
+                    // Lavapelo
+                }else if(e.categorias = 71){
+                    id_group = 109849274;
+                    // Red one
+                }else if(e.categorias = 159){
+                    id_group = 109849259;
+                    // Sillon barberia
+                }else if(e.categorias = 160){
+                    id_group = 109849262;
+                    // Sillon peluquería
+                }else if(e.categorias = 69){
+                    id_group = 109849244;
+                    // Sillones
+                }
+                const data = {
+                    email:correo,
+                    phone:telefono,
+                    name: firstName,
+                    address: direccion,
+                    lastName: lastName,
+                    id_group
+                }
+
+                const resultado = await postSuscription(data);
+
+            }
+
             var data;
             
             if(descuentoCupon > 0){
@@ -223,6 +274,7 @@ const DetalleCheckout = ({tarifa, values2}) => {
             }
             const resultado = await postOrder(data);
             if(resultado.id > 0){
+                
                 const dateTime = Date.now();
                 const timestamp = Math.floor(dateTime / 1000);
                 const date = 
