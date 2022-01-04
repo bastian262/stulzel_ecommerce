@@ -9,6 +9,7 @@ export const useCart = ( initial = []) => {
     const [mensaje, setMensaje] = useState("");
     const [severity, setSeverity] = useState("");
     const onAdd = async (producto, cantidad = 1) => {
+        console.log(producto);
         var localS = localStorage.getItem("carrito");
         setProductos(JSON.parse(localS));
         const options = {
@@ -88,7 +89,8 @@ export const useCart = ( initial = []) => {
                     cantidad:cantidad,
                     stockStatus:producto.stock_status,
                     dimension: producto.dimensions,
-                    peso: producto.weight
+                    peso: producto.weight,
+                    categorias: producto.categories.length > 0 ? producto.categories[0].id : 0
                 }
                 if(localS != null){
                     setProductos([...productes, data]);
