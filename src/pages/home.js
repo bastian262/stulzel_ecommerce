@@ -51,7 +51,7 @@ const HomeScreen = () => {
     }
     return (
         <>
-        <div className="fondo">
+        <div className="fondo" id="topProducts">
             <NavBar
                 onAdd={onAdd}
                 limpiarCarrito = {limpiarCarrito}
@@ -92,94 +92,102 @@ const HomeScreen = () => {
                     <Link to="/salonlook/index">Conoce Más</Link>
                 </div>
             </div> */}
-            <section className="topSales">
+            <section className="topSales" >
                 <div className="raw">
                     <div className="tituloProductosDestacados"> Productos Destacados </div>
                 </div>
                 <div className="raw">
-                    <div className="col" onClick={() => redirect(31090)}>
-                        <div className="mitad1">
-                            <span className="titulo">
-                                Sillón de Barbería
-                            </span>
-                            <br/>
-                            <span className="tituloProducto">
-                                Modelo Aviador
-                            </span>
-                            <br/>
-                            <span className="tituloPrecio">
-                                Precio $379.990
-                            </span>
-                            <button>Compra Aquí</button>
-                        </div>
-                        <div className="mitad2">
-                            <LazyLoad>
-                                <img src="https://admin.stulzel.com/wp-content/uploads/2021/01/SILLONES-2020-6C-scaled-1-600x664.jpg" alt="stulzel" />
-                            </LazyLoad>
-                        </div>
+                    <div className="col">
+                        <a className='sinStyle' href='https://stulzel.com/producto/31090'>
+                            <div className="mitad1">
+                                <span className="titulo">
+                                    Sillón de Barbería
+                                </span>
+                                <br/>
+                                <span className="tituloProducto">
+                                    Modelo Aviador
+                                </span>
+                                <br/>
+                                <span className="tituloPrecio">
+                                    Precio $379.990
+                                </span>
+                                <button>Compra Aquí</button>
+                            </div>
+                            <div className="mitad2">
+                                <LazyLoad>
+                                    <img src="https://admin.stulzel.com/wp-content/uploads/2021/01/SILLONES-2020-6C-scaled-1-600x664.jpg" alt="stulzel" />
+                                </LazyLoad>
+                            </div>
+                        </a>
                     </div>
-                    <div className="col" onClick={() => redirect(39913)}>
-                        <div className="mitad1">
-                            <span className="titulo">
-                                Sillón de Barbería
-                            </span>
-                            <br/>
-                            <span className="tituloProducto">
-                                Modelo Ferdinand
-                            </span>
-                            <br/>
-                            <span className="tituloPrecio">
-                                Precio $599.990
-                            </span>
-                            <button>Compra Aquí</button>
-                        </div>
-                        <div className="mitad2">
-                            <LazyLoad>
-                                <img src="https://admin.stulzel.com/wp-content/uploads/2021/12/ProductosWeb_FN05-scaled.jpg" alt="stulzel" />
-                            </LazyLoad>
-                        </div>
+                    <div className="col">
+                        <a className='sinStyle' href='https://stulzel.com/producto/39913'>
+                            <div className="mitad1">
+                                <span className="titulo">
+                                    Sillón de Barbería
+                                </span>
+                                <br/>
+                                <span className="tituloProducto">
+                                    Modelo Ferdinand
+                                </span>
+                                <br/>
+                                <span className="tituloPrecio">
+                                    Precio $599.990
+                                </span>
+                                <button>Compra Aquí</button>
+                            </div>
+                            <div className="mitad2">
+                                <LazyLoad>
+                                    <img src="https://admin.stulzel.com/wp-content/uploads/2021/12/ProductosWeb_FN05-scaled.jpg" alt="stulzel" />
+                                </LazyLoad>
+                            </div>
+                        </a>
                     </div>
                 </div>
                 <div className="raw">
-                    <div className="col" onClick={() => redirect(38920)}>
-                        <div className="mitad1">
-                            <span className="titulo">
-                                Sillón de Peluquería
-                            </span>
-                            <br/>
-                            <span className="tituloProducto">
-                                Lady Di
-                            </span>
-                            <br/>
-                            <span className="tituloPrecio">
-                                Precio $250.000
-                            </span>
-                            <button>Compra Aquí</button>
-                        </div>
-                        <div className="mitad2">
-                            <LazyLoad>
-                                <img src="https://admin.stulzel.com/wp-content/uploads/2021/08/20210311-Stulzel0118-scaled.jpg" alt="stulzel" />
-                            </LazyLoad>
-                        </div>
+                    <div className="col">
+                        <a className='sinStyle' href='https://stulzel.com/producto/38920'>
+                            <div className="mitad1">
+                                <span className="titulo">
+                                    Sillón de Peluquería
+                                </span>
+                                <br/>
+                                <span className="tituloProducto">
+                                    Lady Di
+                                </span>
+                                <br/>
+                                <span className="tituloPrecio">
+                                    Precio $250.000
+                                </span>
+                                <button>Compra Aquí</button>
+                            </div>
+                            <div className="mitad2">
+                                <LazyLoad>
+                                    <img src="https://admin.stulzel.com/wp-content/uploads/2021/08/20210311-Stulzel0118-scaled.jpg" alt="stulzel" />
+                                </LazyLoad>
+                            </div>
+                        </a>
                     </div>
-                    <div className="col" onClick={() => redirect(31095)}>
-                        <div className="mitad1">
-                            <span className="titulo">
-                                Lavapelo
-                            </span>
-                            <br/>
-                            <span className="tituloProducto">
-                                Premiun Black
-                            </span>
-                            <br/>
-                            <span className="tituloPrecio">
-                                Precio $619.990
-                            </span>
-                            <button>Compra Aquí</button>
-                        </div>
-                        <div className="mitad2">
-                            <img src="https://admin.stulzel.com/wp-content/uploads/2021/05/premiun_black.jpg" alt="stulzel" />
-                        </div>
+                    <div className="col">
+                        <a className='sinStyle' href='https://stulzel.com/producto/31095'>    
+                            <div className="mitad1">
+                                <span className="titulo">
+                                    Lavapelo
+                                </span>
+                                <br/>
+                                <span className="tituloProducto">
+                                    Premiun Black
+                                </span>
+                                <br/>
+                                <span className="tituloPrecio">
+                                    Precio $619.990
+                                </span>
+                                <button>Compra Aquí</button>
+                            </div>
+                            <div className="mitad2">
+                                <img src="https://admin.stulzel.com/wp-content/uploads/2021/05/premiun_black.jpg" alt="stulzel" />
+                            </div>
+                        </a>
                     </div>
                 </div>
             </section>
@@ -198,29 +206,32 @@ const HomeScreen = () => {
                 <div className="raw"> 
                     {productos.map((element) => {
                         const imagen = element.images.length > 0 ? element.images[0].src : "";
+                        const urlRedireccion = `https://stulzel.com/producto/${element.id}`;
                         return (
                             <div className="columnas">
-                                <div className="card">
-                                    <LazyLoad>   
-                                        <img src={imagen} alt="" onClick={() => redireccionar(element)} />
-                                    </LazyLoad>   
-                                    <div className="detalles" onClick={() => redireccionar(element)}>
-                                        <span className="titulo">
-                                            {element.name}
-                                        </span>
-                                        <span className="regularPrice">
-                                            ${format(element.regular_price)}
-                                        </span>
-                                        <span className="price">
-                                            ${format(element.price)}
-                                        </span>
-                                    </div>
-                                    <div className="booton">
-                                        <button onClick={() => onAdd(element)}>
-                                            Agregar al carrito
-                                        </button>
-                                    </div>
-                                </div>  
+                                <a href={urlRedireccion} className='sinStyle'>
+                                    <div className="card">
+                                        <LazyLoad>   
+                                            <img src={imagen} alt="" onClick={() => redireccionar(element)} />
+                                        </LazyLoad>   
+                                        <div className="detalles" onClick={() => redireccionar(element)}>
+                                            <span className="titulo">
+                                                {element.name}
+                                            </span>
+                                            <span className="regularPrice">
+                                                ${format(element.regular_price)}
+                                            </span>
+                                            <span className="price">
+                                                ${format(element.price)}
+                                            </span>
+                                        </div>
+                                        <div className="booton">
+                                            <button onClick={() => onAdd(element)}>
+                                                Agregar al carrito
+                                            </button>
+                                        </div>
+                                    </div>  
+                                </a>
                             </div>
                         )
                     })}

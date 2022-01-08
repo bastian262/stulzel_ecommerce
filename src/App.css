@@ -5947,3 +5947,12 @@ box-shadow: 0px 0px 14px -6px rgba(0,0,0,0.75);
     transform: translate(15px);
   }
 }
+
+
+.sinStyle{
+  color :black !important;
+}
+
+#topProducts a::after{
+  background: transparent !important;
+}
