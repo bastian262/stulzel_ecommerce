@@ -6,7 +6,7 @@ import HomeScreen from '../pages/home';
 import SignUpScreen from '../pages/signUp/SignUp';
 import SignInScreen from '../pages/signIn/SignIn';
 import WebinarScreen from '../pages/webinar/webinar';
-import DashboardScreen from '../pages/dashboard/dashboard';
+// import DashboardScreen from '../pages/dashboard/dashboard';
 import ProductoScreen from '../pages/productos/productos';
 import ListadoProducto from '../pages/productos/listadoProductos';
 import QuienesSomos from '../pages/quienesSomos/quienesSomos';
@@ -16,14 +16,14 @@ import MiCuenta from '../pages/miCuenta/miCuenta';
 import Checkout from '../pages/checkout/checkout';
 import Search from '../pages/search/search';
 import Curso from '../pages/curso/curso';
-import Salon from '../pages/salonlook/salon';
-import FormComponent from '../pages/form/form';
-import Batalla from '../pages/batalla/batalla';
-import ListadoBatalla from '../pages/batalla/listadoParticipantes';
-import FormAssistantComponent from '../pages/formAsistans/formAsistans';
-import Entradas from '../pages/salonlook/entradas';
-import ValidationVotes from '../pages/batalla/validationVotes';
-
+// import Salon from '../pages/salonlook/salon';
+// import FormComponent from '../pages/form/form';
+// import Batalla from '../pages/batalla/batalla';
+// import ListadoBatalla from '../pages/batalla/listadoParticipantes';
+// import FormAssistantComponent from '../pages/formAsistans/formAsistans';
+// import Entradas from '../pages/salonlook/entradas';
+// import ValidationVotes from '../pages/batalla/validationVotes';
+import TerminosyCondiciones from '../pages/terminos';
 const history = createBrowserHistory();
 const AppRouter  = () => {
     return (  
@@ -43,6 +43,7 @@ const AppRouter  = () => {
                 {/* <Route exact path="/salonlook/:name" component={ Salon } /> */}
                 <Route exact path="/cursos" component={ Curso } />
                 <Route exact path="/webinar" component={ WebinarScreen } />
+                <Route exact path="/terminosycondiciones" component={ TerminosyCondiciones } />
                 <Route exact path="/search/:id" component={ Search } />
                 {/* <Route exact path="/dashboard" component={ DashboardScreen } /> */}
                 {/* <Route exact path="/form" component={ FormComponent } /> */}
