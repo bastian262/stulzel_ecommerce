@@ -4,6 +4,7 @@ import Footer1 from '../../components/footer/Footer1';
 import Footer2 from '../../components/footer/Footer2';
 import { useCart } from '../../hooks/useCart';
 import { useRedirect } from '../../hooks/useRedirect';
+import BtnWhatsApp from '../../components/btnWhatsapp/btnWhatsApp';
 const QuienesSomos = () => {
 
     var localS = JSON.parse(localStorage.getItem("carrito"));
@@ -148,6 +149,7 @@ const QuienesSomos = () => {
                 </div>
             </div>
         </div>
+        <BtnWhatsApp />
         <Footer1 />
         <Footer2 />
     </> );

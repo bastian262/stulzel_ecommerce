@@ -9,6 +9,7 @@ import { useHistory } from "react-router-dom";
 // import {useFormValidation} from '../../hooks/useFormValidation'
 import { Spin, notification } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
+import BtnWhatsApp from '../../components/btnWhatsapp/btnWhatsApp';
 
 import Button from '@material-ui/core/Button';
 import {signIn} from '../../api/signUp';

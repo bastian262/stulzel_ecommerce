@@ -26,6 +26,7 @@ import { useFormat } from '../../hooks/useFormat';
 import { useForm } from '../../hooks/useForm';
 import { useParams } from 'react-router';
 import { useHistory } from 'react-router';
+import BtnWhatsApp from '../../components/btnWhatsapp/btnWhatsApp';
 
 const useStyles = makeStyles((theme) => ({
     backdrop: {
@@ -383,6 +384,7 @@ const Producto = () => {
                         {mensaje}
                     </Alert>
                 </Snackbar>
+                <BtnWhatsApp />
                 <Footer1 />
                 <Footer2 />
             </div>

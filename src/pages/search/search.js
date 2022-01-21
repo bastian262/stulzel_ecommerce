@@ -9,6 +9,7 @@ import {useProduct} from '../../hooks/useProduct';
 import { useCart } from '../../hooks/useCart';
 import { useParams } from 'react-router';
 import { CircularProgress } from '@material-ui/core';
+import BtnWhatsApp from '../../components/btnWhatsapp/btnWhatsApp';
 
 const Search = () => {
 
@@ -112,6 +113,7 @@ const Search = () => {
                     </div>
                 </div>
             </div>
+            <BtnWhatsApp />
             <Footer1 />
             <Footer2 />
         </>

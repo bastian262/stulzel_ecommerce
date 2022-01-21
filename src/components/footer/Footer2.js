@@ -28,11 +28,10 @@ const Footer2 = () => {
                         <span>LINKS DE AYUDA</span>
                         <Link to="/micuenta">Mi Cuenta</Link>
                         <Link to="/quienessomos">Quienes Somos</Link>
-                        <Link to="/contacto">Servicio al cliente</Link>
                         <Link to="/contacto">Contáctanos</Link>
-                        {/* <a href="/">Términos y Condiciones</a> */}
-                        {/* <a href="/">Preguntas Frecuentes</a> */}
-
+                        <a href="/politicas-privacidad">Políticas de privacidad</a>
+                        <a href="/politicas-envio">Políticas de envío</a>
+                        <a href="/politicas-garantia">Garantía y devolución</a>
                     </div>
                     <div class="footerBajo">
                         <div>

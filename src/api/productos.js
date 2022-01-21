@@ -159,7 +159,7 @@ export function getProductosByCategoryId(id, page = 1) {
 }
 
 export function getProductBySearch(search){
-    const url = `${basePathWoocommerce}products?search=${search}&status=publish&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
+    const url = `${basePathWoocommerce}products?search=${search}&status=publish&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}&per_page=50`;
 
     const params = {
         method:'GET',

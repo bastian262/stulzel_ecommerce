@@ -12,6 +12,7 @@ import { useCart } from '../../hooks/useCart';
 import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import ReactPixel from 'react-facebook-pixel';
 import EmailRoundedIcon from '@material-ui/icons/EmailRounded';
+import BtnWhatsApp from '../../components/btnWhatsapp/btnWhatsApp';
 const useStyles = makeStyles((theme) => ({
     root: {
       width: '100%',
@@ -125,6 +126,7 @@ const Contacto = () => {
                     </div>
                 </div>
             </div>
+            <BtnWhatsApp />
             <Footer1 />
             <Footer2 />
         </> 

@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { useHistory } from 'react-router';
+import BtnWhatsApp from '../../components/btnWhatsapp/btnWhatsApp';
 import DetalleCheckout from '../../components/checkout/detalleCheckout';
 import FormCheckout from '../../components/checkout/formCheckout';
 import { useForm } from '../../hooks/useForm';
@@ -103,7 +104,7 @@ const Checkout = () => {
                     </div>
                 </div>
             </div>
-
+            <BtnWhatsApp />
         </> 
     );
 }

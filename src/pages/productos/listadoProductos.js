@@ -23,6 +23,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import ReactPixel from 'react-facebook-pixel';
 import { postEvento, geoLocalizacion } from '../../api/apiConversion';
 import { browserName } from "react-device-detect";
+import BtnWhatsApp from '../../components/btnWhatsapp/btnWhatsApp';
 
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -315,6 +316,7 @@ const ListadoProducto = () => {
                     {mensaje}
                 </Alert>
             </Snackbar>
+            <BtnWhatsApp />
             <Footer1 />
             <Footer2 />
         </> 

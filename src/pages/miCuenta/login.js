@@ -7,6 +7,7 @@ import NavBar from '../../components/nav/nav';
 import BannerPrincipal from '../../components/miCuenta/bannerPrincipal';
 import SignUp from '../../components/miCuenta/signUp';
 import SignIn from '../../components/miCuenta/signIn';
+import BtnWhatsApp from '../../components/btnWhatsapp/btnWhatsApp';
 const Login = () => {
 
     var localS = JSON.parse(localStorage.getItem("carrito"));
@@ -35,6 +36,7 @@ const Login = () => {
                 </div>
             </div>
         </div>
+        <BtnWhatsApp />
         <Footer1 />
         <Footer2 />
     </> );

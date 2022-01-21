@@ -20,6 +20,7 @@ import MisPedidos from '../../components/miCuenta/misPedidos';
 import Descargas from '../../components/miCuenta/descargas';
 import Direcciones from '../../components/miCuenta/direcciones';
 import DatosPersonales from '../../components/miCuenta/datosPersonales';
+import BtnWhatsApp from '../../components/btnWhatsapp/btnWhatsApp';
 
 
 const DetalleMiCuenta = ({usuario}) => {
@@ -130,6 +131,7 @@ const DetalleMiCuenta = ({usuario}) => {
                 </div>
 
             </div>
+            <BtnWhatsApp />
             <Footer1 />
             <Footer2 />
         </>

@@ -24,6 +24,9 @@ import Curso from '../pages/curso/curso';
 // import Entradas from '../pages/salonlook/entradas';
 // import ValidationVotes from '../pages/batalla/validationVotes';
 import TerminosyCondiciones from '../pages/terminos';
+import PoliticaEnvios from '../pages/terminos/politicaEnvios';
+import PoliticasGarantia from '../pages/terminos/politicasGarantia';
+import PoliticasPrivacidad from '../pages/terminos/politicasPrivacidad';
 const history = createBrowserHistory();
 const AppRouter  = () => {
     return (  
@@ -44,6 +47,9 @@ const AppRouter  = () => {
                 <Route exact path="/cursos" component={ Curso } />
                 <Route exact path="/webinar" component={ WebinarScreen } />
                 <Route exact path="/terminosycondiciones" component={ TerminosyCondiciones } />
+                <Route exact path="/politicas-privacidad" component={ PoliticasPrivacidad } />
+                <Route exact path="/politicas-envio" component={ PoliticaEnvios } />
+                <Route exact path="/politicas-garantia" component={ PoliticasGarantia } />
                 <Route exact path="/search/:id" component={ Search } />
                 {/* <Route exact path="/dashboard" component={ DashboardScreen } /> */}
                 {/* <Route exact path="/form" component={ FormComponent } /> */}
