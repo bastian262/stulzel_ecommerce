@@ -50,6 +50,8 @@ const CotizadorPage = () => {
     }
     
     const eliminarArticulo = (prod) => {
+        var articulos2 = productosItem.filter(e => e.name === prod.name);
+        setTotalCotizacion(totalCotizacion - articulos2[0].cost)
         var articulos = productosItem.filter(e => e.name !== prod.name);
         setProductosItem(articulos);
     }
@@ -57,18 +59,16 @@ const CotizadorPage = () => {
     const obtenerProductos = async () => {
         setLoading2(true);
         const result = await getProductos();
-        console.log(result);
         setproductosState(result);
         setLoading2(false);
     } 
     const obtenerProducto = async () => {
         setLoading(true);
         const result = await getProductosById(productoId);
+        console.log(result)
         if(result.id > 0){
-            setProductosItem([
-                ...productosItem,
-                result
-            ]);
+            
+           
             setCantidades([
                 ...cantidades,
                 cantidad
@@ -80,14 +80,15 @@ const CotizadorPage = () => {
                 weight: result.weight === "" ? 5 : result.weight * cantidad,
                 destination: parseInt(destinoId),
             }
-            console.log(data);
             const resultado2 = await postCotizar(data);
-            
-            console.log(resultado2);
-
-
             if(resultado2.cost>0){
                 const totalParcial = resultado2.cost + totalCotizacion;
+                const data2 = Object.assign(result, {cost:resultado2.cost, totalParcial})
+                console.log(data2)
+                setProductosItem([
+                    ...productosItem,
+                    data2
+                ]);
                 setTotalCotizacion(totalParcial);
             }
         }
