@@ -1909,6 +1909,10 @@ input[type=number]
 .productos2 .raw .columnas .card .detalles .titulo {
   font-weight: 600;
   font-size: 16px;
+  color: black !important;
+}
+.productos2 a::after{
+  background: transparent;
 }
 .productos2 .raw .columnas .card .detalles .regularPrice {
   font-weight: 500;

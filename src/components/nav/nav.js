@@ -8,6 +8,8 @@ import LocalMallIcon from '@material-ui/icons/LocalMall';
 import { Link } from 'react-router-dom';
 import DehazeIcon from '@material-ui/icons/Dehaze';
 import CloseIcon from '@material-ui/icons/Close';
+import CircularProgress from '@material-ui/core/CircularProgress';
+
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MenuScreen from '../cart/cart'
 import { useFormat } from '../../hooks/useFormat';
@@ -177,7 +179,8 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
                             <ExpandMoreIcon class="moreIcon" />
                             <div class="productosVarios">
                                 <Link to="/productos/0">Todos</Link>
-                                {categorias != null ? 
+                                
+                                {categorias.length > 0 ? 
                                     categorias.map((element) => {
                                         return (
                                             <>
@@ -185,7 +188,7 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
                                             </>
                                         )
                                     })
-                                    : null
+                                    : <CircularProgress size={24} style={{marginLeft:'15px'}} />
                                 }
                             </div> 
                         </div>
@@ -232,14 +235,18 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
                             <div className="subMenu2" id="subMenu2">
                                 <Link onClick={() => redireccionar2({id:0})}>Todos los productos</Link>
                                 {categorias != null ? 
-                                    categorias.map((element) => {
-                                        return (
-                                            <>
-                                                <a onClick={() => redireccionar2(element)}>{element.name}</a>
-                                            </>
-                                        )
-                                    })
-                                    : null
+                                    <>
+                                        <h2>hi</h2>
+                                        {categorias.map((element) => {
+                                            return (
+                                                <>
+                                                    <a onClick={() => redireccionar2(element)}>{element.name}</a>
+                                                </>
+                                            )
+                                        })}
+                                    
+                                    </>
+                                    : <h2>hi</h2>
                                 }
                             </div>
                         </div>

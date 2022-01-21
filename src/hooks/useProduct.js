@@ -62,7 +62,7 @@ export const useProduct = ( ) => {
 
     const redireccionar = (producto) => {
         localStorage.setItem("producto", JSON.stringify(producto));
-        history.push(`/producto/${producto.id}#principal`);
+        history.push(`/producto/${producto.id}`);
     }
 
     const getProductsByPrice2 = async (prices, id) => {

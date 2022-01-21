@@ -264,43 +264,46 @@ const ListadoProducto = () => {
                                 {productos.map((element) => {
                                     const imagen = element.images.length > 0? element.images[0].src : "";
                                     const descuento = Math.trunc(((element.price * 100)/ element.regular_price) - 100);
+                                    const urlRedirect = `https://stulzel.com/producto/${element.id}`
                                     return (
                                         <div className="columnas">
-                                            <div className="card">   
-                                                <img src={imagen} alt="" onClick={() => redireccionar(element)} />
-                                                <div className="detalles" onClick={() => redireccionar(element)}>
-                                                    <span className="titulo">
-                                                        {element.name}
-                                                    </span>
-                                                    {element.regular_price > element.price ?
-                                                    
-                                                        <span className="regularPrice">
-                                                            ${format(element.regular_price)}
+                                            <a href={urlRedirect}>
+                                                <div className="card">   
+                                                    <img src={imagen} alt=""/>
+                                                    <div className="detalles">
+                                                        <span className="titulo">
+                                                            {element.name}
                                                         </span>
-                                                            :
-                                                            null
-                                                    }
-                                                    <span className="price">
-                                                        ${format(element.price)}
-                                                    </span>
-                                                    <span className="price" style={{color: element.stock_status === "instock" ? "green" : "red" }}>
-                                                        {element.stock_status === "instock" ? "En stock" : "Sin stock"}
-                                                    </span>
-                                                </div>
-                                                <div className="booton">
-                                                    <button onClick={() => onAdd(element)}>
-                                                        Agregar al carrito
-                                                    </button>
-                                                </div>
-                                                {element.regular_price > element.price ?
-                                                    <div className="circulo">
-                                                        {descuento}%
+                                                        {element.regular_price > element.price ?
+                                                        
+                                                            <span className="regularPrice">
+                                                                ${format(element.regular_price)}
+                                                            </span>
+                                                                :
+                                                                null
+                                                        }
+                                                        <span className="price">
+                                                            ${format(element.price)}
+                                                        </span>
+                                                        <span className="price" style={{color: element.stock_status === "instock" ? "green" : "red" }}>
+                                                            {element.stock_status === "instock" ? "En stock" : "Sin stock"}
+                                                        </span>
                                                     </div>
-                                                        :
-                                                    null
-                                                }
-                                                   
-                                            </div>  
+                                                    <div className="booton">
+                                                        <button onClick={() => onAdd(element)}>
+                                                            Agregar al carrito
+                                                        </button>
+                                                    </div>
+                                                    {element.regular_price > element.price ?
+                                                        <div className="circulo">
+                                                            {descuento}%
+                                                        </div>
+                                                            :
+                                                        null
+                                                    }
+                                                    
+                                                </div>  
+                                            </a>
                                         </div>
                                     )
                                 })}

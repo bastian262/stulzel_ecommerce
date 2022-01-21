@@ -58,7 +58,6 @@ const Producto = () => {
     useEffect(() => {
         obtenerProducto(id);
         metodo();
-        window.location.href = "#principal";
     },[]);
     
     useEffect(() => {
@@ -193,11 +192,6 @@ const Producto = () => {
     const cambiarProducto = (producto) => {
         history.push(`/producto/${producto.id}`);
         setProductoTemporal(producto);
-        // localStorage.setItem("producto", JSON.stringify(producto));
-        // obtenerImagenes();
-        // obtenerRelacionados();
-        window.location.href = "#principal"
-        // window.location.replace('');
     }
     const descuento = Math.trunc(((productoTemporal.price * 100)/ productoTemporal.regular_price) - 100);
     const obtenerDatos = () => {
@@ -229,7 +223,7 @@ const Producto = () => {
                                     <div className="precios">
                                         <span class="precioTotal">${format(productoTemporal.regular_price)}</span>
                                         <span class="precioOferta">${format(productoTemporal.price)}</span>
-                                        <span class="descuento">{descuento}%</span>
+                                        {descuento>0 ? <span class="descuento">{descuento}%</span> : null} 
                                     </div>
                                     <span className="shortDescription" dangerouslySetInnerHTML={{__html : productoTemporal.short_description }}></span>
                                     {productoTemporal.stock_status === "instock" ? <h2 className="haystock">HAY EXISTENCIAS</h2> : <h2 className="nohaystock">AGOTADO</h2>} 
@@ -384,10 +378,10 @@ const Producto = () => {
                         {mensaje}
                     </Alert>
                 </Snackbar>
+            </div>
                 <BtnWhatsApp />
                 <Footer1 />
                 <Footer2 />
-            </div>
         </>     
     );
 }
