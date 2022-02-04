@@ -5970,3 +5970,7 @@ box-shadow: 0px 0px 14px -6px rgba(0,0,0,0.75);
 .politicas strong{
   color: white;
 } 
+.imgHome{
+  float: left;
+  width: 100%;
+}

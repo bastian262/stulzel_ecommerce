@@ -21,6 +21,296 @@ import FacebookIcon from '@material-ui/icons/Facebook';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import LazyLoad from 'react-lazyload';
 
+const categoriass = [
+    {
+        "id": 73,
+        "name": "Accesorios barbería",
+        "slug": "accesorios-barberia",
+        "parent": 0,
+        "description": "",
+        "display": "default",
+        "image": {
+            "id": 39146,
+            "date_created": "2021-08-03T20:18:39",
+            "date_created_gmt": "2021-08-03T23:18:39",
+            "date_modified": "2021-08-03T20:18:39",
+            "date_modified_gmt": "2021-08-03T23:18:39",
+            "src": "https://admin.stulzel.com/wp-content/uploads/2021/08/accesorios.jpg",
+            "name": "accesorios",
+            "alt": ""
+        },
+        "menu_order": 1,
+        "count": 30,
+        "_links": {
+            "self": [
+                {
+                    "href": "https://admin.stulzel.com/wp-json/wc/v3/products/categories/73"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://admin.stulzel.com/wp-json/wc/v3/products/categories"
+                }
+            ]
+        }
+    },
+    {
+        "id": 131,
+        "name": "Buffalo Men's",
+        "slug": "buffalo-mens",
+        "parent": 0,
+        "description": "",
+        "display": "default",
+        "image": {
+            "id": 39145,
+            "date_created": "2021-08-03T20:18:36",
+            "date_created_gmt": "2021-08-03T23:18:36",
+            "date_modified": "2021-08-03T20:18:36",
+            "date_modified_gmt": "2021-08-03T23:18:36",
+            "src": "https://admin.stulzel.com/wp-content/uploads/2021/08/buff.jpg",
+            "name": "buff",
+            "alt": ""
+        },
+        "menu_order": 2,
+        "count": 9,
+        "_links": {
+            "self": [
+                {
+                    "href": "https://admin.stulzel.com/wp-json/wc/v3/products/categories/131"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://admin.stulzel.com/wp-json/wc/v3/products/categories"
+                }
+            ]
+        }
+    },
+    {
+        "id": 132,
+        "name": "Carros ayudantes",
+        "slug": "carros-ayudantes",
+        "parent": 0,
+        "description": "",
+        "display": "default",
+        "image": {
+            "id": 39144,
+            "date_created": "2021-08-03T20:18:34",
+            "date_created_gmt": "2021-08-03T23:18:34",
+            "date_modified": "2021-08-03T20:18:34",
+            "date_modified_gmt": "2021-08-03T23:18:34",
+            "src": "https://admin.stulzel.com/wp-content/uploads/2021/08/carros.jpg",
+            "name": "carros",
+            "alt": ""
+        },
+        "menu_order": 3,
+        "count": 5,
+        "_links": {
+            "self": [
+                {
+                    "href": "https://admin.stulzel.com/wp-json/wc/v3/products/categories/132"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://admin.stulzel.com/wp-json/wc/v3/products/categories"
+                }
+            ]
+        }
+    },
+    {
+        "id": 161,
+        "name": "Climazón",
+        "slug": "climazon",
+        "parent": 0,
+        "description": "",
+        "display": "default",
+        "image": {
+            "id": 40318,
+            "date_created": "2022-01-24T15:28:50",
+            "date_created_gmt": "2022-01-24T18:28:50",
+            "date_modified": "2022-01-24T15:28:50",
+            "date_modified_gmt": "2022-01-24T18:28:50",
+            "src": "https://admin.stulzel.com/wp-content/uploads/2022/01/climazones.jpg",
+            "name": "climazones",
+            "alt": ""
+        },
+        "menu_order": 0,
+        "count": 4,
+        "_links": {
+            "self": [
+                {
+                    "href": "https://admin.stulzel.com/wp-json/wc/v3/products/categories/161"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://admin.stulzel.com/wp-json/wc/v3/products/categories"
+                }
+            ]
+        }
+    },
+    {
+        "id": 97,
+        "name": "Filos Dorco",
+        "slug": "filos-dorco",
+        "parent": 0,
+        "description": "",
+        "display": "default",
+        "image": {
+            "id": 33659,
+            "date_created": "2021-03-14T14:48:33",
+            "date_created_gmt": "2021-03-14T17:48:33",
+            "date_modified": "2021-03-14T14:48:44",
+            "date_modified_gmt": "2021-03-14T17:48:44",
+            "src": "https://admin.stulzel.com/wp-content/uploads/2021/03/categoria-filos-dorco-scaled.jpg",
+            "name": "categoria-filos-dorco",
+            "alt": "categoria filos dorco"
+        },
+        "menu_order": 5,
+        "count": 3,
+        "_links": {
+            "self": [
+                {
+                    "href": "https://admin.stulzel.com/wp-json/wc/v3/products/categories/97"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://admin.stulzel.com/wp-json/wc/v3/products/categories"
+                }
+            ]
+        }
+    },
+    {
+        "id": 72,
+        "name": "Lavapelo",
+        "slug": "lavapelo",
+        "parent": 0,
+        "description": "",
+        "display": "default",
+        "image": {
+            "id": 39142,
+            "date_created": "2021-08-03T20:18:29",
+            "date_created_gmt": "2021-08-03T23:18:29",
+            "date_modified": "2021-08-03T20:18:29",
+            "date_modified_gmt": "2021-08-03T23:18:29",
+            "src": "https://admin.stulzel.com/wp-content/uploads/2021/08/lavapelos.jpg",
+            "name": "lavapelos",
+            "alt": ""
+        },
+        "menu_order": 9,
+        "count": 7,
+        "_links": {
+            "self": [
+                {
+                    "href": "https://admin.stulzel.com/wp-json/wc/v3/products/categories/72"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://admin.stulzel.com/wp-json/wc/v3/products/categories"
+                }
+            ]
+        }
+    },
+    {
+        "id": 71,
+        "name": "RedOne",
+        "slug": "redone",
+        "parent": 0,
+        "description": "",
+        "display": "default",
+        "image": {
+            "id": 39141,
+            "date_created": "2021-08-03T20:18:27",
+            "date_created_gmt": "2021-08-03T23:18:27",
+            "date_modified": "2021-08-03T20:18:27",
+            "date_modified_gmt": "2021-08-03T23:18:27",
+            "src": "https://admin.stulzel.com/wp-content/uploads/2021/08/redone.jpg",
+            "name": "redone",
+            "alt": ""
+        },
+        "menu_order": 10,
+        "count": 33,
+        "_links": {
+            "self": [
+                {
+                    "href": "https://admin.stulzel.com/wp-json/wc/v3/products/categories/71"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://admin.stulzel.com/wp-json/wc/v3/products/categories"
+                }
+            ]
+        }
+    },
+    {
+        "id": 159,
+        "name": "Sillón Barbería",
+        "slug": "sillon-barberia",
+        "parent": 0,
+        "description": "",
+        "display": "default",
+        "image": {
+            "id": 39140,
+            "date_created": "2021-08-03T20:18:19",
+            "date_created_gmt": "2021-08-03T23:18:19",
+            "date_modified": "2021-08-03T20:18:19",
+            "date_modified_gmt": "2021-08-03T23:18:19",
+            "src": "https://admin.stulzel.com/wp-content/uploads/2021/08/sillonesbarberia.jpg",
+            "name": "sillonesbarberia",
+            "alt": ""
+        },
+        "menu_order": 0,
+        "count": 8,
+        "_links": {
+            "self": [
+                {
+                    "href": "https://admin.stulzel.com/wp-json/wc/v3/products/categories/159"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://admin.stulzel.com/wp-json/wc/v3/products/categories"
+                }
+            ]
+        }
+    },
+    {
+        "id": 160,
+        "name": "Sillón Peluquería",
+        "slug": "sillon-peluqueria",
+        "parent": 0,
+        "description": "",
+        "display": "default",
+        "image": {
+            "id": 39139,
+            "date_created": "2021-08-03T20:18:12",
+            "date_created_gmt": "2021-08-03T23:18:12",
+            "date_modified": "2021-08-03T20:18:12",
+            "date_modified_gmt": "2021-08-03T23:18:12",
+            "src": "https://admin.stulzel.com/wp-content/uploads/2021/08/sillonespeluqueria.jpg",
+            "name": "sillonespeluqueria",
+            "alt": ""
+        },
+        "menu_order": 0,
+        "count": 13,
+        "_links": {
+            "self": [
+                {
+                    "href": "https://admin.stulzel.com/wp-json/wc/v3/products/categories/160"
+                }
+            ],
+            "collection": [
+                {
+                    "href": "https://admin.stulzel.com/wp-json/wc/v3/products/categories"
+                }
+            ]
+        }
+    }
+]
 const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) => {
     const [format] = useFormat();
     const [ide, setIde] = useState(1);
@@ -31,7 +321,7 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
     const [listarCategorias, categorias,] = useCategory();
     const {search} = values;
     useEffect(() => {   
-        listarCategorias();
+        listarCategorias(categoriass);
     }, []);
     
     const abrirCerrarMenu = () => {
@@ -179,17 +469,15 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
                             <ExpandMoreIcon class="moreIcon" />
                             <div class="productosVarios">
                                 <Link to="/productos/0">Todos</Link>
-                                
-                                {categorias.length > 0 ? 
-                                    categorias.map((element) => {
-                                        return (
-                                            <>
-                                                <a onClick={() => redireccionar2(element)}>{element.name}</a>
-                                            </>
-                                        )
-                                    })
-                                    : <CircularProgress size={24} style={{marginLeft:'15px'}} />
-                                }
+                                <a onClick={() => redireccionar2(categoriass[0])}>Accesorios barbería</a>
+                                <a onClick={() => redireccionar2(categoriass[1])}>Buffalo Men's</a>
+                                <a onClick={() => redireccionar2(categoriass[2])}>Carros ayudantes</a>
+                                <a onClick={() => redireccionar2(categoriass[3])}>Climazón</a>
+                                <a onClick={() => redireccionar2(categoriass[4])}>Filos Dorco</a>
+                                <a onClick={() => redireccionar2(categoriass[5])}>Lavapelo</a>
+                                <a onClick={() => redireccionar2(categoriass[6])}>RedOne</a>
+                                <a onClick={() => redireccionar2(categoriass[7])}>Sillón Barbería</a>
+                                <a onClick={() => redireccionar2(categoriass[8])}>Sillón Peluquería</a>
                             </div> 
                         </div>
                         <Link to="/quienessomos">Quienes Somos</Link>
@@ -234,20 +522,15 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
                             </div>
                             <div className="subMenu2" id="subMenu2">
                                 <Link onClick={() => redireccionar2({id:0})}>Todos los productos</Link>
-                                {categorias != null ? 
-                                    <>
-                                        <h2>hi</h2>
-                                        {categorias.map((element) => {
-                                            return (
-                                                <>
-                                                    <a onClick={() => redireccionar2(element)}>{element.name}</a>
-                                                </>
-                                            )
-                                        })}
-                                    
-                                    </>
-                                    : <h2>hi</h2>
-                                }
+                                <a onClick={() => redireccionar2(categoriass[0])}>Accesorios barbería</a>
+                                <a onClick={() => redireccionar2(categoriass[1])}>Buffalo Men's</a>
+                                <a onClick={() => redireccionar2(categoriass[2])}>Carros ayudantes</a>
+                                <a onClick={() => redireccionar2(categoriass[3])}>Climazón</a>
+                                <a onClick={() => redireccionar2(categoriass[4])}>Filos Dorco</a>
+                                <a onClick={() => redireccionar2(categoriass[5])}>Lavapelo</a>
+                                <a onClick={() => redireccionar2(categoriass[6])}>RedOne</a>
+                                <a onClick={() => redireccionar2(categoriass[7])}>Sillón Barbería</a>
+                                <a onClick={() => redireccionar2(categoriass[8])}>Sillón Peluquería</a>
                             </div>
                         </div>
                         <a onClick={() =>redireccionar3("/quienessomos")}>Quienes Somos</a>

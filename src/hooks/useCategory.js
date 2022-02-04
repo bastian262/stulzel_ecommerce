@@ -7,15 +7,9 @@ export const useCategory = () => {
     const[categorias, setCategorias] = useState([]);
     const history = useHistory();
     const [ide, setIde] = useState(1);
-    const listarCategorias = async () => {
-            const resultado = await getCategorias();
-            if(resultado == "Failed to fetch"){
-                localStorage.setItem("categorias", []);
-                setCategorias([]);
-            }else{
-                localStorage.setItem("categorias", JSON.stringify(resultado));
-                setCategorias(resultado);
-            }
+    const listarCategorias = async (resultado) => {
+        localStorage.setItem("categorias", JSON.stringify(resultado));
+        setCategorias(resultado);
     }   
 
     const redireccionar2 = (categoria) => {

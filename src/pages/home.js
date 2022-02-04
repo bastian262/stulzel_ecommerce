@@ -21,6 +21,9 @@ import LazyLoad from 'react-lazyload';
 import BtnWhatsApp from '../components/btnWhatsapp/btnWhatsApp';
 import Popup from '../components/suscribe/popup';
 import { useHistory } from 'react-router';
+import bannerHome from '../assets/img/Banner.png'
+import bannerMobileHome from '../assets/img/BannerMobile.png'
+
 const HomeScreen = () => {
     const history = useHistory();
     var localS = JSON.parse(localStorage.getItem("carrito"));
@@ -59,7 +62,7 @@ const HomeScreen = () => {
                 productes = {productes}
                 total = {total}
             />
-            <div className="header">
+            {/* <div className="header">
                 <div className="border">
                     <div className="row-flex">
                         <div className="col-1">
@@ -83,7 +86,9 @@ const HomeScreen = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
+            <img src={bannerHome} className='desktop imgHome' />
+            <img src={bannerMobileHome} className='movil imgHome' />
             {/* <div class="bannerSalon">
                 <span>2a VERSIÓN DEL ENCUENTRO PROFESIONAL DE LA IMAGEN Y LA ESTÉTICA INTEGRAL </span>
                 <img className="look" src={look} alt="look" />

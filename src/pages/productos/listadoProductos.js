@@ -72,7 +72,6 @@ const ListadoProducto = () => {
         setValue(newValue);
     };
     const nextPage = () => {
-        console.log("dale");
         const pageNew = page + 1;
         setPage(pageNew);
         getProductByCategoryId3(id,pageNew);
