@@ -112,6 +112,25 @@ export function getProductos8(page) {
 
 export function getProductosById(id) {
 
+    const url = `${basePathWoocommerce}products?slug=${id}&status=publish&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
+    const params = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    };
+
+    return fetch(url, params)
+        .then(resp => {
+            return resp.json();
+        }).then(result => {
+            return result;
+        }).catch(err => {
+            return err.message;
+        });
+}
+export function getProductosById2(id) {
+
     const url = `${basePathWoocommerce}products/${id}?status=publish&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
     const params = {
         method: "GET",
@@ -129,7 +148,6 @@ export function getProductosById(id) {
             return err.message;
         });
 }
-
 
 export function getProductosByCategoryId(id, page = 1) {
     var url;
@@ -157,7 +175,27 @@ export function getProductosByCategoryId(id, page = 1) {
             return err.message;
         });
 }
+export function getCategoryBySlug(slug) {
+  
+    const url = `${basePathWoocommerce}products/categories?slug=${slug}&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}`;
+   
+    console.log(url);
+    const params = {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    };
 
+    return fetch(url, params)
+        .then(resp => {
+            return resp.json();
+        }).then(result => {
+            return result;
+        }).catch(err => {
+            return err.message;
+        });
+}
 export function getProductBySearch(search){
     const url = `${basePathWoocommerce}products?search=${search}&status=publish&consumer_key=${consumerKey}&consumer_secret=${consumerSecret}&per_page=50`;
 

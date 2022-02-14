@@ -62,7 +62,7 @@ export const useProduct = ( ) => {
 
     const redireccionar = (producto) => {
         localStorage.setItem("producto", JSON.stringify(producto));
-        history.push(`/producto/${producto.id}`);
+        history.push(`/producto/${producto.slug}`);
     }
 
     const getProductsByPrice2 = async (prices, id) => {
@@ -85,6 +85,6 @@ export const useProduct = ( ) => {
         setProductos(resultado);
         setLoading(false);
     }
-    return [productos, getProducts, loading, getProductsById, getProductByCategoryId2,redireccionar, getProductsByPrice2,getProductsByOrden2, getProductByCategoryId3, hasMore, setHasMore, getProductsBySearch]
+    return [productos, getProducts, loading, getProductsById, getProductByCategoryId2,redireccionar, getProductsByPrice2,getProductsByOrden2, getProductByCategoryId3, hasMore, setHasMore, getProductsBySearch, setLoading]
 
 }

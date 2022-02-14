@@ -103,7 +103,8 @@ const HomeScreen = () => {
                 </div>
                 <div className="raw">
                     <div className="col">
-                        <a className='sinStyle' href='https://stulzel.com/producto/31090'>
+                        <a className='sinStyle' href='https://stulzel.com/producto/sillon-de-barberia-modelo-aviador-negro'>
+                        {/* <a className='sinStyle' href='http://localhost:3000/producto/sillon-de-barberia-modelo-aviador-negro'> */}
                             <div className="mitad1">
                                 <span className="titulo">
                                     Sillón de Barbería
@@ -126,7 +127,8 @@ const HomeScreen = () => {
                         </a>
                     </div>
                     <div className="col">
-                        <a className='sinStyle' href='https://stulzel.com/producto/39913'>
+                        <a className='sinStyle' href='https://stulzel.com/producto/sillon-de-barberia-modelo-ferdinand-negro'>
+                        {/* <a className='sinStyle' href='http://localhost:3000/producto/sillon-de-barberia-modelo-ferdinand-negro'> */}
                             <div className="mitad1">
                                 <span className="titulo">
                                     Sillón de Barbería
@@ -151,7 +153,8 @@ const HomeScreen = () => {
                 </div>
                 <div className="raw">
                     <div className="col">
-                        <a className='sinStyle' href='https://stulzel.com/producto/38920'>
+                        <a className='sinStyle' href='https://stulzel.com/producto/sillon-de-peluqueria-reclinable-lady-di'>
+                        {/* <a className='sinStyle' href='http://localhost:3000/producto/sillon-de-peluqueria-reclinable-lady-di'> */}
                             <div className="mitad1">
                                 <span className="titulo">
                                     Sillón de Peluquería
@@ -174,7 +177,8 @@ const HomeScreen = () => {
                         </a>
                     </div>
                     <div className="col">
-                        <a className='sinStyle' href='https://stulzel.com/producto/31095'>    
+                        <a className='sinStyle' href='https://stulzel.com/producto/lavapelo-premium-black'>    
+                        {/* <a className='sinStyle' href='http://localhost:3000/producto/lavapelo-premium-black'>     */}
                             <div className="mitad1">
                                 <span className="titulo">
                                     Lavapelo
@@ -211,7 +215,9 @@ const HomeScreen = () => {
                 <div className="raw"> 
                     {productos.map((element) => {
                         const imagen = element.images.length > 0 ? element.images[0].src : "";
-                        const urlRedireccion = `https://stulzel.com/producto/${element.id}`;
+                        console.log(element.slug)
+                        // const urlRedireccion = `https://stulzel.com/producto/${element.name.replace(/ /g,'-')}`;
+                        const urlRedireccion = `http://localhost:3000/producto/${element.slug}`;
                         return (
                             <div className="columnas">
                                 <a href={urlRedireccion} className='sinStyle'>

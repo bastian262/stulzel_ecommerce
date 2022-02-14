@@ -387,7 +387,7 @@ const HeaderPage = ({onAdd,limpiarCarrito, eliminarProducto, productes, total}) 
         body[0].style.overflow = "visible";
         setIde(categoria.id);
         localStorage.setItem("categoria", JSON.stringify(categoria));
-        history.push(`/productos/${categoria.id}`);
+        history.push(`/productos/${categoria.slug}`);
     }
 
     const abrircuenta = () => {

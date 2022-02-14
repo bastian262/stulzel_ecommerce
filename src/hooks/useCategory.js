@@ -15,7 +15,7 @@ export const useCategory = () => {
     const redireccionar2 = (categoria) => {
         setIde(categoria.id);
         localStorage.setItem("categoria", JSON.stringify(categoria));
-        history.push(`/productos/${categoria.id}`);
+        history.push(`/productos/${categoria.slug}`);
     }
     
     return [listarCategorias, categorias, redireccionar2,ide]

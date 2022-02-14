@@ -24,7 +24,10 @@ import ReactPixel from 'react-facebook-pixel';
 import { postEvento, geoLocalizacion } from '../../api/apiConversion';
 import { browserName } from "react-device-detect";
 import BtnWhatsApp from '../../components/btnWhatsapp/btnWhatsApp';
+import {getCategoryBySlug} from '../../api/productos'
+import { useHistory } from "react-router";
 
+// import { useHi }
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -41,7 +44,7 @@ function valuetext(value) {
 
 
 const ListadoProducto = () => {
-
+    const history = useHistory()
     const classes = useStyles();
     const {id} = useParams();
     var categorias = JSON.parse(localStorage.getItem("categorias"));
@@ -49,7 +52,9 @@ const ListadoProducto = () => {
     var topSales = JSON.parse(localStorage.getItem("topSales"));
     var localS = JSON.parse(localStorage.getItem("carrito"));
 
-    const [productos,getProducts,loading,,getProductByCategoryId2,redireccionar,getProductsByPrice2,getProductsByOrden2,getProductByCategoryId3,hasMore, setHasMore] = useProduct();
+    const [categoriaState, setCategoriaState] = useState({})
+
+    const [productos,getProducts,loading,,getProductByCategoryId2,redireccionar,getProductsByPrice2,getProductsByOrden2,getProductByCategoryId3,hasMore, setHasMore,,setLoading] = useProduct();
     const [,,redireccionar2,] = useCategory();
     // const [state, setState] = useState();
     const [orderBy , setOderBy] = useState("popularity");
@@ -58,26 +63,47 @@ const ListadoProducto = () => {
     const [onAdd,limpiarCarrito, eliminarProducto, productes,total,open, severity, mensaje, handleClose ] = useCart(localS);
     const [format] = useFormat();
     useEffect(() => {
+        console.log(id)
+        // getCategory()
         pixelaso();
-        getProductByCategoryId2(id);
+        // getProductByCategoryId2(id);
         getProducts();
     }, []);
     useEffect(() => {
-        getProductByCategoryId2(id);
+        // getProductByCategoryId2(id);
+        // pixelaso();
+        getCategory()
         setPage(1);
         setHasMore(true);
     }, [id]);
+    useEffect(() => {
+        if (Object.entries(categoriaState).length === 0){
+            console.log("aca")
+        }else{
+            console.log(categoriaState)
+            getProductByCategoryId2(categoriaState.id)
+        }
+    }, [categoriaState])
+    const getCategory = async () => {
+        setLoading(true)
+        const result = await getCategoryBySlug(id)
+        console.log(result)
+        if(result.length > 0){
+            setCategoriaState(result[0])
+        }else{
+            // history.push('/')
+        }
+    }
     const handleChange = (event, newValue) => {
         console.log(newValue);
         setValue(newValue);
-    };
+    }
     const nextPage = () => {
         const pageNew = page + 1;
         setPage(pageNew);
-        getProductByCategoryId3(id,pageNew);
+        getProductByCategoryId3(categoriaState.id,pageNew);
     }
-    const urlImagen = id == 0 || categoria.image == null ?  "":categoria.image.src;
-
+    const urlImagen = id == 0 || categoria.image == null ?  "":categoria.image.src; 
     const handleChange2 = (event) => {
         var valor = "desc";
         var valorOrdn = event.target.value;
@@ -88,7 +114,7 @@ const ListadoProducto = () => {
             valorOrdn = "price";
         }
         setOderBy(valorOrdn);
-        getProductsByOrden2(valorOrdn, id , valor);
+        getProductsByOrden2(valorOrdn, categoriaState.id , valor);
     };
     const abrirFiltros = () => {
         let doc = document.getElementById("filtros");
@@ -157,7 +183,7 @@ const ListadoProducto = () => {
                     <div class="col-2" id="filtros">
                         <strong>Ver por categorías</strong>
                             {categorias.map((element) => {
-                                const clase = element.id == id? "strong" : "light";
+                                const clase = element.slug == id? "strong" : "light";
                                 return (
                                     <>
                                         <div class="categoria" onClick={() => redireccionar2(element)}>
@@ -178,7 +204,7 @@ const ListadoProducto = () => {
                                 getAriaValueText={valuetext}
                             />
                             <div className="botonFiltro">
-                                <button onClick={() => getProductsByPrice2(value, id)}>Filtrar</button>
+                                <button onClick={() => getProductsByPrice2(value, categoriaState.id)}>Filtrar</button>
                                 <span>
                                     precio : ${format( value[0] * 10000)} - ${format(value[1] * 10000)}
                                 </span>
@@ -263,7 +289,7 @@ const ListadoProducto = () => {
                                 {productos.map((element) => {
                                     const imagen = element.images.length > 0? element.images[0].src : "";
                                     const descuento = Math.trunc(((element.price * 100)/ element.regular_price) - 100);
-                                    const urlRedirect = `https://stulzel.com/producto/${element.id}`
+                                    const urlRedirect = `https://stulzel.com/producto/${element.slug}`
                                     return (
                                         <div className="columnas">
                                             <a href={urlRedirect}>

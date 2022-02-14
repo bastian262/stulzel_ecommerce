@@ -19,7 +19,7 @@ import MuiAlert from '@material-ui/lab/Alert';
 import Box from '@material-ui/core/Box';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import Rating from '@material-ui/lab/Rating';
-import { getProductosById } from '../../api/productos';
+import { getProductosById, getProductosById2  } from '../../api/productos';
 // import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import { makeStyles } from '@material-ui/core/styles';
 import { useFormat } from '../../hooks/useFormat';
@@ -56,6 +56,7 @@ const Producto = () => {
     const [relacionados, setRelacionados] = useState([]);
     const [opciones, setOpcion] = useState(1);
     useEffect(() => {
+        console.log(id)
         obtenerProducto(id);
         metodo();
     },[]);
@@ -143,7 +144,7 @@ const Producto = () => {
         const resultado = await getProductosById(ide);
         console.log(resultado);
         if(resultado){
-            setProductoTemporal(resultado);
+            setProductoTemporal(resultado[0]);
         }else{
             window.location.href = '/';
         }
@@ -161,7 +162,7 @@ const Producto = () => {
                 for (let index = 0; index < relacionados2.length; index++) {
                     const element = relacionados2[index];
                     if(index < 4){
-                        const resultado = await getProductosById(element);
+                        const resultado = await getProductosById2(element);
                         arrayTemporal.push(resultado);
                     }
                 }
@@ -190,7 +191,7 @@ const Producto = () => {
         }
     }   
     const cambiarProducto = (producto) => {
-        history.push(`/producto/${producto.id}`);
+        history.push(`/producto/${producto.slug}`);
         setProductoTemporal(producto);
     }
     const descuento = Math.trunc(((productoTemporal.price * 100)/ productoTemporal.regular_price) - 100);
@@ -338,6 +339,7 @@ const Producto = () => {
                             </h2>
                             <div className="raw"> 
                                 {relacionados.map((element) => {
+                                    console.log(element)
                                     const imagen = element.images.length > 0? element.images[0].src : "";
                                     return (
                                         <div className="columnas">

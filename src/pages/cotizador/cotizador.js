@@ -8,6 +8,10 @@ import { useCart } from '../../hooks/useCart';
 import { Select } from 'antd';
 import { LoadingOutlined } from '@ant-design/icons';
 import CloseIcon from '@material-ui/icons/Close';
+import HighlightOffIcon from '@material-ui/icons/HighlightOff';
+import CheckCircleOutlineOutlinedIcon from '@material-ui/icons/CheckCircleOutlineOutlined';
+import { useFormat } from '../../hooks/useFormat';
+import svg from '../../assets/svg.svg'
 // import httpBuildQuery from 'http-build-query';
 const { Option } = Select;
 
@@ -21,6 +25,7 @@ const { Option } = Select;
     }
 
 const CotizadorPage = () => {
+    const [format] = useFormat();
     const [productosState, setproductosState] = useState([]);
     const [destinoId, setdestinoId] = useState(0);
     const [productoId, setproductoId] = useState(0);
@@ -106,100 +111,122 @@ const CotizadorPage = () => {
                     productes = {productes}
                     total = {total}
                 />
-                <div class="titulo">
-                    <h2>Cotizador de envios</h2>
-                </div>
-                <div class="row">
-                    <div class="col-2">
-                        <span>Destino:</span>
-                        <Select
-                        showSearch
-                        style={{ width: 300 }}
-                        placeholder="Selecciona un destino por favor"
-                        optionFilterProp="children"
-                        onChange={onChange}
-                        onFocus={onFocus}
-                        onSearch={onSearch}
-                        filterOption={(input, option) =>
-                        option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                        }
-                    >
-                        {
-                            destinos.map((element, i) => {
-                                return ( <Option value={element.id}>{element.nombre}</Option> );
-                            })
-                        }
-                    </Select>
-                    </div>
-                </div>
-                <Spin spinning={loading2} size="large" tip="Cargando..." indicator={antIcon}>
+                <div className='contenedor'>
                     <div class="row">
-                        <div class="col-2">
+                        <div class="titulo">
+                            <h2>Cotizador de envios</h2>
+                        </div>
+                        <div class="cotizador">
+                            <span className='tituloCotizador'>Destino:</span>
                             <Select
-                                showSearch
-                                style={{ width: 300 }}
-                                placeholder="Selecciona un producto por favor"
-                                optionFilterProp="children"
-                                onChange={onChange2}
-                                onSearch={onSearch}
-                                onFocus={onFocus}
-                                filterOption={(input, option) =>
-                                option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
-                                }
-                            >
-                                {
-                                    productosState.map((element, i) =>  <Option value={element.id}>{element.name}</Option>)
-                                }
-                            </Select>
-                            <input value={cantidad} onChange={onChangeInput} type="number" placeholder="Ingrese cantidad"/>
-                        </div>
-                        <div class="col-2">
-                            <button onClick={()=>obtenerProducto()}>Agregar</button>
+                            showSearch
+                            // style={{ width: 300 }}
+                            placeholder="Selecciona un destino por favor"
+                            optionFilterProp="children"
+                            onChange={onChange}
+                            onFocus={onFocus}
+                            className='selectCotizdor'
+                            onSearch={onSearch}
+                            filterOption={(input, option) =>
+                            option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                            }
+                        >
+                            {
+                                destinos.map((element, i) => {
+                                    return ( <Option value={element.id}>{element.nombre}</Option> );
+                                })
+                            }
+                        </Select>
                         </div>
                     </div>
-                </Spin>
-                <div class="row">
-                    <div class="col-1">
-                        <table>
-                            <tr>
-                                <th>
-                                    Imagen
-                                </th>
-                                <th>
-                                    Nombre Producto
-                                </th>
-                                <th>
-                                    Cantidad
-                                </th>
-                                <th>
-                                    opcion
-                                </th>
-                            </tr>
-                            <Spin spinning={loading} size="large" tip="Cargando..." indicator={antIcon}>
-                                {productosItem.length > 0 ?
-                                    productosItem.map((element,i) => {
-                                        return(
-                                            <>
-                                                <tr>
-                                                    <td> <img width="120" src={element.images[0].src} alt={element.name} /> </td>
-                                                    <td>{element.name}</td>
-                                                    <td>{cantidades[i]}</td>
-                                                    <td><CloseIcon onClick={() => eliminarArticulo(element)}/></td>
-                                                </tr>
-                                            </>
-                                        );
-                                    })
-                                    
-                                :
-                                    null
-                                }
-                            </Spin>
+                    <Spin spinning={loading2} size="large" tip="Cargando..." indicator={antIcon}>
+                        <div class="row">
+                            <div class="cotizador">
+                                <span className='tituloCotizador'>Producto:</span>
+                                <Select
+                                    showSearch
+                                    // style={{ width: 300 }}
+                                    placeholder="Selecciona un producto por favor"
+                                    optionFilterProp="children"
+                                    onChange={onChange2}
+                                    onSearch={onSearch}
+                                    className='selectCotizdor'
+                                    onFocus={onFocus}
+                                    filterOption={(input, option) =>
+                                    option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
+                                    }
+                                >
+                                    {
+                                        productosState.map((element, i) =>  <Option value={element.id}>{element.name}</Option>)
+                                    }
+                                </Select>
+                                <input className='inputCotizdor' value={cantidad} onChange={onChangeInput} type="number" placeholder="Ingrese cantidad"/>
+                                <div className='rowBtnCotizador'>
+                                    <button onClick={()=>obtenerProducto()}>Agregar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </Spin>
+                    <div class="row">
+                        <div class="cotizador">
+                            <table>
+                                <thead>
+                                    <tr className='trColtizador'>
+                                        <th className='imagenCol'>
+                                            
+                                        </th>
+                                        <th className='articuloCol2'>
+                                            Artículo 
+                                        </th>
+                                        <th className='cantidadCol'>
+                                            Cantidad
+                                        </th>
+                                        <th className='costoCol'>
+                                            Costo Envío
+                                        </th>
+                                        <th className='cantidadCol'></th>
 
-                        </table>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <Spin spinning={loading} size="large" tip="Cargando..." indicator={antIcon}>
+                                        {productosItem.length > 0 ?
+                                            productosItem.map((element,i) => {
+                                                return(
+                                                    <>
+                                                        <tr className='trColtizador'>
+                                                            <td className='imagenCol'> <img width="100" src={element.images[0].src} alt={element.name} /> </td>
+                                                            <td className='articuloCol2'><span>{element.name}</span></td>
+                                                            <td className='cantidadCol'><span>{cantidades[i]}</span></td>
+                                                            <td className='costoCol'><span>${format(element.cost)}</span></td>
+                                                            <td className='cantidadCol'><HighlightOffIcon className='iconoCloseCotizador' onClick={() => eliminarArticulo(element)}/></td>
+                                                        </tr>
+                                                    </>
+                                                );
+                                            })
+                                            
+                                        :
+                                        <tr className='trColtizador'>
+                                            <td> <span> Aún no hay productos agregados</span> </td>
+                                        </tr>
+                                            
+                                        }
+                                    </Spin>
+                                </tbody>
+                                <tbody>
+                                        
+                                    <tr className='trColtizador' style={{borderBottom: '0px'}}>
+                                        <td className='imagenCol'> <img width="50" src={svg} alt="asd" />  </td>
+                                        <td className='articuloCol2'><strong>Costo total envío</strong></td>
+                                        <td className='cantidadCol'><span></span></td>
+                                        <td className='costoCol'><span>${format(totalCotizacion)}</span></td>
+                                        <td className='cantidadCol'><CheckCircleOutlineOutlinedIcon className='iconoCheckCotizador'/></td>
+                                    </tr>
+                                     
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <span>${totalCotizacion}</span>
                 </div>
                     
             </div>
