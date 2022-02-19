@@ -142,7 +142,7 @@ const DetalleCheckout = ({tarifa, values2}) => {
 
             for (let i = 0; i < productos.length; i++) {
                 const e = productos[i];
-                
+                console.log(e)
                 let id_group = 0;
                 //Accesorios
                 if(e.categorias = 73){
@@ -184,7 +184,7 @@ const DetalleCheckout = ({tarifa, values2}) => {
                     lastName: lastName,
                     id_group
                 }
-
+                console.log(data)
                 const resultado = await postSuscription(data);
 
             }
