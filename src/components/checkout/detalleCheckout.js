@@ -185,7 +185,7 @@ const DetalleCheckout = ({tarifa, values2}) => {
                     id_group
                 }
                 console.log(data)
-                const resultado = await postSuscription(data);
+                // const resultado = await postSuscription(data);
 
             }
 
@@ -305,8 +305,9 @@ const DetalleCheckout = ({tarifa, values2}) => {
                 ReactPixel.init("495580404127215",advancedMatching,options);
                 ReactPixel.track("InitiateCheckout");
                 localStorage.setItem("carrito", JSON.stringify([]));
-                // var url = "http://localhost:27017/";
-                var url = "https://webpay-react.herokuapp.com/"
+                var url = "http://localhost:27017/";
+                console.log(url)
+                // var url = "https://webpay-react.herokuapp.com/"
                 const amount = total + tarifaFinal - descuentoCupon;
                 window.location.href =`${url}api/createTransaction?buyOrder=${resultado.id}&sessionId=${resultado.id}&amount=${amount}`
             }

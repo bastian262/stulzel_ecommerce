@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
       color: '#fff',
     },
 }));
-const Success = () => {
+const Failed = () => {
     const classes = useStyles();
 
     const {id} = useParams()
@@ -83,9 +83,9 @@ const Success = () => {
                         <div className='containerSuccess'>
                             <div className='rowSuccess'>
                                 <div className='titleSucces'>
-                                    <img src="https://admin.stulzel.com/wp-content/uploads/2021/08/Recurso-5.png" alt="statusSuccess"/>
+                                    <img src="https://admin.stulzel.com/wp-content/uploads/2021/08/Recurso-4.png" alt="statusSuccess" />
                                     <div>
-                                        <span>Tu transacción <br /> ha sido Exitosa</span>
+                                        <span>Tu transacción <br /> ha sido Fallida</span>
                                     </div>
                                 </div>
                                 <div className='space'></div>
@@ -127,7 +127,9 @@ const Success = () => {
                                 </div>
                                 <div className='space'></div>
                                 <div className='btnDiv'>
-                                    <span> Gracias por su compra, el proceso ha sido completado con éxito, ahora su pédido se esta procesando! </span>
+                                    <span style={{color:'red'}}> no hemos podido recibir
+                    tu transacción, vuelve
+                    a intentarlo más tarde.</span>
                                 </div>
                             </div>
                         </div>
@@ -141,4 +143,4 @@ const Success = () => {
     );
 }
  
-export default Success;
+export default Failed;
