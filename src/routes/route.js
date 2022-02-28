@@ -28,6 +28,7 @@ import PoliticaEnvios from '../pages/terminos/politicaEnvios';
 import PoliticasGarantia from '../pages/terminos/politicasGarantia';
 import PoliticasPrivacidad from '../pages/terminos/politicasPrivacidad';
 import Success from '../pages/responseWebpay/success';
+import Failed from '../pages/responseWebpay/failed';
 const history = createBrowserHistory();
 const AppRouter  = () => {
     return (  
@@ -52,6 +53,7 @@ const AppRouter  = () => {
                 <Route exact path="/politicas-envio" component={ PoliticaEnvios } />
                 <Route exact path="/politicas-garantia" component={ PoliticasGarantia } />
                 <Route exact path="/pay-success/:id" component={ Success } />
+                <Route exact path="/pay-failed/:id" component={ Failed } />
                 <Route exact path="/search/:id" component={ Search } />
                 {/* <Route exact path="/dashboard" component={ DashboardScreen } /> */}
                 {/* <Route exact path="/form" component={ FormComponent } /> */}

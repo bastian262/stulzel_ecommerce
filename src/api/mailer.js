@@ -1,9 +1,9 @@
-import { basePathMailer, apiKeyMailer } from './config';
+import { basePathMailer, apiKeyMailer, basePath2 } from './config';
 
 
 export const postSuscription = (data) => {
 
-    const url = `${basePathMailer}/subscribers`;
+    const url = `${basePath2}/api/mailer`;
 
     const params = {
         method:"POST",
