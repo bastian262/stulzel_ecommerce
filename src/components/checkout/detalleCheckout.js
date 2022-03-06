@@ -24,6 +24,7 @@ function Alert(props) {
 const DetalleCheckout = ({tarifa, values2}) => {
     const productos = JSON.parse(localStorage.getItem("carrito"));
     const [,,,,total, ] = useCart(productos);
+    console.log(productos)
     const [format] = useFormat()
     const [ redirectWhatsApp,,, ] = useRedirect();
     const [value, setValue] = useState("retiro");
@@ -75,6 +76,7 @@ const DetalleCheckout = ({tarifa, values2}) => {
         }
     }
     const submitOrden = async () => {   
+
         setloading(true);
         var array = [];
         var method = "";
@@ -145,34 +147,34 @@ const DetalleCheckout = ({tarifa, values2}) => {
                 console.log(e)
                 let id_group = 0;
                 //Accesorios
-                if(e.categorias = 73){
+                if(e.categorias == 73){
                     id_group = 109849274;
-                }else if(e.categorias = 131)
+                }else if(e.categorias == 131)
                 {
                     //Buffalo
                     id_group = 109849268;
-                }else if(e.categorias = 132){
+                }else if(e.categorias == 132){
                     // Carros ayudantes
                     id_group = 109849274;
-                }else if(e.categorias = 97){
+                }else if(e.categorias == 97){
                     id_group = 109849274;
                     //Filos dorco
-                }else if(e.categorias = 71){
+                }else if(e.categorias == 71){
                     id_group = 109848842;
                     // Red one
-                }else if(e.categorias = 72){
+                }else if(e.categorias == 72){
                     id_group = 109849265;
                     // Lavapelo
-                }else if(e.categorias = 71){
+                }else if(e.categorias == 71){
                     id_group = 109849274;
                     // Red one
-                }else if(e.categorias = 159){
+                }else if(e.categorias == 159){
                     id_group = 109849259;
                     // Sillon barberia
-                }else if(e.categorias = 160){
+                }else if(e.categorias == 160){
                     id_group = 109849262;
                     // Sillon peluquería
-                }else if(e.categorias = 69){
+                }else if(e.categorias == 69){
                     id_group = 109849244;
                     // Sillones
                 }

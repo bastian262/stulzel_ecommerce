@@ -55,10 +55,10 @@ const Producto = () => {
     const [imagenes, setImagenes] = useState([]);
     const [relacionados, setRelacionados] = useState([]);
     const [opciones, setOpcion] = useState(1);
+    const [quantity, setQuantity] = useState(1);
     useEffect(() => {
-        console.log(id)
+        // metodo();
         obtenerProducto(id);
-        metodo();
     },[]);
     
     useEffect(() => {
@@ -66,13 +66,14 @@ const Producto = () => {
         obtenerImagenes();
     }, [productoTemporal]);
     useEffect(() => {
+        // metodo();
         obtenerProducto(id);
     }, [id]);
-    const [values, onChange,] = useForm({
-        quantity:1
-    });
+    // const [values, onChange,] = useForm({
+    //     quantity:1
+    // });
 
-    const {quantity} = values;
+    // const {quantity} = values;
     useEffect(() => {   
         if(productoTemporal.name != ''){
             var desc = document.getElementById("descripcion");
@@ -104,41 +105,44 @@ const Producto = () => {
         }
     },[opciones, productoTemporal]);
 
-    const metodo = () => {
-        $('<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>').insertAfter('.quantity input');
-        $('.quantity').each(function() {
-            var spinner = $(this),
-                input = spinner.find('input[type="number"]'),
-                btnUp = spinner.find('.quantity-up'),
-                btnDown = spinner.find('.quantity-down'),
-                min = input.attr('min'),
-                max = input.attr('max');
+    // const metodo = () => {
+    //     console.log(1)
+    //     $('<div class="quantity-nav"><div class="quantity-button quantity-up">+</div><div class="quantity-button quantity-down">-</div></div>').insertAfter('.quantity input');
+    //     $('.quantity').each(function() {
+    //         var spinner = $(this),
+    //             input = spinner.find('input[type="number"]'),
+    //             btnUp = spinner.find('.quantity-up'),
+    //             btnDown = spinner.find('.quantity-down'),
+    //             min = input.attr('min'),
+    //             max = input.attr('max');
 
-            btnUp.click(function() {
-                var oldValue = parseFloat(input.val());
-                var newVal;
-                if (oldValue >= max) {
-                 newVal = oldValue;
-                } else {
-                 newVal = oldValue + 1;
-                }
-                spinner.find("input").val(newVal);
-                spinner.find("input").trigger("change");
-            });
-            btnDown.click(function() {
-                var oldValue = parseFloat(input.val());
-                var newVal;
-                if (oldValue <= min) {
-                 newVal = oldValue;
-                } else {
-                 newVal = oldValue - 1;
-                }
-                spinner.find("input").val(newVal);
-                spinner.find("input").trigger("change");
-            });
+    //         btnUp.click(function() {
+    //             var oldValue = parseFloat(input.val());
+    //             var newVal;
+    //             if (oldValue >= max) {
+    //              newVal = oldValue;
+    //             } else {
+    //              newVal = oldValue + 1;
+    //             }
+    //             spinner.find("input").val(newVal);
+    //             spinner.find("input").trigger("change");
+    //         });
+    //         btnDown.click(function() {
+    //             var oldValue = parseFloat(input.val());
+    //             var newVal;
+    //             if (oldValue <= min) {
+    //              newVal = oldValue;
+    //             } else {
+    //              newVal = oldValue - 1;
+    //             }
+    //             spinner.find("input").val(newVal);
+    //             spinner.find("input").trigger("change");
+    //         });
 
-        });
-    }
+    //     });
+    //     console.log(2)
+
+    // }
     const obtenerProducto = async (ide) => {
         setLoading2(true);
         const resultado = await getProductosById(ide);
@@ -196,9 +200,10 @@ const Producto = () => {
     }
     const descuento = Math.trunc(((productoTemporal.price * 100)/ productoTemporal.regular_price) - 100);
     const obtenerDatos = () => {
-        var doc = document.getElementById("quantity").value;
+        if(quantity>0){
+            onAdd(productoTemporal, parseInt(quantity));
+        }
         
-        onAdd(productoTemporal, parseInt(doc));
 
     }
     return ( 
@@ -236,7 +241,7 @@ const Producto = () => {
                                     {productoTemporal.stock_status === "instock" ?
                                     <div class="addCart">
                                         <div class="quantity">
-                                            <input type="number" min="1" max={productoTemporal.stock_quantity} step="1" value="1" id="quantity" name="quantity"/>
+                                            <input type="number" min="1" max={productoTemporal.stock_quantity} step="1" value={quantity} onChange={(e) => setQuantity(e.target.value)} id="quantity" name="quantity"/>
                                         </div>
                                         <button onClick={obtenerDatos}>Agregar al carrito</button>
                                     </div> : null}

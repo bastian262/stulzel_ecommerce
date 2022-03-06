@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react';
 import Header from '../../components/nav/nav'
 import { Spin } from 'antd';
-import { getProductos, getProductosById } from '../../api/productos';
+import { getProductos, getProductosById3 } from '../../api/productos';
 import { postCotizar } from '../../api/destinos';
 import destinos from '../../api/destinos.json';
 import { useCart } from '../../hooks/useCart';
@@ -69,11 +69,8 @@ const CotizadorPage = () => {
     } 
     const obtenerProducto = async () => {
         setLoading(true);
-        const result = await getProductosById(productoId);
-        console.log(result)
+        const result = await getProductosById3(productoId);
         if(result.id > 0){
-            
-           
             setCantidades([
                 ...cantidades,
                 cantidad
@@ -89,7 +86,6 @@ const CotizadorPage = () => {
             if(resultado2.cost>0){
                 const totalParcial = resultado2.cost + totalCotizacion;
                 const data2 = Object.assign(result, {cost:resultado2.cost, totalParcial})
-                console.log(data2)
                 setProductosItem([
                     ...productosItem,
                     data2

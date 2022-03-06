@@ -2,7 +2,7 @@ import { basePathMailer, apiKeyMailer, basePath2 } from './config';
 
 
 export const postSuscription = (data) => {
-
+    console.log(data)
     const url = `${basePath2}/api/mailer`;
 
     const params = {

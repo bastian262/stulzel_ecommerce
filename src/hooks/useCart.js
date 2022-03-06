@@ -92,6 +92,7 @@ export const useCart = ( initial = []) => {
                     peso: producto.weight,
                     categorias: producto.categories.length > 0 ? producto.categories[0].id : 0
                 }
+                console.log(data)
                 if(localS != null){
                     setProductos([...productes, data]);
                     setOpen(true);
