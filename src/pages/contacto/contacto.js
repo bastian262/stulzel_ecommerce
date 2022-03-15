@@ -13,6 +13,8 @@ import WhatsAppIcon from '@material-ui/icons/WhatsApp';
 import ReactPixel from 'react-facebook-pixel';
 import EmailRoundedIcon from '@material-ui/icons/EmailRounded';
 import BtnWhatsApp from '../../components/btnWhatsapp/btnWhatsApp';
+import { Helmet } from 'react-helmet';
+
 const useStyles = makeStyles((theme) => ({
     root: {
       width: '100%',
@@ -44,6 +46,10 @@ const Contacto = () => {
     }, []);
     return ( 
         <>
+            <Helmet>
+                <title>Contacto</title>
+                <meta name="description" content="Contacto" />
+            </Helmet>
             <div class="fondo">
                 <NavBar
                     onAdd={onAdd}

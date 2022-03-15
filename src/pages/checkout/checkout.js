@@ -4,6 +4,9 @@ import BtnWhatsApp from '../../components/btnWhatsapp/btnWhatsApp';
 import DetalleCheckout from '../../components/checkout/detalleCheckout';
 import FormCheckout from '../../components/checkout/formCheckout';
 import { useForm } from '../../hooks/useForm';
+import { Helmet } from 'react-helmet';
+
+
 const Checkout = () => {
     const history = useHistory();
     const redi = () => {
@@ -43,6 +46,10 @@ const Checkout = () => {
     });
     return ( 
         <>
+            <Helmet>
+                <title>Checkout</title>
+                <meta name="description" content="Home" />
+            </Helmet>
             <div className="fondo">
                 <div class="header4">
                     <div className="contenedor">

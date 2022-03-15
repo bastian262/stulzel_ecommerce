@@ -26,7 +26,7 @@ import { browserName } from "react-device-detect";
 import BtnWhatsApp from '../../components/btnWhatsapp/btnWhatsApp';
 import {getCategoryBySlug} from '../../api/productos'
 import { useHistory } from "react-router";
-
+import { Helmet } from 'react-helmet';
 // import { useHi }
 function Alert(props) {
     return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -168,6 +168,10 @@ const ListadoProducto = () => {
 
     return ( 
         <>
+            <Helmet>
+                <title>{categoria.name}</title>
+                <meta name="description" content="CategoriaName" />
+            </Helmet>
             <div className="fondo">
                 <NavBar
                     onAdd={onAdd}

@@ -23,6 +23,7 @@ import Popup from '../components/suscribe/popup';
 import { useHistory } from 'react-router';
 import bannerHome from '../assets/img/Banner.png'
 import bannerMobileHome from '../assets/img/BannerMobile.png'
+import { Helmet } from 'react-helmet';
 
 const HomeScreen = () => {
     const history = useHistory();
@@ -54,6 +55,10 @@ const HomeScreen = () => {
     }
     return (
         <>
+            <Helmet>
+                <title>Stulzel</title>
+                <meta name="description" content="Home" />
+            </Helmet>
         <div className="fondo" id="topProducts">
             <NavBar
                 onAdd={onAdd}

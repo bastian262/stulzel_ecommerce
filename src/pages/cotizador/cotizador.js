@@ -12,6 +12,8 @@ import HighlightOffIcon from '@material-ui/icons/HighlightOff';
 import CheckCircleOutlineOutlinedIcon from '@material-ui/icons/CheckCircleOutlineOutlined';
 import { useFormat } from '../../hooks/useFormat';
 import svg from '../../assets/svg.svg'
+import { Helmet } from 'react-helmet';
+
 // import httpBuildQuery from 'http-build-query';
 const { Option } = Select;
 
@@ -99,6 +101,10 @@ const CotizadorPage = () => {
 
     return ( 
         <>
+            <Helmet>
+                <title>Cotizador</title>
+                <meta name="description" content="Cotizador" />
+            </Helmet>
             <div className="fondo">
                 <Header
                     onAdd={onAdd}
