@@ -19,10 +19,12 @@ import MuiAlert from '@material-ui/lab/Alert';
 import Box from '@material-ui/core/Box';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import Rating from '@material-ui/lab/Rating';
-import { getProductosById3, getProductosById2  } from '../../api/productos';
+import { getProductosById3, getProductosById2, getProductosById  } from '../../api/productos';
 // import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 import { makeStyles } from '@material-ui/core/styles';
 import { useFormat } from '../../hooks/useFormat';
+import AddIcon from '@material-ui/icons/Add';
+import RemoveIcon from '@material-ui/icons/Remove';
 import { useForm } from '../../hooks/useForm';
 import { useParams } from 'react-router';
 import { useHistory } from 'react-router';
@@ -146,7 +148,7 @@ const Producto = () => {
     // }
     const obtenerProducto = async (ide) => {
         setLoading2(true);
-        const resultado = await getProductosById3(ide);
+        const resultado = await getProductosById(ide);
         console.log(resultado);
         if(resultado){
             setProductoTemporal(resultado[0]);
@@ -205,8 +207,15 @@ const Producto = () => {
             onAdd(productoTemporal, parseInt(quantity));
         }
         
-
     }
+    const onChangeQuantity = (cantidad) => {
+        console.log(productoTemporal.stock_quantity)
+        if(cantidad > productoTemporal.stock_quantity || cantidad < 1){
+
+        }else{
+            setQuantity(cantidad)
+        }
+    } 
     return ( 
         <>
             <Helmet>
@@ -246,7 +255,9 @@ const Producto = () => {
                                     {productoTemporal.stock_status === "instock" ?
                                     <div class="addCart">
                                         <div class="quantity">
-                                            <input type="number" min="1" max={productoTemporal.stock_quantity} step="1" value={quantity} onChange={(e) => setQuantity(e.target.value)} id="quantity" name="quantity"/>
+                                            <AddIcon className="more" onClick={() => onChangeQuantity(quantity + 1)}/> 
+                                            <RemoveIcon className="less" onClick={() => onChangeQuantity(quantity - 1)}/> 
+                                            <input type="number" min="1" max={productoTemporal.stock_quantity} step="1" value={quantity} id="quantity" name="quantity"/>
                                         </div>
                                         <button onClick={obtenerDatos}>Agregar al carrito</button>
                                     </div> : null}
@@ -349,7 +360,6 @@ const Producto = () => {
                             </h2>
                             <div className="raw"> 
                                 {relacionados.map((element) => {
-                                    console.log(element)
                                     const imagen = element.images.length > 0? element.images[0].src : "";
                                     return (
                                         <div className="columnas">
