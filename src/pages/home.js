@@ -9,9 +9,10 @@ import { productoHelper } from '../helpers/productos';
 import { Link } from 'react-router-dom';
 import redone from '../assets/img/redone.png';
 import look from '../assets/img/look.png';
-import logos from '../assets/img/logos.png';
+import logoSVG from '../assets/logo_stulzel.svg';
 import aroluz from '../assets/img/aroluz.jpg';
 import logo from '../assets/img/logo.png';
+import nuevoFondo from '../assets/img/nuevoFondoMovil.png';
 import Footer1 from '../components/footer/Footer1';
 import Footer2 from '../components/footer/Footer2';
 import NavBar from '../components/nav/nav';
@@ -92,8 +93,16 @@ const HomeScreen = () => {
                     </div>
                 </div>
             </div> */}
-            <img src={bannerHome} className='desktop imgHome' />
-            <img src={bannerMobileHome} className='movil imgHome' />
+            <div className='newBanner desktop'>
+                <img src={logoSVG} width="150" className='absolute3' /> 
+                <div className='div'>
+                    <span className='text-height'>CONTINÚA EL</span>
+                    <strong><span>¡ENVÍO GRATIS!</span></strong>
+                    <span className='small'>ENTRE ANTOFAGASTA Y PUERTO MONTT</span>
+                </div>
+            </div>
+            {/* <img src={bannerHome} className='desktop imgHome' /> */}
+            <img src={nuevoFondo} className='movil imgHome' />
             {/* <div class="bannerSalon">
                 <span>2a VERSIÓN DEL ENCUENTRO PROFESIONAL DE LA IMAGEN Y LA ESTÉTICA INTEGRAL </span>
                 <img className="look" src={look} alt="look" />

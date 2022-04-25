@@ -5863,7 +5863,7 @@ input[type="number"] {
     margin-left: 0px;
   }
   .desktop {
-    display: none;
+    display: none !important;
   }
   .fondo .contenedorCollapse .blanco .contenedor .row div {
     flex-direction: column;
@@ -6239,4 +6239,44 @@ input[type="number"] {
   text-align: center;
   width: 100%;
   padding: 10px 30px;
+}
+
+
+.newBanner{
+  float: left;
+  width: 100%;
+  background-image: url(./assets/img/NuevoFondo2.png);
+  background-repeat: no-repeat;
+  background-position: right center;
+  /* background-attachment: fixed; */
+  background-size: cover;
+  min-height: 66vh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 50px;
+  position: relative;
+}
+.newBanner .div{
+
+  display: flex;
+  margin-top: 50px;
+  flex-direction: column;
+}
+.newBanner .div{
+  font-weight: bold;
+  font-size: 40px;
+}
+.newBanner .small{
+  font-size: 16px;
+  background: yellow;
+}
+.newBanner .text-height{
+  font-size: 36px;
+  line-height: 30px;
+}
+.newBanner .absolute3{
+  position: absolute;
+  top: 50px;
+  right: 70px
 }
