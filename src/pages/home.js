@@ -230,8 +230,8 @@ const HomeScreen = () => {
                     {productos.map((element) => {
                         const imagen = element.images.length > 0 ? element.images[0].src : "";
                         console.log(element.slug)
-                        // const urlRedireccion = `https://stulzel.com/producto/${element.name.replace(/ /g,'-')}`;
-                        const urlRedireccion = `http://localhost:3000/producto/${element.slug}`;
+                        const urlRedireccion = `https://stulzel.com/producto/${element.slug}`;
+                        // const urlRedireccion = `http://localhost:3000/producto/${element.slug}`;
                         return (
                             <div className="columnas">
                                 <a href={urlRedireccion} className='sinStyle'>
