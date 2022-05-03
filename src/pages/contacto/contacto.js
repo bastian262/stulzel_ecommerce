@@ -77,9 +77,11 @@ const Contacto = () => {
                                 <Typography>
                                     Los horarios de atención de nuestras oficinas son los siguientes:
                                     <br/>
-                                    Lunes a viernes de 10:30 a 19:30 Horas 
+                                    Lunes a jueves de 9:50 a 19:00 Horas 
                                     <br/>
-                                    Sábado de 10:30 a 14:30 Horas
+                                    Viernes de 9:50 a 17:00 Horas 
+                                    <br/>
+                                    Sábado de 9:50 a 14:30 Horas
                                     <br/>
                                     Los horarios son continuados.
                                 </Typography>
@@ -97,9 +99,9 @@ const Contacto = () => {
                                 <Typography>
                                     Los horarios de atención de nuestros canales digitales son los siguientes:
                                     <br/>
-                                    Lunes a viernes de 10:30 a 19:30 Horas 
+                                    Lunes a jueves de 9:00 a 19:00 Horas 
                                     <br/>
-                                    Sábado de 10:30 a 14:30 Horas
+                                    Viernes de 9:00 a 17:00 Horas
                                     <br/>
                                     Los horarios son continuados.
                                 </Typography>

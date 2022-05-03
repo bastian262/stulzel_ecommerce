@@ -94,7 +94,7 @@ const HomeScreen = () => {
                 </div>
             </div> */}
             <div className='newBanner desktop'>
-                <img src={logoSVG} width="150" className='absolute3' /> 
+                <img src={logoSVG} width="100" className='absolute3' /> 
                 <div className='div'>
                     <span className='text-height'>CONTINÚA EL</span>
                     <strong><span>¡ENVÍO GRATIS!</span></strong>
