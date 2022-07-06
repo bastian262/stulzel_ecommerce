@@ -1,0 +1,319 @@
+.headerGira {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 80px);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.808), rgba(0, 0, 0, 0.8)), url(../../assets/img/header_gira.jpg);
+    background-position: center center;
+    background-size: cover;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 50px;
+}
+
+.gira {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.gira .headerGira .nav_gira {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    margin-bottom: 100px;
+}
+
+.gira .headerGira .nav_gira span:first-child {
+    margin-right: 30px;
+    color: white;
+    font-size: 24px;
+}
+
+.gira .headerGira .nav_gira span {
+    color: white;
+    font-size: 24px;
+}
+
+.gira .headerGira .title {
+    display: flex;
+    align-items: center;
+    margin: 80px 0px;
+}
+
+.gira .headerGira .title img {
+    width: 300px;
+}
+
+.gira .headerGira .title div {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.gira .headerGira .title div .extrabold {
+    font-weight: 800;
+    font-size: 26px;
+}
+
+.gira .headerGira .title div .bold {
+    font-weight: 700;
+    font-size: 62px;
+    letter-spacing: 1.2px;
+    line-height: 60px;
+    margin-top: 10px;
+}
+
+.gira .headerGira .subtitle {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    color: white;
+}
+
+.gira .container-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 100px 50px;
+    max-width: 1350px;
+    margin: 0 auto;
+}
+
+.gira .container-flex h3 {
+    color: #8B724D;
+    font-size: 52px;
+    line-height: 50px;
+    font-weight: 400;
+    margin: 0px;
+}
+
+.gira .container-flex .comeback {
+    font-weight: 800;
+    font-size: 48px;
+    margin-bottom: 30px;
+}
+
+.gira .container-flex .durant {
+    font-weight: 800;
+    font-size: 14px;
+    text-align: justify;
+}
+
+.gira .fondoBlack {
+    width: 100%;
+    background-color: black;
+    padding: 100px 50px;
+}
+
+.gira .fondoBlack .row-flex {
+    width: 100%;
+    max-width: 1350px;
+    /* padding: 100px 50px; */
+    margin: 0 auto;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+}
+
+.gira .fondoBlack .row-flex .col-2 {
+    width: calc(50% - 35px);
+}
+
+.gira .fondoBlack .row-flex .col-2 img {
+    width: 100%;
+}
+
+.gira .fondoBlack .row-flex .flex-column {
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.gira .fondoBlack .row-flex .flex-column h2 {
+    font-weight: 900;
+    font-size: 52px;
+    color: white;
+    margin: 0px;
+    line-height: 50px;
+    margin-bottom: 30px;
+}
+
+.gira .fondoBlack .row-flex .flex-column span {
+    font-size: 16px;
+    color: white;
+    margin: 0px;
+    margin-bottom: 10px;
+}
+
+.gira .fondoBlack .row-flex .flex-column strong {
+    margin-bottom: 50px;
+}
+
+.gira .fondoBlack .row-flex .flex-column div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gira .fondoBlack .row-flex .flex-column div button {
+    /* width: 100%; */
+    background-color: #8B724D;
+    height: 45px;
+    /* max-width: 250px; */
+    border-radius: 50px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 30px;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 1.2px;
+}
+
+.gira .fondoBlack .row-flex .flex-column div img {
+    margin-left: 10px;
+    width: 15px;
+}
+
+.gira .fondoWhite {
+    width: 100%;
+    background-color: white;
+    color: black;
+    padding: 100px 50px;
+}
+
+.gira .fondoWhite .row-flex {
+    width: 100%;
+    max-width: 1350px;
+    /* padding: 100px 50px; */
+    margin: 0 auto;
+    display: flex;
+    color: black;
+    justify-content: space-between;
+}
+
+.gira .fondoWhite .row-flex .col-2 {
+    width: calc(50% - 35px);
+}
+
+.gira .fondoWhite .row-flex .col-2 img {
+    width: 100%;
+}
+
+.gira .fondoWhite .row-flex .col-2 .logo {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gira .fondoWhite .row-flex .col-2 .logo img {
+    width: auto;
+    margin-bottom: 50px;
+}
+
+.gira .fondoWhite .row-flex .flex-column {
+    display: flex;
+    flex-direction: column;
+    color: black;
+}
+
+.gira .fondoWhite .row-flex .flex-column h2 {
+    font-weight: 800;
+    font-size: 48px;
+    color: black;
+    margin: 0px;
+    line-height: 50px;
+    margin-bottom: 50px;
+}
+
+.gira .fondoWhite .row-flex .flex-column span {
+    font-size: 18px;
+    color: black;
+    margin: 0px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.gira .fondoWhite .row-flex .flex-column span strong {
+    font-style: italic;
+    /* margin-bottom: 50px; */
+}
+
+.gira .fondoWhite .row-flex .flex-column div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.gira .fondoWhite .row-flex .flex-column div button {
+    /* width: 100%; */
+    background-color: #8B724D;
+    height: 45px;
+    /* max-width: 250px; */
+    border-radius: 50px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 30px;
+    text-transform: uppercase;
+    font-size: 18px;
+    letter-spacing: 1.2px;
+}
+
+.gira .fondoWhite .row-flex .flex-column div img {
+    margin-left: 10px;
+    width: 15px;
+}
+
+.gira .fondoBlack .row-flex .col-2 .card {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0px;
+}
+
+.gira .fondoBlack .row-flex .col-2 .card .col-3 {
+    width: calc(30% - 20px);
+}
+
+.gira .fondoBlack .row-flex .col-2 .card .col-7 {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+}
+
+.gira .fondoBlack .row-flex .col-2 .card .col-7 .name {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 18px;
+}
+
+.gira .fondoBlack .row-flex .col-2 .card .col-7 .address {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.gira .fondoBlack .row-flex .col-2 .card .col-7 .description {
+    line-height: 14px;
+}
+
+.gira .fondoBlack .row-flex .newtittle {
+    padding-left: 40px;
+    color: white;
+    font-size: 48px;
+    font-weight: bold;
+}

@@ -29,32 +29,35 @@ import PoliticasGarantia from '../pages/terminos/politicasGarantia';
 import PoliticasPrivacidad from '../pages/terminos/politicasPrivacidad';
 import Success from '../pages/responseWebpay/success';
 import Failed from '../pages/responseWebpay/failed';
+import Gira from '../pages/gira';
+
 const history = createBrowserHistory();
-const AppRouter  = () => {
-    return (  
+const AppRouter = () => {
+    return (
         <Router history={history}>
             <Switch>
-                <Route path="/producto/:id" component={ ProductoScreen } />
-                <Route path="/productos/:id" component={ ListadoProducto } />
-                <Route exact path="/" component={ HomeScreen } />
-                <Route exact path="/cotizador" component={ CotizadorScreen } />
-                <Route exact path="/login" component={ Login } />
-                <Route exact path="/micuenta" component={ MiCuenta } />
-                <Route exact path="/quienessomos" component={ QuienesSomos } />
-                <Route exact path="/contacto" component={ Contacto } />
-                <Route exact path="/checkout" component={ Checkout } />
-                <Route exact path="/signUp" component={ SignUpScreen } />
-                <Route exact path="/signIn" component={ SignInScreen } />
+                <Route path="/producto/:id" component={ProductoScreen} />
+                <Route path="/productos/:id" component={ListadoProducto} />
+                <Route exact path="/" component={HomeScreen} />
+                <Route exact path="/cotizador" component={CotizadorScreen} />
+                <Route exact path="/login" component={Login} />
+                <Route exact path="/micuenta" component={MiCuenta} />
+                <Route exact path="/quienessomos" component={QuienesSomos} />
+                <Route exact path="/contacto" component={Contacto} />
+                <Route exact path="/checkout" component={Checkout} />
+                <Route exact path="/signUp" component={SignUpScreen} />
+                <Route exact path="/signIn" component={SignInScreen} />
                 {/* <Route exact path="/salonlook/:name" component={ Salon } /> */}
-                <Route exact path="/cursos" component={ Curso } />
-                <Route exact path="/webinar" component={ WebinarScreen } />
-                <Route exact path="/terminosycondiciones" component={ TerminosyCondiciones } />
-                <Route exact path="/politicas-privacidad" component={ PoliticasPrivacidad } />
-                <Route exact path="/politicas-envio" component={ PoliticaEnvios } />
-                <Route exact path="/politicas-garantia" component={ PoliticasGarantia } />
-                <Route exact path="/pay-success/:id" component={ Success } />
-                <Route exact path="/pay-failed/:id" component={ Failed } />
-                <Route exact path="/search/:id" component={ Search } />
+                <Route exact path="/cursos" component={Curso} />
+                <Route exact path="/webinar" component={WebinarScreen} />
+                <Route exact path="/terminosycondiciones" component={TerminosyCondiciones} />
+                <Route exact path="/politicas-privacidad" component={PoliticasPrivacidad} />
+                <Route exact path="/politicas-envio" component={PoliticaEnvios} />
+                <Route exact path="/politicas-garantia" component={PoliticasGarantia} />
+                <Route exact path="/pay-success/:id" component={Success} />
+                <Route exact path="/pay-failed/:id" component={Failed} />
+                <Route exact path="/search/:id" component={Search} />
+                <Route exact path="/gira" component={Gira} />
                 {/* <Route exact path="/dashboard" component={ DashboardScreen } /> */}
                 {/* <Route exact path="/form" component={ FormComponent } /> */}
                 {/* <Route exact path="/form-assistant" component={ FormAssistantComponent } /> */}
@@ -62,11 +65,11 @@ const AppRouter  = () => {
                 {/* <Route exact path="/repechaje" component={ ListadoBatalla } /> */}
                 {/* <Route exact path="/entradaSalonLook" component={ Entradas } /> */}
                 {/* <Route exact path="/validationVote/:id" component={ ValidationVotes } /> */}
-                
+
                 <Redirect to="/" />
             </Switch>
         </Router>
     );
 }
- 
+
 export default AppRouter;
